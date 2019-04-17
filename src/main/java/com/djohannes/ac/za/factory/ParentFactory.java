@@ -3,12 +3,10 @@ import com.djohannes.ac.za.domain.Parent;
 
 public class ParentFactory
 {
-    public static Parent getParent(String name, String surname, String phone)
+    public static Parent getParent(String employer)
     {
         return new Parent.Builder()
-                .getName(name)
-                .getSurname(surname)
-                .getPhone(phone)
+                .getEmployer(employer)
                 .build();
     }
 }

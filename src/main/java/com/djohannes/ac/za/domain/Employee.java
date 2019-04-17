@@ -2,53 +2,31 @@ package com.djohannes.ac.za.domain;
 
 public class Employee
 {
-    private int empNo;
-    private String name, surname;
+    private int id;
 
     private Employee()
     {
 
     }
 
-    public int getEmpNo() {
-        return empNo;
+    public int getID() {
+        return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
 
     public Employee(Builder builder)
     {
-        this.empNo=builder.empNo;
-        this.name=builder.name;
-        this.surname=builder.surname;
+        this.id=builder.id;
+
     }
 
     public static class Builder
     {
-        private int empNo;
-        private String name, surname;
+        private int id;
 
-        public Builder getEmpNo(int no)
+        public Builder getID(int id)
         {
-            this.empNo=no;
-            return this;
-        }
-
-        public Builder getName(String name)
-        {
-            this.name=name;
-            return this;
-        }
-
-        public Builder getSurname(String surname)
-        {
-            this.surname=surname;
+            this.id=id;
             return this;
         }
 
