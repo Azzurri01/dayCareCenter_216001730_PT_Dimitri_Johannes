@@ -9,9 +9,7 @@ import static org.junit.Assert.*;
 public class StudentFactoryTest {
     @Test
     public void getStudent() {
-        Student sFactory = StudentFactory.getStudent("Naqeeb", "Johannes", 3);
-        Assert.assertEquals("Naqeeb", sFactory.getsName());
-        Assert.assertEquals("Johannes", sFactory.getsSurname());
-        Assert.assertEquals(3, sFactory.getsAge());
+        Student sFactory = StudentFactory.getStudent(3);
+        Assert.assertEquals(3, sFactory.getID());
     }
 }

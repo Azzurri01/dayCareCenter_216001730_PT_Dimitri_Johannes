@@ -2,51 +2,30 @@ package com.djohannes.ac.za.domain;
 
 public class Parent
 {
-    private String pName, pSurname, pPhone;
+    private String employer;
 
     private Parent()
     {
 
     }
 
-    public String getpName() {
-        return pName;
+    public String getEmployer() {
+        return employer;
     }
 
-    public String getpSurname() {
-        return pSurname;
-    }
-
-    public String getpPhone() {
-        return pPhone;
-    }
-
-    public Parent(Builder build)
+     public Parent(Builder build)
     {
-        this.pName=build.pName;
-        this.pSurname=build.pSurname;
-        this.pPhone= build.pPhone;
+        this.employer=build.employer;
+
     }
 
     public static class Builder
     {
-        private String pName, pSurname, pPhone;
+        private String employer;
 
-        public Builder getName(String name)
+        public Builder getEmployer(String employer)
         {
-            this.pName=name;
-            return this;
-        }
-
-        public Builder getSurname(String surname)
-        {
-            this.pSurname=surname;
-            return this;
-        }
-
-        public Builder getPhone(String phone)
-        {
-            this.pPhone=phone;
+            this.employer=employer;
             return this;
         }
 

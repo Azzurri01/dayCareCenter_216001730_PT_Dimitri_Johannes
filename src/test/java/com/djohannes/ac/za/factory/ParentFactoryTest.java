@@ -11,9 +11,7 @@ public class ParentFactoryTest {
     @Test
     public void getParent()
     {
-        Parent pFactory = ParentFactory.getParent("Fowzia", "Johannes", "0835133305");
-        Assert.assertEquals("Fowzia", pFactory.getpName());
-        Assert.assertEquals("Johannes", pFactory.getpSurname());
-        Assert.assertEquals("0835133305", pFactory.getpPhone());
+        Parent pFactory = ParentFactory.getParent("CPUT");
+        Assert.assertEquals("Fowzia", pFactory.getEmployer());
     }
 }
