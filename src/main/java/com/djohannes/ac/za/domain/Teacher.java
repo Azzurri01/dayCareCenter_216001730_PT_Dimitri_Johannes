@@ -2,64 +2,30 @@ package com.djohannes.ac.za.domain;
 
 public class Teacher
 {
-    private String tTitle, tName, tSurname;
-    private int tEmpNum;
+    private String qualification;
 
     private Teacher()
     {
 
     }
 
-    public String gettTitle() {
-        return tTitle;
-    }
-
-    public String gettName() {
-        return tName;
-    }
-
-    public String gettSurname() {
-        return tSurname;
-    }
-
-    public int gettEmpCode() {
-        return tEmpNum;
+    public String getQualification() {
+        return qualification;
     }
 
     public Teacher(Builder builder)
     {
-        this.tTitle=builder.tTitle;
-        this.tName=builder.tName;
-        this.tSurname=builder.tSurname;
-        this.tEmpNum=builder.tEmpNum;
+        this.qualification =builder.qualification;
     }
 
     public static class Builder
     {
-        private String tTitle, tName, tSurname;
-        private int tEmpNum;
+        private String qualification;
 
-        public Builder getTitle(String title)
-        {
-            this.tTitle=title;
-            return this;
-        }
 
-        public Builder getName(String name)
+        public Builder getQual(String qualification)
         {
-            this.tName=name;
-            return this;
-        }
-
-        public Builder getSurname(String surname)
-        {
-            this.tSurname=surname;
-            return this;
-        }
-
-        public Builder getEmpNum(int empNum)
-        {
-            this.tEmpNum=empNum;
+            this.qualification =qualification;
             return this;
         }
 
