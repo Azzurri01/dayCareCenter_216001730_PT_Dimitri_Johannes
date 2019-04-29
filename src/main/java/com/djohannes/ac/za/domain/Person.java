@@ -74,7 +74,7 @@ public class Person {
             return new Person(this);
         }
     }
-
+/*
     @Override
     public String toString() {
         return "Clinic{" +
@@ -93,8 +93,10 @@ public class Person {
 
     @Override
     public int hashCode()
+
     {
         return Objects.hash(id);
     }
+    */
 }
 
