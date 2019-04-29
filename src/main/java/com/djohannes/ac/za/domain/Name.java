@@ -24,12 +24,12 @@ public class Name {
     public static class Builder {
         private String fName, lName;
 
-        public Builder getFirstName(String name) {
+        public Builder name(String name) {
             this.fName = name;
             return this;
         }
 
-        public Builder getPhone(String surname) {
+        public Builder surname(String surname) {
             this.lName = surname;
             return this;
         }

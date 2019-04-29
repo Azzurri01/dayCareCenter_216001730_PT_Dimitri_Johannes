@@ -1,57 +1,48 @@
+
 package com.djohannes.ac.za.domain;
 import java.util.Objects;
+import java.util.Set;
 
 public class Parent
 {
-<<<<<<< HEAD
-    private String employer, contact;
-=======
-    private String employer;
->>>>>>> f36dbde0fbcd5e4d49bd3de4e3a5dd476a0f17cc
+    private Name name;
+    private Contact contact;
+    private Set<Student> children;
 
     private Parent()
     {
 
     }
 
-    public String getEmployer() {
-        return employer;
-    }
-
-<<<<<<< HEAD
-    public String getContact() {
-        return contact;
-    }
-
-=======
->>>>>>> f36dbde0fbcd5e4d49bd3de4e3a5dd476a0f17cc
-     public Parent(Builder build)
+    public Parent(Builder builder)
     {
-        this.employer=build.employer;
+        this.name=builder.name;
 
+    }
+
+    public Name getName() {
+        return name;
+    }
+
+    public Contact getContact() {
+        return contact;
     }
 
     public static class Builder
     {
-<<<<<<< HEAD
-        private String employer, contact;
+        private Name name;
+        private Contact contact;
+        private Set<Student> children;
 
-        public Builder getEmployer(String employer)
+        public Builder name(Name name)
         {
-            this.employer=employer;
+            this.name=name;
             return this;
         }
 
-        public Builder getContact(String contact)
+        public Builder Contact(Contact contact)
         {
             this.contact=contact;
-=======
-        private String employer;
-
-        public Builder getEmployer(String employer)
-        {
-            this.employer=employer;
->>>>>>> f36dbde0fbcd5e4d49bd3de4e3a5dd476a0f17cc
             return this;
         }
 
@@ -64,22 +55,8 @@ public class Parent
     @Override
     public String toString() {
         return "Parent{" +
-                "employer='" + employer + '\'' +
-                "contact='" + contact + '\'' +
+                "Name='" + name + '\'' +
+                "Contact='" + contact + '\'' +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Parent parent= (Parent) o;
-        return contact.equals(parent.contact);
-    }
-
-    @Override
-    public int hashCode()
-    {
-        return Objects.hash(contact);
     }
 }

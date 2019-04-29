@@ -12,6 +12,7 @@ public class Student{
     private Grade grade;
     private Address address;
     private Parent parent;
+    private Set<Allergy> allergies;
 
     private Student()
     { }
@@ -26,11 +27,11 @@ public class Student{
         this.parent = builder.parent;
 }
 
-    public String getStudentId() {
+    public String getId() {
         return studentId;
     }
 
-    public Name getStudentName()
+    public Name getName()
     {
         return name;
     }
@@ -64,8 +65,9 @@ public class Student{
         private Grade grade;
         private Address address;
         private Parent parent;
+        private Set<Allergy> allergies;
 
-        public Builder studentId( String studentId) {
+        public Builder id( String studentId) {
             this.studentId = studentId;
             return this;
         }
@@ -82,7 +84,7 @@ public class Student{
             return this;
         }
 
-        public Builder studentName(Name name) {
+        public Builder name(Name name) {
             this.name = name;
             return this;
         }
@@ -117,7 +119,7 @@ public class Student{
                 ", Grade='" + grade + '\'' +
                 ", Gender=" + gender +
                 ", Age=" + age +
-                ", Address=" + age +
+                ", Address=" + address +
                 ", Parent=" + parent +
                 '}';
     }
