@@ -1,10 +1,8 @@
 package com.djohannes.ac.za.factory;
 
-import com.djohannes.ac.za.domain.Suburb;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 import com.djohannes.ac.za.domain.Clinic;
 
 public class ClinicFactoryTest {

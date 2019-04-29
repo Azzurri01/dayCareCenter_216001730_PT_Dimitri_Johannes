@@ -1,86 +1,109 @@
+
 package com.djohannes.ac.za.domain;
 
-<<<<<<< HEAD
 import java.util.Objects;
 import java.util.Set;
-=======
-public class Student {
-    private int id;
->>>>>>> f36dbde0fbcd5e4d49bd3de4e3a5dd476a0f17cc
 
 public class Student{
 
-    private String studentId, studentFirstName, studentLastName;
+    private String studentId, gender;
     private int age;
+    private Name name;
+    private Grade grade;
+    private Address address;
+    private Parent parent;
 
-    private Student() { }
+    private Student()
+    { }
 
     private Student(Builder builder) {
         this.studentId = builder.studentId;
+        this.name = builder.name;
+        this.grade = builder.grade;
         this.age = builder.age;
-        this.studentFirstName = builder.studentFirstName;
-        this.studentLastName = builder.studentLastName;
-    }
+        this.gender = builder.gender;
+        this.address = builder.address;
+        this.parent = builder.parent;
+}
 
-<<<<<<< HEAD
     public String getStudentId() {
         return studentId;
     }
 
-    public String getStudentFirstName() {
-        return studentFirstName;
+    public Name getStudentName()
+    {
+        return name;
     }
 
-    public String getStudentLastName() {
-        return studentLastName;
+    public Grade getGrade() {
+        return grade;
     }
 
-    public int getAge() {
+    public int getAge()
+    {
         return age;
     }
 
-    public static class Builder {
+    public String getGender() {
+        return gender;
+    }
 
-        private String studentId, studentFirstName, studentLastName;
+    public Address getAddress()
+    {
+        return address;
+    }
+
+    public Parent getParent() {
+        return parent;
+    }
+
+    public static class Builder {
+        private String studentId, gender;
         private int age;
+        private Name name;
+        private Grade grade;
+        private Address address;
+        private Parent parent;
 
         public Builder studentId( String studentId) {
             this.studentId = studentId;
             return this;
         }
 
-        public Builder studentFirstName( String studentFirstName) {
-            this.studentFirstName = studentFirstName;
+        public Builder gender(String gender)
+        {
+            this.gender=gender;
             return this;
         }
 
-        public Builder studentLastName( String studentLastName) {
-            this.studentLastName = studentLastName;
-=======
-    public int getID() {
-        return id;
-    }
-
-    public Student(Builder builder)
-    {
-        this.id = builder.id;
-    }
-
-    public static class Builder {
-        private int id;
-
-        public Builder getID(int id) {
->>>>>>> f36dbde0fbcd5e4d49bd3de4e3a5dd476a0f17cc
+        public Builder age(int age)
+        {
+            this.age=age;
             return this;
         }
 
-        public Builder age( int age) {
-            this.age = age;
+        public Builder studentName(Name name) {
+            this.name = name;
             return this;
         }
 
+        public Builder grade(Grade grade) {
+            this.grade = grade;
+            return this;
+        }
 
-        public Student build() {
+        public Builder address(Address address) {
+            this.address = address;
+            return this;
+        }
+
+        public Builder parent(Parent parent)
+        {
+            this.parent=parent;
+            return this;
+        }
+
+    public Student build() {
             return new Student(this);
         }
 
@@ -89,10 +112,13 @@ public class Student{
     @Override
     public String toString() {
         return "Student{" +
-                "studentId='" + studentId + '\'' +
-                ", StudentFirstName='" + studentFirstName + '\'' +
-                ", StudentLastName='" + studentLastName + '\'' +
-                ", age=" + age +
+                "student ID='" + studentId + '\'' +
+                ", Student Name='" + name + '\'' +
+                ", Grade='" + grade + '\'' +
+                ", Gender=" + gender +
+                ", Age=" + age +
+                ", Address=" + age +
+                ", Parent=" + parent +
                 '}';
     }
 
