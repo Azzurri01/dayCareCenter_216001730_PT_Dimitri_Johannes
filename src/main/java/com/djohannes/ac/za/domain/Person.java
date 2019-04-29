@@ -1,5 +1,8 @@
 package com.djohannes.ac.za.domain;
+<<<<<<< HEAD
 import java.util.Objects;
+=======
+>>>>>>> f36dbde0fbcd5e4d49bd3de4e3a5dd476a0f17cc
 
 public class Person {
     private String name, surname, phone;
@@ -74,6 +77,7 @@ public class Person {
             return new Person(this);
         }
     }
+<<<<<<< HEAD
 /*
     @Override
     public String toString() {
@@ -98,5 +102,7 @@ public class Person {
         return Objects.hash(id);
     }
     */
+=======
+>>>>>>> f36dbde0fbcd5e4d49bd3de4e3a5dd476a0f17cc
 }
 

@@ -3,7 +3,11 @@ import java.util.Objects;
 
 public class Parent
 {
+<<<<<<< HEAD
     private String employer, contact;
+=======
+    private String employer;
+>>>>>>> f36dbde0fbcd5e4d49bd3de4e3a5dd476a0f17cc
 
     private Parent()
     {
@@ -14,10 +18,13 @@ public class Parent
         return employer;
     }
 
+<<<<<<< HEAD
     public String getContact() {
         return contact;
     }
 
+=======
+>>>>>>> f36dbde0fbcd5e4d49bd3de4e3a5dd476a0f17cc
      public Parent(Builder build)
     {
         this.employer=build.employer;
@@ -26,6 +33,7 @@ public class Parent
 
     public static class Builder
     {
+<<<<<<< HEAD
         private String employer, contact;
 
         public Builder getEmployer(String employer)
@@ -37,6 +45,13 @@ public class Parent
         public Builder getContact(String contact)
         {
             this.contact=contact;
+=======
+        private String employer;
+
+        public Builder getEmployer(String employer)
+        {
+            this.employer=employer;
+>>>>>>> f36dbde0fbcd5e4d49bd3de4e3a5dd476a0f17cc
             return this;
         }
 

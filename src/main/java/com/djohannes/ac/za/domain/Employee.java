@@ -3,14 +3,22 @@ import java.util.Objects;
 
 public class Employee
 {
+<<<<<<< HEAD
     private String id;
+=======
+    private int id;
+>>>>>>> f36dbde0fbcd5e4d49bd3de4e3a5dd476a0f17cc
 
     private Employee()
     {
 
     }
 
+<<<<<<< HEAD
     public String getID() {
+=======
+    public int getID() {
+>>>>>>> f36dbde0fbcd5e4d49bd3de4e3a5dd476a0f17cc
         return id;
     }
 
@@ -23,9 +31,15 @@ public class Employee
 
     public static class Builder
     {
+<<<<<<< HEAD
         private String id;
 
         public Builder getID(String id)
+=======
+        private int id;
+
+        public Builder getID(int id)
+>>>>>>> f36dbde0fbcd5e4d49bd3de4e3a5dd476a0f17cc
         {
             this.id=id;
             return this;

@@ -1,7 +1,12 @@
 package com.djohannes.ac.za.domain;
 
+<<<<<<< HEAD
 import java.util.Objects;
 import java.util.Set;
+=======
+public class Student {
+    private int id;
+>>>>>>> f36dbde0fbcd5e4d49bd3de4e3a5dd476a0f17cc
 
 public class Student{
 
@@ -17,6 +22,7 @@ public class Student{
         this.studentLastName = builder.studentLastName;
     }
 
+<<<<<<< HEAD
     public String getStudentId() {
         return studentId;
     }
@@ -50,6 +56,21 @@ public class Student{
 
         public Builder studentLastName( String studentLastName) {
             this.studentLastName = studentLastName;
+=======
+    public int getID() {
+        return id;
+    }
+
+    public Student(Builder builder)
+    {
+        this.id = builder.id;
+    }
+
+    public static class Builder {
+        private int id;
+
+        public Builder getID(int id) {
+>>>>>>> f36dbde0fbcd5e4d49bd3de4e3a5dd476a0f17cc
             return this;
         }
 
