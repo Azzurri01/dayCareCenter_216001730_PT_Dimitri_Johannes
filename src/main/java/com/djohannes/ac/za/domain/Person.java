@@ -1,4 +1,5 @@
 package com.djohannes.ac.za.domain;
+import java.util.Objects;
 
 public class Person {
     private String name, surname, phone;
@@ -72,6 +73,28 @@ public class Person {
         {
             return new Person(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Clinic{" +
+                "injection='" + injection + '\'' +
+                "id='" + id + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Deworm deworm= (Deworm) o;
+        return id.equals(deworm.id);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id);
     }
 }
 

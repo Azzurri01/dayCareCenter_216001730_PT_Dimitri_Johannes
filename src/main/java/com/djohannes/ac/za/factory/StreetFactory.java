@@ -4,7 +4,7 @@ import com.djohannes.ac.za.domain.Street;
 
 public class StreetFactory
 {
-    public static Street getStreet(int no, String name)
+    public static Street getStreet(String no, String name)
     {
         return new Street.Builder()
                 .getID(no)

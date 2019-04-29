@@ -4,7 +4,7 @@ import com.djohannes.ac.za.domain.Suburb;
 
 public class SuburbFactory
 {
-    public static Suburb getSuburb(int id, String name)
+    public static Suburb getSuburb(String id, String name)
     {
         return new Suburb.Builder()
                 .getID(id)

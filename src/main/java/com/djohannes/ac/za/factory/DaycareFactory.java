@@ -4,7 +4,7 @@ import com.djohannes.ac.za.domain.Daycare;
 
 public class DaycareFactory
 {
-    public static Daycare getDaycare(int id, String name)
+    public static Daycare getDaycare(String id, String name)
     {
         return new Daycare.Builder()
                 .getID(id)

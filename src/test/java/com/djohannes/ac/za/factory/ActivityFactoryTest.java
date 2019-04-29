@@ -10,8 +10,8 @@ public class ActivityFactoryTest {
 
     @Test
     public void getActivity() {
-        Activity activity = ActivityFactory.getActivity(7, "spelling");
-        Assert.assertEquals(7, activity.getID());
+        Activity activity = ActivityFactory.getActivity("123", "spelling");
+        Assert.assertEquals("123", activity.getID());
         Assert.assertEquals("spelling", activity.getName());
     }
 }

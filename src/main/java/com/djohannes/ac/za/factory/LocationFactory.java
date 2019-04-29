@@ -4,7 +4,7 @@ import com.djohannes.ac.za.domain.Location;
 
 public class LocationFactory
 {
-    public static Location getLocation(int id, String type)
+    public static Location getLocation(String id, String type)
     {
         return new Location.Builder()
                 .getlID(id)

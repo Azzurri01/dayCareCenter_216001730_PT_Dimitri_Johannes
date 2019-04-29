@@ -1,10 +1,10 @@
 package com.djohannes.ac.za.domain;
+import java.util.Objects;
 
 public class Learning
 {
 
-    private String type;
-    private int stuNo;
+    private String type, stuNo;
 
     private Learning()
     {}
@@ -13,7 +13,7 @@ public class Learning
         return type;
     }
 
-    public int getStuNo() {
+    public String getStuNo() {
         return stuNo;
     }
 
@@ -25,8 +25,7 @@ public class Learning
 
     public static class Builder
     {
-        private String type;
-        private int stuNo;
+        private String type, stuNo;
 
         public Builder getType(String type)
         {
@@ -34,7 +33,7 @@ public class Learning
             return this;
         }
 
-        public Builder getStudent(int stu)
+        public Builder getStudent(String stu)
         {
             this.stuNo=stu;
             return this;
@@ -44,5 +43,27 @@ public class Learning
         {
             return new Learning(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Learning{" +
+                "type='" + type + '\'' +
+                "stuNo='" + stuNo + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+       Learning learning=(Learning) o;
+        return stuNo.equals(learning.stuNo);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(stuNo);
     }
 }

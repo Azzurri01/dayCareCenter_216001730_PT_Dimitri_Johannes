@@ -1,40 +1,40 @@
 package com.djohannes.ac.za.domain;
+import java.util.Objects;
 
 public class Suburb
 {
-    private int sID;
-    private String sName;
+    private String name, id;
     
 
-    public int getID() {
-        return sID;
+    public String getID()
+    {
+        return id;
     }
 
     public String getName()
     {
-        return sName;
+        return name;
     }
 
     public Suburb(Builder builder)
     {
-        this.sID=builder.bID;
-        this.sName =builder.bName;
+        this.id=builder.id;
+        this.name =builder.name;
     }
 
     public static class Builder
     {
-        private int bID;
-        private String bName;
+        private String name, id;
 
-        public Builder getID(int id)
+        public Builder getID(String id)
         {
-            this.bID=id;
+            this.id=id;
             return this;
         }
 
         public Builder getName(String name)
         {
-            this.bName =name;
+            this.name =name;
             return this;
         }
 
@@ -42,5 +42,27 @@ public class Suburb
         {
             return new Suburb(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Suburb{" +
+                "name='" + name + '\'' +
+                "id='" + id + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Suburb suburb=(Suburb) o;
+        return id.equals(suburb.id);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id);
     }
 }

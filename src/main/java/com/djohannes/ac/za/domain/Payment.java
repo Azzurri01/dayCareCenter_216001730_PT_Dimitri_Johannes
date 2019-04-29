@@ -1,4 +1,5 @@
 package com.djohannes.ac.za.domain;
+import java.util.Objects;
 
 public class Payment
 {
@@ -32,5 +33,26 @@ public class Payment
         {
             return new Payment(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "type='" + type + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Payment payment= (Payment) o;
+        return type.equals(payment.type);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(type);
     }
 }

@@ -1,4 +1,5 @@
 package com.djohannes.ac.za.domain;
+import java.util.Objects;
 
 public class Meal
 {
@@ -32,4 +33,24 @@ public class Meal
         }
     }
 
+    @Override
+    public String toString() {
+        return "Meal{" +
+                "mealType='" + mealType + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Meal meal= (Meal) o;
+        return mealType.equals(meal.mealType);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(mealType);
+    }
 }

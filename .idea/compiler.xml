@@ -9,5 +9,8 @@
         <module name="dccs" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dccs" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

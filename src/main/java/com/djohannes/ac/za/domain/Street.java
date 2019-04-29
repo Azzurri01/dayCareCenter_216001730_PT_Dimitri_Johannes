@@ -1,39 +1,38 @@
 package com.djohannes.ac.za.domain;
+import java.util.Objects;
 
 public class Street
 {
-    private int no;
-    private String aName;
+    private String name, no;
 
 
-    public int getID() {
+    public String getNo() {
         return no;
     }
 
     public String getName() {
-        return aName;
+        return name;
     }
 
     public Street(Builder builder)
     {
         this.no=builder.no;
-        this.aName =builder.bName;
+        this.name =builder.name;
     }
 
     public static class Builder
     {
-        private int no;
-        private String bName;
+        private String name, no;
 
-        public Builder getID(int nr)
+        public Builder getID(String no)
         {
-            this.no=nr;
+            this.no=no;
             return this;
         }
 
         public Builder getName(String name)
         {
-            this.bName =name;
+            this.name =name;
             return this;
         }
 
@@ -41,5 +40,27 @@ public class Street
         {
             return new Street(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Street{" +
+                "name='" + name + '\'' +
+                "no='" + no + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Street street= (Street) o;
+        return no.equals(street.no);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(no);
     }
 }

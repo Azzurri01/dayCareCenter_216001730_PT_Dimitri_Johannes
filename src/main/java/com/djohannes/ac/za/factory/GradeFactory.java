@@ -3,7 +3,7 @@ import com.djohannes.ac.za.domain.Grade;
 
 public class GradeFactory
 {
-    public static Grade getGrade(int grade)
+    public static Grade getGrade(String grade)
     {
         return new Grade.Builder()
                 .getGrade(grade)

@@ -3,13 +3,12 @@ package com.djohannes.ac.za.domain;
 import java.util.Objects;
 import java.util.Set;
 
-public class Student {
+public class Student{
 
     private String studentId, studentFirstName, studentLastName;
     private int age;
-    private Set<Grade> grades;
 
-    private Student(){}
+    private Student() { }
 
     private Student(Builder builder) {
         this.studentId = builder.studentId;
@@ -34,16 +33,10 @@ public class Student {
         return age;
     }
 
-//    @Override
-//    public int compareTo(Student o) {
-//        return this.studentId.compareTo(o.studentId);
-//    }
-
     public static class Builder {
 
         private String studentId, studentFirstName, studentLastName;
         private int age;
-        private Set<Grade> grades;
 
         public Builder studentId( String studentId) {
             this.studentId = studentId;
@@ -65,14 +58,6 @@ public class Student {
             return this;
         }
 
-//        public Builder copy(Student student) {
-//            this.studentId = student.studentId;
-//            this.studentFirstName = student.studentFirstName;
-//            this.studentLastName = student.studentLastName;
-//            this.age = student.age;
-//
-//            return this;
-//        }
 
         public Student build() {
             return new Student(this);
@@ -99,7 +84,8 @@ public class Student {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return Objects.hash(studentId);
     }
 }

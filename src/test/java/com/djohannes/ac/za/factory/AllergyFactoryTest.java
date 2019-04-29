@@ -11,7 +11,8 @@ public class AllergyFactoryTest {
     @Test
     public void getMedical()
     {
-        Allergy allergy = AllergyFactory.getAllergy("cat");
-        Assert.assertEquals("cat", allergy.getAllergy());
+        Allergy allergy = AllergyFactory.getAllergy("flu", "123");
+        Assert.assertEquals("flu", allergy.getName());
+        Assert.assertEquals("123", allergy.getCode());
     }
 }

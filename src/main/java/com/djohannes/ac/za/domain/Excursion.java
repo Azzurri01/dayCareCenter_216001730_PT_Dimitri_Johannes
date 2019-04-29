@@ -1,4 +1,5 @@
 package com.djohannes.ac.za.domain;
+import java.util.Objects;
 
 public class Excursion
 {
@@ -41,5 +42,27 @@ public class Excursion
         {
             return new Excursion(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Clinic{" +
+                "date='" + date + '\'' +
+                "venue='" + venue + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Excursion excursion=(Excursion) o;
+        return date.equals(excursion.date);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(date);
     }
 }

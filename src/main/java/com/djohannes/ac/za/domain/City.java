@@ -1,39 +1,38 @@
 package com.djohannes.ac.za.domain;
+import java.util.Objects;
 
 public class City
 {
-    private int cID;
-    private String cName;
+    private String name, id;
 
 
-    public int getID() {
-        return cID;
+    public String getID() {
+        return id;
     }
 
     public String getName() {
-        return cName;
+        return name;
     }
 
     public City(Builder builder)
     {
-        this.cID=builder.bID;
-        this.cName =builder.bName;
+        this.id=builder.id;
+        this.name =builder.name;
     }
 
     public static class Builder
     {
-        private int bID;
-        private String bName;
+        private String name, id;
 
-        public Builder getID(int id)
+        public Builder getID(String id)
         {
-            this.bID=id;
+            this.id=id;
             return this;
         }
 
         public Builder getName(String name)
         {
-            this.bName =name;
+            this.name =name;
             return this;
         }
 
@@ -41,5 +40,27 @@ public class City
         {
             return new City(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "name='" + name + '\'' +
+                "id='" + id + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        City City = (City) o;
+        return id.equals(City.id);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id);
     }
 }

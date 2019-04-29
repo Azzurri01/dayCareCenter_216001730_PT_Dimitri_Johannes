@@ -1,39 +1,39 @@
 package com.djohannes.ac.za.domain;
 
+import java.util.Objects;
+
 public class Activity
 {
-    private int aID;
-    private String aName;
+    private String name, id;
 
 
-    public int getID() {
-        return aID;
+    public String getID() {
+        return id;
     }
 
     public String getName() {
-        return aName;
+        return name;
     }
 
     public Activity(Builder builder)
     {
-        this.aID=builder.bID;
-        this.aName =builder.bName;
+        this.id =builder.id;
+        this.name =builder.name;
     }
 
     public static class Builder
     {
-        private int bID;
-        private String bName;
+        private String name, id;
 
-        public Builder getID(int id)
+        public Builder getID(String id)
         {
-            this.bID=id;
+            this.id =id;
             return this;
         }
 
         public Builder getName(String name)
         {
-            this.bName =name;
+            this.name =name;
             return this;
         }
 
@@ -41,5 +41,27 @@ public class Activity
         {
             return new Activity(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Activity{" +
+                "ActivityID='" + id + '\'' +
+                ", ActivityName='" + name + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Activity activity = (Activity) o;
+        return id.equals(activity.id);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id);
     }
 }
