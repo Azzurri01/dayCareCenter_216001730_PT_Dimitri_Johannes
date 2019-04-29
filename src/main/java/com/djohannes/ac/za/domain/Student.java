@@ -67,7 +67,7 @@ public class Student{
         private Parent parent;
         private Set<Allergy> allergies;
 
-        public Builder id( String studentId) {
+        public Builder id(String studentId) {
             this.studentId = studentId;
             return this;
         }
@@ -137,4 +137,5 @@ public class Student{
     {
         return Objects.hash(studentId);
     }
+
 }

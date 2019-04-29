@@ -17,7 +17,7 @@ public class Parent
     public Parent(Builder builder)
     {
         this.name=builder.name;
-
+        this.contact=builder.contact;
     }
 
     public Name getName() {

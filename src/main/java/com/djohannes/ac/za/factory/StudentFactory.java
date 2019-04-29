@@ -11,7 +11,7 @@ public class StudentFactory {
 
 
     public static Student getStudent(String id, Name name, Grade grade, String gender, int age, Address address, Parent parent) {
-        return new Student.Builder().id(Misc.generateId())
+        return new Student.Builder().id(id)
                 .name(name)
                 .grade(grade)
                 .gender(gender)
