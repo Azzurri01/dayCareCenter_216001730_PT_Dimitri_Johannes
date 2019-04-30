@@ -11,4 +11,11 @@ public class NameFactory
                 .surname(surname)
                 .build();
     }
+
+    public static Name getName(String name)
+    {
+        return new Name.Builder()
+                .orgName(name)
+                .build();
+    }
 }

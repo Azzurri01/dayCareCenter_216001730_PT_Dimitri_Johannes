@@ -3,36 +3,65 @@ import java.util.Objects;
 
 public class Daycare
 {
-    private String name, id;
+    private String id;
+    private Name name;
+    private Location location;
+    Contact contact;
 
-
-    public String getID() {
+    public String getID()
+    {
         return id;
     }
 
-    public String getName() {
+    public Name getName()
+    {
         return name;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public Contact getContact() {
+        return contact;
     }
 
     public Daycare(Builder builder)
     {
         this.id=builder.id;
-        this.name =builder.name;
+        this.name=builder.name;
+        this.location=builder.location;
+        this.contact=builder.contact;
     }
 
     public static class Builder
     {
-        private String name, id;
+        private String id;
+        private Name name;
+        private Location location;
+        private Contact contact;
 
-        public Builder getID(String id)
+        public Builder id(String id)
         {
             this.id=id;
             return this;
         }
 
-        public Builder getName(String name)
+        public Builder name(Name name)
         {
             this.name=name;
+            return this;
+        }
+
+        public Builder location(Location location)
+        {
+            this.location=location;
+            return this;
+        }
+
+        public Builder contact(Contact contact)
+        {
+            this.contact=contact;
             return this;
         }
 
@@ -45,8 +74,10 @@ public class Daycare
     @Override
     public String toString() {
         return "Clinic{" +
-                "name='" + name + '\'' +
-                "id='" + id + '\'' +
+                "Name='" + name + '\'' +
+                "ID='" + id + '\'' +
+                "Location='" + location + '\'' +
+                "Contact='" + contact + '\'' +
                 '}';
     }
 

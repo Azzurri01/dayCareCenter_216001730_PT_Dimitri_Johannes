@@ -1,0 +1,83 @@
+package com.djohannes.ac.za.domain;
+
+public class Suburb
+{
+    private String id, areaCode;
+    private Name name;
+    private Population population;
+
+    private Suburb()
+    {
+
+    }
+
+    public Suburb(Builder builder)
+    {
+        this.id=builder.id;
+        this.name=builder.name;
+        this.areaCode=builder.areaCode;
+        this.population=builder.population;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getAreaCode() {
+        return areaCode;
+    }
+
+    public Name getName() {
+        return name;
+    }
+
+    public Population getPopulation() {
+        return population;
+    }
+
+    public static class Builder
+    {
+        private String id, areaCode;
+        private Name name;
+        private Population population;
+
+        public Builder id(String id)
+        {
+            this.id=id;
+            return this;
+        }
+
+        public Builder code(String code)
+        {
+            this.areaCode=code;
+            return this;
+        }
+
+        public Builder name(Name name)
+        {
+            this.name=name;
+            return this;
+        }
+
+        public Builder population(Population population)
+        {
+            this.population=population;
+            return this;
+        }
+
+        public Suburb build()
+        {
+            return new Suburb(this);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "ID='" + id +'\'' +
+                "Name='" + name + '\'' +
+                "Postal code='" + areaCode + '\'' +
+                "Population='" + population + '\'' +
+                '}';
+    }
+}
