@@ -15,7 +15,15 @@ public class DaycareRepositoryImpl implements DaycareRepository {
         this.daycares = new HashSet<>();
     }
 
-    public static DaycareRepository getRepository(){
+    private Daycare findDaycare(String daycareId) {
+        /*return this.daycares.stream()
+                .filter(daycare -> daycare.getNo().trim().equals(daycareId))
+                .findAny()
+                .orElse(null);*/
+        return null;
+    }
+
+    public static DaycareRepositoryImpl getRepository(){
         if(repository == null) repository = new DaycareRepositoryImpl();
         return repository;
     }
@@ -25,19 +33,26 @@ public class DaycareRepositoryImpl implements DaycareRepository {
         return daycare;
     }
 
-    public Daycare read(String daycareId){
+    public Daycare read(final String daycareId){
         //find the student in the set and return it if it exist
-        return null;
+        Daycare daycare = findDaycare(daycareId);
+        return daycare;
     }
 
     public Daycare update(Daycare daycare) {
         // find the student, update it and return the updated student
+        Daycare toDelete = findDaycare(daycare.getID());
+        if(toDelete != null) {
+            this.daycares.remove(toDelete);
+            return create(daycare);
+        }
         return null;
     }
 
     public void delete(String daycareId) {
         //find the student and delete it if it exists
-
+        Daycare daycare = findDaycare(daycareId);
+        if (daycare != null) this.daycares.remove(daycare);
     }
 
     public Set<Daycare> getAll(){

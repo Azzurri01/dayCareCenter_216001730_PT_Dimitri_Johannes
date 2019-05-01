@@ -15,7 +15,15 @@ public class GradeRepositoryImpl implements GradeRepository {
         this.grades = new HashSet<>();
     }
 
-    public static GradeRepository getRepository(){
+    private Grade findGrade(String gradeId) {
+        /*return this.grades.stream()
+                .filter(grade -> grade.getNo().trim().equals(gradeId))
+                .findAny()
+                .orElse(null);*/
+        return null;
+    }
+
+    public static GradeRepositoryImpl getRepository(){
         if(repository == null) repository = new GradeRepositoryImpl();
         return repository;
     }
@@ -25,19 +33,26 @@ public class GradeRepositoryImpl implements GradeRepository {
         return grade;
     }
 
-    public Grade read(String gradeId){
+    public Grade read(final String gradeId){
         //find the student in the set and return it if it exist
-        return null;
+        Grade grade = findGrade(gradeId);
+        return grade;
     }
 
     public Grade update(Grade grade) {
         // find the student, update it and return the updated student
+        Grade toDelete = findGrade(grade.getGrade());
+        if(toDelete != null) {
+            this.grades.remove(toDelete);
+            return create(grade);
+        }
         return null;
     }
 
     public void delete(String gradeId) {
         //find the student and delete it if it exists
-
+        Grade grade = findGrade(gradeId);
+        if (grade != null) this.grades.remove(grade);
     }
 
     public Set<Grade> getAll(){

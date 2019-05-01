@@ -1,12 +1,12 @@
 package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Play;
-import com.djohannes.ac.za.repository.PlayRepository;
+import com.djohannes.ac.za.repository.PlaytimeRepository;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class PlayRepositoryImpl implements PlayRepository {
+public class PlayRepositoryImpl implements PlaytimeRepository {
 
     private static PlayRepositoryImpl repository = null;
     private Set<Play> playActivities;
@@ -15,7 +15,7 @@ public class PlayRepositoryImpl implements PlayRepository {
         this.playActivities = new HashSet<>();
     }
 
-    public static PlayRepository getRepository(){
+    public static PlaytimeRepository getRepository(){
         if(repository == null) repository = new PlayRepositoryImpl();
         return repository;
     }
