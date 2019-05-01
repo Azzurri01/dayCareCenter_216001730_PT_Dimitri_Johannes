@@ -1,17 +1,15 @@
 package com.djohannes.ac.za.domain;
 import java.util.Objects;
+import java.util.Set;
 
 public class City
 {
-    private String name, id;
+    private String id;
+    private Name name;
+    private Population population;
+    private Set<Suburb> suburbs;
 
-
-    public String getID() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
+    public City() {
     }
 
     public City(Builder builder)
@@ -20,19 +18,40 @@ public class City
         this.name =builder.name;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public Name getName() {
+        return name;
+    }
+
+    public Population getPopulation() {
+        return population;
+    }
+
     public static class Builder
     {
-        private String name, id;
+        private String id;
+        private Name name;
+        private Population population;
+        private Set<Suburb> suburbs;
 
-        public Builder getID(String id)
+        public Builder id(String id)
         {
             this.id=id;
             return this;
         }
 
-        public Builder getName(String name)
+        public Builder name(Name name)
         {
             this.name =name;
+            return this;
+        }
+
+        public Builder population(Population total)
+        {
+            this.population=total;
             return this;
         }
 
@@ -45,8 +64,9 @@ public class City
     @Override
     public String toString() {
         return "City{" +
-                "name='" + name + '\'' +
-                "id='" + id + '\'' +
+                "ID='" + id + '\'' +
+                "Name='" + name + '\'' +
+                "Population='" + population + '\'' +
                 '}';
     }
 

@@ -4,36 +4,105 @@ import java.util.Objects;
 
 public class Activity
 {
-    private String name, id;
+    private String id;
+    private Grade grade;
+    private Alphabet alphabet;
+    private Counting counting;
+    private Colour colour;
+    private Drawing drawing;
+    private  Playtime playtime;
 
-
-    public String getID() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
+    public Activity() {
     }
 
     public Activity(Builder builder)
     {
-        this.id =builder.id;
-        this.name =builder.name;
+        this.id=builder.id;
+        this.grade=builder.grade;
+        this.alphabet=builder.alphabet;
+        this.counting=builder.counting;
+        this.colour=builder.colour;
+        this.drawing=builder.drawing;
+        this.playtime=builder.playtime;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public Grade getGrade() {
+        return grade;
+    }
+
+    public Alphabet getAlphabet() {
+        return alphabet;
+    }
+
+    public Counting getCounting() {
+        return counting;
+    }
+
+    public Colour getColour() {
+        return colour;
+    }
+
+    public Drawing getDrawing() {
+        return drawing;
+    }
+
+    public Playtime getPlaytime() {
+        return playtime;
     }
 
     public static class Builder
     {
-        private String name, id;
+        private String id;
+        private Grade grade;
+        private Alphabet alphabet;
+        private Counting counting;
+        private Colour colour;
+        private Drawing drawing;
+        private  Playtime playtime;
 
-        public Builder getID(String id)
+        public Builder id(String id)
         {
             this.id =id;
             return this;
         }
 
-        public Builder getName(String name)
+        public Builder grade(Grade grade)
         {
-            this.name =name;
+        this.grade=grade;
+        return this;
+        }
+
+        public Builder alphabet(Alphabet alphabet)
+        {
+            this.alphabet=alphabet;
+            return this;
+        }
+
+        public Builder counting(Counting counting)
+        {
+            this.counting=counting;
+            return this;
+        }
+
+        public Builder colour(Colour colour)
+        {
+            this.colour=colour;
+            return this;
+        }
+
+        public Builder drawing(Drawing drawing)
+        {
+            this.drawing=drawing;
+            return this;
+        }
+
+        public Builder playtime(Playtime playtime)
+        {
+            this.playtime=playtime;
             return this;
         }
 
@@ -46,8 +115,13 @@ public class Activity
     @Override
     public String toString() {
         return "Activity{" +
-                "ActivityID='" + id + '\'' +
-                ", ActivityName='" + name + '\'' +
+                "ID='" + id + '\'' +
+                ", Grade='" + grade + '\'' +
+                ", Alphabet='" + alphabet + '\'' +
+                ", Counting='" + counting + '\'' +
+                ", Colour='" + colour + '\'' +
+                ", Drawing='" + drawing + '\'' +
+                ", Playtime='" + playtime + '\'' +
                 '}';
     }
 

@@ -1,14 +1,17 @@
 package com.djohannes.ac.za.factory;
 
 import com.djohannes.ac.za.domain.City;
+import com.djohannes.ac.za.domain.Population;
+import com.djohannes.ac.za.domain.Name;
 
 public class CityFactory
 {
-    public static City getCity(String id, String name)
+    public static City getCity(String id, Name name, Population population)
     {
         return new City.Builder()
-                .getID(id)
-                .getName(name)
+                .id(id)
+                .name(name)
+                .population(population)
                 .build();
     }
 }

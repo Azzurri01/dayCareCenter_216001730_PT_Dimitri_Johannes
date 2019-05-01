@@ -2,7 +2,7 @@ package com.djohannes.ac.za.domain;
 
 public class Address
 {
-    private String no, street, suburb;
+    private String no, street;
 
     private Address()
     {}
@@ -11,7 +11,6 @@ public class Address
     {
         this.no=builder.no;
         this.street =builder.street;
-        this.suburb=builder.suburb;
     }
 
     public String getNo() {
@@ -22,13 +21,9 @@ public class Address
         return street;
     }
 
-    public String getSuburb() {
-        return suburb;
-    }
-
     public static class Builder
     {
-        private String no, street, suburb;
+        private String no, street;
 
         public Builder streetNo(String no)
         {
@@ -42,11 +37,6 @@ public class Address
             return this;
         }
 
-        public Builder suburb(String suburb)
-        {
-            this.suburb =suburb;
-            return this;
-        }
         public Address build()
         {
             return new Address(this);
@@ -58,7 +48,6 @@ public class Address
         return "Address{" +
                 "no='" + no +'\'' +
                 "Street name='" + street + '\'' +
-                "Suburb='" + suburb + '\'' +
                 '}';
     }
 }

@@ -11,9 +11,8 @@ public class AddressFactoryTest {
     @Test
     public void getAddress()
     {
-        Address address = AddressFactory.getAddress("14", "Sentinel Road", "Heideveld");
+        Address address = AddressFactory.getAddress("14", "Sentinel Road");
         Assert.assertEquals("14", address.getNo());
         Assert.assertEquals("Sentinel Road", address.getStreet());
-        Assert.assertEquals("Heideveld", address.getSuburb());
     }
 }

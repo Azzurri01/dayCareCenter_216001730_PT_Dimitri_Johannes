@@ -19,7 +19,7 @@ public class StudentFactoryTest {
         Name sName = NameFactory.getName("Naqeeb", "Johannes");
         Name pName = NameFactory.getName("Dimitri", "Johannes");
         Grade grade = GradeFactory.getGrade("R");
-        Address address = AddressFactory.getAddress("14", "Sentinel road", "Heideveld");
+        Address address = AddressFactory.getAddress("14", "Sentinel road");
         Contact pContact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
         Parent parent = ParentFactory.getParent(pName, pContact);
 
@@ -32,7 +32,6 @@ public class StudentFactoryTest {
         Assert.assertEquals(5, student.getAge());
         Assert.assertEquals("14", student.getAddress().getNo());
         Assert.assertEquals("Sentinel road", student.getAddress().getStreet());
-        Assert.assertEquals("Heideveld", student.getAddress().getSuburb());
         Assert.assertEquals("Dimitri", student.getParent().getName().getFirstName());
         Assert.assertEquals("Johannes", student.getParent().getName().getLastName());
     }

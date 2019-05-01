@@ -1,50 +1,58 @@
 package com.djohannes.ac.za.domain;
 
+import java.util.Set;
+
 public class Province
 {
-    private String no, street, suburb;
+    private String id;
+    private Name name;
+    private Population population;
+    private Set<City> cities;
 
     private Province()
     {}
 
     public Province(Builder builder)
     {
-        this.no=builder.no;
-        this.street =builder.street;
-        this.suburb=builder.suburb;
+        this.id=builder.id;
+        this.name=builder.name;
+        this.population=builder.population;
     }
 
-    public String getNo() {
-        return no;
+    public String getId() {
+        return id;
     }
 
-    public String getStreet() {
-        return street;
+    public Name getName() {
+        return name;
     }
 
-    public String getSuburb() {
-        return suburb;
+    public Population getPopulation() {
+        return population;
     }
 
     public static class Builder
     {
-        private String no, street, suburb;
+        private String id;
+        private Name name;
+        private Population population;
+        private Set<City> cities;
 
-        public Builder streetNo(String no)
+        public Builder id(String id)
         {
-            this.no=no;
+            this.id=id;
             return this;
         }
 
-        public Builder streetName(String street)
+        public Builder name(Name name)
         {
-            this.street =street;
+            this.name=name;
             return this;
         }
 
-        public Builder suburb(String suburb)
+        public Builder population(Population total)
         {
-            this.suburb =suburb;
+            this.population=total;
             return this;
         }
         public Province build()
@@ -55,10 +63,10 @@ public class Province
 
     @Override
     public String toString() {
-        return "Address{" +
-                "no='" + no +'\'' +
-                "Street name='" + street + '\'' +
-                "Suburb='" + suburb + '\'' +
+        return "Province{" +
+                "id='" + id +'\'' +
+                "Name='" + name + '\'' +
+                "Population='" + population + '\'' +
                 '}';
     }
 }
