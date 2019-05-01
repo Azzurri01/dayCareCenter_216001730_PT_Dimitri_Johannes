@@ -1,30 +1,44 @@
 package com.djohannes.ac.za.domain;
 
+import java.util.Objects;
+
 public class Allergy
 {
-    private String mAllergy;
+    private String name, code;
 
     private Allergy()
     {
-
-    }
-
-    public String getAllergy() {
-        return mAllergy;
     }
 
     public Allergy(Builder builder)
     {
-        this.mAllergy=builder.bAllergy;;
+        this.name=builder.name;;
+        this.code=builder.code;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public String getCode()
+    {
+        return code;
     }
 
     public static class Builder
     {
-        private String mAllergies, mInjection, mDrop, mDate, bAllergy;
+        private String name, code;
 
-        public Builder getAllergy(String allergy)
+        public Builder getName(String name)
         {
-            this.bAllergy=allergy;
+            this.name=name;
+            return this;
+        }
+
+        public Builder getCode(String code)
+        {
+            this.code=code;
             return this;
         }
 
@@ -32,5 +46,27 @@ public class Allergy
         {
             return new Allergy(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Allergy{" +
+                "Name='" + name + '\'' +
+                ", Code='" + code + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Allergy allergy = (Allergy) o;
+        return code.equals(allergy.code);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(code);
     }
 }

@@ -4,7 +4,7 @@ import com.djohannes.ac.za.domain.Learning;
 
 public class LearningFactory
 {
-    public static Learning getLearning(String type, int student)
+    public static Learning getLearning(String type, String student)
     {
         return new Learning.Builder()
                 .getType(type)

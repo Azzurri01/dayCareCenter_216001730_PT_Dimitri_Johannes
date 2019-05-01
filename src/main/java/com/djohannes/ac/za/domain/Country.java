@@ -1,39 +1,38 @@
 package com.djohannes.ac.za.domain;
+import java.util.Objects;
 
 public class Country
 {
-    private int cID;
-    private String cName;
+    private String name, code;
 
 
-    public int getID() {
-        return cID;
+    public String getCode() {
+        return code;
     }
 
     public String getName() {
-        return cName;
+        return name;
     }
 
     public Country(Builder builder)
     {
-        this.cID=builder.bID;
-        this.cName =builder.bName;
+        this.code=builder.code;
+        this.name =builder.name;
     }
 
     public static class Builder
     {
-        private int bID;
-        private String bName;
+        private String name, code;
 
-        public Builder getID(int id)
+        public Builder getCode(String code)
         {
-            this.bID=id;
+            this.code=code;
             return this;
         }
 
         public Builder getName(String name)
         {
-            this.bName =name;
+            this.name =name;
             return this;
         }
 
@@ -41,5 +40,26 @@ public class Country
         {
             return new Country(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Clinic{" +
+                "code='" + code + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Country country= (Country) o;
+        return code.equals(country.code);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(code);
     }
 }

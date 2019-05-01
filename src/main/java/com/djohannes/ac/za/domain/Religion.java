@@ -1,4 +1,5 @@
 package com.djohannes.ac.za.domain;
+import java.util.Objects;
 
 public class Religion
 {
@@ -31,4 +32,24 @@ public class Religion
         }
     }
 
+    @Override
+    public String toString() {
+        return "Religion{" +
+                "faith='" + faith + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Religion religion= (Religion) o;
+        return faith.equals(religion.faith);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(faith);
+    }
 }

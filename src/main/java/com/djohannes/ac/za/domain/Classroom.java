@@ -1,29 +1,30 @@
 package com.djohannes.ac.za.domain;
+import java.util.Objects;
 
 public class Classroom
 {
-    private int cRoomNo;
+    private String roomNo;
 
     private Classroom()
     {
 
     }
 
-    public int getRoomNo()
+    public String getRoomNo()
     {
-        return cRoomNo;
+        return roomNo;
     }
 
     public Classroom(Builder builder)
     {
-        this.cRoomNo=builder.roomNo;
+        this.roomNo =builder.roomNo;
     }
 
     public static class Builder
     {
-        private int roomNo;
+        private String roomNo;
 
-        public Builder getRoom(int room)
+        public Builder getRoom(String room)
         {
             this.roomNo=room;
             return this;
@@ -33,5 +34,26 @@ public class Classroom
         {
             return new Classroom(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Classroom{" +
+                "roomNo='" + roomNo + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Classroom Classroom = (Classroom) o;
+        return roomNo.equals(Classroom.roomNo);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(roomNo);
     }
 }

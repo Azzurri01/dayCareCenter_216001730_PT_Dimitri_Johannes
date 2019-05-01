@@ -1,31 +1,48 @@
+
 package com.djohannes.ac.za.domain;
+import java.util.Objects;
+import java.util.Set;
 
 public class Parent
 {
-    private String employer;
+    private Name name;
+    private Contact contact;
+    private Set<Student> children;
 
     private Parent()
     {
 
     }
 
-    public String getEmployer() {
-        return employer;
+    public Parent(Builder builder)
+    {
+        this.name=builder.name;
+        this.contact=builder.contact;
     }
 
-     public Parent(Builder build)
-    {
-        this.employer=build.employer;
+    public Name getName() {
+        return name;
+    }
 
+    public Contact getContact() {
+        return contact;
     }
 
     public static class Builder
     {
-        private String employer;
+        private Name name;
+        private Contact contact;
+        private Set<Student> children;
 
-        public Builder getEmployer(String employer)
+        public Builder name(Name name)
         {
-            this.employer=employer;
+            this.name=name;
+            return this;
+        }
+
+        public Builder Contact(Contact contact)
+        {
+            this.contact=contact;
             return this;
         }
 
@@ -33,5 +50,13 @@ public class Parent
         {
             return new Parent(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Parent{" +
+                "Name='" + name + '\'' +
+                "Contact='" + contact + '\'' +
+                '}';
     }
 }

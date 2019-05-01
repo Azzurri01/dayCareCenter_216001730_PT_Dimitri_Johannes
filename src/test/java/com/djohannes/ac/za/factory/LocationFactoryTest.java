@@ -1,7 +1,7 @@
 package com.djohannes.ac.za.factory;
 
-import com.djohannes.ac.za.domain.Location;
-import org.junit.Assert;
+import com.djohannes.ac.za.domain.*;
+import com.djohannes.ac.za.domain.Name;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,8 +11,12 @@ public class LocationFactoryTest {
     @Test
     public void getLocation()
     {
-        Location location = LocationFactory.getLocation(25, "suburb");
-        Assert.assertEquals(25, location.getlID());
-        Assert.assertEquals("suburb", location.getlType());
+        Name name = NameFactory.getName("Heideveld");
+        Population population = PopulationFactory.getTotal(100000);
+        Address address = AddressFactory.getAddress("14", "Sentinel Road");
+        Suburb suburb = SuburbFactory.getSuburb("123", "7764", name, population);
+        City city = CityFactory.getCity("123", name, population);
+        Province province = ProvinceFactory.getProvince("456", name, population);
+        Location location = LocationFactory.getLocation("123", address, suburb, city, province);
     }
 }

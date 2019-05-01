@@ -1,39 +1,67 @@
 package com.djohannes.ac.za.domain;
+import java.util.Objects;
 
 public class Daycare
 {
-    private int dID;
-    private String dName;
+    private String id;
+    private Name name;
+    private Location location;
+    Contact contact;
 
-
-    public int getID() {
-        return dID;
+    public String getID()
+    {
+        return id;
     }
 
-    public String getName() {
-        return dName;
+    public Name getName()
+    {
+        return name;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public Contact getContact() {
+        return contact;
     }
 
     public Daycare(Builder builder)
     {
-        this.dID=builder.bID;
-        this.dName =builder.bName;
+        this.id=builder.id;
+        this.name=builder.name;
+        this.location=builder.location;
+        this.contact=builder.contact;
     }
 
     public static class Builder
     {
-        private int bID;
-        private String bName;
+        private String id;
+        private Name name;
+        private Location location;
+        private Contact contact;
 
-        public Builder getID(int id)
+        public Builder id(String id)
         {
-            this.bID=id;
+            this.id=id;
             return this;
         }
 
-        public Builder getName(String name)
+        public Builder name(Name name)
         {
-            this.bName =name;
+            this.name=name;
+            return this;
+        }
+
+        public Builder location(Location location)
+        {
+            this.location=location;
+            return this;
+        }
+
+        public Builder contact(Contact contact)
+        {
+            this.contact=contact;
             return this;
         }
 
@@ -41,5 +69,30 @@ public class Daycare
         {
             return new Daycare(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Clinic{" +
+                "Name='" + name + '\'' +
+                "ID='" + id + '\'' +
+                "Location='" + location + '\'' +
+                "Contact='" + contact + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Daycare daycare=(Daycare) o;
+        return id.equals(daycare.id);
+    }
+
+    @Override
+    public int hashCode()
+
+    {
+        return Objects.hash(id);
     }
 }

@@ -1,13 +1,14 @@
 package com.djohannes.ac.za.domain;
+import java.util.Objects;
 
 public class Grade
 {
-    private int grade;
+    private String grade;
 
     private Grade()
     {}
 
-    public int getGrade() {
+    public String getGrade() {
         return grade;
     }
 
@@ -18,9 +19,9 @@ public class Grade
 
     public static class Builder
     {
-        private int grade;
+        private String grade;
 
-        public Builder getGrade(int grade)
+        public Builder getGrade(String grade)
         {
             this.grade=grade;
             return this;
@@ -30,5 +31,12 @@ public class Grade
         {
             return new Grade(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Grade{" +
+                "grade='" + grade + '\'' +
+                '}';
     }
 }

@@ -1,39 +1,57 @@
 package com.djohannes.ac.za.domain;
+import java.util.Objects;
+import java.util.Set;
 
 public class City
 {
-    private int cID;
-    private String cName;
+    private String id;
+    private Name name;
+    private Population population;
+    private Set<Suburb> suburbs;
 
-
-    public int getID() {
-        return cID;
-    }
-
-    public String getName() {
-        return cName;
+    public City() {
     }
 
     public City(Builder builder)
     {
-        this.cID=builder.bID;
-        this.cName =builder.bName;
+        this.id=builder.id;
+        this.name =builder.name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public Name getName() {
+        return name;
+    }
+
+    public Population getPopulation() {
+        return population;
     }
 
     public static class Builder
     {
-        private int bID;
-        private String bName;
+        private String id;
+        private Name name;
+        private Population population;
+        private Set<Suburb> suburbs;
 
-        public Builder getID(int id)
+        public Builder id(String id)
         {
-            this.bID=id;
+            this.id=id;
             return this;
         }
 
-        public Builder getName(String name)
+        public Builder name(Name name)
         {
-            this.bName =name;
+            this.name =name;
+            return this;
+        }
+
+        public Builder population(Population total)
+        {
+            this.population=total;
             return this;
         }
 
@@ -41,5 +59,28 @@ public class City
         {
             return new City(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "ID='" + id + '\'' +
+                "Name='" + name + '\'' +
+                "Population='" + population + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        City City = (City) o;
+        return id.equals(City.id);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id);
     }
 }

@@ -1,0 +1,6 @@
+This week's  assignment is about creating repositories for your domain model that you built in Assignment 6. Repositories are classes or components that encapsulate the logic required to access data sources. They centralize common data access functionality, providing better maintainability and decoupling the infrastructure or technology used to access databases from the domain model layer so that in future you can change your storage from flat files , collections to any of the type of databases without breaking your application. For this week you are to do the following 
+
+ Create Test cases for the CRUD operation for ALL your Repositories that are isomorphic (1 to 1) with your Domain Entities. (40 marks )
+Create a Java Generic Interface for Persisting your Entities (20 marks )
+Create Interfaces for each of your Entities or Root Aggregates (20 marks )
+Provide the Implementation for your Interfaces in 3) and ensure that all your Test Cases Pass (20 marks )

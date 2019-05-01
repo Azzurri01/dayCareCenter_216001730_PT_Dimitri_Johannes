@@ -2,39 +2,66 @@ package com.djohannes.ac.za.domain;
 
 public class Suburb
 {
-    private int sID;
-    private String sName;
-    
+    private String id, areaCode;
+    private Name name;
+    private Population population;
 
-    public int getID() {
-        return sID;
-    }
-
-    public String getName()
+    private Suburb()
     {
-        return sName;
+
     }
 
     public Suburb(Builder builder)
     {
-        this.sID=builder.bID;
-        this.sName =builder.bName;
+        this.id=builder.id;
+        this.name=builder.name;
+        this.areaCode=builder.areaCode;
+        this.population=builder.population;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getAreaCode() {
+        return areaCode;
+    }
+
+    public Name getName() {
+        return name;
+    }
+
+    public Population getPopulation() {
+        return population;
     }
 
     public static class Builder
     {
-        private int bID;
-        private String bName;
+        private String id, areaCode;
+        private Name name;
+        private Population population;
 
-        public Builder getID(int id)
+        public Builder id(String id)
         {
-            this.bID=id;
+            this.id=id;
             return this;
         }
 
-        public Builder getName(String name)
+        public Builder code(String code)
         {
-            this.bName =name;
+            this.areaCode=code;
+            return this;
+        }
+
+        public Builder name(Name name)
+        {
+            this.name=name;
+            return this;
+        }
+
+        public Builder population(Population population)
+        {
+            this.population=population;
             return this;
         }
 
@@ -42,5 +69,15 @@ public class Suburb
         {
             return new Suburb(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "ID='" + id +'\'' +
+                "Name='" + name + '\'' +
+                "Postal code='" + areaCode + '\'' +
+                "Population='" + population + '\'' +
+                '}';
     }
 }
