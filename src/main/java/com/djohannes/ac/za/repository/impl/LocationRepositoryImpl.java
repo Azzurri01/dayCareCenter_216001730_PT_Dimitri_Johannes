@@ -15,7 +15,15 @@ public class LocationRepositoryImpl implements LocationRepository {
         this.locations = new HashSet<>();
     }
 
-    public static LocationRepository getRepository(){
+    private Location findLocation(String locationId) {
+        /*return this.locations.stream()
+                .filter(location -> location.getNo().trim().equals(locationId))
+                .findAny()
+                .orElse(null);*/
+        return null;
+    }
+
+    public static LocationRepositoryImpl getRepository(){
         if(repository == null) repository = new LocationRepositoryImpl();
         return repository;
     }
@@ -25,19 +33,26 @@ public class LocationRepositoryImpl implements LocationRepository {
         return location;
     }
 
-    public Location read(String locationId){
+    public Location read(final String locationId){
         //find the student in the set and return it if it exist
-        return null;
+        Location location = findLocation(locationId);
+        return location;
     }
 
     public Location update(Location location) {
         // find the student, update it and return the updated student
+        Location toDelete = findLocation(location.getId());
+        if(toDelete != null) {
+            this.locations.remove(toDelete);
+            return create(location);
+        }
         return null;
     }
 
     public void delete(String locationId) {
         //find the student and delete it if it exists
-
+        Location location = findLocation(locationId);
+        if (location != null) this.locations.remove(location);
     }
 
     public Set<Location> getAll(){

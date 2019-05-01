@@ -1,3 +1,4 @@
+
 package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Activity;
@@ -9,38 +10,53 @@ import java.util.Set;
 public class ActivityRepositoryImpl implements ActivityRepository {
 
     private static ActivityRepositoryImpl repository = null;
-    private Set<Activity> activities;
+    private Set<Activity> activityes;
 
     private ActivityRepositoryImpl() {
-        this.activities = new HashSet<>();
+        this.activityes = new HashSet<>();
     }
 
-    public static ActivityRepository getRepository(){
+    private Activity findActivity(String activityId) {
+        /*return this.activityes.stream()
+                .filter(activity -> activity.getNo().trim().equals(activityId))
+                .findAny()
+                .orElse(null);*/
+        return null;
+    }
+
+    public static ActivityRepositoryImpl getRepository(){
         if(repository == null) repository = new ActivityRepositoryImpl();
         return repository;
     }
 
     public Activity create(Activity activity){
-        this.activities.add(activity);
+        this.activityes.add(activity);
         return activity;
     }
 
-    public Activity read(String activityId){
+    public Activity read(final String activityId){
         //find the student in the set and return it if it exist
-        return null;
+        Activity activity = findActivity(activityId);
+        return activity;
     }
 
     public Activity update(Activity activity) {
         // find the student, update it and return the updated student
+        Activity toDelete = findActivity(activity.getId());
+        if(toDelete != null) {
+            this.activityes.remove(toDelete);
+            return create(activity);
+        }
         return null;
     }
 
     public void delete(String activityId) {
         //find the student and delete it if it exists
-
+        Activity activity = findActivity(activityId);
+        if (activity != null) this.activityes.remove(activity);
     }
 
     public Set<Activity> getAll(){
-        return this.activities;
+        return this.activityes;
     }
 }

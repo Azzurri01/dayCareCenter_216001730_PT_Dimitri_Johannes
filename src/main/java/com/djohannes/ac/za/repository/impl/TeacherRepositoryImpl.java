@@ -15,7 +15,15 @@ public class TeacherRepositoryImpl implements TeacherRepository {
         this.teachers = new HashSet<>();
     }
 
-    public static TeacherRepository getRepository(){
+    private Teacher findTeacher(String teacherId) {
+        /*return this.teachers.stream()
+                .filter(teacher -> teacher.getNo().trim().equals(teacherId))
+                .findAny()
+                .orElse(null);*/
+        return null;
+    }
+
+    public static TeacherRepositoryImpl getRepository(){
         if(repository == null) repository = new TeacherRepositoryImpl();
         return repository;
     }
@@ -25,19 +33,26 @@ public class TeacherRepositoryImpl implements TeacherRepository {
         return teacher;
     }
 
-    public Teacher read(String teacherId){
-        //find the student in the set and return it if it exist
-        return null;
+    public Teacher read(final String teacherId){
+        //find the teacher in the set and return it if it exist
+        Teacher teacher = findTeacher(teacherId);
+        return teacher;
     }
 
     public Teacher update(Teacher teacher) {
-        // find the student, update it and return the updated student
+        // find the teacher, update it and return the updated teacher
+        Teacher toDelete = findTeacher(teacher.getId());
+        if(toDelete != null) {
+            this.teachers.remove(toDelete);
+            return create(teacher);
+        }
         return null;
     }
 
     public void delete(String teacherId) {
-        //find the student and delete it if it exists
-
+        //find the teacher and delete it if it exists
+        Teacher teacher = findTeacher(teacherId);
+        if (teacher != null) this.teachers.remove(teacher);
     }
 
     public Set<Teacher> getAll(){
