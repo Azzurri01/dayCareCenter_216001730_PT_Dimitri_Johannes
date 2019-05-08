@@ -25,7 +25,7 @@ public class Account
         this.balance=builder.balance;
     }
 
-    public String getAccountNo() {
+    public String getId() {
         return id;
     }
 
@@ -69,7 +69,7 @@ public class Account
             return this;
         }
 
-        public Builder accountNo(String id)
+        public Builder id(String id)
         {
             this.id=id;
             return this;

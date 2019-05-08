@@ -16,11 +16,10 @@ public class TeacherRepositoryImpl implements TeacherRepository {
     }
 
     private Teacher findTeacher(String teacherId) {
-        /*return this.teachers.stream()
-                .filter(teacher -> teacher.getNo().trim().equals(teacherId))
+        return this.teachers.stream()
+                .filter(teacher -> teacher.getId().trim().equals(teacherId))
                 .findAny()
-                .orElse(null);*/
-        return null;
+                .orElse(null);
     }
 
     public static TeacherRepositoryImpl getRepository(){
@@ -34,13 +33,13 @@ public class TeacherRepositoryImpl implements TeacherRepository {
     }
 
     public Teacher read(final String teacherId){
-        //find the teacher in the set and return it if it exist
+        //find the student in the set and return it if it exist
         Teacher teacher = findTeacher(teacherId);
         return teacher;
     }
 
     public Teacher update(Teacher teacher) {
-        // find the teacher, update it and return the updated teacher
+        // find the student, update it and return the updated student
         Teacher toDelete = findTeacher(teacher.getId());
         if(toDelete != null) {
             this.teachers.remove(toDelete);
@@ -50,7 +49,7 @@ public class TeacherRepositoryImpl implements TeacherRepository {
     }
 
     public void delete(String teacherId) {
-        //find the teacher and delete it if it exists
+        //find the student and delete it if it exists
         Teacher teacher = findTeacher(teacherId);
         if (teacher != null) this.teachers.remove(teacher);
     }

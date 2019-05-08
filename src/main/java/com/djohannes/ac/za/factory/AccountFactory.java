@@ -10,7 +10,7 @@ public class AccountFactory {
 
     public static Account getAccount(Student student, Parent parent, double fee, double bal) {
         return new Account.Builder()
-                .accountNo(Misc.generateId())
+                .id(Misc.generateId())
                 //.openDate(openDate)
                 .student(student)
                 .parent(parent)

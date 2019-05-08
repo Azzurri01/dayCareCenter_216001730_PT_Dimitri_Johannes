@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Evaluation
 {
+    private String id;
     private int mark;
 
     public Evaluation()
@@ -12,6 +13,7 @@ public class Evaluation
 
     public Evaluation(Builder builder)
     {
+        this.id=builder.id;
         this.mark=builder.mark;
     }
 
@@ -19,9 +21,27 @@ public class Evaluation
         return mark;
     }
 
+    public String getId() {
+        return id;
+    }
+
     public static class Builder
     {
+        private String id;
         private int mark;
+
+        public Builder copy(Evaluation eval)
+        {
+            this.id=eval.id;
+            this.mark=eval.mark;
+            return this;
+        }
+
+        public Builder id(String id)
+        {
+            this.id=id;
+            return this;
+        }
 
         public Builder rating(int mark)
         {
@@ -38,6 +58,7 @@ public class Evaluation
     @Override
     public String toString() {
         return "Evaluation{" +
+                "id='" + id + '\'' +
                 "Rating='" + mark + '\'' +
                 '}';
     }

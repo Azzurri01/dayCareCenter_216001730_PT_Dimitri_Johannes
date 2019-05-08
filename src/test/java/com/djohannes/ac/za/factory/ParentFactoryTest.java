@@ -16,6 +16,7 @@ public class ParentFactoryTest {
         Contact pContact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
 
         Parent parent = ParentFactory.getParent(pName, pContact);
+        Assert.assertNotNull(parent.getId());
         Assert.assertEquals("Dimitri", parent.getName().getFirstName());
         Assert.assertEquals("Johannes", parent.getName().getLastName());
         Assert.assertEquals("0824512653", parent.getContact().getContactNo());

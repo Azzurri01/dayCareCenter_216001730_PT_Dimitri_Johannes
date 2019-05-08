@@ -15,7 +15,14 @@ public class ClassroomRepositoryImpl implements ClassroomRepository {
         this.classrooms = new HashSet<>();
     }
 
-    public static ClassroomRepository getRepository(){
+    private Classroom findClassroom(String classroomId) {
+        return this.classrooms.stream()
+                .filter(classroom -> classroom.getId().trim().equals(classroomId))
+                .findAny()
+                .orElse(null);
+    }
+
+    public static ClassroomRepositoryImpl getRepository(){
         if(repository == null) repository = new ClassroomRepositoryImpl();
         return repository;
     }
@@ -25,19 +32,26 @@ public class ClassroomRepositoryImpl implements ClassroomRepository {
         return classroom;
     }
 
-    public Classroom read(String classroomId){
+    public Classroom read(final String classroomId){
         //find the student in the set and return it if it exist
-        return null;
+        Classroom classroom = findClassroom(classroomId);
+        return classroom;
     }
 
     public Classroom update(Classroom classroom) {
         // find the student, update it and return the updated student
+        Classroom toDelete = findClassroom(classroom.getId());
+        if(toDelete != null) {
+            this.classrooms.remove(toDelete);
+            return create(classroom);
+        }
         return null;
     }
 
     public void delete(String classroomId) {
         //find the student and delete it if it exists
-
+        Classroom classroom = findClassroom(classroomId);
+        if (classroom != null) this.classrooms.remove(classroom);
     }
 
     public Set<Classroom> getAll(){

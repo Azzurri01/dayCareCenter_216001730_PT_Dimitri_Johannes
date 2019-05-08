@@ -15,29 +15,43 @@ public class AllergyRepositoryImpl implements AllergyRepository {
         this.allergies = new HashSet<>();
     }
 
-    public static AllergyRepository getRepository(){
+    private Allergy findAllergy(String allergyId) {
+        return this.allergies.stream()
+                .filter(allergy -> allergy.getId().trim().equals(allergyId))
+                .findAny()
+                .orElse(null);
+    }
+
+    public static AllergyRepositoryImpl getRepository(){
         if(repository == null) repository = new AllergyRepositoryImpl();
         return repository;
     }
 
-    public Allergy create(Allergy allergy ){
+    public Allergy create(Allergy allergy){
         this.allergies.add(allergy);
         return allergy;
     }
 
-    public Allergy read(String activityId){
+    public Allergy read(final String allergyId){
         //find the student in the set and return it if it exist
-        return null;
+        Allergy allergy = findAllergy(allergyId);
+        return allergy;
     }
 
     public Allergy update(Allergy allergy) {
         // find the student, update it and return the updated student
+        Allergy toDelete = findAllergy(allergy.getId());
+        if(toDelete != null) {
+            this.allergies.remove(toDelete);
+            return create(allergy);
+        }
         return null;
     }
 
     public void delete(String allergyId) {
         //find the student and delete it if it exists
-
+        Allergy allergy = findAllergy(allergyId);
+        if (allergy != null) this.allergies.remove(allergy);
     }
 
     public Set<Allergy> getAll(){

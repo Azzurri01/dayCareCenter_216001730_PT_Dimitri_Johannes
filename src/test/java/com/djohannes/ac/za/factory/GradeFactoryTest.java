@@ -12,6 +12,8 @@ public class GradeFactoryTest {
     public void getGrade()
     {
         Grade grade = GradeFactory.getGrade("R");
+        Assert.assertNotNull(grade.getId());
+        Assert.assertNotNull(grade.getId());
         Assert.assertEquals("R", grade.getGrade());
     }
 }

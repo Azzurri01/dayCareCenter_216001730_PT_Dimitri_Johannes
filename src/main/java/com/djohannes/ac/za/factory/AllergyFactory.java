@@ -4,11 +4,11 @@ import com.djohannes.ac.za.util.Misc;
 
 public class AllergyFactory
 {
-    public static Allergy getAllergy(String name, String code)
+    public static Allergy getAllergy(String name)
     {
         return new Allergy.Builder()
-                .getName(name)
-                .getCode(code)
+                .id(Misc.generateId())
+                .name(name)
                 .build();
     }
 }

@@ -14,6 +14,7 @@ public class DrawingFactoryTest {
     {
         Evaluation evaluation = EvaluationFactory.getEvaluation(5);
         Drawing drawing = DrawingFactory.getDrawing("circle",evaluation);
+        Assert.assertNotNull(drawing.getId());
         Assert.assertEquals(5, evaluation.getRating());
         Assert.assertEquals("circle", drawing.getShapes());
     }

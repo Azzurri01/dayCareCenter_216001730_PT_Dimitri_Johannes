@@ -2,7 +2,7 @@ package com.djohannes.ac.za.domain;
 
 public class Drawing
 {
-    private String shape;
+    private String id, shape;
     private Evaluation evaluation;
 
     public Drawing() {
@@ -10,8 +10,13 @@ public class Drawing
 
     public Drawing(Builder builder)
     {
+        this.id=builder.id;
         this.shape=builder.shape;
         this.evaluation=builder.evaluation;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getShapes() {
@@ -24,8 +29,22 @@ public class Drawing
 
     public static class Builder
     {
-        private String shape;
+        private String id, shape;
         private Evaluation evaluation;
+
+        public Builder copy(Drawing drawing)
+        {
+            this.id=drawing.id;
+            this.shape=drawing.shape;
+            this.evaluation=drawing.evaluation;
+            return this;
+        }
+
+        public Builder id(String id)
+        {
+            this.id=id;
+            return this;
+        }
 
         public Builder drawing(String shape)
         {
@@ -48,6 +67,7 @@ public class Drawing
     @Override
     public String toString() {
         return "Drawing{" +
+                "id='" + id + '\'' +
                 "shapes='" + shape + '\'' +
                 ", Evaluation='" + evaluation + '\'' +
                 '}';

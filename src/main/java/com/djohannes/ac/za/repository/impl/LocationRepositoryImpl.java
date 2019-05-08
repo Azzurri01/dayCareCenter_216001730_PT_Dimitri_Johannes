@@ -16,11 +16,10 @@ public class LocationRepositoryImpl implements LocationRepository {
     }
 
     private Location findLocation(String locationId) {
-        /*return this.locations.stream()
-                .filter(location -> location.getNo().trim().equals(locationId))
+        return this.locations.stream()
+                .filter(location -> location.getId().trim().equals(locationId))
                 .findAny()
-                .orElse(null);*/
-        return null;
+                .orElse(null);
     }
 
     public static LocationRepositoryImpl getRepository(){

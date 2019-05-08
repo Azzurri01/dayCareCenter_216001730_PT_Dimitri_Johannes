@@ -2,7 +2,7 @@ package com.djohannes.ac.za.domain;
 
 public class Playtime
 {
-    private String behaviour;
+    private String id, behaviour;
     private Evaluation evaluation;
 
     public Playtime() {
@@ -10,8 +10,13 @@ public class Playtime
 
     public Playtime(Builder builder)
     {
+        this.id=builder.id;
         this.behaviour =builder.behaviour;
         this.evaluation=builder.evaluation;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getBehaviour() {
@@ -24,8 +29,22 @@ public class Playtime
 
     public static class Builder
     {
-        private String behaviour;
+        private String id, behaviour;
         private Evaluation evaluation;
+
+        public Builder copy(Playtime playtime)
+        {
+            this.id=playtime.id;
+            this.behaviour=playtime.behaviour;
+            this.evaluation=playtime.evaluation;
+            return this;
+        }
+
+        public Builder id(String id)
+        {
+            this.id=id;
+            return this;
+        }
 
         public Builder social(String behaviour)
         {
@@ -48,6 +67,7 @@ public class Playtime
     @Override
     public String toString() {
         return "Playtime{" +
+                "id='" + id + '\'' +
                 "Behaviour='" + behaviour + '\'' +
                 ", Evaluation='" + evaluation + '\'' +
                 '}';

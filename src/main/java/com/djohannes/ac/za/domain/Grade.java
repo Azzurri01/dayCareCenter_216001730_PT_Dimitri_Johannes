@@ -3,10 +3,14 @@ import java.util.Objects;
 
 public class Grade
 {
-    private String grade;
+    private String id, grade;
 
     private Grade()
     {}
+
+    public String getId() {
+        return id;
+    }
 
     public String getGrade() {
         return grade;
@@ -14,12 +18,26 @@ public class Grade
 
     public Grade(Builder builder)
     {
+        this.id=builder.id;
         this.grade=builder.grade;
     }
 
     public static class Builder
     {
-        private String grade;
+        private String id, grade;
+
+        public Builder copy(Grade grade)
+        {
+            this.id=grade.id;
+            this.grade=grade.grade;
+            return this;
+        }
+
+        public Builder id(String id)
+        {
+            this.id=id;
+            return this;
+        }
 
         public Builder getGrade(String grade)
         {
@@ -36,6 +54,7 @@ public class Grade
     @Override
     public String toString() {
         return "Grade{" +
+                "id='" + id + '\'' +
                 "grade='" + grade + '\'' +
                 '}';
     }

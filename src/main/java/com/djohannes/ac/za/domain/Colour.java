@@ -2,7 +2,7 @@ package com.djohannes.ac.za.domain;
 
 public class Colour
 {
-    private String colour;
+    private String id, colour;
     private Evaluation evaluation;
 
     public Colour() {
@@ -10,8 +10,13 @@ public class Colour
 
     public Colour(Builder builder)
     {
+        this.id=builder.id;
         this.colour =builder.colour;
         this.evaluation=builder.evaluation;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getColour() {
@@ -24,12 +29,26 @@ public class Colour
 
     public static class Builder
     {
-        private String colour;
+        private String id, colour;
         private Evaluation evaluation;
+
+        public Builder copy(Colour col)
+        {
+            this.id=col.id;
+            this.colour=col.colour;
+            this.evaluation=col.evaluation;
+            return this;
+        }
 
         public Builder colour(String colour)
         {
             this.colour=colour;
+            return this;
+        }
+
+        public Builder id(String id)
+        {
+            this.id=id;
             return this;
         }
 

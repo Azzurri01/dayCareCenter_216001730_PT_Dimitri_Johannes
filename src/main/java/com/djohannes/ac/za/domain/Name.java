@@ -1,7 +1,7 @@
 package com.djohannes.ac.za.domain;
 
 public class Name {
-    private String fName, lName, name;
+    private String id, fName, lName, name;
 
     private Name()
     {
@@ -9,9 +9,14 @@ public class Name {
 
     public Name(Builder builder)
     {
+        this.id=builder.id;
         this.fName = builder.fName;
         this.lName=builder.lName;
         this.name=builder.name;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getFirstName() {
@@ -27,7 +32,21 @@ public class Name {
     }
 
     public static class Builder {
-        private String fName, lName, name;
+        private String id, fName, lName, name;
+
+        public Builder copy(Name name)
+        {
+            this.id=name.id;
+            this.fName=name.fName;
+            this.lName=name.lName;
+            this.name=name.name;
+            return this;
+        }
+
+        public Builder id(String id) {
+            this.id=id;
+            return this;
+        }
 
         public Builder name(String name) {
             this.fName = name;
@@ -54,6 +73,7 @@ public class Name {
     @Override
     public String toString() {
         return "Name{" +
+                "ide='" + id + '\'' +
                 "First name='" + fName + '\'' +
                 "Last name='" + lName + '\'' +
                 "Name='" + name + '\'' +

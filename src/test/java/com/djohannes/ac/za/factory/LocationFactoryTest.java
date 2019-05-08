@@ -2,6 +2,7 @@ package com.djohannes.ac.za.factory;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.domain.Name;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -17,6 +18,8 @@ public class LocationFactoryTest {
         Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
         City city = CityFactory.getCity(name, population);
         Province province = ProvinceFactory.getProvince("456", name, population);
-        Location location = LocationFactory.getLocation("123", address, suburb, city, province);
+        Location location = LocationFactory.getLocation(address, suburb, city, province);
+
+        Assert.assertNotNull(location.getId());
     }
 }

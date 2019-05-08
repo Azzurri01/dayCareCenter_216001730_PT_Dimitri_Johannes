@@ -16,7 +16,8 @@ public class TeacherFactoryTest {
         Name tName = NameFactory.getName("Fowzia", "Johannes");
         Contact tContact = ContactFactory.getContact("0835133305", "fowzia.johannes@gmail.com");
 
-        Teacher teacher = TeacherFactory.getTeacher("123", tName, tContact);
+        Teacher teacher = TeacherFactory.getTeacher(tName, tContact);
+        Assert.assertNotNull(teacher.getId());
         Assert.assertEquals("123", teacher.getId());
         Assert.assertEquals("Fowzia", teacher.getName().getFirstName());
         Assert.assertEquals("Johannes", teacher.getName().getLastName());
