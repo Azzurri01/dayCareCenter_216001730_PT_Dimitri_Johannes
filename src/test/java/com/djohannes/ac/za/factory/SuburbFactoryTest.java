@@ -15,7 +15,7 @@ public class SuburbFactoryTest {
     {
         Name name = NameFactory.getName("Heideveld");
         Population population = PopulationFactory.getTotal(100000);
-        Suburb suburb = SuburbFactory.getSuburb("12345", "7764", name, population);
+        Suburb suburb = SuburbFactory.getSuburb( "7764", name, population);
         Assert.assertEquals("12345", suburb.getId());
         Assert.assertEquals("7764", suburb.getAreaCode());
         Assert.assertEquals("Heideveld", name.getname());

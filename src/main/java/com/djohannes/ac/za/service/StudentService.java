@@ -2,7 +2,9 @@ package com.djohannes.ac.za.service;
 
 import com.djohannes.ac.za.domain.Student;
 
-public interface StudentService {
+import java.util.Set;
 
-    Student create(Student student);
+public interface StudentService extends IService<Student, String> {
+
+    Set<Student> getAll();
 }

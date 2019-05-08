@@ -14,8 +14,8 @@ public class LocationFactoryTest {
         Name name = NameFactory.getName("Heideveld");
         Population population = PopulationFactory.getTotal(100000);
         Address address = AddressFactory.getAddress("14", "Sentinel Road");
-        Suburb suburb = SuburbFactory.getSuburb("123", "7764", name, population);
-        City city = CityFactory.getCity("123", name, population);
+        Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
+        City city = CityFactory.getCity(name, population);
         Province province = ProvinceFactory.getProvince("456", name, population);
         Location location = LocationFactory.getLocation("123", address, suburb, city, province);
     }

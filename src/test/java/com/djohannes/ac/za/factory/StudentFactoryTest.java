@@ -23,8 +23,8 @@ public class StudentFactoryTest {
         Contact pContact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
         Parent parent = ParentFactory.getParent(pName, pContact);
 
-        Student student = StudentFactory.getStudent("123", sName, grade, "male", 5, address, parent);
-        Assert.assertEquals("123", student.getId());
+        Student student = StudentFactory.getStudent(sName, grade, "male", 5, address, parent);
+        Assert.assertNotNull(student.getId());
         Assert.assertEquals("Naqeeb", student.getName().getFirstName());
         Assert.assertEquals("Johannes", student.getName().getLastName());
         Assert.assertEquals("R", student.getGrade().getGrade());

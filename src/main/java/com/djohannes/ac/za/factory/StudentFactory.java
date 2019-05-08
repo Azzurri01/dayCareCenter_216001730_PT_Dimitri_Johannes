@@ -10,8 +10,9 @@ import com.djohannes.ac.za.util.Misc;
 public class StudentFactory {
 
 
-    public static Student getStudent(String id, Name name, Grade grade, String gender, int age, Address address, Parent parent) {
-        return new Student.Builder().id(id)
+    public static Student getStudent(Name name, Grade grade, String gender, int age, Address address, Parent parent) {
+        return new Student.Builder()
+                .id(Misc.generateId())
                 .name(name)
                 .grade(grade)
                 .gender(gender)

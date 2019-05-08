@@ -1,15 +1,20 @@
 package com.djohannes.ac.za.domain;
 
 public class Contact {
-    private String telefone, email;
+    private String id,telefone, email;
 
     private Contact()
     {}
 
     private Contact(Builder builder)
     {
+        this.id=builder.id;
         this.telefone=builder.telefone;
         this.email=builder.email;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getContactNo() {
@@ -22,7 +27,13 @@ public class Contact {
 
     public static class Builder
     {
-        private String telefone, email;
+        private String id, telefone, email;
+
+        public Builder id(String id)
+        {
+            this.id=id;
+            return this;
+        }
 
         public Builder contactNo(String telefone)
         {
@@ -33,6 +44,14 @@ public class Contact {
         public Builder email(String email)
         {
             this.email=email;
+            return this;
+        }
+
+        public Builder copy(Contact contact)
+        {
+            this.id=contact.id;
+            this.telefone=contact.telefone;
+            this.email=contact.email;
             return this;
         }
 

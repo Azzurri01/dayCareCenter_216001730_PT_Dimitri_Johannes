@@ -16,11 +16,10 @@ public class AddressRepositoryImpl implements AddressRepository {
     }
 
     private Address findAddress(String addressId) {
-        /*return this.addresses.stream()
+        return this.addresses.stream()
                 .filter(address -> address.getNo().trim().equals(addressId))
                 .findAny()
-                .orElse(null);*/
-        return null;
+                .orElse(null);
     }
 
     public static AddressRepositoryImpl getRepository(){
@@ -41,7 +40,7 @@ public class AddressRepositoryImpl implements AddressRepository {
 
     public Address update(Address address) {
         // find the student, update it and return the updated student
-        Address toDelete = findAddress(address.getNo());
+        Address toDelete = findAddress(address.getId());
         if(toDelete != null) {
             this.addresses.remove(toDelete);
             return create(address);
