@@ -17,7 +17,7 @@ public class LocationFactoryTest {
         Address address = AddressFactory.getAddress("14", "Sentinel Road");
         Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
         City city = CityFactory.getCity(name, population);
-        Province province = ProvinceFactory.getProvince("456", name, population);
+        Province province = ProvinceFactory.getProvince(name, population);
         Location location = LocationFactory.getLocation(address, suburb, city, province);
 
         Assert.assertNotNull(location.getId());

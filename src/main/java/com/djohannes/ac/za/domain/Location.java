@@ -18,6 +18,11 @@ public class Location
 
     public Location(Builder builder)
     {
+        this.id=builder.id;
+        this.address=builder.address;
+        this.suburb=builder.suburb;
+        this.city=builder.city;
+        this.province=builder.province;
     }
 
     public String getId() {
@@ -48,6 +53,16 @@ public class Location
         private City city;
         private Province province;
         private Set<Daycare> daycares;
+
+        public Builder copy(Location location)
+        {
+            this.id=location.id;
+            this.address=location.address;
+            this.suburb=location.suburb;
+            this.city=location.city;
+            this.province=location.province;
+            return this;
+        }
 
         public Builder id(String id)
         {

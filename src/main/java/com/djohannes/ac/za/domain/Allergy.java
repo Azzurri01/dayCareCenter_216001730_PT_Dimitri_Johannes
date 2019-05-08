@@ -30,6 +30,13 @@ public class Allergy
     {
         private String name, id;
 
+        public Builder copy(Allergy allergy)
+        {
+            this.id=allergy.id;
+            this.name=allergy.name;
+            return this;
+        }
+
         public Builder name(String name)
         {
             this.name=name;

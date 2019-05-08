@@ -22,7 +22,7 @@ public class AccountFactoryTest {
         Student student = StudentFactory.getStudent(sName, grade, "male", 5, address, parent);
 
         Account account = AccountFactory.getAccount(student, parent, 200.0, 0.0);
-        Assert.assertNotNull(account.getAccountNo());
+        Assert.assertNotNull(account.getId());
         Assert.assertEquals("Naqeeb", account.getStudent().getName().getFirstName());
         Assert.assertEquals("Dimitri", account.getParent().getName().getFirstName());
     }
