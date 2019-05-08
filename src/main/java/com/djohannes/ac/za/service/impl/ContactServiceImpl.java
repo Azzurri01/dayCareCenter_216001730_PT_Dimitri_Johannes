@@ -7,9 +7,9 @@ import com.djohannes.ac.za.service.ContactService;
 
 import java.util.Set;
 
-//import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Service;
 
-//@Service
+@Service
 public class ContactServiceImpl implements ContactService {
 
     private static ContactServiceImpl service = null;

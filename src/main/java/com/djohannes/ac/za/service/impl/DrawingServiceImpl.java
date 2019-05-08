@@ -10,17 +10,17 @@ import java.util.Set;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CityServiceImpl implements CityService {
+public class DrawingServiceImpl implements CityService {
 
-    private static CityServiceImpl service = null;
+    private static DrawingServiceImpl service = null;
     private CityRepository repository;
 
-    private CityServiceImpl() {
+    private DrawingServiceImpl() {
         this.repository = CityRepositoryImpl.getRepository();
     }
 
-    public static CityServiceImpl getService(){
-        if (service == null) service = new CityServiceImpl();
+    public static DrawingServiceImpl getService(){
+        if (service == null) service = new DrawingServiceImpl();
         return service;
     }
 

@@ -4,12 +4,11 @@ import com.djohannes.ac.za.domain.Student;
 import com.djohannes.ac.za.repository.StudentRepository;
 import com.djohannes.ac.za.repository.impl.StudentRepositoryImpl;
 import com.djohannes.ac.za.service.StudentService;
-//import org.springframework.stereotype.Service;
-
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-//@Service
+@Service
 public class StudentServiceImpl implements StudentService {
 
     private static StudentServiceImpl service = null;

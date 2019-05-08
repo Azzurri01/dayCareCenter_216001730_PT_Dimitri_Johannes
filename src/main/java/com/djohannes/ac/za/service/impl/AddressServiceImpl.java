@@ -7,9 +7,9 @@ import com.djohannes.ac.za.service.AddressService;
 
 import java.util.Set;
 
-//import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Service;
 
-//@Service
+@Service
 public class AddressServiceImpl implements AddressService {
 
     private static AddressServiceImpl service = null;
