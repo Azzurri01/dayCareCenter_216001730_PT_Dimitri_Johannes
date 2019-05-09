@@ -2,6 +2,7 @@ package com.djohannes.ac.za.domain;
 
 public class Counting
 {
+    private String id;
     private int number;
     private Evaluation evaluation;
 
@@ -10,8 +11,13 @@ public class Counting
 
     public Counting(Builder builder)
     {
+        this.id=builder.id;
         this.number =builder.number;
         this.evaluation=builder.evaluation;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public int getNumber() {
@@ -24,8 +30,23 @@ public class Counting
 
     public static class Builder
     {
+        private String id;
         private int number;
         private Evaluation evaluation;
+
+        public Builder copy(Counting counting)
+        {
+            this.id=counting.id;
+            this.number=counting.number;
+            this.evaluation=counting.evaluation;
+            return this;
+        }
+
+        public Builder id(String id)
+        {
+            this.id=id;
+            return this;
+        }
 
         public Builder number(int number)
         {
@@ -48,6 +69,7 @@ public class Counting
     @Override
     public String toString() {
         return "Counting{" +
+                "Number='" + id + '\'' +
                 "Number='" + number + '\'' +
                 ", Evaluation='" + evaluation + '\'' +
                 '}';

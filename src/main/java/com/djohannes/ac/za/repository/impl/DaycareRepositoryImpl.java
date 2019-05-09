@@ -16,11 +16,10 @@ public class DaycareRepositoryImpl implements DaycareRepository {
     }
 
     private Daycare findDaycare(String daycareId) {
-        /*return this.daycares.stream()
-                .filter(daycare -> daycare.getNo().trim().equals(daycareId))
+        return this.daycares.stream()
+                .filter(daycare -> daycare.getId().trim().equals(daycareId))
                 .findAny()
-                .orElse(null);*/
-        return null;
+                .orElse(null);
     }
 
     public static DaycareRepositoryImpl getRepository(){
@@ -41,7 +40,7 @@ public class DaycareRepositoryImpl implements DaycareRepository {
 
     public Daycare update(Daycare daycare) {
         // find the student, update it and return the updated student
-        Daycare toDelete = findDaycare(daycare.getID());
+        Daycare toDelete = findDaycare(daycare.getId());
         if(toDelete != null) {
             this.daycares.remove(toDelete);
             return create(daycare);

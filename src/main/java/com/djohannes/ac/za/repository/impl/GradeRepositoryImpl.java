@@ -16,11 +16,10 @@ public class GradeRepositoryImpl implements GradeRepository {
     }
 
     private Grade findGrade(String gradeId) {
-        /*return this.grades.stream()
-                .filter(grade -> grade.getNo().trim().equals(gradeId))
+        return this.grades.stream()
+                .filter(grade -> grade.getId().trim().equals(gradeId))
                 .findAny()
-                .orElse(null);*/
-        return null;
+                .orElse(null);
     }
 
     public static GradeRepositoryImpl getRepository(){
@@ -41,7 +40,7 @@ public class GradeRepositoryImpl implements GradeRepository {
 
     public Grade update(Grade grade) {
         // find the student, update it and return the updated student
-        Grade toDelete = findGrade(grade.getGrade());
+        Grade toDelete = findGrade(grade.getId());
         if(toDelete != null) {
             this.grades.remove(toDelete);
             return create(grade);

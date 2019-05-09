@@ -16,6 +16,7 @@ public class City
     {
         this.id=builder.id;
         this.name =builder.name;
+        this.population=builder.population;
     }
 
     public String getId() {
@@ -52,6 +53,14 @@ public class City
         public Builder population(Population total)
         {
             this.population=total;
+            return this;
+        }
+
+        public Builder copy(City city)
+        {
+            this.id=city.id;
+            this.name =city.name;
+            this.population=city.population;
             return this;
         }
 

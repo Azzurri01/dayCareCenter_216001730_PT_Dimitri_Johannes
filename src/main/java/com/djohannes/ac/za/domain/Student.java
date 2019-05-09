@@ -67,6 +67,18 @@ public class Student{
         private Parent parent;
         private Set<Allergy> allergies;
 
+        public Builder copy(Student student)
+        {
+            this.studentId = student.studentId;
+            this.name = student.name;
+            this.grade = student.grade;
+            this.age = student.age;
+            this.gender = student.gender;
+            this.address = student.address;
+            this.parent = student.parent;
+            return this;
+        }
+
         public Builder id(String studentId) {
             this.studentId = studentId;
             return this;

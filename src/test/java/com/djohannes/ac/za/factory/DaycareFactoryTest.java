@@ -4,14 +4,12 @@ import com.djohannes.ac.za.domain.Name;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class DaycareFactoryTest {
 
     @Test
     public void getName()
     {
-        Name name = NameFactory.getName("Little rascals");
+        Name name = NameFactory.schoolName("Little rascals");
         Assert.assertEquals("Little rascals", name.getname());
     }
 }

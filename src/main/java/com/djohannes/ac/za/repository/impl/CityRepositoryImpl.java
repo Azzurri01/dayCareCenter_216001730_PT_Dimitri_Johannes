@@ -16,11 +16,10 @@ public class CityRepositoryImpl implements CityRepository {
     }
 
     private City findCity(String cityId) {
-        /*return this.cities.stream()
-                .filter(city -> city.getNo().trim().equals(cityId))
+        return this.cities.stream()
+                .filter(city -> city.getId().trim().equals(cityId))
                 .findAny()
-                .orElse(null);*/
-        return null;
+                .orElse(null);
     }
 
     public static CityRepositoryImpl getRepository(){

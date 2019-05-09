@@ -14,7 +14,7 @@ public class CountingFactoryTest {
     {
         Evaluation evaluation = EvaluationFactory.getEvaluation(5);
         Counting counting = CountingFactory.getCounting(5,evaluation);
-        Assert.assertEquals(5, evaluation.getRating());
+        Assert.assertEquals(evaluation.getRating(), counting.getEvaluation().getRating());
         Assert.assertEquals(5, counting.getNumber());
     }
 }

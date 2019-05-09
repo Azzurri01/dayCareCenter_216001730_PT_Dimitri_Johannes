@@ -15,12 +15,11 @@ public class AlphabetRepositoryImpl implements AlphabetRepository {
         this.letters = new HashSet<>();
     }
 
-    private Alphabet findAlphabet(String letterId) {
-        /*return this.letters.stream()
-                .filter(letter -> letter.getNo().trim().equals(letterId))
+    private Alphabet findAlphabet(String alphabetId) {
+        return this.letters.stream()
+                .filter(alphabet -> alphabet.getId().trim().equals(alphabetId))
                 .findAny()
-                .orElse(null);*/
-        return null;
+                .orElse(null);
     }
 
     public static AlphabetRepositoryImpl getRepository(){
@@ -28,31 +27,31 @@ public class AlphabetRepositoryImpl implements AlphabetRepository {
         return repository;
     }
 
-    public Alphabet create(Alphabet letter){
-        this.letters.add(letter);
-        return letter;
+    public Alphabet create(Alphabet alphabet){
+        this.letters.add(alphabet);
+        return alphabet;
     }
 
-    public Alphabet read(final String letterId){
+    public Alphabet read(final String alphabetId){
         //find the student in the set and return it if it exist
-        Alphabet letter = findAlphabet(letterId);
-        return letter;
+        Alphabet alphabet = findAlphabet(alphabetId);
+        return alphabet;
     }
 
-    public Alphabet update(Alphabet letter) {
+    public Alphabet update(Alphabet alphabet) {
         // find the student, update it and return the updated student
-        Alphabet toDelete = findAlphabet(letter.getLetter());
+        Alphabet toDelete = findAlphabet(alphabet.getId());
         if(toDelete != null) {
             this.letters.remove(toDelete);
-            return create(letter);
+            return create(alphabet);
         }
         return null;
     }
 
-    public void delete(String letterId) {
+    public void delete(String alphabetId) {
         //find the student and delete it if it exists
-        Alphabet letter = findAlphabet(letterId);
-        if (letter != null) this.letters.remove(letter);
+        Alphabet alphabet = findAlphabet(alphabetId);
+        if (alphabet != null) this.letters.remove(alphabet);
     }
 
     public Set<Alphabet> getAll(){

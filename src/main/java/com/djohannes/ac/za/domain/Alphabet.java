@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Alphabet
 {
-    private String letter;
+    private String id, letter;
     private Evaluation evaluation;
 
     public Alphabet() {
@@ -12,8 +12,13 @@ public class Alphabet
 
     public Alphabet(Builder builder)
     {
+        this.id=builder.id;
         this.letter=builder.letter;
         this.evaluation=builder.evaluation;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getLetter() {
@@ -26,8 +31,22 @@ public class Alphabet
 
     public static class Builder
     {
-        private String letter;
+        private String id, letter;
         private Evaluation evaluation;
+
+        public Builder copy(Alphabet alphabet)
+        {
+            this.id=alphabet.id;
+            this.letter=alphabet.letter;
+            this.evaluation=alphabet.evaluation;
+            return this;
+        }
+
+        public Builder id(String id)
+        {
+            this.id=id;
+            return this;
+        }
 
         public Builder letter(String letter)
         {
@@ -50,6 +69,7 @@ public class Alphabet
     @Override
     public String toString() {
         return "Alphabet{" +
+                "id='" + id + '\'' +
                 "Letter='" + letter + '\'' +
                 ", Evaluation='" + evaluation + '\'' +
                 '}';

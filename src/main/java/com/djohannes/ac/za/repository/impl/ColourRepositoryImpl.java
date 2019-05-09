@@ -9,18 +9,17 @@ import java.util.Set;
 public class ColourRepositoryImpl implements ColourRepository {
 
     private static ColourRepositoryImpl repository = null;
-    private Set<Colour> colours;
+    private Set<Colour> numbers;
 
     private ColourRepositoryImpl() {
-        this.colours = new HashSet<>();
+        this.numbers = new HashSet<>();
     }
 
     private Colour findColour(String colourId) {
-        /*return this.colours.stream()
-                .filter(colour -> colour.getNo().trim().equals(colourId))
+        return this.numbers.stream()
+                .filter(colour -> colour.getId().trim().equals(colourId))
                 .findAny()
-                .orElse(null);*/
-        return null;
+                .orElse(null);
     }
 
     public static ColourRepositoryImpl getRepository(){
@@ -29,7 +28,7 @@ public class ColourRepositoryImpl implements ColourRepository {
     }
 
     public Colour create(Colour colour){
-        this.colours.add(colour);
+        this.numbers.add(colour);
         return colour;
     }
 
@@ -41,9 +40,9 @@ public class ColourRepositoryImpl implements ColourRepository {
 
     public Colour update(Colour colour) {
         // find the student, update it and return the updated student
-        Colour toDelete = findColour(colour.getColour());
+        Colour toDelete = findColour(colour.getId());
         if(toDelete != null) {
-            this.colours.remove(toDelete);
+            this.numbers.remove(toDelete);
             return create(colour);
         }
         return null;
@@ -52,10 +51,10 @@ public class ColourRepositoryImpl implements ColourRepository {
     public void delete(String colourId) {
         //find the student and delete it if it exists
         Colour colour = findColour(colourId);
-        if (colour != null) this.colours.remove(colour);
+        if (colour != null) this.numbers.remove(colour);
     }
 
     public Set<Colour> getAll(){
-        return this.colours;
+        return this.numbers;
     }
 }

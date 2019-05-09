@@ -8,7 +8,7 @@ public class Daycare
     private Location location;
     Contact contact;
 
-    public String getID()
+    public String getId()
     {
         return id;
     }
@@ -41,10 +41,23 @@ public class Daycare
         private Location location;
         private Contact contact;
 
+        public Builder copy(Daycare daycare)
+        {
+            this.id=daycare.id;
+            this.name=daycare.name;
+            this.location=daycare.location;
+            this.contact=daycare.contact;
+            return this;
+        }
+
         public Builder id(String id)
         {
             this.id=id;
             return this;
+        }
+
+        public String getId() {
+            return id;
         }
 
         public Builder name(Name name)
@@ -73,7 +86,7 @@ public class Daycare
 
     @Override
     public String toString() {
-        return "Clinic{" +
+        return "Daycare{" +
                 "Name='" + name + '\'' +
                 "ID='" + id + '\'' +
                 "Location='" + location + '\'' +

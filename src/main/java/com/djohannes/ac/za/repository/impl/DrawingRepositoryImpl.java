@@ -9,18 +9,17 @@ import java.util.Set;
 public class DrawingRepositoryImpl implements DrawingRepository {
 
     private static DrawingRepositoryImpl repository = null;
-    private Set<Drawing> shapes;
+    private Set<Drawing> drawings;
 
     private DrawingRepositoryImpl() {
-        this.shapes = new HashSet<>();
+        this.drawings = new HashSet<>();
     }
 
-    private Drawing findDrawing(String shapeId) {
-        /*return this.shapes.stream()
-                .filter(shape -> shape.getNo().trim().equals(shapeId))
+    private Drawing findDrawing(String drawingId) {
+        return this.drawings.stream()
+                .filter(drawing -> drawing.getId().trim().equals(drawingId))
                 .findAny()
-                .orElse(null);*/
-        return null;
+                .orElse(null);
     }
 
     public static DrawingRepositoryImpl getRepository(){
@@ -28,34 +27,34 @@ public class DrawingRepositoryImpl implements DrawingRepository {
         return repository;
     }
 
-    public Drawing create(Drawing shape){
-        this.shapes.add(shape);
-        return shape;
+    public Drawing create(Drawing drawing){
+        this.drawings.add(drawing);
+        return drawing;
     }
 
-    public Drawing read(final String shapeId){
+    public Drawing read(final String drawingId){
         //find the student in the set and return it if it exist
-        Drawing shape = findDrawing(shapeId);
-        return shape;
+        Drawing drawing = findDrawing(drawingId);
+        return drawing;
     }
 
-    public Drawing update(Drawing shape) {
+    public Drawing update(Drawing drawing) {
         // find the student, update it and return the updated student
-        Drawing toDelete = findDrawing(shape.getShapes());
+        Drawing toDelete = findDrawing(drawing.getId());
         if(toDelete != null) {
-            this.shapes.remove(toDelete);
-            return create(shape);
+            this.drawings.remove(toDelete);
+            return create(drawing);
         }
         return null;
     }
 
-    public void delete(String shapeId) {
+    public void delete(String drawingId) {
         //find the student and delete it if it exists
-        Drawing shape = findDrawing(shapeId);
-        if (shape != null) this.shapes.remove(shape);
+        Drawing drawing = findDrawing(drawingId);
+        if (drawing != null) this.drawings.remove(drawing);
     }
 
     public Set<Drawing> getAll(){
-        return this.shapes;
+        return this.drawings;
     }
 }

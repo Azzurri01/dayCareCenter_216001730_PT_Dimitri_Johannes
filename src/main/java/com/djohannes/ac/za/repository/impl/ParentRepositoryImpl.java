@@ -16,11 +16,10 @@ public class ParentRepositoryImpl implements ParentRepository {
     }
 
     private Parent findParent(String parentId) {
-        /*return this.parents.stream()
-                .filter(parent -> parent.getNo().trim().equals(parentId))
+        return this.parents.stream()
+                .filter(parent -> parent.getId().trim().equals(parentId))
                 .findAny()
-                .orElse(null);*/
-        return null;
+                .orElse(null);
     }
 
     public static ParentRepositoryImpl getRepository(){
@@ -41,7 +40,7 @@ public class ParentRepositoryImpl implements ParentRepository {
 
     public Parent update(Parent parent) {
         // find the student, update it and return the updated student
-        Parent toDelete = findParent(parent.getName().getFirstName());
+        Parent toDelete = findParent(parent.getId());
         if(toDelete != null) {
             this.parents.remove(toDelete);
             return create(parent);

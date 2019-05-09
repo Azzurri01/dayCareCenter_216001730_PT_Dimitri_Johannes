@@ -38,6 +38,14 @@ public class Province
         private Population population;
         private Set<City> cities;
 
+        public Builder copy(Province province)
+        {
+            this.id=province.id;
+            this.name=province.name;
+            this.population=province.population;
+            return this;
+        }
+
         public Builder id(String id)
         {
             this.id=id;

@@ -16,11 +16,10 @@ public class ContactRepositoryImpl implements ContactRepository {
     }
 
     private Contact findContact(String contactId) {
-        /*return this.contacts.stream()
-                .filter(contact -> contact.getNo().trim().equals(contactId))
+        return this.contacts.stream()
+                .filter(contact -> contact.getId().trim().equals(contactId))
                 .findAny()
-                .orElse(null);*/
-        return null;
+                .orElse(null);
     }
 
     public static ContactRepositoryImpl getRepository(){

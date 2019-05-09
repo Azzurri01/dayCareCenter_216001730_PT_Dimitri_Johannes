@@ -41,6 +41,15 @@ public class Suburb
         private Name name;
         private Population population;
 
+        public Builder copy(Suburb suburb)
+        {
+            this.id=suburb.id;
+            this.name=suburb.name;
+            this.areaCode=suburb.areaCode;
+            this.population=suburb.population;
+            return this;
+        }
+
         public Builder id(String id)
         {
             this.id=id;

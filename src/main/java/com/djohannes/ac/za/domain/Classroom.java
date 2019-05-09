@@ -3,11 +3,15 @@ import java.util.Objects;
 
 public class Classroom
 {
-    private String roomNo;
+    private String id, roomNo;
 
     private Classroom()
     {
 
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getRoomNo()
@@ -17,16 +21,30 @@ public class Classroom
 
     public Classroom(Builder builder)
     {
+        this.id=builder.id;
         this.roomNo =builder.roomNo;
     }
 
     public static class Builder
     {
-        private String roomNo;
+        private String id, roomNo;
 
-        public Builder getRoom(String room)
+        public Builder copy(Classroom classroom)
         {
-            this.roomNo=room;
+            this.id=classroom.id;
+            this.roomNo=classroom.roomNo;
+            return this;
+        }
+
+        public Builder id(String id)
+        {
+            this.id=id;
+            return this;
+        }
+
+        public Builder room(String rm)
+        {
+            this.roomNo=rm;
             return this;
         }
 
@@ -39,6 +57,7 @@ public class Classroom
     @Override
     public String toString() {
         return "Classroom{" +
+                "id='" + id + '\'' +
                 "roomNo='" + roomNo + '\'' +
                 '}';
     }
@@ -48,12 +67,12 @@ public class Classroom
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Classroom Classroom = (Classroom) o;
-        return roomNo.equals(Classroom.roomNo);
+        return id.equals(Classroom.id);
     }
 
     @Override
     public int hashCode()
     {
-        return Objects.hash(roomNo);
+        return Objects.hash(id);
     }
 }

@@ -16,11 +16,10 @@ public class ProvinceRepositoryImpl implements ProvinceRepository {
     }
 
     private Province findProvince(String provinceId) {
-        /*return this.provinces.stream()
-                .filter(province -> province.getNo().trim().equals(provinceId))
+        return this.provinces.stream()
+                .filter(province -> province.getId().trim().equals(provinceId))
                 .findAny()
-                .orElse(null);*/
-        return null;
+                .orElse(null);
     }
 
     public static ProvinceRepositoryImpl getRepository(){

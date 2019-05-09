@@ -9,8 +9,6 @@ import com.djohannes.ac.za.domain.Student;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class StudentFactoryTest {
 
     @Test
@@ -23,16 +21,16 @@ public class StudentFactoryTest {
         Contact pContact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
         Parent parent = ParentFactory.getParent(pName, pContact);
 
-        Student student = StudentFactory.getStudent("123", sName, grade, "male", 5, address, parent);
-        Assert.assertEquals("123", student.getId());
-        Assert.assertEquals("Naqeeb", student.getName().getFirstName());
-        Assert.assertEquals("Johannes", student.getName().getLastName());
-        Assert.assertEquals("R", student.getGrade().getGrade());
+        Student student = StudentFactory.getStudent(sName, grade, "male", 5, address, parent);
+        Assert.assertNotNull(student.getId());
+        Assert.assertEquals(sName.getFirstName(), student.getName().getFirstName());
+        Assert.assertEquals(sName.getLastName(), student.getName().getLastName());
+        Assert.assertEquals(grade.getGrade(), student.getGrade().getGrade());
         Assert.assertEquals("male", student.getGender());
         Assert.assertEquals(5, student.getAge());
-        Assert.assertEquals("14", student.getAddress().getNo());
-        Assert.assertEquals("Sentinel road", student.getAddress().getStreet());
-        Assert.assertEquals("Dimitri", student.getParent().getName().getFirstName());
-        Assert.assertEquals("Johannes", student.getParent().getName().getLastName());
+        Assert.assertEquals(address.getNo(), student.getAddress().getNo());
+        Assert.assertEquals(address.getStreet(), student.getAddress().getStreet());
+        Assert.assertEquals(pName.getFirstName(), student.getParent().getName().getFirstName());
+        Assert.assertEquals(pName.getLastName(), student.getParent().getName().getLastName());
     }
 }

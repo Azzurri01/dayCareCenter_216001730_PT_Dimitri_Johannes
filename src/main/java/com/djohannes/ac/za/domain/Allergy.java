@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Allergy
 {
-    private String name, code;
+    private String name, id;
 
     private Allergy()
     {
@@ -13,7 +13,7 @@ public class Allergy
     public Allergy(Builder builder)
     {
         this.name=builder.name;;
-        this.code=builder.code;
+        this.id =builder.id;
     }
 
     public String getName()
@@ -21,24 +21,31 @@ public class Allergy
         return name;
     }
 
-    public String getCode()
+    public String getId()
     {
-        return code;
+        return id;
     }
 
     public static class Builder
     {
-        private String name, code;
+        private String name, id;
 
-        public Builder getName(String name)
+        public Builder copy(Allergy allergy)
+        {
+            this.id=allergy.id;
+            this.name=allergy.name;
+            return this;
+        }
+
+        public Builder name(String name)
         {
             this.name=name;
             return this;
         }
 
-        public Builder getCode(String code)
+        public Builder id(String id)
         {
-            this.code=code;
+            this.id =id;
             return this;
         }
 
@@ -52,7 +59,7 @@ public class Allergy
     public String toString() {
         return "Allergy{" +
                 "Name='" + name + '\'' +
-                ", Code='" + code + '\'' +
+                ", Code='" + id + '\'' +
                 '}';
     }
 
@@ -61,12 +68,12 @@ public class Allergy
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Allergy allergy = (Allergy) o;
-        return code.equals(allergy.code);
+        return id.equals(allergy.id);
     }
 
     @Override
     public int hashCode()
     {
-        return Objects.hash(code);
+        return Objects.hash(id);
     }
 }

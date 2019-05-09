@@ -1,4 +1,3 @@
-
 package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Activity;
@@ -10,18 +9,17 @@ import java.util.Set;
 public class ActivityRepositoryImpl implements ActivityRepository {
 
     private static ActivityRepositoryImpl repository = null;
-    private Set<Activity> activityes;
+    private Set<Activity> activities;
 
     private ActivityRepositoryImpl() {
-        this.activityes = new HashSet<>();
+        this.activities = new HashSet<>();
     }
 
     private Activity findActivity(String activityId) {
-        /*return this.activityes.stream()
-                .filter(activity -> activity.getNo().trim().equals(activityId))
+        return this.activities.stream()
+                .filter(activity -> activity.getId().trim().equals(activityId))
                 .findAny()
-                .orElse(null);*/
-        return null;
+                .orElse(null);
     }
 
     public static ActivityRepositoryImpl getRepository(){
@@ -30,7 +28,7 @@ public class ActivityRepositoryImpl implements ActivityRepository {
     }
 
     public Activity create(Activity activity){
-        this.activityes.add(activity);
+        this.activities.add(activity);
         return activity;
     }
 
@@ -44,7 +42,7 @@ public class ActivityRepositoryImpl implements ActivityRepository {
         // find the student, update it and return the updated student
         Activity toDelete = findActivity(activity.getId());
         if(toDelete != null) {
-            this.activityes.remove(toDelete);
+            this.activities.remove(toDelete);
             return create(activity);
         }
         return null;
@@ -53,10 +51,10 @@ public class ActivityRepositoryImpl implements ActivityRepository {
     public void delete(String activityId) {
         //find the student and delete it if it exists
         Activity activity = findActivity(activityId);
-        if (activity != null) this.activityes.remove(activity);
+        if (activity != null) this.activities.remove(activity);
     }
 
     public Set<Activity> getAll(){
-        return this.activityes;
+        return this.activities;
     }
 }

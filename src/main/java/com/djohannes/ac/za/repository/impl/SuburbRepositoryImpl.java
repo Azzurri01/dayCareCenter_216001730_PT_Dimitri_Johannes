@@ -16,11 +16,10 @@ public class SuburbRepositoryImpl implements SuburbRepository {
     }
 
     private Suburb findSuburb(String suburbId) {
-        /*return this.suburbs.stream()
-                .filter(suburb -> suburb.getNo().trim().equals(suburbId))
+        return this.suburbs.stream()
+                .filter(suburb -> suburb.getId().trim().equals(suburbId))
                 .findAny()
-                .orElse(null);*/
-        return null;
+                .orElse(null);
     }
 
     public static SuburbRepositoryImpl getRepository(){
@@ -34,13 +33,13 @@ public class SuburbRepositoryImpl implements SuburbRepository {
     }
 
     public Suburb read(final String suburbId){
-        //find the suburb in the set and return it if it exist
+        //find the student in the set and return it if it exist
         Suburb suburb = findSuburb(suburbId);
         return suburb;
     }
 
     public Suburb update(Suburb suburb) {
-        // find the suburb, update it and return the updated suburb
+        // find the student, update it and return the updated student
         Suburb toDelete = findSuburb(suburb.getId());
         if(toDelete != null) {
             this.suburbs.remove(toDelete);
@@ -50,7 +49,7 @@ public class SuburbRepositoryImpl implements SuburbRepository {
     }
 
     public void delete(String suburbId) {
-        //find the suburb and delete it if it exists
+        //find the student and delete it if it exists
         Suburb suburb = findSuburb(suburbId);
         if (suburb != null) this.suburbs.remove(suburb);
     }

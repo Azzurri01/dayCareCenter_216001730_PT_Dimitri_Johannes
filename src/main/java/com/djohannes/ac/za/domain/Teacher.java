@@ -37,6 +37,14 @@ public class Teacher
         private Name name;
         private Contact contact;
 
+        public Builder copy(Teacher teacher)
+        {
+            this.id=teacher.id;
+            this.name=teacher.name;
+            this.contact=teacher.contact;
+            return this;
+        }
+
         public Builder id(String id)
         {
             this.id=id;
