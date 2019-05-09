@@ -14,8 +14,8 @@ public class CityFactoryTest {
         Name name = NameFactory.schoolName("Cape Town");
         Population population = PopulationFactory.getTotal(2000000);
         City city = CityFactory.getCity(name, population);
-        Assert.assertEquals("123", city.getId());
-        Assert.assertEquals("Cape Town", name.getname());
-        Assert.assertEquals(2000000, population.getTotal());
+        Assert.assertNotNull(city.getId());
+        Assert.assertEquals(name.getname(), city.getName().getname());
+        Assert.assertEquals(population.getTotal(), population.getTotal());
     }
 }

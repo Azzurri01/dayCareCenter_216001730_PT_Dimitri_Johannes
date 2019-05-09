@@ -15,8 +15,7 @@ public class ProvinceFactoryTest {
         Population population = PopulationFactory.getTotal(10000000);
         Province province = ProvinceFactory.getProvince(name, population);
         Assert.assertNotNull(province.getId());
-        Assert.assertEquals("123", province.getId());
-        Assert.assertEquals("Western Province", name.getname());
-        Assert.assertEquals(10000000, population.getTotal());
+        Assert.assertEquals(name.getname(), province.getName().getname());
+        Assert.assertEquals(population.getTotal(), province.getPopulation().getTotal());
     }
 }

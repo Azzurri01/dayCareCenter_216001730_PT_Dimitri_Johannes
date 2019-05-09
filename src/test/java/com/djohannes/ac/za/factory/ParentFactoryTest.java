@@ -15,9 +15,9 @@ public class ParentFactoryTest {
 
         Parent parent = ParentFactory.getParent(pName, pContact);
         Assert.assertNotNull(parent.getId());
-        Assert.assertEquals("Dimitri", parent.getName().getFirstName());
-        Assert.assertEquals("Johannes", parent.getName().getLastName());
-        Assert.assertEquals("0824512653", parent.getContact().getContactNo());
-        Assert.assertEquals("dimitri.johannes@gmail.com", parent.getContact().getEmail());
+        Assert.assertEquals(pName.getFirstName(), parent.getName().getFirstName());
+        Assert.assertEquals(pName.getLastName(), parent.getName().getLastName());
+        Assert.assertEquals(pContact.getContactNo(), parent.getContact().getContactNo());
+        Assert.assertEquals(pContact.getEmail(), parent.getContact().getEmail());
     }
 }

@@ -19,7 +19,11 @@ public class AccountFactoryTest {
 
         Account account = AccountFactory.getAccount(student, parent, 200.0, 0.0);
         Assert.assertNotNull(account.getId());
-        Assert.assertEquals("Naqeeb", account.getStudent().getName().getFirstName());
-        Assert.assertEquals("Dimitri", account.getParent().getName().getFirstName());
+        Assert.assertEquals(sName.getFirstName(), account.getStudent().getName().getFirstName());
+        Assert.assertEquals(sName.getLastName(), account.getStudent().getName().getLastName());
+        Assert.assertEquals(pName.getFirstName(), account.getParent().getName().getFirstName());
+        Assert.assertEquals(pName.getLastName(), account.getParent().getName().getLastName());
+        //Assert.assertSame(200.0, account.getFee());
+        //Assert.assertSame(0.0, account.getBalance());
     }
 }

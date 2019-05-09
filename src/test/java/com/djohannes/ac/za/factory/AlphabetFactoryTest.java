@@ -14,7 +14,7 @@ public class AlphabetFactoryTest {
     {
         Evaluation evaluation = EvaluationFactory.getEvaluation(5);
         Alphabet alphabet = AlphabetFactory.getAlphabet("a",evaluation);
-        Assert.assertEquals(5, evaluation.getRating());
+        Assert.assertEquals(evaluation.getRating(), alphabet.getEvaluation().getRating());
         Assert.assertEquals("a", alphabet.getLetter());
     }
 }

@@ -14,7 +14,7 @@ public class ColourFactoryTest {
     {
         Evaluation evaluation = EvaluationFactory.getEvaluation(5);
         Colour colour = ColourFactory.getColour("green",evaluation);
-        Assert.assertEquals(5, evaluation.getRating());
+        Assert.assertEquals(evaluation.getRating(), colour.getEvaluation().getRating());
         Assert.assertEquals("green", colour.getColour());
     }
 }

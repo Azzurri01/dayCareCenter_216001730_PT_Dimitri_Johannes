@@ -14,9 +14,9 @@ public class SuburbFactoryTest {
         Name name = NameFactory.schoolName("Heideveld");
         Population population = PopulationFactory.getTotal(100000);
         Suburb suburb = SuburbFactory.getSuburb( "7764", name, population);
-        Assert.assertEquals("12345", suburb.getId());
+        Assert.assertNotNull(suburb.getId());
         Assert.assertEquals("7764", suburb.getAreaCode());
-        Assert.assertEquals("Heideveld", name.getname());
-        Assert.assertEquals(100000, population.getTotal());
+        Assert.assertEquals(name.getname(), suburb.getName().getname());
+        Assert.assertEquals(population.getTotal(), suburb.getPopulation().getTotal());
     }
 }

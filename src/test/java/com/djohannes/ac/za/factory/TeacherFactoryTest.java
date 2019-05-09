@@ -16,10 +16,9 @@ public class TeacherFactoryTest {
 
         Teacher teacher = TeacherFactory.getTeacher(tName, tContact);
         Assert.assertNotNull(teacher.getId());
-        Assert.assertEquals("123", teacher.getId());
-        Assert.assertEquals("Fowzia", teacher.getName().getFirstName());
-        Assert.assertEquals("Johannes", teacher.getName().getLastName());
-        Assert.assertEquals("0835133305", teacher.getContact().getContactNo());
-        Assert.assertEquals("fowzia.johannes@gmail.com", teacher.getContact().getEmail());
+        Assert.assertEquals(tName.getFirstName(), teacher.getName().getFirstName());
+        Assert.assertEquals(tName.getLastName(), teacher.getName().getLastName());
+        Assert.assertEquals(tContact.getContactNo(), teacher.getContact().getContactNo());
+        Assert.assertEquals(tContact.getEmail(), teacher.getContact().getEmail());
     }
 }
