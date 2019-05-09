@@ -64,6 +64,18 @@ public class Activity
         private Drawing drawing;
         private  Playtime playtime;
 
+        public Builder copy(Activity activity)
+        {
+            this.id=activity.id;
+            this.grade=activity.grade;
+            this.alphabet=activity.alphabet;
+            this.counting=activity.counting;
+            this.colour=activity.colour;
+            this.drawing=activity.drawing;
+            this.playtime=activity.playtime;
+            return this;
+        }
+
         public Builder id(String id)
         {
             this.id =id;
