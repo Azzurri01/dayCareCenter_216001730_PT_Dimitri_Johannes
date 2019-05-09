@@ -14,7 +14,7 @@ public class NameFactory
                 .build();
     }
 
-    public static Name getName(String name)
+    public static Name schoolName(String name)
     {
         return new Name.Builder()
                 .orgName(name)

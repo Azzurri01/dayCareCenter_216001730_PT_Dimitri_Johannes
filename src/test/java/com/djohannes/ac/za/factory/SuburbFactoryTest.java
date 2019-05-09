@@ -6,14 +6,12 @@ import com.djohannes.ac.za.domain.Suburb;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class SuburbFactoryTest {
 
     @Test
     public void getSuburb()
     {
-        Name name = NameFactory.getName("Heideveld");
+        Name name = NameFactory.schoolName("Heideveld");
         Population population = PopulationFactory.getTotal(100000);
         Suburb suburb = SuburbFactory.getSuburb( "7764", name, population);
         Assert.assertEquals("12345", suburb.getId());

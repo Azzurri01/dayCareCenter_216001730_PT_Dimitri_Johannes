@@ -6,14 +6,12 @@ import com.djohannes.ac.za.domain.Name;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class ProvinceFactoryTest {
 
     @Test
     public void getProvince()
     {
-        Name name = NameFactory.getName("Western Province");
+        Name name = NameFactory.schoolName("Western Province");
         Population population = PopulationFactory.getTotal(10000000);
         Province province = ProvinceFactory.getProvince(name, population);
         Assert.assertNotNull(province.getId());

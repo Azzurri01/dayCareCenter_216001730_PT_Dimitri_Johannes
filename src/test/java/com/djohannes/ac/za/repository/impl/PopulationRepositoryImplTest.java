@@ -1,8 +1,8 @@
 package com.djohannes.ac.za.repository.impl;
 
-import com.djohannes.ac.za.domain.Contact;
-import com.djohannes.ac.za.factory.ContactFactory;
-import com.djohannes.ac.za.repository.ContactRepository;
+import com.djohannes.ac.za.domain.Population;
+import com.djohannes.ac.za.factory.PopulationFactory;
+import com.djohannes.ac.za.repository.PopulationRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -14,66 +14,66 @@ import java.util.Set;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PopulationRepositoryImplTest {
 
-    private ContactRepository repository;
-    private Contact contact;
+    private PopulationRepository repository;
+    private Population population;
 
-    private Contact getSavedContact()
+    private Population getSavedPopulation()
     {
-        Set<Contact> savedContact = this.repository.getAll();
-        return  savedContact.iterator().next();
+        Set<Population> savedPopulation = this.repository.getAll();
+        return  savedPopulation.iterator().next();
     }
 
     @Before
     public void setUp() throws Exception
     {
-        this.repository = ContactRepositoryImpl.getRepository();
-        this.contact = ContactFactory.getContact("14", "Sentinel Road");
+        this.repository = PopulationRepositoryImpl.getRepository();
+        this.population = PopulationFactory.getTotal(1000000);
     }
 
     @Test
     public void aCreate()
     {
-        Contact createdContact = this.repository.create(this.contact);
-        System.out.println("Create method called: Created contact = " + this.contact);
+        Population createdPopulation = this.repository.create(this.population);
+        System.out.println("Create method called: Created population = " + this.population);
         eGetAll();
-        Assert.assertSame(createdContact, this.contact);
+        Assert.assertSame(createdPopulation, this.population);
     }
 
     @Test
     public void bRead()
     {
-        Contact savedContact = getSavedContact();
-        System.out.println("Read method call 1: Reading contactID = " + savedContact.getId());
-        Contact readContact = this.repository.read(savedContact.getId());
-        System.out.println("Read method call 2: Reading read = " + savedContact.getId());
+        Population savedPopulation = getSavedPopulation();
+        System.out.println("Read method call 1: Reading populationID = " + savedPopulation.getId());
+        Population readPopulation = this.repository.read(savedPopulation.getId());
+        System.out.println("Read method call 2: Reading read = " + savedPopulation.getId());
         eGetAll();
-        Assert.assertSame(savedContact, readContact);
+        Assert.assertSame(savedPopulation, readPopulation);
     }
 
     @Test
     public void cUpdate()
     {
-        String newno = "0824512655";
-        Contact contactno = new Contact.Builder().copy(getSavedContact()).contactNo(newno).build();
-        System.out.println("In update, about_to_updated = " + contact);
-        Contact updated = this.repository.update(contact);
+        int newno = 1500000;
+        Population total = new Population.Builder().copy(getSavedPopulation()).population(newno).build();
+        System.out.println("In update, about_to_updated = " + population);
+        Population updated = this.repository.update(population);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newno, updated.getContactNo().toString());
+        Assert.assertSame(newno, updated.getTotal());
         eGetAll();
     }
 
     @Test
     public void dDelete()
     {
-        Contact savedContact = getSavedContact();
-        this.repository.delete(savedContact.getId());
+        Population savedPopulation = getSavedPopulation();
+        this.repository.delete(savedPopulation.getId());
         eGetAll();
     }
 
     @Test
     public void eGetAll()
     {
-        Set<Contact> all = this.repository.getAll();
+        Set<Population> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);
     }
 }

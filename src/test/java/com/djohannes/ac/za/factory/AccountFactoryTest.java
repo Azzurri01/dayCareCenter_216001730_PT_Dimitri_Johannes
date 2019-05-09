@@ -4,10 +4,6 @@ package com.djohannes.ac.za.factory;
         import org.junit.Assert;
         import org.junit.Test;
 
-        import java.util.Date;
-
-        import static org.junit.Assert.*;
-
 public class AccountFactoryTest {
 
     @Test

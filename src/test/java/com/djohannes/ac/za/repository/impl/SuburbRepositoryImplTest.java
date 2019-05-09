@@ -19,7 +19,7 @@ public class SuburbRepositoryImplTest {
     private SuburbRepository repository;
     private Suburb suburb;
 
-    Name name = NameFactory.getName("Heideveld");
+    Name name = NameFactory.schoolName("Heideveld");
     Population population = PopulationFactory.getTotal(100000);
 
     private Suburb getSavedSuburb()

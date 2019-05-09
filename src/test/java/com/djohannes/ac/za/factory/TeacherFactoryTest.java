@@ -6,8 +6,6 @@ import com.djohannes.ac.za.domain.Teacher;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class TeacherFactoryTest {
 
     @Test

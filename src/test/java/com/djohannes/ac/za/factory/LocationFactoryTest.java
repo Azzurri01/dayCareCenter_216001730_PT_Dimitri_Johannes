@@ -5,14 +5,12 @@ import com.djohannes.ac.za.domain.Name;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class LocationFactoryTest {
 
     @Test
     public void getLocation()
     {
-        Name name = NameFactory.getName("Heideveld");
+        Name name = NameFactory.schoolName("Heideveld");
         Population population = PopulationFactory.getTotal(100000);
         Address address = AddressFactory.getAddress("14", "Sentinel Road");
         Suburb suburb = SuburbFactory.getSuburb("7764", name, population);

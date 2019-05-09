@@ -19,7 +19,7 @@ public class CityRepositoryImplTest {
     private CityRepository repository;
     private City city;
 
-    Name name = NameFactory.getName("Cape Town");
+    Name name = NameFactory.schoolName("Cape Town");
     Population population = PopulationFactory.getTotal(2000000);
 
     private City getSavedCity()

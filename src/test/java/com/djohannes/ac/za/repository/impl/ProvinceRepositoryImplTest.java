@@ -19,7 +19,7 @@ public class ProvinceRepositoryImplTest {
     private ProvinceRepository repository;
     private Province province;
 
-    Name name = NameFactory.getName("Western Province");
+    Name name = NameFactory.schoolName("Western Province");
     Population population = PopulationFactory.getTotal(10000000);
 
     private Province getSavedProvince()
