@@ -1,9 +1,11 @@
 package com.djohannes.ac.za.domain;
 import java.util.Objects;
+import java.util.Set;
 
 public class Grade
 {
     private String id, grade;
+    Set<Student> student;
 
     private Grade()
     {}

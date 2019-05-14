@@ -53,12 +53,12 @@ public class ClassroomRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Classroom streetNo = new Classroom.Builder().copy(getSavedClassroom()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + classroom);
-        Classroom updated = this.repository.update(classroom);
+        String rmNo = "3";
+        Classroom newClassroom = new Classroom.Builder().copy(getSavedClassroom()).room(rmNo).build();
+        System.out.println("In update, about_to_updated = " +  newClassroom);
+        Classroom updated = this.repository.update( newClassroom);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Assert.assertSame( newClassroom, updated);
         eGetAll();
     }
 

@@ -17,7 +17,7 @@ public class DaycareRepositoryImplTest {
     private DaycareRepository repository;
     private Daycare daycare;
 
-    Name name = NameFactory.schoolName("Little Rascals");
+    Name name = NameFactory.getName("Little Rascals");
     Population population = PopulationFactory.getTotal(100000);
     Address address = AddressFactory.getAddress("14", "Sentinel Road");
     Suburb suburb = SuburbFactory.getSuburb("7764", name, population);

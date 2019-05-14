@@ -50,23 +50,23 @@ public class ActivityRepositoryImplTest {
     @Test
     public void bRead()
     {
-        Activity savedActivity = getSavedActivity();
-        System.out.println("Read method call 1: Reading activityID = " + savedActivity.getId());
-        Activity readActivity = this.repository.read(savedActivity.getId());
-        System.out.println("Read method call 2: Reading read = " + savedActivity.getId());
+        Activity newActivity = getSavedActivity();
+        System.out.println("Read method call 1: Reading activity = " +  newActivity);
+        Activity readActivity = this.repository.read( newActivity.getId());
+        System.out.println("Read method call 2: Reading read = " + readActivity);
         eGetAll();
-        Assert.assertSame(savedActivity, readActivity);
+        Assert.assertSame( newActivity, readActivity);
     }
 
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Activity streetNo = new Activity.Builder().copy(getSavedActivity()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + activity);
-        Activity updated = this.repository.update(activity);
+        Grade newGrade = GradeFactory.getGrade("w");
+        Activity updatedActivity = new Activity.Builder().copy(getSavedActivity()).grade(newGrade).build();
+        System.out.println("In update, about_to_updated = " + updatedActivity);
+        Activity updated = this.repository.update(updatedActivity);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId());
+        Assert.assertSame(newGrade, updated.getGrade());
         eGetAll();
     }
 

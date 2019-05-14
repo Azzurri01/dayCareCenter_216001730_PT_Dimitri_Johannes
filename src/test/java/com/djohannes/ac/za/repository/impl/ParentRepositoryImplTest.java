@@ -58,12 +58,12 @@ public class ParentRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Parent streetNo = new Parent.Builder().copy(getSavedParent()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + parent);
-        Parent updated = this.repository.update(parent);
-        System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Contact con = ContactFactory.getContact("1231231233", "dimitri.johannes@gmail.com");
+        Parent newParent = new Parent.Builder().copy(getSavedParent()).Contact(con).build();
+        System.out.println("In update, about_to_updated = " + newParent.getContact().getContactNo());
+        Parent updated = this.repository.update(newParent);
+        System.out.println("In update, updated = " + updated.getContact().getContactNo());
+        Assert.assertSame(newParent.getContact().getContactNo(), updated.getContact().getContactNo());
         eGetAll();
     }
 

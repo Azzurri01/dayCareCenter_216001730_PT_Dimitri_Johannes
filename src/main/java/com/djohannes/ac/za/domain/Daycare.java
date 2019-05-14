@@ -1,12 +1,14 @@
 package com.djohannes.ac.za.domain;
 import java.util.Objects;
+import java.util.Set;
 
 public class Daycare
 {
     private String id;
     private Name name;
     private Location location;
-    Contact contact;
+    private Contact contact;
+    Set<Account> accounts;
 
     public String getId()
     {

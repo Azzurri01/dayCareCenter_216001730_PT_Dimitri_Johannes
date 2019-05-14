@@ -56,12 +56,12 @@ public class PlaytimeRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Playtime streetNo = new Playtime.Builder().copy(getSavedPlaytime()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + playtime);
-        Playtime updated = this.repository.update(playtime);
+        Evaluation eval = EvaluationFactory.getEvaluation(8);
+        Playtime newEvaluation = new Playtime.Builder().copy(getSavedPlaytime()).evaluation(eval).build();
+        System.out.println("In update, about_to_updated = " + newEvaluation);
+        Playtime updated = this.repository.update(newEvaluation);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Assert.assertSame(newEvaluation, updated);
         eGetAll();
     }
 

@@ -16,7 +16,7 @@ public class LocationServiceImplTest {
     private LocationRepository repository;
     private Location location;
 
-    Name name = NameFactory.schoolName("Heideveld");
+    Name name = NameFactory.getName("Heideveld");
     Population population = PopulationFactory.getTotal(100000);
     Address address = AddressFactory.getAddress("14", "Sentinel Road");
     Suburb suburb = SuburbFactory.getSuburb("7764", name, population);

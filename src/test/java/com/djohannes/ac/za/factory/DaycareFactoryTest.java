@@ -9,7 +9,7 @@ public class DaycareFactoryTest {
     @Test
     public void getName()
     {
-        Name name = NameFactory.schoolName("Little rascals");
+        Name name = NameFactory.getName("Little rascals");
         Assert.assertEquals("Little rascals", name.getname());
     }
 }

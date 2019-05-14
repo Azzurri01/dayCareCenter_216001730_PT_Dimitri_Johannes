@@ -19,7 +19,7 @@ public class CityRepositoryImplTest {
     private CityRepository repository;
     private City city;
 
-    Name name = NameFactory.schoolName("Cape Town");
+    Name name = NameFactory.getName("Cape Town");
     Population population = PopulationFactory.getTotal(2000000);
 
     private City getSavedCity()
@@ -50,7 +50,7 @@ public class CityRepositoryImplTest {
         City savedCity = getSavedCity();
         System.out.println("Read method call 1: Reading cityID = " + savedCity.getId());
         City readCity = this.repository.read(savedCity.getId());
-        System.out.println("Read method call 2: Reading read = " + savedCity.getId());
+        System.out.println("Read method call 2: Reading read = " + readCity);
         eGetAll();
         Assert.assertSame(savedCity, readCity);
     }
@@ -58,12 +58,12 @@ public class CityRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        City streetNo = new City.Builder().copy(getSavedCity()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + city);
-        City updated = this.repository.update(city);
+        Population population = PopulationFactory.getTotal(4000000);
+        City newCity = new City.Builder().copy(getSavedCity()).population(population).build();
+        System.out.println("In update, about_to_updated = " + newCity);
+        City updated = this.repository.update(newCity);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Assert.assertSame(newCity, updated);
         eGetAll();
     }
 

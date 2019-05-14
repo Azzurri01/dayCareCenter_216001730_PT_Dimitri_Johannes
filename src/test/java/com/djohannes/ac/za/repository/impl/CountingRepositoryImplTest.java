@@ -56,12 +56,12 @@ public class CountingRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Counting streetNo = new Counting.Builder().copy(getSavedCounting()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + counting);
-        Counting updated = this.repository.update(counting);
+        Evaluation eval = EvaluationFactory.getEvaluation(8);
+        Counting newEvaluation = new Counting.Builder().copy(getSavedCounting()).evaluation(eval).build();
+        System.out.println("In update, about_to_updated = " + newEvaluation);
+        Counting updated = this.repository.update(newEvaluation);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Assert.assertSame(newEvaluation, updated);
         eGetAll();
     }
 

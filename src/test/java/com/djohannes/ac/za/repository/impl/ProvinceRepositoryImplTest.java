@@ -19,7 +19,7 @@ public class ProvinceRepositoryImplTest {
     private ProvinceRepository repository;
     private Province province;
 
-    Name name = NameFactory.schoolName("Western Province");
+    Name name = NameFactory.getName("Western Province");
     Population population = PopulationFactory.getTotal(10000000);
 
     private Province getSavedProvince()
@@ -58,12 +58,12 @@ public class ProvinceRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Province streetNo = new Province.Builder().copy(getSavedProvince()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + province);
-        Province updated = this.repository.update(province);
-        System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Name newName = NameFactory.getName("Western Province of South Africa");
+        Province updatedName = new Province.Builder().copy(getSavedProvince()).name(newName).build();
+        System.out.println("In update, about_to_updated = " + updatedName.getName().getname());
+        Province updated = this.repository.update(updatedName);
+        System.out.println("In update, updated = " + updated.getName().getname());
+        Assert.assertEquals(newName.getname(), updated.getName().getname());
         eGetAll();
     }
 

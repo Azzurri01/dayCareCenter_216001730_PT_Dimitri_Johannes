@@ -3,6 +3,7 @@ package com.djohannes.ac.za.repository.impl;
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
 import com.djohannes.ac.za.repository.AccountRepository;
+import com.djohannes.ac.za.util.Misc;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -17,13 +18,13 @@ public class AccountRepositoryImplTest {
     private AccountRepository repository;
     private Account account;
 
-    Name sName = NameFactory.getName("Naqeeb", "Johannes");
-    Name pName = NameFactory.getName("Dimitri", "Johannes");
-    Grade grade = GradeFactory.getGrade("R");
-    Address address = AddressFactory.getAddress("14", "Sentinel road");
-    Contact pContact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
-    Parent parent = ParentFactory.getParent(pName, pContact);
-    Student student = StudentFactory.getStudent(sName, grade, "male", 5, address, parent);
+    private Name sName = NameFactory.getName("Naqeeb", "Johannes");
+    private Name pName = NameFactory.getName("Dimitri", "Johannes");
+    private Grade grade = GradeFactory.getGrade("R");
+    private Address address = AddressFactory.getAddress("14", "Sentinel road");
+    private Contact pContact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
+    private Parent parent = ParentFactory.getParent(pName, pContact);
+    private Student student = StudentFactory.getStudent(sName, grade, "male", 5, address, parent);
 
     private Account getSavedAccount()
     {
@@ -51,9 +52,9 @@ public class AccountRepositoryImplTest {
     public void bRead()
     {
         Account savedAccount = getSavedAccount();
-        System.out.println("Read method call 1: Reading accountID = " + savedAccount.getId());
+        System.out.println("Read method call 1: Reading account = " + savedAccount);
         Account readAccount = this.repository.read(savedAccount.getId());
-        System.out.println("Read method call 2: Reading read = " + savedAccount.getId());
+        System.out.println("Read method call 2: Reading read = " + readAccount);
         eGetAll();
         Assert.assertSame(savedAccount, readAccount);
     }
@@ -61,12 +62,14 @@ public class AccountRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Account streetNo = new Account.Builder().copy(getSavedAccount()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + account);
-        Account updated = this.repository.update(account);
+        Name name = NameFactory.getName("Dimitri", "Johannes");
+        Contact contact = ContactFactory.getContact("0824512653", "dimitri.johannes@t-systems.co.za");
+        Parent parent = ParentFactory.getParent(name, contact);
+        Account newAccount = new Account.Builder().copy(getSavedAccount()).parent(parent).build();
+        System.out.println("In update, about_to_updated = " + newAccount);
+        Account updated = this.repository.update(newAccount);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Assert.assertSame(newAccount, updated);
         eGetAll();
     }
 

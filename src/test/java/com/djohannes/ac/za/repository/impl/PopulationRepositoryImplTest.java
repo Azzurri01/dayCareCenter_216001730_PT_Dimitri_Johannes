@@ -3,6 +3,7 @@ package com.djohannes.ac.za.repository.impl;
 import com.djohannes.ac.za.domain.Population;
 import com.djohannes.ac.za.factory.PopulationFactory;
 import com.djohannes.ac.za.repository.PopulationRepository;
+import com.djohannes.ac.za.util.Misc;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -45,7 +46,7 @@ public class PopulationRepositoryImplTest {
         Population savedPopulation = getSavedPopulation();
         System.out.println("Read method call 1: Reading populationID = " + savedPopulation.getId());
         Population readPopulation = this.repository.read(savedPopulation.getId());
-        System.out.println("Read method call 2: Reading read = " + savedPopulation.getId());
+        System.out.println("Read method call 2: Reading read = " + savedPopulation);
         eGetAll();
         Assert.assertSame(savedPopulation, readPopulation);
     }
@@ -53,12 +54,19 @@ public class PopulationRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        int newno = 1500000;
-        Population total = new Population.Builder().copy(getSavedPopulation()).population(newno).build();
-        System.out.println("In update, about_to_updated = " + population);
-        Population updated = this.repository.update(population);
+        //New total
+        int newTotal = 150000;
+
+        //Add new total into object
+        Population total = new Population.Builder().copy(getSavedPopulation()).population(newTotal).build();
+        System.out.println("In update, about_to_updated = " + total);
+
+        //Update object
+        Population updated = this.repository.update(total);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newno, updated.getTotal());
+
+        //Test new value against method
+        Assert.assertEquals(newTotal, updated.getTotal());
         eGetAll();
     }
 

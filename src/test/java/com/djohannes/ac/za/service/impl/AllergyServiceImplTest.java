@@ -1,7 +1,6 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Name;
-import com.djohannes.ac.za.domain.*;
+import com.djohannes.ac.za.domain.Allergy;
 import com.djohannes.ac.za.factory.*;
 import com.djohannes.ac.za.repository.AllergyRepository;
 import com.djohannes.ac.za.repository.impl.AllergyRepositoryImpl;
@@ -37,6 +36,15 @@ public class AllergyServiceImplTest {
     }
 
     @Test
+    public void dRead()
+    {
+        Allergy saved = getSaved();
+        Allergy read = this.repository.read(saved.getId());
+        System.out.println("In read, read = "+ read);
+        Assert.assertSame(read, saved);
+    }
+
+    @Test
     public void bUpdate()
     {
         String newAllergyId = "123";
@@ -54,14 +62,7 @@ public class AllergyServiceImplTest {
         eGetAll();
     }
 
-    @Test
-    public void dRead()
-    {
-        Allergy saved = getSaved();
-        Allergy read = this.repository.read(saved.getId());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
-    }
+
 
     @Test
     public void eGetAll()

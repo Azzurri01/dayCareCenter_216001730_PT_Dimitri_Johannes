@@ -47,11 +47,11 @@ public class AccountServiceImplTest {
     @Test
     public void bUpdate()
     {
-        String newAccountId = "123";
-        Account updated = new Account.Builder().copy(getSaved()).id(newAccountId).build();
+        double newFee = 1000.0;
+        Account updated = new Account.Builder().copy(getSaved()).fee(newFee).build();
         System.out.println("In update, updated = " + updated);
         this.repository.update(updated);
-        Assert.assertSame(newAccountId, updated.getId());
+        Assert.assertEquals(String.valueOf(newFee), String.valueOf(updated.getFee()));
     }
 
     @Test

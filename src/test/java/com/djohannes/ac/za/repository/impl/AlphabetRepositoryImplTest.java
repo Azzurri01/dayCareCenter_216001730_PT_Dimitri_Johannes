@@ -58,12 +58,12 @@ public class AlphabetRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Alphabet streetNo = new Alphabet.Builder().copy(getSavedAlphabet()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + alphabet);
-        Alphabet updated = this.repository.update(alphabet);
+        Evaluation eval = EvaluationFactory.getEvaluation(8);
+        Alphabet newEvaluation = new Alphabet.Builder().copy(getSavedAlphabet()).evaluation(eval).build();
+        System.out.println("In update, about_to_updated = " +  newEvaluation);
+        Alphabet updated = this.repository.update( newEvaluation);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Assert.assertSame( newEvaluation, updated);
         eGetAll();
     }
 

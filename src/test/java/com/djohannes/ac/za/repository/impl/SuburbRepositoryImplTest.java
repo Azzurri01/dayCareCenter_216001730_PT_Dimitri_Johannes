@@ -19,7 +19,7 @@ public class SuburbRepositoryImplTest {
     private SuburbRepository repository;
     private Suburb suburb;
 
-    Name name = NameFactory.schoolName("Heideveld");
+    Name name = NameFactory.getName("Heideveld");
     Population population = PopulationFactory.getTotal(100000);
 
     private Suburb getSavedSuburb()
@@ -58,12 +58,12 @@ public class SuburbRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Suburb streetNo = new Suburb.Builder().copy(getSavedSuburb()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + suburb);
-        Suburb updated = this.repository.update(suburb);
+        Population tot = PopulationFactory.getTotal(3000000);
+        Suburb newTotal = new Suburb.Builder().copy(getSavedSuburb()).population(tot).build();
+        System.out.println("In update, about_to_updated = " + newTotal);
+        Suburb updated = this.repository.update(newTotal);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Assert.assertSame(newTotal, updated);
         eGetAll();
     }
 

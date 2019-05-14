@@ -56,12 +56,12 @@ public class ColourRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Colour streetNo = new Colour.Builder().copy(getSavedColour()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + colour);
-        Colour updated = this.repository.update(colour);
+        Evaluation eval = EvaluationFactory.getEvaluation(8);
+        Colour newEvaluation = new Colour.Builder().copy(getSavedColour()).evaluation(eval).build();
+        System.out.println("In update, about_to_updated = " + newEvaluation);
+        Colour updated = this.repository.update(newEvaluation);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Assert.assertSame(newEvaluation, updated);
         eGetAll();
     }
 

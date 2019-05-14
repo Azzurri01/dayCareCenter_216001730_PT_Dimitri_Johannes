@@ -17,7 +17,7 @@ public class LocationRepositoryImplTest {
     private LocationRepository repository;
     private Location location;
 
-    Name name = NameFactory.schoolName("Heideveld");
+    Name name = NameFactory.getName("Heideveld");
     Population population = PopulationFactory.getTotal(100000);
     Address address = AddressFactory.getAddress("14", "Sentinel Road");
     Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
@@ -60,12 +60,12 @@ public class LocationRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Location streetNo = new Location.Builder().copy(getSavedLocation()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + location);
-        Location updated = this.repository.update(location);
+        Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
+        Location newLocation = new Location.Builder().copy(getSavedLocation()).suburb(suburb).build();
+        System.out.println("In update, about_to_updated = " + newLocation);
+        Location updated = this.repository.update(newLocation);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Assert.assertSame(newLocation, updated);
         eGetAll();
     }
 

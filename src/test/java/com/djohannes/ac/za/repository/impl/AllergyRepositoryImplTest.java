@@ -43,9 +43,9 @@ public class AllergyRepositoryImplTest {
     public void bRead()
     {
         Allergy savedAllergy = getSavedAllergy();
-        System.out.println("Read method call 1: Reading allergyID = " + savedAllergy.getId());
+        System.out.println("Read method call 1: Reading allergyID = " + savedAllergy);
         Allergy readAllergy = this.repository.read(savedAllergy.getId());
-        System.out.println("Read method call 2: Reading read = " + savedAllergy.getId());
+        System.out.println("Read method call 2: Reading read = " + savedAllergy);
         eGetAll();
         Assert.assertSame(savedAllergy, readAllergy);
     }
@@ -53,12 +53,12 @@ public class AllergyRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Allergy streetNo = new Allergy.Builder().copy(getSavedAllergy()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + allergy);
-        Allergy updated = this.repository.update(allergy);
+        String all = "dog";
+        Allergy newAllergy = new Allergy.Builder().copy(getSavedAllergy()).name(all).build();
+        System.out.println("In update, about_to_updated = " +  newAllergy);
+        Allergy updated = this.repository.update( newAllergy);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Assert.assertSame( newAllergy, updated);
         eGetAll();
     }
 

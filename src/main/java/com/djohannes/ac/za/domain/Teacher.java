@@ -1,11 +1,13 @@
 package com.djohannes.ac.za.domain;
 import java.util.Objects;
+import java.util.Set;
 
 public class Teacher
 {
     private String id;
     private Name name;
     private Contact contact;
+    Set<Student> students;
 
     private Teacher()
     {

@@ -1,6 +1,6 @@
 package com.djohannes.ac.za.repository.impl;
 
-import com.djohannes.ac.za.domain.Name;
+import com.djohannes.ac.za.domain.Address;
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
 import com.djohannes.ac.za.repository.AddressRepository;
@@ -44,25 +44,21 @@ public class AddressRepositoryImplTest {
     public void bRead()
     {
         Address savedAddress = getSavedAddress();
-        System.out.println("Read method call 1: Reading addressID = " + savedAddress.getNo() + " " + savedAddress.getStreet());
-        Address readAddress = this.repository.read(savedAddress.getNo() + " " + savedAddress.getStreet());
-        System.out.println("Read method call 2: Reading read = " + savedAddress.getNo() + " " + savedAddress.getStreet());
+        System.out.println("Read method call 1: Reading address = " + savedAddress);
+        Address readAddress = this.repository.read(savedAddress.getId());
+        System.out.println("Read method call 2: Reading read = " + readAddress);
         eGetAll();
-        Assert.assertSame(savedAddress, readAddress);
+        Assert.assertEquals(savedAddress, readAddress);
     }
 
     @Test
     public void cUpdate()
     {
-        String newno = "14";
-        String newstr = "Sentinel Road";
-        Address streetNo = new Address.Builder().copy(getSavedAddress()).streetNo(newno).build();
-        Address streetName = new Address.Builder().copy(getSavedAddress()).streetName(newno).build();
-        System.out.println("In update, about_to_updated = " + address);
-        Address updated = this.repository.update(address);
+        Address newAddress = new Address.Builder().copy(getSavedAddress()).build();
+        System.out.println("In update, about_to_updated = " + newAddress);
+        Address updated = this.repository.update(newAddress);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newno, updated.getNo().toString());
-        Assert.assertSame(newno, updated.getStreet().toString());
+        Assert.assertSame(newAddress, updated);
         eGetAll();
     }
 
@@ -70,7 +66,7 @@ public class AddressRepositoryImplTest {
     public void dDelete()
     {
         Address savedAddress = getSavedAddress();
-        this.repository.delete(savedAddress.getNo());
+        this.repository.delete(savedAddress.getId());
         eGetAll();
     }
 

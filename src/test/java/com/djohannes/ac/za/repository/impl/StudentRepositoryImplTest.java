@@ -61,12 +61,12 @@ public class StudentRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newname = "123";
-        Student student = new Student.Builder().copy(getSavedStudent()).id(newname).build();
-        System.out.println("In update, about_to_updated = " + student);
-        Student updated = this.repository.update(student);
+        Address add = AddressFactory.getAddress("9", "Palm Street");
+        Student newAddress = new Student.Builder().copy(getSavedStudent()).address(add).build();
+        System.out.println("In update, about_to_updated = " + newAddress);
+        Student updated = this.repository.update(newAddress);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newname, updated.getId().toString());
+        Assert.assertSame(newAddress, updated);
         eGetAll();
     }
 

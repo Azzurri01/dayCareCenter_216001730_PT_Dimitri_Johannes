@@ -53,12 +53,12 @@ public class NameRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Name streetNo = new Name.Builder().copy(getSavedName()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + name);
-        Name updated = this.repository.update(name);
+        String nm = "Big rascals";
+        Name newName = new Name.Builder().copy(getSavedName()).name(nm).build();
+        System.out.println("In update, about_to_updated = " + newName);
+        Name updated = this.repository.update(newName);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Assert.assertSame(newName, updated);
         eGetAll();
     }
 

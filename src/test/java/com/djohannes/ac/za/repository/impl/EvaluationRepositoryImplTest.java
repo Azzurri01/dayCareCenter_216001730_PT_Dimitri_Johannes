@@ -53,12 +53,12 @@ public class EvaluationRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Evaluation streetNo = new Evaluation.Builder().copy(getSavedEvaluation()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + evaluation);
-        Evaluation updated = this.repository.update(evaluation);
+        int mark = 7;
+        Evaluation newRating = new Evaluation.Builder().copy(getSavedEvaluation()).rating(mark).build();
+        System.out.println("In update, about_to_updated = " + newRating);
+        Evaluation updated = this.repository.update(newRating);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Assert.assertSame(newRating, updated);;
         eGetAll();
     }
 

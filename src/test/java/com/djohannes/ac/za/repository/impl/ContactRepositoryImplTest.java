@@ -27,7 +27,7 @@ public class ContactRepositoryImplTest {
     public void setUp() throws Exception
     {
         this.repository = ContactRepositoryImpl.getRepository();
-        this.contact = ContactFactory.getContact("14", "Sentinel Road");
+        this.contact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
     }
 
     @Test
@@ -53,12 +53,12 @@ public class ContactRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newno = "0824512655";
-        Contact contactno = new Contact.Builder().copy(getSavedContact()).contactNo(newno).build();
-        System.out.println("In update, about_to_updated = " + contact);
-        Contact updated = this.repository.update(contact);
+        String newNo = "0824512655";
+        Contact newContactNo = new Contact.Builder().copy(getSavedContact()).contactNo(newNo).build();
+        System.out.println("In update, about_to_updated = " + newContactNo.getContactNo());
+        Contact updated = this.repository.update(newContactNo);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newno, updated.getContactNo().toString());
+        Assert.assertSame(newContactNo.getContactNo(), updated.getContactNo());
         eGetAll();
     }
 

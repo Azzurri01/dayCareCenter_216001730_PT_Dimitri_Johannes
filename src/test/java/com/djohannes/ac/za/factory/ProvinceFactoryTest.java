@@ -11,7 +11,7 @@ public class ProvinceFactoryTest {
     @Test
     public void getProvince()
     {
-        Name name = NameFactory.schoolName("Western Province");
+        Name name = NameFactory.getName("Western Province");
         Population population = PopulationFactory.getTotal(10000000);
         Province province = ProvinceFactory.getProvince(name, population);
         Assert.assertNotNull(province.getId());

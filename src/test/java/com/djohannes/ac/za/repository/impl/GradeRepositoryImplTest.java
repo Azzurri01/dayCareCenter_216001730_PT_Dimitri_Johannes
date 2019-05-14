@@ -56,12 +56,12 @@ public class GradeRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Grade streetNo = new Grade.Builder().copy(getSavedGrade()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + grade);
-        Grade updated = this.repository.update(grade);
+        String grade = "e";
+        Grade newGrade = new Grade.Builder().copy(getSavedGrade()).getGrade(grade).build();
+        System.out.println("In update, about_to_updated = " + newGrade);
+        Grade updated = this.repository.update(newGrade);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Assert.assertSame(newGrade, updated);
         eGetAll();
     }
 

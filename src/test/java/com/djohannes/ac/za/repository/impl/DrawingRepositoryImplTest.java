@@ -56,12 +56,12 @@ public class DrawingRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Drawing streetNo = new Drawing.Builder().copy(getSavedDrawing()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + drawing);
-        Drawing updated = this.repository.update(drawing);
+        Evaluation eval = EvaluationFactory.getEvaluation(8);
+        Drawing newEvaluation = new Drawing.Builder().copy(getSavedDrawing()).evaluation(eval).build();
+        System.out.println("In update, about_to_updated = " + newEvaluation);
+        Drawing updated = this.repository.update(newEvaluation);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Assert.assertSame(newEvaluation, updated);
         eGetAll();
     }
 
