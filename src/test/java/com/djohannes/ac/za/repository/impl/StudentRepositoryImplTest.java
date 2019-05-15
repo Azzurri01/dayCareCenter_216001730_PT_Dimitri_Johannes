@@ -21,7 +21,6 @@ public class StudentRepositoryImplTest {
     Name sName = NameFactory.getName("Naqeeb", "Johannes");
     Name pName = NameFactory.getName("Dimitri", "Johannes");
     Grade grade = GradeFactory.getGrade("R");
-    Address address = AddressFactory.getAddress("14", "Sentinel road");
     Contact pContact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
     Parent parent = ParentFactory.getParent(pName, pContact);
 
@@ -34,6 +33,13 @@ public class StudentRepositoryImplTest {
     @Before
     public void setUp() throws Exception
     {
+        Name name = NameFactory.getName("Heideveld");
+        Population population = PopulationFactory.getTotal(100000);
+        Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
+        City city = CityFactory.getCity(name, population);
+        Province province = ProvinceFactory.getProvince(name, population);
+        Address address = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
+
         this.repository = StudentRepositoryImpl.getRepository();
         this.student = StudentFactory.getStudent(sName, grade, "male", 5, address, parent);
     }
@@ -61,7 +67,13 @@ public class StudentRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        Address add = AddressFactory.getAddress("9", "Palm Street");
+        Name name = NameFactory.getName("Heideveld");
+        Population population = PopulationFactory.getTotal(100000);
+        Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
+        City city = CityFactory.getCity(name, population);
+        Province province = ProvinceFactory.getProvince(name, population);
+        Address add = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
+
         Student newAddress = new Student.Builder().copy(getSavedStudent()).address(add).build();
         System.out.println("In update, about_to_updated = " + newAddress);
         Student updated = this.repository.update(newAddress);

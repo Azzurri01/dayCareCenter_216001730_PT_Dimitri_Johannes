@@ -74,9 +74,7 @@ public class Teacher
     @Override
     public String toString() {
         return "Teacher{" +
-                "ID='" + id + '\'' +
                 "Name='" + name + '\'' +
-                "Contact='" + contact + '\'' +
                 '}';
     }
 

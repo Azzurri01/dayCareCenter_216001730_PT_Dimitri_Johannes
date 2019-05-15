@@ -69,7 +69,6 @@ public class Counting
     @Override
     public String toString() {
         return "Counting{" +
-                "Number='" + id + '\'' +
                 "Number='" + number + '\'' +
                 ", Evaluation='" + evaluation + '\'' +
                 '}';

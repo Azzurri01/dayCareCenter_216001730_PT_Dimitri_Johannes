@@ -58,7 +58,6 @@ public class Evaluation
     @Override
     public String toString() {
         return "Evaluation{" +
-                "id='" + id + '\'' +
                 "Rating='" + mark + '\'' +
                 '}';
     }

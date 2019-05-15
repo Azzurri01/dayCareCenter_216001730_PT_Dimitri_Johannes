@@ -53,8 +53,8 @@ public class NameRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String nm = "Big rascals";
-        Name newName = new Name.Builder().copy(getSavedName()).name(nm).build();
+        String nm = "Jegels";
+        Name newName = new Name.Builder().copy(getSavedName()).surname(nm).build();
         System.out.println("In update, about_to_updated = " + newName);
         Name updated = this.repository.update(newName);
         System.out.println("In update, updated = " + updated);

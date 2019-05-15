@@ -72,7 +72,6 @@ public class Province
     @Override
     public String toString() {
         return "Province{" +
-                "id='" + id +'\'' +
                 "Name='" + name + '\'' +
                 "Population='" + population + '\'' +
                 '}';

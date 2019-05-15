@@ -59,7 +59,6 @@ public class Allergy
     public String toString() {
         return "Allergy{" +
                 "Name='" + name + '\'' +
-                ", Code='" + id + '\'' +
                 '}';
     }
 

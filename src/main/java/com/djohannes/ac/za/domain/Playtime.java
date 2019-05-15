@@ -67,7 +67,6 @@ public class Playtime
     @Override
     public String toString() {
         return "Playtime{" +
-                "id='" + id + '\'' +
                 "Behaviour='" + behaviour + '\'' +
                 ", Evaluation='" + evaluation + '\'' +
                 '}';

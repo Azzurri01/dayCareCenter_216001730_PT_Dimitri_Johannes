@@ -15,9 +15,9 @@ public class AddressRepositoryImpl implements AddressRepository {
         this.addresses = new HashSet<>();
     }
 
-    private Address findAddress(String addressId) {
+    private Address findLocation(String locationId) {
         return this.addresses.stream()
-                .filter(address -> address.getNo().trim().equals(addressId))
+                .filter(location -> location.getId().trim().equals(locationId))
                 .findAny()
                 .orElse(null);
     }
@@ -32,15 +32,15 @@ public class AddressRepositoryImpl implements AddressRepository {
         return address;
     }
 
-    public Address read(final String addressId){
+    public Address read(final String locationId){
         //find the student in the set and return it if it exist
-        Address address = findAddress(addressId);
+        Address address = findLocation(locationId);
         return address;
     }
 
     public Address update(Address address) {
         // find the student, update it and return the updated student
-        Address toDelete = findAddress(address.getId());
+        Address toDelete = findLocation(address.getId());
         if(toDelete != null) {
             this.addresses.remove(toDelete);
             return create(address);
@@ -48,9 +48,9 @@ public class AddressRepositoryImpl implements AddressRepository {
         return null;
     }
 
-    public void delete(String addressId) {
+    public void delete(String locationId) {
         //find the student and delete it if it exists
-        Address address = findAddress(addressId);
+        Address address = findLocation(locationId);
         if (address != null) this.addresses.remove(address);
     }
 

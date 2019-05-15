@@ -21,9 +21,16 @@ public class AccountRepositoryImplTest {
     private Name sName = NameFactory.getName("Naqeeb", "Johannes");
     private Name pName = NameFactory.getName("Dimitri", "Johannes");
     private Grade grade = GradeFactory.getGrade("R");
-    private Address address = AddressFactory.getAddress("14", "Sentinel road");
     private Contact pContact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
     private Parent parent = ParentFactory.getParent(pName, pContact);
+
+    Name name = NameFactory.getName("Heideveld");
+    Population population = PopulationFactory.getTotal(100000);
+    Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
+    City city = CityFactory.getCity(name, population);
+    Province province = ProvinceFactory.getProvince(name, population);
+    Address address = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
+
     private Student student = StudentFactory.getStudent(sName, grade, "male", 5, address, parent);
 
     private Account getSavedAccount()

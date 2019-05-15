@@ -40,7 +40,7 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     public Contact update(Contact contact) {
         // find the student, update it and return the updated student
-        Contact toDelete = findContact(contact.getContactNo());
+        Contact toDelete = findContact(contact.getId());
         if(toDelete != null) {
             this.contacts.remove(toDelete);
             return create(contact);

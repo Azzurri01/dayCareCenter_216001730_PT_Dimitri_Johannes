@@ -18,11 +18,10 @@ public class DaycareServiceImplTest {
 
     Name name = NameFactory.getName("Little Rascals");
     Population population = PopulationFactory.getTotal(100000);
-    Address address = AddressFactory.getAddress("14", "Sentinel Road");
     Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
     City city = CityFactory.getCity(name, population);
     Province province = ProvinceFactory.getProvince(name, population);
-    Location location = LocationFactory.getLocation(address, suburb, city, province);
+    Address address = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
     Contact contact = ContactFactory.getContact("0835133305", "fowzia.johannes@gmail.com");
 
     private Daycare getSaved(){
@@ -33,7 +32,7 @@ public class DaycareServiceImplTest {
     public void setUp() throws Exception
     {
         this.repository = DaycareRepositoryImpl.getRepository();
-        this.daycare = DaycareFactory.getDaycare(name, location, contact);
+        this.daycare = DaycareFactory.getDaycare(name, address, contact);
     }
 
     @Test

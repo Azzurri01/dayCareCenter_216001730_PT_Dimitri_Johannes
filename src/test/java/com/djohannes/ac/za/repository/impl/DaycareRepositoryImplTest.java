@@ -19,11 +19,10 @@ public class DaycareRepositoryImplTest {
 
     Name name = NameFactory.getName("Little Rascals");
     Population population = PopulationFactory.getTotal(100000);
-    Address address = AddressFactory.getAddress("14", "Sentinel Road");
     Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
     City city = CityFactory.getCity(name, population);
     Province province = ProvinceFactory.getProvince(name, population);
-    Location location = LocationFactory.getLocation(address, suburb, city, province);
+    Address address = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
     Contact contact = ContactFactory.getContact("0835133305", "fowzia.johannes@gmail.com");
 
     private Daycare getSavedDaycare()
@@ -36,7 +35,7 @@ public class DaycareRepositoryImplTest {
     public void setUp() throws Exception
     {
         this.repository = DaycareRepositoryImpl.getRepository();
-        this.daycare = DaycareFactory.getDaycare(name, location, contact);
+        this.daycare = DaycareFactory.getDaycare(name, address, contact);
     }
 
     @Test
@@ -62,12 +61,12 @@ public class DaycareRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Daycare streetNo = new Daycare.Builder().copy(getSavedDaycare()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + daycare);
-        Daycare updated = this.repository.update(daycare);
-        System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
+        Name nm = NameFactory.getName("Big Rascals");
+        Daycare newName = new Daycare.Builder().copy(getSavedDaycare()).name(nm).build();
+        System.out.println("In update, about_to_updated = " + newName.getName().getname());
+        Daycare updated = this.repository.update(newName);
+        System.out.println("In update, updated = " + updated.getName().getname());
+        Assert.assertSame(newName, updated);
         eGetAll();
     }
 

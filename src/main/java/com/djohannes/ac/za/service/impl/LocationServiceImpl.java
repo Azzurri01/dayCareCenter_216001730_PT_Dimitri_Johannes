@@ -1,8 +1,8 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Location;
-import com.djohannes.ac.za.repository.LocationRepository;
-import com.djohannes.ac.za.repository.impl.LocationRepositoryImpl;
+import com.djohannes.ac.za.domain.Address;
+import com.djohannes.ac.za.repository.AddressRepository;
+import com.djohannes.ac.za.repository.impl.AddressRepositoryImpl;
 import com.djohannes.ac.za.service.LocationService;
 
 import java.util.Set;
@@ -13,10 +13,10 @@ import org.springframework.stereotype.Service;
 public class LocationServiceImpl implements LocationService {
 
     private static LocationServiceImpl service = null;
-    private LocationRepository repository;
+    private AddressRepository repository;
 
     private LocationServiceImpl() {
-        this.repository = LocationRepositoryImpl.getRepository();
+        this.repository = AddressRepositoryImpl.getRepository();
     }
 
     public static LocationServiceImpl getService(){
@@ -25,13 +25,13 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public Location create(Location location) {
-        return this.repository.create(location);
+    public Address create(Address address) {
+        return this.repository.create(address);
     }
 
     @Override
-    public Location update(Location location) {
-        return this.repository.update(location);
+    public Address update(Address address) {
+        return this.repository.update(address);
     }
 
     @Override
@@ -40,12 +40,12 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public Location read(String s) {
+    public Address read(String s) {
         return this.repository.read(s);
     }
 
     @Override
-    public Set<Location> getAll() {
+    public Set<Address> getAll() {
         return this.repository.getAll();
     }
 }

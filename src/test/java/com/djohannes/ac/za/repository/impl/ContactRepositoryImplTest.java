@@ -57,8 +57,8 @@ public class ContactRepositoryImplTest {
         Contact newContactNo = new Contact.Builder().copy(getSavedContact()).contactNo(newNo).build();
         System.out.println("In update, about_to_updated = " + newContactNo.getContactNo());
         Contact updated = this.repository.update(newContactNo);
-        System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newContactNo.getContactNo(), updated.getContactNo());
+        System.out.println("In update, updated = " + updated.getContactNo());
+        Assert.assertSame(newContactNo, updated);
         eGetAll();
     }
 

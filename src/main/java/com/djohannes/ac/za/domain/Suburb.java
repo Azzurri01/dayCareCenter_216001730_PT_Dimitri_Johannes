@@ -82,11 +82,9 @@ public class Suburb
 
     @Override
     public String toString() {
-        return "Address{" +
-                "ID='" + id +'\'' +
-                "Name='" + name + '\'' +
+        return "Suburb{" +
+                "Name='" + name.getname() + " " + '\'' +
                 "Postal code='" + areaCode + '\'' +
-                "Population='" + population + '\'' +
                 '}';
     }
 }

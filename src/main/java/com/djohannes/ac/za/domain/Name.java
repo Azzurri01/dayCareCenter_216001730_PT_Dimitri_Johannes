@@ -73,10 +73,8 @@ public class Name {
     @Override
     public String toString() {
         return "Name{" +
-                "ide='" + id + '\'' +
                 "First name='" + fName + '\'' +
                 "Last name='" + lName + '\'' +
-                "Name='" + name + '\'' +
                 '}';
     }
 }

@@ -1,11 +1,6 @@
 package com.djohannes.ac.za.factory;
 
-import com.djohannes.ac.za.domain.Name;
-import com.djohannes.ac.za.domain.Grade;
-import com.djohannes.ac.za.domain.Address;
-import com.djohannes.ac.za.domain.Contact;
-import com.djohannes.ac.za.domain.Parent;
-import com.djohannes.ac.za.domain.Student;
+import com.djohannes.ac.za.domain.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,9 +12,15 @@ public class StudentFactoryTest {
         Name sName = NameFactory.getName("Naqeeb", "Johannes");
         Name pName = NameFactory.getName("Dimitri", "Johannes");
         Grade grade = GradeFactory.getGrade("R");
-        Address address = AddressFactory.getAddress("14", "Sentinel road");
         Contact pContact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
         Parent parent = ParentFactory.getParent(pName, pContact);
+
+        Name name = NameFactory.getName("Heideveld");
+        Population population = PopulationFactory.getTotal(100000);
+        Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
+        City city = CityFactory.getCity(name, population);
+        Province province = ProvinceFactory.getProvince(name, population);
+        Address address = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
 
         Student student = StudentFactory.getStudent(sName, grade, "male", 5, address, parent);
         Assert.assertNotNull(student.getId());
