@@ -4,15 +4,21 @@ import com.djohannes.ac.za.domain.Name;
 import com.djohannes.ac.za.repository.NameRepository;
 import com.djohannes.ac.za.repository.impl.NameRepositoryImpl;
 import com.djohannes.ac.za.service.NameService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("ServiceImpl")
 public class NameServiceImpl implements NameService {
 
     private static NameServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("InMemory")
     private NameRepository repository;
 
     private NameServiceImpl() {
