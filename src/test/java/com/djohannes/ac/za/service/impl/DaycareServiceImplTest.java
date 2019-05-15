@@ -45,7 +45,7 @@ public class DaycareServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newDaycareId = "123";
         Daycare updated = new Daycare.Builder().copy(getSaved()).id(newDaycareId).build();
@@ -55,15 +55,15 @@ public class DaycareServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Daycare saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Daycare saved = getSaved();
         Daycare read = this.repository.read(saved.getId());
@@ -72,7 +72,7 @@ public class DaycareServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Daycare> daycares = this.repository.getAll();
         System.out.println("In getall, all = " + daycares);

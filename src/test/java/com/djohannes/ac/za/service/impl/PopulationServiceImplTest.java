@@ -36,7 +36,7 @@ public class PopulationServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newPopulationId = "123";
         Population updated = new Population.Builder().copy(getSaved()).id(newPopulationId).build();
@@ -46,15 +46,15 @@ public class PopulationServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Population saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Population saved = getSaved();
         Population read = this.repository.read(saved.getId());
@@ -63,7 +63,7 @@ public class PopulationServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Population> populations = this.repository.getAll();
         System.out.println("In getall, all = " + populations);

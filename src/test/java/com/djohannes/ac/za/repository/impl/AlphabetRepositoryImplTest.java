@@ -1,8 +1,6 @@
 package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Evaluation;
-import com.djohannes.ac.za.domain.Name;
-import com.djohannes.ac.za.domain.Population;
 import com.djohannes.ac.za.domain.Alphabet;
 import com.djohannes.ac.za.factory.*;
 import com.djohannes.ac.za.repository.AlphabetRepository;
@@ -40,7 +38,7 @@ public class AlphabetRepositoryImplTest {
     {
         Alphabet createdAlphabet = this.repository.create(this.alphabet);
         System.out.println("Create method called: Created alphabet = " + this.alphabet);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdAlphabet, this.alphabet);
     }
 
@@ -51,7 +49,7 @@ public class AlphabetRepositoryImplTest {
         System.out.println("Read method call 1: Reading alphabetID = " + savedAlphabet.getId());
         Alphabet readAlphabet = this.repository.read(savedAlphabet.getId());
         System.out.println("Read method call 2: Reading read = " + savedAlphabet.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedAlphabet, readAlphabet);
     }
 
@@ -64,19 +62,19 @@ public class AlphabetRepositoryImplTest {
         Alphabet updated = this.repository.update( newEvaluation);
         System.out.println("In update, updated = " + updated);
         Assert.assertSame( newEvaluation, updated);
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Alphabet savedAlphabet = getSavedAlphabet();
         this.repository.delete(savedAlphabet.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Alphabet> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

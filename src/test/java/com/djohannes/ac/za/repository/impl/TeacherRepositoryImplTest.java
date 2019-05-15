@@ -40,7 +40,7 @@ public class TeacherRepositoryImplTest {
     {
         Teacher createdTeacher = this.repository.create(this.teacher);
         System.out.println("Create method called: Created teacher = " + this.teacher);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdTeacher, this.teacher);
     }
 
@@ -51,7 +51,7 @@ public class TeacherRepositoryImplTest {
         System.out.println("Read method call 1: Reading teacherID = " + savedTeacher.getId());
         Teacher readTeacher = this.repository.read(savedTeacher.getId());
         System.out.println("Read method call 2: Reading read = " + savedTeacher.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedTeacher, readTeacher);
     }
 
@@ -64,19 +64,19 @@ public class TeacherRepositoryImplTest {
         Teacher updated = this.repository.update(newTel);
         System.out.println("In update, updated = " + updated);
         Assert.assertSame(newTel, updated);
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Teacher savedTeacher = getSavedTeacher();
         this.repository.delete(savedTeacher.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Teacher> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

@@ -40,7 +40,7 @@ public class ParentServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newParentId = "123";
         Parent updated = new Parent.Builder().copy(getSaved()).id(newParentId).build();
@@ -50,15 +50,15 @@ public class ParentServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Parent saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Parent saved = getSaved();
         Parent read = this.repository.read(saved.getId());
@@ -67,7 +67,7 @@ public class ParentServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Parent> parents = this.repository.getAll();
         System.out.println("In getall, all = " + parents);

@@ -39,7 +39,7 @@ public class DrawingServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newDrawingId = "123";
         Drawing updated = new Drawing.Builder().copy(getSaved()).id(newDrawingId).build();
@@ -57,7 +57,7 @@ public class DrawingServiceImplTest {
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Drawing saved = getSaved();
         Drawing read = this.repository.read(saved.getId());

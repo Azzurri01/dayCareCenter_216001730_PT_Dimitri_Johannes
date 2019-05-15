@@ -51,7 +51,7 @@ public class AccountRepositoryImplTest {
     {
         Account createdAccount = this.repository.create(this.account);
         System.out.println("Create method called: Created account = " + this.account);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdAccount, this.account);
     }
 
@@ -62,7 +62,7 @@ public class AccountRepositoryImplTest {
         System.out.println("Read method call 1: Reading account = " + savedAccount);
         Account readAccount = this.repository.read(savedAccount.getId());
         System.out.println("Read method call 2: Reading read = " + readAccount);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedAccount, readAccount);
     }
 
@@ -77,19 +77,19 @@ public class AccountRepositoryImplTest {
         Account updated = this.repository.update(newAccount);
         System.out.println("In update, updated = " + updated);
         Assert.assertSame(newAccount, updated);
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Account savedAccount = getSavedAccount();
         this.repository.delete(savedAccount.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Account> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

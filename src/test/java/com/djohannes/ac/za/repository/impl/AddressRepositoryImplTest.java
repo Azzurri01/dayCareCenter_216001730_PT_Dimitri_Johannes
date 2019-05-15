@@ -45,7 +45,7 @@ public class AddressRepositoryImplTest {
     {
         Address createdAddress = this.repository.create(this.address);
         System.out.println("Create method called: Created address = " + this.address);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdAddress, this.address);
     }
 
@@ -56,7 +56,7 @@ public class AddressRepositoryImplTest {
         System.out.println("Read method call 1: Reading locationID = " + savedAddress.getId());
         Address readAddress = this.repository.read(savedAddress.getId());
         System.out.println("Read method call 2: Reading read = " + savedAddress.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedAddress, readAddress);
     }
 
@@ -69,19 +69,19 @@ public class AddressRepositoryImplTest {
         Address updated = this.repository.update(newAddress);
         System.out.println("In update, updated = " + updated);
         Assert.assertSame(newAddress, updated);
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Address savedAddress = getSavedLocation();
         this.repository.delete(savedAddress.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Address> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

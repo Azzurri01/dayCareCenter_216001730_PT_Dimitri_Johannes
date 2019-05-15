@@ -40,7 +40,7 @@ public class SuburbRepositoryImplTest {
     {
         Suburb createdSuburb = this.repository.create(this.suburb);
         System.out.println("Create method called: Created suburb = " + this.suburb);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdSuburb, this.suburb);
     }
 
@@ -51,7 +51,7 @@ public class SuburbRepositoryImplTest {
         System.out.println("Read method call 1: Reading suburbID = " + savedSuburb.getId());
         Suburb readSuburb = this.repository.read(savedSuburb.getId());
         System.out.println("Read method call 2: Reading read = " + savedSuburb.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedSuburb, readSuburb);
     }
 
@@ -64,19 +64,19 @@ public class SuburbRepositoryImplTest {
         Suburb updated = this.repository.update(newTotal);
         System.out.println("In update, updated = " + updated);
         Assert.assertSame(newTotal, updated);
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Suburb savedSuburb = getSavedSuburb();
         this.repository.delete(savedSuburb.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Suburb> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

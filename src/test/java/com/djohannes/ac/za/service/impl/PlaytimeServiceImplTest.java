@@ -39,7 +39,7 @@ public class PlaytimeServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newPlaytimeId = "123";
         Playtime updated = new Playtime.Builder().copy(getSaved()).id(newPlaytimeId).build();
@@ -49,15 +49,15 @@ public class PlaytimeServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Playtime saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Playtime saved = getSaved();
         Playtime read = this.repository.read(saved.getId());
@@ -66,7 +66,7 @@ public class PlaytimeServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Playtime> playtimes = this.repository.getAll();
         System.out.println("In getall, all = " + playtimes);

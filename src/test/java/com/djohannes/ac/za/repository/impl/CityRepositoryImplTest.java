@@ -40,7 +40,7 @@ public class CityRepositoryImplTest {
     {
         City createdCity = this.repository.create(this.city);
         System.out.println("Create method called: Created city = " + this.city);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdCity, this.city);
     }
 
@@ -51,7 +51,7 @@ public class CityRepositoryImplTest {
         System.out.println("Read method call 1: Reading cityID = " + savedCity.getId());
         City readCity = this.repository.read(savedCity.getId());
         System.out.println("Read method call 2: Reading read = " + readCity);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedCity, readCity);
     }
 
@@ -64,19 +64,19 @@ public class CityRepositoryImplTest {
         City updated = this.repository.update(newCity);
         System.out.println("In update, updated = " + updated);
         Assert.assertSame(newCity, updated);
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         City savedCity = getSavedCity();
         this.repository.delete(savedCity.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<City> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

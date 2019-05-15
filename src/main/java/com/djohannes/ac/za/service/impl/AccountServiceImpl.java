@@ -30,6 +30,11 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
+    public Account read(String s) {
+        return this.repository.read(s);
+    }
+
+    @Override
     public Account update(Account account) {
         return this.repository.update(account);
     }
@@ -37,11 +42,6 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public void delete(String s) {
         this.repository.delete(s);
-    }
-
-    @Override
-    public Account read(String s) {
-        return this.repository.read(s);
     }
 
     @Override

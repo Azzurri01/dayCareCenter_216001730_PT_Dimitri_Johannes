@@ -36,7 +36,7 @@ public class AllergyServiceImplTest {
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Allergy saved = getSaved();
         Allergy read = this.repository.read(saved.getId());
@@ -45,7 +45,7 @@ public class AllergyServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void eUpdate()
     {
         String newAllergyId = "123";
         Allergy updated = new Allergy.Builder().copy(getSaved()).id(newAllergyId).build();
@@ -59,13 +59,13 @@ public class AllergyServiceImplTest {
     {
         Allergy saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
 
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Allergy> allergies = this.repository.getAll();
         System.out.println("In getall, all = " + allergies);

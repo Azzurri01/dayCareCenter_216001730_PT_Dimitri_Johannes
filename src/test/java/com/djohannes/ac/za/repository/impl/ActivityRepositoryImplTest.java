@@ -43,7 +43,7 @@ public class ActivityRepositoryImplTest {
     {
         Activity createdActivity = this.repository.create(this.activity);
         System.out.println("Create method called: Created activity = " + this.activity);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdActivity, this.activity);
     }
 
@@ -54,7 +54,7 @@ public class ActivityRepositoryImplTest {
         System.out.println("Read method call 1: Reading activity = " +  newActivity);
         Activity readActivity = this.repository.read( newActivity.getId());
         System.out.println("Read method call 2: Reading read = " + readActivity);
-        eGetAll();
+        dGetAll();
         Assert.assertSame( newActivity, readActivity);
     }
 
@@ -67,19 +67,19 @@ public class ActivityRepositoryImplTest {
         Activity updated = this.repository.update(updatedActivity);
         System.out.println("In update, updated = " + updated);
         Assert.assertSame(newGrade, updated.getGrade());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Activity savedActivity = getSavedActivity();
         this.repository.delete(savedActivity.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Activity> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

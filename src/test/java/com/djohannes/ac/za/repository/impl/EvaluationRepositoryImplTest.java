@@ -35,7 +35,7 @@ public class EvaluationRepositoryImplTest {
     {
         Evaluation createdEvaluation = this.repository.create(this.evaluation);
         System.out.println("Create method called: Created evaluation = " + this.evaluation);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdEvaluation, this.evaluation);
     }
 
@@ -46,7 +46,7 @@ public class EvaluationRepositoryImplTest {
         System.out.println("Read method call 1: Reading evaluationID = " + savedEvaluation.getId());
         Evaluation readEvaluation = this.repository.read(savedEvaluation.getId());
         System.out.println("Read method call 2: Reading read = " + savedEvaluation.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedEvaluation, readEvaluation);
     }
 
@@ -59,19 +59,19 @@ public class EvaluationRepositoryImplTest {
         Evaluation updated = this.repository.update(newRating);
         System.out.println("In update, updated = " + updated);
         Assert.assertSame(newRating, updated);;
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Evaluation savedEvaluation = getSavedEvaluation();
         this.repository.delete(savedEvaluation.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Evaluation> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

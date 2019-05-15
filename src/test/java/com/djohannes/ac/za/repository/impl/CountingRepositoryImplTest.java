@@ -38,7 +38,7 @@ public class CountingRepositoryImplTest {
     {
         Counting createdCounting = this.repository.create(this.counting);
         System.out.println("Create method called: Created counting = " + this.counting);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdCounting, this.counting);
     }
 
@@ -49,7 +49,7 @@ public class CountingRepositoryImplTest {
         System.out.println("Read method call 1: Reading countingID = " + savedCounting.getId());
         Counting readCounting = this.repository.read(savedCounting.getId());
         System.out.println("Read method call 2: Reading read = " + savedCounting.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedCounting, readCounting);
     }
 
@@ -62,19 +62,19 @@ public class CountingRepositoryImplTest {
         Counting updated = this.repository.update(newEvaluation);
         System.out.println("In update, updated = " + updated);
         Assert.assertSame(newEvaluation, updated);
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Counting savedCounting = getSavedCounting();
         this.repository.delete(savedCounting.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Counting> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

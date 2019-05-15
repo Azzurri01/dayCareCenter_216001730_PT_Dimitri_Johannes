@@ -38,7 +38,7 @@ public class PlaytimeRepositoryImplTest {
     {
         Playtime createdPlaytime = this.repository.create(this.playtime);
         System.out.println("Create method called: Created playtime = " + this.playtime);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdPlaytime, this.playtime);
     }
 
@@ -49,7 +49,7 @@ public class PlaytimeRepositoryImplTest {
         System.out.println("Read method call 1: Reading playtimeID = " + savedPlaytime.getId());
         Playtime readPlaytime = this.repository.read(savedPlaytime.getId());
         System.out.println("Read method call 2: Reading read = " + savedPlaytime.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedPlaytime, readPlaytime);
     }
 
@@ -62,19 +62,19 @@ public class PlaytimeRepositoryImplTest {
         Playtime updated = this.repository.update(newEvaluation);
         System.out.println("In update, updated = " + updated);
         Assert.assertSame(newEvaluation, updated);
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Playtime savedPlaytime = getSavedPlaytime();
         this.repository.delete(savedPlaytime.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Playtime> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

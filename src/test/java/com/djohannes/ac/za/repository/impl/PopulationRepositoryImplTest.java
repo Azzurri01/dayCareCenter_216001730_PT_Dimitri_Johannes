@@ -3,7 +3,6 @@ package com.djohannes.ac.za.repository.impl;
 import com.djohannes.ac.za.domain.Population;
 import com.djohannes.ac.za.factory.PopulationFactory;
 import com.djohannes.ac.za.repository.PopulationRepository;
-import com.djohannes.ac.za.util.Misc;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -36,7 +35,7 @@ public class PopulationRepositoryImplTest {
     {
         Population createdPopulation = this.repository.create(this.population);
         System.out.println("Create method called: Created population = " + this.population);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdPopulation, this.population);
     }
 
@@ -47,7 +46,7 @@ public class PopulationRepositoryImplTest {
         System.out.println("Read method call 1: Reading populationID = " + savedPopulation.getId());
         Population readPopulation = this.repository.read(savedPopulation.getId());
         System.out.println("Read method call 2: Reading read = " + savedPopulation);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedPopulation, readPopulation);
     }
 
@@ -67,19 +66,19 @@ public class PopulationRepositoryImplTest {
 
         //Test new value against method
         Assert.assertEquals(newTotal, updated.getTotal());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Population savedPopulation = getSavedPopulation();
         this.repository.delete(savedPopulation.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Population> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

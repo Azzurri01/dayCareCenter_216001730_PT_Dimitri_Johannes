@@ -35,7 +35,7 @@ public class NameRepositoryImplTest {
     {
         Name createdName = this.repository.create(this.name);
         System.out.println("Create method called: Created name = " + this.name);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdName, this.name);
     }
 
@@ -46,7 +46,7 @@ public class NameRepositoryImplTest {
         System.out.println("Read method call 1: Reading nameID = " + savedName.getId());
         Name readName = this.repository.read(savedName.getId());
         System.out.println("Read method call 2: Reading read = " + savedName.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedName, readName);
     }
 
@@ -59,19 +59,19 @@ public class NameRepositoryImplTest {
         Name updated = this.repository.update(newName);
         System.out.println("In update, updated = " + updated);
         Assert.assertSame(newName, updated);
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Name savedName = getSavedName();
         this.repository.delete(savedName.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Name> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

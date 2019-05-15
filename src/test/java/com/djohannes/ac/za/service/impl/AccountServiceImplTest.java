@@ -1,6 +1,5 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Name;
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
 import com.djohannes.ac.za.repository.AccountRepository;
@@ -52,25 +51,7 @@ public class AccountServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
-    {
-        double newFee = 1000.0;
-        Account updated = new Account.Builder().copy(getSaved()).fee(newFee).build();
-        System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
-        Assert.assertEquals(String.valueOf(newFee), String.valueOf(updated.getFee()));
-    }
-
-    @Test
-    public void cDelete()
-    {
-        Account saved = getSaved();
-        this.repository.delete(saved.getId());
-        eGetAll();
-    }
-
-    @Test
-    public void dRead()
+    public void bRead()
     {
         Account saved = getSaved();
         Account read = this.repository.read(saved.getId());
@@ -79,9 +60,37 @@ public class AccountServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void cUpdate()
     {
-        Set<Account> accounts = this.repository.getAll();
-        System.out.println("In getall, all = " + accounts);
+        /*double newFee = 1000.0;
+        Account updated = new Account.Builder().copy(getSaved()).fee(newFee).build();
+        System.out.println("In update, updated = " + updated);
+        this.repository.update(updated);
+        Assert.assertEquals(String.valueOf(newFee), String.valueOf(updated.getFee()));*/
+
+        Name name = NameFactory.getName("Dimitri", "Johannes");
+        Contact contact = ContactFactory.getContact("0824512653", "dimitri.johannes@t-systems.co.za");
+        Parent parent = ParentFactory.getParent(name, contact);
+        Account newAccount = new Account.Builder().copy(getSaved()).parent(parent).build();
+        System.out.println("In update, about_to_updated = " + newAccount);
+        Account updated = this.repository.update(newAccount);
+        System.out.println("In update, updated = " + updated);
+        Assert.assertSame(newAccount, updated);
+        dGetAll();
     }
+
+    @Test
+    public void eDelete()
+    {
+        Account saved = getSaved();
+        this.repository.delete(saved.getId());
+        dGetAll();
+    }
+
+    @Test
+public void dGetAll()
+{
+    Set<Account> accounts = this.repository.getAll();
+    System.out.println("In getall, all = " + accounts);
+}
 }

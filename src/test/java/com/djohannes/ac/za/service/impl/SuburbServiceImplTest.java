@@ -40,7 +40,7 @@ public class SuburbServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newSuburbId = "123";
         Suburb updated = new Suburb.Builder().copy(getSaved()).id(newSuburbId).build();
@@ -50,15 +50,15 @@ public class SuburbServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Suburb saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Suburb saved = getSaved();
         Suburb read = this.repository.read(saved.getId());
@@ -67,7 +67,7 @@ public class SuburbServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Suburb> suburbs = this.repository.getAll();
         System.out.println("In getall, all = " + suburbs);

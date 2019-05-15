@@ -37,7 +37,7 @@ public class GradeServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newGradeId = "123";
         Grade updated = new Grade.Builder().copy(getSaved()).id(newGradeId).build();
@@ -47,15 +47,15 @@ public class GradeServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Grade saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Grade saved = getSaved();
         Grade read = this.repository.read(saved.getId());
@@ -64,7 +64,7 @@ public class GradeServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Grade> grades = this.repository.getAll();
         System.out.println("In getall, all = " + grades);

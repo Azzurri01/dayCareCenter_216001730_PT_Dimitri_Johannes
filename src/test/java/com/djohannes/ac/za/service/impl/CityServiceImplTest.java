@@ -40,7 +40,7 @@ public class CityServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newCityId = "123";
         City updated = new City.Builder().copy(getSaved()).id(newCityId).build();
@@ -50,15 +50,15 @@ public class CityServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         City saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         City saved = getSaved();
         City read = this.repository.read(saved.getId());
@@ -67,7 +67,7 @@ public class CityServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<City> cities = this.repository.getAll();
         System.out.println("In getall, all = " + cities);

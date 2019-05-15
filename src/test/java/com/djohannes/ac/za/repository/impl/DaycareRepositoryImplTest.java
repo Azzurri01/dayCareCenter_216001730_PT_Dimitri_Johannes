@@ -43,7 +43,7 @@ public class DaycareRepositoryImplTest {
     {
         Daycare createdDaycare = this.repository.create(this.daycare);
         System.out.println("Create method called: Created daycare = " + this.daycare);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdDaycare, this.daycare);
     }
 
@@ -54,7 +54,7 @@ public class DaycareRepositoryImplTest {
         System.out.println("Read method call 1: Reading daycareID = " + savedDaycare.getId());
         Daycare readDaycare = this.repository.read(savedDaycare.getId());
         System.out.println("Read method call 2: Reading read = " + savedDaycare.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedDaycare, readDaycare);
     }
 
@@ -67,19 +67,19 @@ public class DaycareRepositoryImplTest {
         Daycare updated = this.repository.update(newName);
         System.out.println("In update, updated = " + updated.getName().getname());
         Assert.assertSame(newName, updated);
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Daycare savedDaycare = getSavedDaycare();
         this.repository.delete(savedDaycare.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Daycare> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

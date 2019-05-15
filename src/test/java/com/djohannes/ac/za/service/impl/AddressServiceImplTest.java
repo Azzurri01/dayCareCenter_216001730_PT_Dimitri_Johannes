@@ -43,7 +43,7 @@ public class AddressServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newLocationId = "123";
         Address updated = new Address.Builder().copy(getSaved()).id(newLocationId).build();
@@ -53,15 +53,15 @@ public class AddressServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Address saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Address saved = getSaved();
         Address read = this.repository.read(saved.getId());
@@ -70,7 +70,7 @@ public class AddressServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Address> addresses = this.repository.getAll();
         System.out.println("In getall, all = " + addresses);

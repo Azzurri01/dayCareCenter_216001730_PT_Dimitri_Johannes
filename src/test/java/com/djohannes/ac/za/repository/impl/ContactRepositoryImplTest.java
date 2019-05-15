@@ -35,7 +35,7 @@ public class ContactRepositoryImplTest {
     {
         Contact createdContact = this.repository.create(this.contact);
         System.out.println("Create method called: Created contact = " + this.contact);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdContact, this.contact);
     }
 
@@ -46,7 +46,7 @@ public class ContactRepositoryImplTest {
         System.out.println("Read method call 1: Reading contactID = " + savedContact.getId());
         Contact readContact = this.repository.read(savedContact.getId());
         System.out.println("Read method call 2: Reading read = " + savedContact.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedContact, readContact);
     }
 
@@ -59,19 +59,19 @@ public class ContactRepositoryImplTest {
         Contact updated = this.repository.update(newContactNo);
         System.out.println("In update, updated = " + updated.getContactNo());
         Assert.assertSame(newContactNo, updated);
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Contact savedContact = getSavedContact();
         this.repository.delete(savedContact.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Contact> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

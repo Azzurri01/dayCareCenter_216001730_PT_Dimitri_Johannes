@@ -40,7 +40,7 @@ public class ProvinceRepositoryImplTest {
     {
         Province createdProvince = this.repository.create(this.province);
         System.out.println("Create method called: Created province = " + this.province);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdProvince, this.province);
     }
 
@@ -51,7 +51,7 @@ public class ProvinceRepositoryImplTest {
         System.out.println("Read method call 1: Reading provinceID = " + savedProvince.getId());
         Province readProvince = this.repository.read(savedProvince.getId());
         System.out.println("Read method call 2: Reading read = " + savedProvince.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedProvince, readProvince);
     }
 
@@ -64,19 +64,19 @@ public class ProvinceRepositoryImplTest {
         Province updated = this.repository.update(updatedName);
         System.out.println("In update, updated = " + updated.getName().getname());
         Assert.assertEquals(newName.getname(), updated.getName().getname());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Province savedProvince = getSavedProvince();
         this.repository.delete(savedProvince.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Province> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

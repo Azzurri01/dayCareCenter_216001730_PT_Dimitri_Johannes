@@ -40,7 +40,7 @@ public class ParentRepositoryImplTest {
     {
         Parent createdParent = this.repository.create(this.parent);
         System.out.println("Create method called: Created parent = " + this.parent);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdParent, this.parent);
     }
 
@@ -51,7 +51,7 @@ public class ParentRepositoryImplTest {
         System.out.println("Read method call 1: Reading parentID = " + savedParent.getId());
         Parent readParent = this.repository.read(savedParent.getId());
         System.out.println("Read method call 2: Reading read = " + savedParent.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedParent, readParent);
     }
 
@@ -64,19 +64,19 @@ public class ParentRepositoryImplTest {
         Parent updated = this.repository.update(newParent);
         System.out.println("In update, updated = " + updated.getContact().getContactNo());
         Assert.assertSame(newParent.getContact().getContactNo(), updated.getContact().getContactNo());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Parent savedParent = getSavedParent();
         this.repository.delete(savedParent.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Parent> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

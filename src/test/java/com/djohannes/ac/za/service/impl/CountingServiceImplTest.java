@@ -39,7 +39,7 @@ public class CountingServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newCountingId = "123";
         Counting updated = new Counting.Builder().copy(getSaved()).id(newCountingId).build();
@@ -49,15 +49,15 @@ public class CountingServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Counting saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Counting saved = getSaved();
         Counting read = this.repository.read(saved.getId());
@@ -66,7 +66,7 @@ public class CountingServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Counting> numbers = this.repository.getAll();
         System.out.println("In getall, all = " + numbers);

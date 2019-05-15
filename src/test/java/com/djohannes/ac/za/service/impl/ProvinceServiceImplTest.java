@@ -40,7 +40,7 @@ public class ProvinceServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newProvinceId = "123";
         Province updated = new Province.Builder().copy(getSaved()).id(newProvinceId).build();
@@ -50,15 +50,15 @@ public class ProvinceServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Province saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Province saved = getSaved();
         Province read = this.repository.read(saved.getId());
@@ -67,7 +67,7 @@ public class ProvinceServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Province> provinces = this.repository.getAll();
         System.out.println("In getall, all = " + provinces);

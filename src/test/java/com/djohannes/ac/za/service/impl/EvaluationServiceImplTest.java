@@ -37,7 +37,7 @@ public class EvaluationServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newEvaluationId = "123";
         Evaluation updated = new Evaluation.Builder().copy(getSaved()).id(newEvaluationId).build();
@@ -47,15 +47,15 @@ public class EvaluationServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Evaluation saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Evaluation saved = getSaved();
         Evaluation read = this.repository.read(saved.getId());
@@ -64,7 +64,7 @@ public class EvaluationServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Evaluation> evaluations = this.repository.getAll();
         System.out.println("In getall, all = " + evaluations);
