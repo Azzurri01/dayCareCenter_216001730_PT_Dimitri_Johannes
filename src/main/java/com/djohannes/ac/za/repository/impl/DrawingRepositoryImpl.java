@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Drawing;
 import com.djohannes.ac.za.repository.DrawingRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("DrawingMemory")
 public class DrawingRepositoryImpl implements DrawingRepository {
 
     private static DrawingRepositoryImpl repository = null;

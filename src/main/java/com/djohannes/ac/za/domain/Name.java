@@ -3,8 +3,17 @@ package com.djohannes.ac.za.domain;
 public class Name {
     private String id, fName, lName, name;
 
-    private Name()
+    private Name(String id, String fName, String lName)
     {
+        this.id=id;
+        this.fName=fName;
+        this.lName=lName;
+    }
+
+    private Name(String id, String name)
+    {
+        this.id=id;
+        this.name=name;
     }
 
     public Name(Builder builder)
@@ -39,6 +48,12 @@ public class Name {
             this.id=name.id;
             this.fName=name.fName;
             this.lName=name.lName;
+            return this;
+        }
+
+        public Builder copy1(Name name)
+        {
+            this.id=name.id;
             this.name=name.name;
             return this;
         }

@@ -4,14 +4,19 @@ import com.djohannes.ac.za.domain.Student;
 import com.djohannes.ac.za.repository.StudentRepository;
 import com.djohannes.ac.za.repository.impl.StudentRepositoryImpl;
 import com.djohannes.ac.za.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Service
+@Service("StudentServiceImpl")
 public class StudentServiceImpl implements StudentService {
 
     private static StudentServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("StudentMemory")
     private StudentRepository repository;
 
     private StudentServiceImpl() {

@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Student;
 import com.djohannes.ac.za.repository.StudentRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("StudentMemory")
 public class StudentRepositoryImpl implements StudentRepository
 {
     //Local variables

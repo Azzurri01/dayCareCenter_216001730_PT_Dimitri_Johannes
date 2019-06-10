@@ -12,13 +12,13 @@ import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
-@Service("ServiceImpl")
+@Service("NameServiceImpl")
 public class NameServiceImpl implements NameService {
 
     private static NameServiceImpl service = null;
 
     @Autowired
-    @Qualifier("InMemory")
+    @Qualifier("NameMemory")
     private NameRepository repository;
 
     private NameServiceImpl() {

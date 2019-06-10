@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Address;
 import com.djohannes.ac.za.repository.AddressRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("AddressMemory")
 public class AddressRepositoryImpl implements AddressRepository {
 
     private static AddressRepositoryImpl repository = null;

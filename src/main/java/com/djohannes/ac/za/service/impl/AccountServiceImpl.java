@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.AccountService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("AccountServiceImpl")
 public class AccountServiceImpl implements AccountService {
 
     private static AccountServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("AccountMemory")
     private AccountRepository repository;
 
     private AccountServiceImpl() {

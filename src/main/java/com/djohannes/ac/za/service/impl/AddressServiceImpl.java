@@ -3,24 +3,28 @@ package com.djohannes.ac.za.service.impl;
 import com.djohannes.ac.za.domain.Address;
 import com.djohannes.ac.za.repository.AddressRepository;
 import com.djohannes.ac.za.repository.impl.AddressRepositoryImpl;
-import com.djohannes.ac.za.service.LocationService;
+import com.djohannes.ac.za.service.AddressService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-import org.springframework.stereotype.Service;
+@Service("AddressServiceImpl")
+public class AddressServiceImpl implements AddressService {
 
-@Service
-public class LocationServiceImpl implements LocationService {
+    private static AddressServiceImpl service = null;
 
-    private static LocationServiceImpl service = null;
+    @Autowired
+    @Qualifier("AddressMemory")
     private AddressRepository repository;
 
-    private LocationServiceImpl() {
+    private AddressServiceImpl() {
         this.repository = AddressRepositoryImpl.getRepository();
     }
 
-    public static LocationServiceImpl getService(){
-        if (service == null) service = new LocationServiceImpl();
+    public static AddressServiceImpl getService(){
+        if (service == null) service = new AddressServiceImpl();
         return service;
     }
 

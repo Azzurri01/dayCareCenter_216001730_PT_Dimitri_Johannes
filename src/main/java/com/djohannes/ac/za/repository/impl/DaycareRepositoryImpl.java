@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Daycare;
 import com.djohannes.ac.za.repository.DaycareRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("DaycareMemory")
 public class DaycareRepositoryImpl implements DaycareRepository {
 
     private static DaycareRepositoryImpl repository = null;

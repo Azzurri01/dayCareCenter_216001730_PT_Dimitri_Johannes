@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Evaluation;
 import com.djohannes.ac.za.repository.EvaluationRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("EvaluationMemory")
 public class EvaluationRepositoryImpl implements EvaluationRepository {
 
     private static EvaluationRepositoryImpl repository = null;

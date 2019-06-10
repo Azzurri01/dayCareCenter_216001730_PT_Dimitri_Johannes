@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Alphabet;
 import com.djohannes.ac.za.repository.AlphabetRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("AlphabetMemory")
 public class AlphabetRepositoryImpl implements AlphabetRepository {
 
     private static AlphabetRepositoryImpl repository = null;

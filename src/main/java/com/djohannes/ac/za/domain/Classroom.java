@@ -19,7 +19,7 @@ public class Classroom
         return roomNo;
     }
 
-    public Classroom(Builder builder)
+    private Classroom(Builder builder)
     {
         this.id=builder.id;
         this.roomNo =builder.roomNo;

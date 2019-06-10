@@ -14,7 +14,7 @@ import java.util.Set;
 @RequestMapping("/name")
 public class NameController {
     @Autowired
-    @Qualifier("ServiceImpl")
+    @Qualifier("NameServiceImpl")
     private NameService service;
 
     @PostMapping("/create")

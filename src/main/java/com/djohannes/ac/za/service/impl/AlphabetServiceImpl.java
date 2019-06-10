@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.AlphabetService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("AlphabetServiceImpl")
 public class AlphabetServiceImpl implements AlphabetService {
 
     private static AlphabetServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("AlphabetMemory")
     private AlphabetRepository repository;
 
     private AlphabetServiceImpl() {

@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Province;
 import com.djohannes.ac.za.repository.ProvinceRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("ProvinceMemory")
 public class ProvinceRepositoryImpl implements ProvinceRepository {
 
     private static ProvinceRepositoryImpl repository = null;

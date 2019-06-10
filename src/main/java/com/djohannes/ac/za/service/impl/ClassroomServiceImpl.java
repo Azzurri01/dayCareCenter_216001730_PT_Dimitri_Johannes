@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.ClassroomService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("ClassroomServiceImpl")
 public class ClassroomServiceImpl implements ClassroomService {
 
     private static ClassroomServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("ClassroomMemory")
     private ClassroomRepository repository;
 
     private ClassroomServiceImpl() {

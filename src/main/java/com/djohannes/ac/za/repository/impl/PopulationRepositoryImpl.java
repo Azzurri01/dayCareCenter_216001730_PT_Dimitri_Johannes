@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Population;
 import com.djohannes.ac.za.repository.PopulationRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("PopulationMemory")
 public class PopulationRepositoryImpl implements PopulationRepository {
 
     private static PopulationRepositoryImpl repository = null;

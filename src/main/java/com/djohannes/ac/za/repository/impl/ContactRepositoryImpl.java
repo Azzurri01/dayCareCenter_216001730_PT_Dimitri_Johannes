@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Contact;
 import com.djohannes.ac.za.repository.ContactRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("ContactMemory")
 public class ContactRepositoryImpl implements ContactRepository {
 
     private static ContactRepositoryImpl repository = null;

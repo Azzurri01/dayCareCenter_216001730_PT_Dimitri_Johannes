@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Colour;
 import com.djohannes.ac.za.repository.ColourRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("ColourMemory")
 public class ColourRepositoryImpl implements ColourRepository {
 
     private static ColourRepositoryImpl repository = null;

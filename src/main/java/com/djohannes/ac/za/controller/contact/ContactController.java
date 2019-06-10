@@ -1,0 +1,49 @@
+package com.djohannes.ac.za.controller.contact;
+
+
+import com.djohannes.ac.za.domain.Contact;
+import com.djohannes.ac.za.service.ContactService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Set;
+
+@RestController
+@RequestMapping("/contact")
+public class ContactController {
+    @Autowired
+    @Qualifier("ContactServiceImpl")
+    private ContactService service;
+
+    @PostMapping("/create")
+    @ResponseBody
+    public Contact create(Contact contact) {
+        return service.create(contact);
+    }
+
+    @PostMapping("/update")
+    @ResponseBody
+    public Contact update(Contact contact) {
+        return service.update(contact);
+    }
+
+    @GetMapping("/delete/{id}")
+    @ResponseBody
+    public void delete(@PathVariable String id) {
+        service.delete(id);
+
+    }
+
+    @GetMapping("/read/{id}")
+    @ResponseBody
+    public Contact read(@PathVariable String id) {
+        return service.read(id);
+    }
+
+    @GetMapping("/read/all")
+    @ResponseBody
+    public Set<Contact> getAll() {
+        return service.getAll();
+    }
+}

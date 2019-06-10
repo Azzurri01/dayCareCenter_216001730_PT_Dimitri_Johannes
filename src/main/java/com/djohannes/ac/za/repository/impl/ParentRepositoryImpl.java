@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Parent;
 import com.djohannes.ac.za.repository.ParentRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("ParentMemory")
 public class ParentRepositoryImpl implements ParentRepository {
 
     private static ParentRepositoryImpl repository = null;

@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.PopulationService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("PopulationServiceImpl")
 public class PopulationServiceImpl implements PopulationService {
 
     private static PopulationServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("PopulationMemory")
     private PopulationRepository repository;
 
     private PopulationServiceImpl() {

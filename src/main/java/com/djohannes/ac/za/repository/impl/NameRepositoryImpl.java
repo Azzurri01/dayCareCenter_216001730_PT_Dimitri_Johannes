@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.HashSet;
 import java.util.Set;
 
-@Repository("InMemory")
+@Repository("NameMemory")
 public class NameRepositoryImpl implements NameRepository
 {
     //Local variables

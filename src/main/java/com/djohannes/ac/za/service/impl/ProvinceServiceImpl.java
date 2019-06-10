@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.ProvinceService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("ProvinceServiceImpl")
 public class ProvinceServiceImpl implements ProvinceService {
 
     private static ProvinceServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("ProvinceMemory")
     private ProvinceRepository repository;
 
     private ProvinceServiceImpl() {

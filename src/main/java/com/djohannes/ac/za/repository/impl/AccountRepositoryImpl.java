@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Account;
 import com.djohannes.ac.za.repository.AccountRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("AccountMemory")
 public class AccountRepositoryImpl implements AccountRepository {
 
     private static AccountRepositoryImpl repository = null;

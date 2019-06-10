@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Playtime;
 import com.djohannes.ac.za.repository.PlaytimeRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("PlaytimeMemory")
 public class PlaytimeRepositoryImpl implements PlaytimeRepository {
 
     private static PlaytimeRepositoryImpl repository = null;

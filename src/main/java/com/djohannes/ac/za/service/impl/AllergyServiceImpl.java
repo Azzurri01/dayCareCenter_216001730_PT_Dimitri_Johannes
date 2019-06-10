@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.AllergyService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("AllergyServiceImpl")
 public class AllergyServiceImpl implements AllergyService {
 
     private static AllergyServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("AllergyMemory")
     private AllergyRepository repository;
 
     private AllergyServiceImpl() {

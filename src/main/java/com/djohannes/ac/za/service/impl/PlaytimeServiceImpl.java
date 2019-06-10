@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.PlaytimeService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("PlaytimeServiceImpl")
 public class PlaytimeServiceImpl implements PlaytimeService {
 
     private static PlaytimeServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("PlaytimeMemory")
     private PlaytimeRepository repository;
 
     private PlaytimeServiceImpl() {

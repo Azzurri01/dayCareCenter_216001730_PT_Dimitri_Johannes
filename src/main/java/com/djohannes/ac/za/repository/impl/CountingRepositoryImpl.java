@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Counting;
 import com.djohannes.ac.za.repository.CountingRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("CountingMemory")
 public class CountingRepositoryImpl implements CountingRepository {
 
     private static CountingRepositoryImpl repository = null;
