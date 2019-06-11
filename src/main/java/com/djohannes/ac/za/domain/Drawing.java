@@ -1,5 +1,7 @@
 package com.djohannes.ac.za.domain;
 
+import java.util.Objects;
+
 public class Drawing
 {
     private String id, shape;
@@ -71,4 +73,17 @@ public class Drawing
                 ", Evaluation='" + evaluation + '\'' +
                 '}';
     }
+
+    /*@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Drawing drawing = (Drawing) o;
+        return id.equals(drawing.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }*/
 }

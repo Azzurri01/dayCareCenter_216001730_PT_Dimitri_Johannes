@@ -61,4 +61,17 @@ public class Evaluation
                 "Rating='" + mark + '\'' +
                 '}';
     }
+
+    /*@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Evaluation evaluation = (Evaluation) o;
+        return id.equals(evaluation.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }*/
 }

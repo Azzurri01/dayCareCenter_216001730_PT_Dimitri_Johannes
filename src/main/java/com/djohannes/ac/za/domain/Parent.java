@@ -80,4 +80,17 @@ public class Parent
                 "Contact='" + contact + '\'' +
                 '}';
     }
+
+    /*@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Parent parent = (Parent) o;
+        return id.equals(parent.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }*/
 }
