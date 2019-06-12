@@ -33,14 +33,14 @@ public class DrawingControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetDrawingById() {
         Drawing drawing = restTemplate.getForObject(baseURL + "/drawing/1", Drawing.class);
         System.out.println(drawing.getId());
         assertNotNull(drawing);
     }
 
-    @Ignore
+    @Test
     public void testCreateDrawing() {
         Evaluation evaluation = EvaluationFactory.getEvaluation(5);
         Drawing drawing = DrawingFactory.getDrawing("circle",evaluation);
@@ -50,7 +50,7 @@ public class DrawingControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateDrawing() {
         int id = 1;
         Drawing drawing = restTemplate.getForObject(baseURL + "/drawing/" + id, Drawing.class);
@@ -60,8 +60,8 @@ public class DrawingControllerTest {
         assertNotNull(updatedDrawing);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteDrawing() {
         int id = 2;
         Drawing drawing = restTemplate.getForObject(baseURL + "/drawings/" + id, Drawing.class);
         assertNotNull(drawing);

@@ -32,14 +32,14 @@ public class ActivityControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetActivityById() {
         Activity activity = restTemplate.getForObject(baseURL + "/activity/1", Activity.class);
         System.out.println(activity.getId());
         assertNotNull(activity);
     }
 
-    @Ignore
+    @Test
     public void testCreateActivity() {
         Grade grade = GradeFactory.getGrade("R");
         Evaluation evaluation = EvaluationFactory.getEvaluation(8);
@@ -56,7 +56,7 @@ public class ActivityControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateActivity() {
         int id = 1;
         Activity activity = restTemplate.getForObject(baseURL + "/activity/" + id, Activity.class);
@@ -66,8 +66,8 @@ public class ActivityControllerTest {
         assertNotNull(updatedActivity);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteActivity() {
         int id = 2;
         Activity activity = restTemplate.getForObject(baseURL + "/activitys/" + id, Activity.class);
         assertNotNull(activity);

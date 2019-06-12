@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.daycare;
 
 
 import com.djohannes.ac.za.domain.Daycare;
+import com.djohannes.ac.za.factory.DaycareFactory;
 import com.djohannes.ac.za.service.DaycareService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,7 +19,7 @@ public class DaycareController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Daycare create(Daycare daycare) {
+   public Daycare create(Daycare daycare) {
         return service.create(daycare);
     }
 

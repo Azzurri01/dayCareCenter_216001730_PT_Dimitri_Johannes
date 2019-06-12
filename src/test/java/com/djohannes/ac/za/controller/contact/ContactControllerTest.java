@@ -2,15 +2,27 @@ package com.djohannes.ac.za.controller.contact;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import com.djohannes.ac.za.repository.impl.ContactRepositoryImpl;
+import com.djohannes.ac.za.service.ContactService;
+import com.djohannes.ac.za.service.impl.ContactServiceImpl;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.HttpClientErrorException;
+
+import java.net.URI;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
@@ -22,6 +34,13 @@ public class ContactControllerTest {
     private TestRestTemplate restTemplate;
     private String baseURL="http://localhost:8080/contact";
 
+    /*@Before
+    public void setUp() {
+        Contact contact = ContactFactory.getContact("0835133305", "fowzia.johannes@gmail.com");
+        baseURL="http://localhost:8080/contact";
+        ResponseEntity<Contact> postResponse = restTemplate.postForEntity(baseURL + "/create", contact, Contact.class);
+    }*/
+
     @Test
     public void testGetAllActivities() {
         HttpHeaders headers = new HttpHeaders();
@@ -32,23 +51,22 @@ public class ContactControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetContactById() {
         Contact contact = restTemplate.getForObject(baseURL + "/contact/1", Contact.class);
         System.out.println(contact.getId());
         assertNotNull(contact);
     }
 
-    @Ignore
+    @Test
     public void testCreateContact() {
         Contact contact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
-
-        ResponseEntity<Contact> postResponse = restTemplate.postForEntity(baseURL + "/create", contact, Contact.class);
-        assertNotNull(postResponse);
-        assertNotNull(postResponse.getBody());
+        ResponseEntity<Contact> postResponse = restTemplate.postForEntity(baseURL + "/create", contact , Contact.class);
+        System.out.println(postResponse.getStatusCodeValue());
+        Assert.assertEquals(contact.toString(), postResponse.toString());
     }
 
-    @Ignore
+    @Test
     public void testUpdateContact() {
         int id = 1;
         Contact contact = restTemplate.getForObject(baseURL + "/contact/" + id, Contact.class);
@@ -58,8 +76,8 @@ public class ContactControllerTest {
         assertNotNull(updatedContact);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteContact() {
         int id = 2;
         Contact contact = restTemplate.getForObject(baseURL + "/contacts/" + id, Contact.class);
         assertNotNull(contact);

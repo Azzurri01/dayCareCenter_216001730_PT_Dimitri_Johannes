@@ -32,14 +32,14 @@ public class ClassroomControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetClassroomById() {
         Classroom classroom = restTemplate.getForObject(baseURL + "/classroom/1", Classroom.class);
         System.out.println(classroom.getId());
         assertNotNull(classroom);
     }
 
-    @Ignore
+    @Test
     public void testCreateClassroom() {
         Classroom classroom = ClassroomFactory.getClassroom("1");
 
@@ -48,7 +48,7 @@ public class ClassroomControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateClassroom() {
         int id = 1;
         Classroom classroom = restTemplate.getForObject(baseURL + "/classroom/" + id, Classroom.class);
@@ -58,8 +58,8 @@ public class ClassroomControllerTest {
         assertNotNull(updatedClassroom);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteClassroom() {
         int id = 2;
         Classroom classroom = restTemplate.getForObject(baseURL + "/classrooms/" + id, Classroom.class);
         assertNotNull(classroom);

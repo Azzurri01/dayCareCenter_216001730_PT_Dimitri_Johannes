@@ -32,14 +32,14 @@ public class ParentControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetParentById() {
         Parent parent = restTemplate.getForObject(baseURL + "/parent/1", Parent.class);
         System.out.println(parent.getId());
         assertNotNull(parent);
     }
 
-    @Ignore
+    @Test
     public void testCreateParent() {
 
         Name pName = NameFactory.getName("Dimitri", "Johannes");
@@ -52,7 +52,7 @@ public class ParentControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateParent() {
         int id = 1;
         Parent parent = restTemplate.getForObject(baseURL + "/parent/" + id, Parent.class);
@@ -62,8 +62,8 @@ public class ParentControllerTest {
         assertNotNull(updatedParent);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteParent() {
         int id = 2;
         Parent parent = restTemplate.getForObject(baseURL + "/parents/" + id, Parent.class);
         assertNotNull(parent);

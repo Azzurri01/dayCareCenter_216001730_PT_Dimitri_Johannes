@@ -32,14 +32,14 @@ public class CityControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetCityById() {
         City city = restTemplate.getForObject(baseURL + "/city/1", City.class);
         System.out.println(city.getId());
         assertNotNull(city);
     }
 
-    @Ignore
+    @Test
     public void testCreateCity() {
         Name name = NameFactory.getName("Cape Town");
         Population population = PopulationFactory.getTotal(2000000);
@@ -50,7 +50,7 @@ public class CityControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateCity() {
         int id = 1;
         City city = restTemplate.getForObject(baseURL + "/city/" + id, City.class);
@@ -60,8 +60,8 @@ public class CityControllerTest {
         assertNotNull(updatedCity);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteCity() {
         int id = 2;
         City city = restTemplate.getForObject(baseURL + "/cities/" + id, City.class);
         assertNotNull(city);

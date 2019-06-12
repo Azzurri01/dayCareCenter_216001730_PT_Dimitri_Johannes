@@ -32,14 +32,14 @@ public class AddressControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetAddressById() {
         Address address = restTemplate.getForObject(baseURL + "/address/1", Address.class);
         System.out.println(address.getId());
         assertNotNull(address);
     }
 
-    @Ignore
+    @Test
     public void testCreateAddress() {
         Name name = NameFactory.getName("Heideveld");
         Population population = PopulationFactory.getTotal(100000);
@@ -53,7 +53,7 @@ public class AddressControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateAddress() {
         int id = 1;
         Address address = restTemplate.getForObject(baseURL + "/address/" + id, Address.class);
@@ -63,8 +63,8 @@ public class AddressControllerTest {
         assertNotNull(updatedAddress);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteAddress() {
         int id = 2;
         Address address = restTemplate.getForObject(baseURL + "/addresss/" + id, Address.class);
         assertNotNull(address);

@@ -7,10 +7,10 @@ public class Colour
     private String id, colour;
     private Evaluation evaluation;
 
-    public Colour() {
+    private Colour() {
     }
 
-    public Colour(Builder builder)
+    private Colour(Builder builder)
     {
         this.id=builder.id;
         this.colour =builder.colour;
@@ -74,7 +74,7 @@ public class Colour
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -85,5 +85,5 @@ public class Colour
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }*/
+    }
 }

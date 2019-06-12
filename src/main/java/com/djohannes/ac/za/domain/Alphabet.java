@@ -7,10 +7,10 @@ public class Alphabet
     private String id, letter;
     private Evaluation evaluation;
 
-    public Alphabet() {
+    private Alphabet() {
     }
 
-    public Alphabet(Builder builder)
+    private Alphabet(Builder builder)
     {
         this.id=builder.id;
         this.letter=builder.letter;
@@ -75,7 +75,7 @@ public class Alphabet
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -86,5 +86,5 @@ public class Alphabet
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }*/
+    }
 }

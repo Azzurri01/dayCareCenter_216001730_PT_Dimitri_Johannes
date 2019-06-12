@@ -13,7 +13,7 @@ public class Suburb
 
     }
 
-    public Suburb(Builder builder)
+    private Suburb(Builder builder)
     {
         this.id=builder.id;
         this.name=builder.name;
@@ -90,7 +90,7 @@ public class Suburb
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -101,5 +101,5 @@ public class Suburb
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }*/
+    }
 }

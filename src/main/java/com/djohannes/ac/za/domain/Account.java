@@ -12,10 +12,10 @@ public class Account
     private double fee;
     private double balance;
 
-    public Account() {
+    private Account() {
     }
 
-    public Account(Builder builder)
+    private Account(Builder builder)
     {
         this.id=builder.id;
         this.openDate=builder.openDate;
@@ -123,7 +123,7 @@ public class Account
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -135,5 +135,5 @@ public class Account
     public int hashCode()
     {
         return Objects.hash(id);
-    }*/
+    }
 }

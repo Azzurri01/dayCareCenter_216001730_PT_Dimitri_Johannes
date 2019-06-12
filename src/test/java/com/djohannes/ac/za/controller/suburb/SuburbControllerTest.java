@@ -32,14 +32,14 @@ public class SuburbControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetSuburbById() {
         Suburb suburb = restTemplate.getForObject(baseURL + "/suburb/1", Suburb.class);
         System.out.println(suburb.getId());
         assertNotNull(suburb);
     }
 
-    @Ignore
+    @Test
     public void testCreateSuburb() {
 
         Name name = NameFactory.getName("Heideveld");
@@ -51,7 +51,7 @@ public class SuburbControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateSuburb() {
         int id = 1;
         Suburb suburb = restTemplate.getForObject(baseURL + "/suburb/" + id, Suburb.class);
@@ -61,8 +61,8 @@ public class SuburbControllerTest {
         assertNotNull(updatedSuburb);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteSuburb() {
         int id = 2;
         Suburb suburb = restTemplate.getForObject(baseURL + "/suburbs/" + id, Suburb.class);
         assertNotNull(suburb);

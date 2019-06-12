@@ -32,14 +32,14 @@ public class GradeControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetGradeById() {
         Grade grade = restTemplate.getForObject(baseURL + "/grade/1", Grade.class);
         System.out.println(grade.getId());
         assertNotNull(grade);
     }
 
-    @Ignore
+    @Test
     public void testCreateGrade() {
         Grade grade = GradeFactory.getGrade("R");
 
@@ -48,7 +48,7 @@ public class GradeControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateGrade() {
         int id = 1;
         Grade grade = restTemplate.getForObject(baseURL + "/grade/" + id, Grade.class);
@@ -58,8 +58,8 @@ public class GradeControllerTest {
         assertNotNull(updatedGrade);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteGrade() {
         int id = 2;
         Grade grade = restTemplate.getForObject(baseURL + "/grades/" + id, Grade.class);
         assertNotNull(grade);

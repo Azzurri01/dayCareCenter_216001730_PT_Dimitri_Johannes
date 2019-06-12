@@ -32,14 +32,14 @@ public class DaycareControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetDaycareById() {
         Daycare daycare = restTemplate.getForObject(baseURL + "/daycare/1", Daycare.class);
         System.out.println(daycare.getId());
         assertNotNull(daycare);
     }
 
-    @Ignore
+    @Test
     public void testCreateDaycare() {
         Name name = NameFactory.getName("Little rascals");
 
@@ -48,7 +48,7 @@ public class DaycareControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateDaycare() {
         int id = 1;
         Daycare daycare = restTemplate.getForObject(baseURL + "/daycare/" + id, Daycare.class);
@@ -58,8 +58,8 @@ public class DaycareControllerTest {
         assertNotNull(updatedDaycare);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteDaycare() {
         int id = 2;
         Daycare daycare = restTemplate.getForObject(baseURL + "/daycares/" + id, Daycare.class);
         assertNotNull(daycare);

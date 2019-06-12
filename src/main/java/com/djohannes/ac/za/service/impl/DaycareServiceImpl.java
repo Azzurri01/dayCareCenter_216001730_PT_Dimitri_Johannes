@@ -7,17 +7,12 @@ import com.djohannes.ac.za.service.DaycareService;
 
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service("DaycareServiceImpl")
 public class DaycareServiceImpl implements DaycareService {
 
     private static DaycareServiceImpl service = null;
-
-    @Autowired
-    @Qualifier("DaycareMemory")
     private DaycareRepository repository;
 
     private DaycareServiceImpl() {

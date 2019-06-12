@@ -7,10 +7,10 @@ public class Playtime
     private String id, behaviour;
     private Evaluation evaluation;
 
-    public Playtime() {
+    private Playtime() {
     }
 
-    public Playtime(Builder builder)
+    private Playtime(Builder builder)
     {
         this.id=builder.id;
         this.behaviour =builder.behaviour;
@@ -74,7 +74,7 @@ public class Playtime
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -85,5 +85,5 @@ public class Playtime
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }*/
+    }
 }

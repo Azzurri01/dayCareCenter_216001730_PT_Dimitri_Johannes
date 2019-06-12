@@ -33,14 +33,14 @@ public class PopulationControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetPopulationById() {
         Population population = restTemplate.getForObject(baseURL + "/population/1", Population.class);
         System.out.println(population.getId());
         assertNotNull(population);
     }
 
-    @Ignore
+    @Test
     public void testCreatePopulation() {
 
         Population population = PopulationFactory.getTotal(1000000);
@@ -50,7 +50,7 @@ public class PopulationControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdatePopulation() {
         int id = 1;
         Population population = restTemplate.getForObject(baseURL + "/population/" + id, Population.class);
@@ -60,8 +60,8 @@ public class PopulationControllerTest {
         assertNotNull(updatedPopulation);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeletePopulation() {
         int id = 2;
         Population population = restTemplate.getForObject(baseURL + "/populations/" + id, Population.class);
         assertNotNull(population);

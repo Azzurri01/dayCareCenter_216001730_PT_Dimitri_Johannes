@@ -32,14 +32,14 @@ public class ProvinceControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetProvinceById() {
         Province province = restTemplate.getForObject(baseURL + "/province/1", Province.class);
         System.out.println(province.getId());
         assertNotNull(province);
     }
 
-    @Ignore
+    @Test
     public void testCreateProvince() {
 
         Name name = NameFactory.getName("Western Province");
@@ -51,7 +51,7 @@ public class ProvinceControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateProvince() {
         int id = 1;
         Province province = restTemplate.getForObject(baseURL + "/province/" + id, Province.class);
@@ -61,8 +61,8 @@ public class ProvinceControllerTest {
         assertNotNull(updatedProvince);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteProvince() {
         int id = 2;
         Province province = restTemplate.getForObject(baseURL + "/provinces/" + id, Province.class);
         assertNotNull(province);

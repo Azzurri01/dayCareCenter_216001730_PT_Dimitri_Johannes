@@ -32,14 +32,14 @@ public class CountingControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetCountingById() {
         Counting counting = restTemplate.getForObject(baseURL + "/counting/1", Counting.class);
         System.out.println(counting.getId());
         assertNotNull(counting);
     }
 
-    @Ignore
+    @Test
     public void testCreateCounting() {
         Evaluation evaluation = EvaluationFactory.getEvaluation(5);
         Counting counting = CountingFactory.getCounting(5,evaluation);
@@ -49,7 +49,7 @@ public class CountingControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateCounting() {
         int id = 1;
         Counting counting = restTemplate.getForObject(baseURL + "/counting/" + id, Counting.class);
@@ -59,8 +59,8 @@ public class CountingControllerTest {
         assertNotNull(updatedCounting);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteCounting() {
         int id = 2;
         Counting counting = restTemplate.getForObject(baseURL + "/numbers/" + id, Counting.class);
         assertNotNull(counting);

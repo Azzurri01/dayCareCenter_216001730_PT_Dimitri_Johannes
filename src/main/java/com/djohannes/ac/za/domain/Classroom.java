@@ -10,6 +10,12 @@ public class Classroom
 
     }
 
+    private Classroom(Builder builder)
+    {
+        this.id=builder.id;
+        this.roomNo =builder.roomNo;
+    }
+
     public String getId() {
         return id;
     }
@@ -17,12 +23,6 @@ public class Classroom
     public String getRoomNo()
     {
         return roomNo;
-    }
-
-    private Classroom(Builder builder)
-    {
-        this.id=builder.id;
-        this.roomNo =builder.roomNo;
     }
 
     public static class Builder
@@ -61,7 +61,7 @@ public class Classroom
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -73,5 +73,5 @@ public class Classroom
     public int hashCode()
     {
         return Objects.hash(id);
-    }*/
+    }
 }

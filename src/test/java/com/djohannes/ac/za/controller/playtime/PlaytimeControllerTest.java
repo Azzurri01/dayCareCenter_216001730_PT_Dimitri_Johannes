@@ -32,14 +32,14 @@ public class PlaytimeControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetPlaytimeById() {
         Playtime playtime = restTemplate.getForObject(baseURL + "/playtime/1", Playtime.class);
         System.out.println(playtime.getId());
         assertNotNull(playtime);
     }
 
-    @Ignore
+    @Test
     public void testCreatePlaytime() {
 
         Evaluation evaluation = EvaluationFactory.getEvaluation(5);
@@ -50,7 +50,7 @@ public class PlaytimeControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdatePlaytime() {
         int id = 1;
         Playtime playtime = restTemplate.getForObject(baseURL + "/playtime/" + id, Playtime.class);
@@ -60,8 +60,8 @@ public class PlaytimeControllerTest {
         assertNotNull(updatedPlaytime);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeletePlaytime() {
         int id = 2;
         Playtime playtime = restTemplate.getForObject(baseURL + "/playtimes/" + id, Playtime.class);
         assertNotNull(playtime);

@@ -10,6 +10,17 @@ public class Daycare
     private Contact contact;
     Set<Account> accounts;
 
+    private Daycare() {
+    }
+
+    private Daycare(Builder builder)
+    {
+        this.id=builder.id;
+        this.name=builder.name;
+        this.address =builder.address;
+        this.contact=builder.contact;
+    }
+
     public String getId()
     {
         return id;
@@ -26,14 +37,6 @@ public class Daycare
 
     public Contact getContact() {
         return contact;
-    }
-
-    public Daycare(Builder builder)
-    {
-        this.id=builder.id;
-        this.name=builder.name;
-        this.address =builder.address;
-        this.contact=builder.contact;
     }
 
     public static class Builder
@@ -95,7 +98,7 @@ public class Daycare
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -108,5 +111,5 @@ public class Daycare
 
     {
         return Objects.hash(id);
-    }*/
+    }
 }

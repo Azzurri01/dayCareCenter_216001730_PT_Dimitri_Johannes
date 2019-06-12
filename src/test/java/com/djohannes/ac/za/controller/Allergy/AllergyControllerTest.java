@@ -32,14 +32,14 @@ public class AllergyControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetAllergyById() {
         Allergy allergy = restTemplate.getForObject(baseURL + "/allergy/1", Allergy.class);
         System.out.println(allergy.getId());
         assertNotNull(allergy);
     }
 
-    @Ignore
+    @Test
     public void testCreateAllergy() {
         Allergy allergy = AllergyFactory.getAllergy("cat");
 
@@ -48,7 +48,7 @@ public class AllergyControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateAllergy() {
         int id = 1;
         Allergy allergy = restTemplate.getForObject(baseURL + "/allergy/" + id, Allergy.class);
@@ -58,8 +58,8 @@ public class AllergyControllerTest {
         assertNotNull(updatedAllergy);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteAllergy() {
         int id = 2;
         Allergy allergy = restTemplate.getForObject(baseURL + "/allergies/" + id, Allergy.class);
         assertNotNull(allergy);

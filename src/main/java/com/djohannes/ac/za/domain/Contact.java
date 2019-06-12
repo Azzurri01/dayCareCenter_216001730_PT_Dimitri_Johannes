@@ -3,7 +3,7 @@ package com.djohannes.ac.za.domain;
 import java.util.Objects;
 
 public class Contact {
-    private String id,telefone, email;
+    private String id, tel, email;
 
     private Contact()
     {}
@@ -11,7 +11,7 @@ public class Contact {
     private Contact(Builder builder)
     {
         this.id=builder.id;
-        this.telefone=builder.telefone;
+        this.tel =builder.tel;
         this.email=builder.email;
     }
 
@@ -20,7 +20,7 @@ public class Contact {
     }
 
     public String getContactNo() {
-        return telefone;
+        return tel;
     }
 
     public String getEmail() {
@@ -29,7 +29,7 @@ public class Contact {
 
     public static class Builder
     {
-        private String id, telefone, email;
+        private String id, tel, email;
 
         public Builder id(String id)
         {
@@ -37,9 +37,9 @@ public class Contact {
             return this;
         }
 
-        public Builder contactNo(String telefone)
+        public Builder contactNo(String tel)
         {
-            this.telefone=telefone;
+            this.tel =tel;
             return this;
         }
 
@@ -52,7 +52,7 @@ public class Contact {
         public Builder copy(Contact contact)
         {
             this.id=contact.id;
-            this.telefone=contact.telefone;
+            this.tel =contact.tel;
             this.email=contact.email;
             return this;
         }
@@ -66,23 +66,23 @@ public class Contact {
     @Override
     public String toString() {
         return "Contact{" +
-                "Telephone='" + telefone + '\'' +
+                "Id='" + id + '\'' +
+                "Telephone='" + tel + '\'' +
                 "Email='" + email + '\'' +
                 '}';
     }
 
-    /*@Override
+   @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Contact contact= (Contact) o;
+        Contact contact = (Contact) o;
         return id.equals(contact.id);
     }
 
     @Override
     public int hashCode()
-
     {
         return Objects.hash(id);
-    }*/
+    }
 }

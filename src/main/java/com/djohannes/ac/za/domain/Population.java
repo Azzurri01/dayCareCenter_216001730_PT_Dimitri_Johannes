@@ -7,10 +7,10 @@ public class Population
     private String id;
     private int total;
 
-    public Population() {
+    private Population() {
     }
 
-    public Population(Builder builder)
+    private Population(Builder builder)
     {
         this.id=builder.id;
         this.total=builder.total;
@@ -61,7 +61,7 @@ public class Population
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -72,5 +72,5 @@ public class Population
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }*/
+    }
 }

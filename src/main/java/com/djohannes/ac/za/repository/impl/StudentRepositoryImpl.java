@@ -4,77 +4,44 @@ import com.djohannes.ac.za.domain.Student;
 import com.djohannes.ac.za.repository.StudentRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Repository("StudentMemory")
-public class StudentRepositoryImpl implements StudentRepository
-{
-    //Local variables
+public class StudentRepositoryImpl implements StudentRepository {
     private static StudentRepositoryImpl repository = null;
-    private Set<Student> students;
+    private Map<String, Student> students;
 
-    //Default constructor
-    private StudentRepositoryImpl()
-    {
-        this.students = new HashSet<>();
+    private StudentRepositoryImpl() {
+        this.students = new HashMap<>();
     }
 
-    //Get repository
-    public static StudentRepositoryImpl getRepository()
-    {
-        if(repository == null) repository = new StudentRepositoryImpl();
+    public static StudentRepositoryImpl getRepository() {
+        if (repository == null) repository = new StudentRepositoryImpl();
         return repository;
     }
 
-    //Search for student
-    private Student search(String studentId)
-    {
-        return this.students.stream()
-                .filter(student -> student.getId().trim().equals(studentId))
-                .findAny()
-                .orElse(null);
-    }
-
-    //Create student object
-    public Student create(Student student)
-    {
-        this.students.add(student);
+    public Student create(Student student) {
+        this.students.put(student.getId(), student);
         return student;
     }
 
-    //Read student object
-    public Student read(String studentId)
-    {
-        //find the student in the set and return it if it exist
-        Student student = search(studentId);
-        return student;
+    public Student read(String studentId) {
+        return this.students.get(studentId);
     }
 
-    //Update student object
-    public Student update(Student student)
-    {
-        // find the student, update it and return the updated student
-        Student studentDelete = search(student.getId());
-        if(studentDelete != null) {
-            this.students.remove(studentDelete);
-            return create(student);
-        }
-        return null;
+    public Student update(Student student) {
+        this.students.replace(student.getId(), student);
+        return this.students.get(student.getId());
     }
 
-    //Delete student object
-    public void delete(String studentId)
-    {
-        //find the student and delete it if it exists
-        Student student = search(studentId);
-        if (student != null)
-            this.students.remove(student);
+    public void delete(String studentId) {
+        this.students.remove(studentId);
     }
 
-    //Get All
-    public Set<Student> getAll()
-    {
-        return this.students;
+    public Set<Student> getAll() {
+        Collection<Student> students = this.students.values();
+        Set<Student> set = new HashSet<>();
+        set.addAll(students);
+        return set;
     }
 }

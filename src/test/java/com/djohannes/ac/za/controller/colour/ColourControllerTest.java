@@ -32,14 +32,14 @@ public class ColourControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetColourById() {
         Colour colour = restTemplate.getForObject(baseURL + "/colour/1", Colour.class);
         System.out.println(colour.getId());
         assertNotNull(colour);
     }
 
-    @Ignore
+    @Test
     public void testCreateColour() {
         Evaluation evaluation = EvaluationFactory.getEvaluation(5);
         Colour colour = ColourFactory.getColour("green",evaluation);
@@ -49,7 +49,7 @@ public class ColourControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateColour() {
         int id = 1;
         Colour colour = restTemplate.getForObject(baseURL + "/colour/" + id, Colour.class);
@@ -59,8 +59,8 @@ public class ColourControllerTest {
         assertNotNull(updatedColour);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteColour() {
         int id = 2;
         Colour colour = restTemplate.getForObject(baseURL + "/colours/" + id, Colour.class);
         assertNotNull(colour);

@@ -12,10 +12,10 @@ public class Activity
     private Drawing drawing;
     private  Playtime playtime;
 
-    public Activity() {
+    private Activity() {
     }
 
-    public Activity(Builder builder)
+    private Activity(Builder builder)
     {
         this.id=builder.id;
         this.grade=builder.grade;
@@ -137,7 +137,7 @@ public class Activity
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -149,5 +149,5 @@ public class Activity
     public int hashCode()
     {
         return Objects.hash(id);
-    }*/
+    }
 }

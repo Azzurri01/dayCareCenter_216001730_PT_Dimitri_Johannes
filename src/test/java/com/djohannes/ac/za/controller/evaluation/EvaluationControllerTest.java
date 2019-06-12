@@ -32,14 +32,14 @@ public class EvaluationControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetEvaluationById() {
         Evaluation evaluation = restTemplate.getForObject(baseURL + "/evaluation/1", Evaluation.class);
         System.out.println(evaluation.getId());
         assertNotNull(evaluation);
     }
 
-    @Ignore
+    @Test
     public void testCreateEvaluation() {
         Evaluation evaluation = EvaluationFactory.getEvaluation(7);
 
@@ -48,7 +48,7 @@ public class EvaluationControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateEvaluation() {
         int id = 1;
         Evaluation evaluation = restTemplate.getForObject(baseURL + "/evaluation/" + id, Evaluation.class);
@@ -58,8 +58,8 @@ public class EvaluationControllerTest {
         assertNotNull(updatedEvaluation);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteEvaluation() {
         int id = 2;
         Evaluation evaluation = restTemplate.getForObject(baseURL + "/evaluations/" + id, Evaluation.class);
         assertNotNull(evaluation);

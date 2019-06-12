@@ -33,14 +33,14 @@ public class NameControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetNameById() {
         Name name = restTemplate.getForObject(baseURL + "/name/1", Name.class);
         System.out.println(name.getId());
         assertNotNull(name);
     }
 
-    @Ignore
+    @Test
     public void testCreateName() {
         Name name = NameFactory.getName("Dimitri", "Johannes");
 
@@ -49,7 +49,7 @@ public class NameControllerTest {
         assertNotNull(postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateName() {
         int id = 1;
         Name name = restTemplate.getForObject(baseURL + "/name/" + id, Name.class);
@@ -59,8 +59,8 @@ public class NameControllerTest {
         assertNotNull(updatedName);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteName() {
         int id = 2;
         Name name = restTemplate.getForObject(baseURL + "/names/" + id, Name.class);
         assertNotNull(name);

@@ -7,10 +7,10 @@ public class Drawing
     private String id, shape;
     private Evaluation evaluation;
 
-    public Drawing() {
+    private Drawing() {
     }
 
-    public Drawing(Builder builder)
+    private Drawing(Builder builder)
     {
         this.id=builder.id;
         this.shape=builder.shape;
@@ -74,7 +74,7 @@ public class Drawing
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -85,5 +85,5 @@ public class Drawing
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }*/
+    }
 }
