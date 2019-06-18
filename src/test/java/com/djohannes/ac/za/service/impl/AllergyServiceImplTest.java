@@ -1,7 +1,6 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Name;
-import com.djohannes.ac.za.domain.*;
+import com.djohannes.ac.za.domain.Allergy;
 import com.djohannes.ac.za.factory.*;
 import com.djohannes.ac.za.repository.AllergyRepository;
 import com.djohannes.ac.za.repository.impl.AllergyRepositoryImpl;
@@ -37,7 +36,16 @@ public class AllergyServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void bRead()
+    {
+        Allergy saved = getSaved();
+        Allergy read = this.repository.read(saved.getId());
+        System.out.println("In read, read = "+ read);
+        Assert.assertSame(read, saved);
+    }
+
+    @Test
+    public void eUpdate()
     {
         String newAllergyId = "123";
         Allergy updated = new Allergy.Builder().copy(getSaved()).id(newAllergyId).build();
@@ -51,20 +59,13 @@ public class AllergyServiceImplTest {
     {
         Allergy saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
-    @Test
-    public void dRead()
-    {
-        Allergy saved = getSaved();
-        Allergy read = this.repository.read(saved.getId());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
-    }
+
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Allergy> allergies = this.repository.getAll();
         System.out.println("In getall, all = " + allergies);

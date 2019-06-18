@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Allergy;
 import com.djohannes.ac.za.repository.AllergyRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("AllergyMemory")
 public class AllergyRepositoryImpl implements AllergyRepository {
 
     private static AllergyRepositoryImpl repository = null;

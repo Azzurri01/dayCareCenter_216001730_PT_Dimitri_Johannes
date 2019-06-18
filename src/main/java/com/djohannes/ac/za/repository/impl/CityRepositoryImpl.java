@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.City;
 import com.djohannes.ac.za.repository.CityRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("CityMemory")
 public class CityRepositoryImpl implements CityRepository {
 
     private static CityRepositoryImpl repository = null;

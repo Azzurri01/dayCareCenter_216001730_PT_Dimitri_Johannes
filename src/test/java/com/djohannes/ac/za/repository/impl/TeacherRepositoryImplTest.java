@@ -40,7 +40,7 @@ public class TeacherRepositoryImplTest {
     {
         Teacher createdTeacher = this.repository.create(this.teacher);
         System.out.println("Create method called: Created teacher = " + this.teacher);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdTeacher, this.teacher);
     }
 
@@ -51,32 +51,32 @@ public class TeacherRepositoryImplTest {
         System.out.println("Read method call 1: Reading teacherID = " + savedTeacher.getId());
         Teacher readTeacher = this.repository.read(savedTeacher.getId());
         System.out.println("Read method call 2: Reading read = " + savedTeacher.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedTeacher, readTeacher);
     }
 
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Teacher streetNo = new Teacher.Builder().copy(getSavedTeacher()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + teacher);
-        Teacher updated = this.repository.update(teacher);
+        Contact con = ContactFactory.getContact("8787226364", "teacher.school@ac.za");
+        Teacher newTel = new Teacher.Builder().copy(getSavedTeacher()).contact(con).build();
+        System.out.println("In update, about_to_updated = " + newTel);
+        Teacher updated = this.repository.update(newTel);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
-        eGetAll();
+        Assert.assertSame(newTel, updated);
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Teacher savedTeacher = getSavedTeacher();
         this.repository.delete(savedTeacher.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Teacher> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

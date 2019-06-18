@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.EvaluationService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("EvaluationServiceImpl")
 public class EvaluationServiceImpl implements EvaluationService {
 
     private static EvaluationServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("EvaluationMemory")
     private EvaluationRepository repository;
 
     private EvaluationServiceImpl() {

@@ -59,11 +59,10 @@ public class Allergy
     public String toString() {
         return "Allergy{" +
                 "Name='" + name + '\'' +
-                ", Code='" + id + '\'' +
                 '}';
     }
 
-    @Override
+    /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -75,5 +74,5 @@ public class Allergy
     public int hashCode()
     {
         return Objects.hash(id);
-    }
+    }*/
 }

@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.ActivityService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("ActivityServiceImpl")
 public class ActivityServiceImpl implements ActivityService {
 
     private static ActivityServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("ActivityMemory")
     private ActivityRepository repository;
 
     private ActivityServiceImpl() {

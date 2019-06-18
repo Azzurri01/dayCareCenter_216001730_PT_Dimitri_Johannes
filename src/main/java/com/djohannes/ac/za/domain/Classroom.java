@@ -19,7 +19,7 @@ public class Classroom
         return roomNo;
     }
 
-    public Classroom(Builder builder)
+    private Classroom(Builder builder)
     {
         this.id=builder.id;
         this.roomNo =builder.roomNo;
@@ -57,12 +57,11 @@ public class Classroom
     @Override
     public String toString() {
         return "Classroom{" +
-                "id='" + id + '\'' +
                 "roomNo='" + roomNo + '\'' +
                 '}';
     }
 
-    @Override
+    /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -74,5 +73,5 @@ public class Classroom
     public int hashCode()
     {
         return Objects.hash(id);
-    }
+    }*/
 }

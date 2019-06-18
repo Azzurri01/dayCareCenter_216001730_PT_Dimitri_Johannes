@@ -16,6 +16,12 @@ public class AddressServiceImplTest {
     private AddressRepository repository;
     private Address address;
 
+    Name name = NameFactory.getName("Heideveld");
+    Population population = PopulationFactory.getTotal(100000);
+    Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
+    City city = CityFactory.getCity(name, population);
+    Province province = ProvinceFactory.getProvince(name, population);
+
     private Address getSaved(){
         return this.repository.getAll().iterator().next();
     }
@@ -24,7 +30,7 @@ public class AddressServiceImplTest {
     public void setUp() throws Exception
     {
         this.repository = AddressRepositoryImpl.getRepository();
-        this.address = AddressFactory.getAddress("14", "Sentinel Road");
+        this.address = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
     }
 
     @Test
@@ -37,25 +43,25 @@ public class AddressServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
-        String newAddressId = "123";
-        Address updated = new Address.Builder().copy(getSaved()).id(newAddressId).build();
+        String newLocationId = "123";
+        Address updated = new Address.Builder().copy(getSaved()).id(newLocationId).build();
         System.out.println("In update, updated = " + updated);
         this.repository.update(updated);
-        Assert.assertSame(newAddressId, updated.getId());
+        Assert.assertSame(newLocationId, updated.getId());
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Address saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Address saved = getSaved();
         Address read = this.repository.read(saved.getId());
@@ -64,7 +70,7 @@ public class AddressServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Address> addresses = this.repository.getAll();
         System.out.println("In getall, all = " + addresses);

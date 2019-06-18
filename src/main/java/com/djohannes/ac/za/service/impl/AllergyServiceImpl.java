@@ -1,22 +1,27 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.City;
-import com.djohannes.ac.za.repository.CityRepository;
-import com.djohannes.ac.za.repository.impl.CityRepositoryImpl;
-import com.djohannes.ac.za.service.CityService;
+import com.djohannes.ac.za.domain.Allergy;
+import com.djohannes.ac.za.repository.AllergyRepository;
+import com.djohannes.ac.za.repository.impl.AllergyRepositoryImpl;
+import com.djohannes.ac.za.service.AllergyService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
-public class AllergyServiceImpl implements CityService {
+@Service("AllergyServiceImpl")
+public class AllergyServiceImpl implements AllergyService {
 
     private static AllergyServiceImpl service = null;
-    private CityRepository repository;
+
+    @Autowired
+    @Qualifier("AllergyMemory")
+    private AllergyRepository repository;
 
     private AllergyServiceImpl() {
-        this.repository = CityRepositoryImpl.getRepository();
+        this.repository = AllergyRepositoryImpl.getRepository();
     }
 
     public static AllergyServiceImpl getService(){
@@ -25,13 +30,13 @@ public class AllergyServiceImpl implements CityService {
     }
 
     @Override
-    public City create(City city) {
-        return this.repository.create(city);
+    public Allergy create(Allergy allergy) {
+        return this.repository.create(allergy);
     }
 
     @Override
-    public City update(City city) {
-        return this.repository.update(city);
+    public Allergy update(Allergy allergy) {
+        return this.repository.update(allergy);
     }
 
     @Override
@@ -40,12 +45,12 @@ public class AllergyServiceImpl implements CityService {
     }
 
     @Override
-    public City read(String s) {
+    public Allergy read(String s) {
         return this.repository.read(s);
     }
 
     @Override
-    public Set<City> getAll() {
+    public Set<Allergy> getAll() {
         return this.repository.getAll();
     }
 }

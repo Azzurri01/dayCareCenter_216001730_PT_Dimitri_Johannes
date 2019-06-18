@@ -35,7 +35,7 @@ public class PopulationRepositoryImplTest {
     {
         Population createdPopulation = this.repository.create(this.population);
         System.out.println("Create method called: Created population = " + this.population);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdPopulation, this.population);
     }
 
@@ -45,33 +45,40 @@ public class PopulationRepositoryImplTest {
         Population savedPopulation = getSavedPopulation();
         System.out.println("Read method call 1: Reading populationID = " + savedPopulation.getId());
         Population readPopulation = this.repository.read(savedPopulation.getId());
-        System.out.println("Read method call 2: Reading read = " + savedPopulation.getId());
-        eGetAll();
+        System.out.println("Read method call 2: Reading read = " + savedPopulation);
+        dGetAll();
         Assert.assertSame(savedPopulation, readPopulation);
     }
 
     @Test
     public void cUpdate()
     {
-        int newno = 1500000;
-        Population total = new Population.Builder().copy(getSavedPopulation()).population(newno).build();
-        System.out.println("In update, about_to_updated = " + population);
-        Population updated = this.repository.update(population);
+        //New total
+        int newTotal = 150000;
+
+        //Add new total into object
+        Population total = new Population.Builder().copy(getSavedPopulation()).population(newTotal).build();
+        System.out.println("In update, about_to_updated = " + total);
+
+        //Update object
+        Population updated = this.repository.update(total);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newno, updated.getTotal());
-        eGetAll();
+
+        //Test new value against method
+        Assert.assertEquals(newTotal, updated.getTotal());
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Population savedPopulation = getSavedPopulation();
         this.repository.delete(savedPopulation.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Population> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

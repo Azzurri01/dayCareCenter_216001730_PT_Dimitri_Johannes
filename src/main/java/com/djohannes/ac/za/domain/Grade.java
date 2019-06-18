@@ -1,9 +1,11 @@
 package com.djohannes.ac.za.domain;
 import java.util.Objects;
+import java.util.Set;
 
 public class Grade
 {
     private String id, grade;
+    Set<Student> student;
 
     private Grade()
     {}
@@ -54,8 +56,20 @@ public class Grade
     @Override
     public String toString() {
         return "Grade{" +
-                "id='" + id + '\'' +
                 "grade='" + grade + '\'' +
                 '}';
     }
+
+    /*@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Grade grade = (Grade) o;
+        return id.equals(grade.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }*/
 }

@@ -44,7 +44,7 @@ public class ActivityServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newActivityId = "123";
         Activity updated = new Activity.Builder().copy(getSaved()).id(newActivityId).build();
@@ -54,15 +54,15 @@ public class ActivityServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Activity saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Activity saved = getSaved();
         Activity read = this.repository.read(saved.getId());
@@ -71,7 +71,7 @@ public class ActivityServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Activity> activities = this.repository.getAll();
         System.out.println("In getall, all = " + activities);

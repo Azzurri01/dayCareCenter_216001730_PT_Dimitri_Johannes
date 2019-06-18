@@ -1,5 +1,7 @@
 package com.djohannes.ac.za.domain;
 
+import java.util.Objects;
+
 public class Playtime
 {
     private String id, behaviour;
@@ -67,9 +69,21 @@ public class Playtime
     @Override
     public String toString() {
         return "Playtime{" +
-                "id='" + id + '\'' +
                 "Behaviour='" + behaviour + '\'' +
                 ", Evaluation='" + evaluation + '\'' +
                 '}';
     }
+
+    /*@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Playtime playtime = (Playtime) o;
+        return id.equals(playtime.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }*/
 }

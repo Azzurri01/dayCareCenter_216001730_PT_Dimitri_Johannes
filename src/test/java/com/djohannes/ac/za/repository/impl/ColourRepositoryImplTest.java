@@ -38,7 +38,7 @@ public class ColourRepositoryImplTest {
     {
         Colour createdColour = this.repository.create(this.colour);
         System.out.println("Create method called: Created colour = " + this.colour);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdColour, this.colour);
     }
 
@@ -49,32 +49,32 @@ public class ColourRepositoryImplTest {
         System.out.println("Read method call 1: Reading colourID = " + savedColour.getId());
         Colour readColour = this.repository.read(savedColour.getId());
         System.out.println("Read method call 2: Reading read = " + savedColour.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedColour, readColour);
     }
 
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Colour streetNo = new Colour.Builder().copy(getSavedColour()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + colour);
-        Colour updated = this.repository.update(colour);
+        Evaluation eval = EvaluationFactory.getEvaluation(8);
+        Colour newEvaluation = new Colour.Builder().copy(getSavedColour()).evaluation(eval).build();
+        System.out.println("In update, about_to_updated = " + newEvaluation);
+        Colour updated = this.repository.update(newEvaluation);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
-        eGetAll();
+        Assert.assertSame(newEvaluation, updated);
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Colour savedColour = getSavedColour();
         this.repository.delete(savedColour.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Colour> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

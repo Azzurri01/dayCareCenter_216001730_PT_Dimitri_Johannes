@@ -4,15 +4,19 @@ import com.djohannes.ac.za.domain.Address;
 import com.djohannes.ac.za.repository.AddressRepository;
 import com.djohannes.ac.za.repository.impl.AddressRepositoryImpl;
 import com.djohannes.ac.za.service.AddressService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-import org.springframework.stereotype.Service;
-
-@Service
+@Service("AddressServiceImpl")
 public class AddressServiceImpl implements AddressService {
 
     private static AddressServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("AddressMemory")
     private AddressRepository repository;
 
     private AddressServiceImpl() {

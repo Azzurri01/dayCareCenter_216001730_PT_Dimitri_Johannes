@@ -39,7 +39,7 @@ public class ColourServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newColourId = "123";
         Colour updated = new Colour.Builder().copy(getSaved()).id(newColourId).build();
@@ -49,15 +49,15 @@ public class ColourServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Colour saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Colour saved = getSaved();
         Colour read = this.repository.read(saved.getId());
@@ -66,7 +66,7 @@ public class ColourServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Colour> colours = this.repository.getAll();
         System.out.println("In getall, all = " + colours);

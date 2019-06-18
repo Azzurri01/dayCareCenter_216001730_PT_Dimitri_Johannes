@@ -21,7 +21,6 @@ public class StudentRepositoryImplTest {
     Name sName = NameFactory.getName("Naqeeb", "Johannes");
     Name pName = NameFactory.getName("Dimitri", "Johannes");
     Grade grade = GradeFactory.getGrade("R");
-    Address address = AddressFactory.getAddress("14", "Sentinel road");
     Contact pContact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
     Parent parent = ParentFactory.getParent(pName, pContact);
 
@@ -34,6 +33,13 @@ public class StudentRepositoryImplTest {
     @Before
     public void setUp() throws Exception
     {
+        Name name = NameFactory.getName("Heideveld");
+        Population population = PopulationFactory.getTotal(100000);
+        Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
+        City city = CityFactory.getCity(name, population);
+        Province province = ProvinceFactory.getProvince(name, population);
+        Address address = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
+
         this.repository = StudentRepositoryImpl.getRepository();
         this.student = StudentFactory.getStudent(sName, grade, "male", 5, address, parent);
     }
@@ -43,7 +49,7 @@ public class StudentRepositoryImplTest {
     {
         Student createdStudent = this.repository.create(this.student);
         System.out.println("Create method called: Created student = " + this.student);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdStudent, this.student);
     }
 
@@ -54,32 +60,38 @@ public class StudentRepositoryImplTest {
         System.out.println("Read method call 1: Reading studentID = " + savedStudent.getId());
         Student readStudent = this.repository.read(savedStudent.getId());
         System.out.println("Read method call 2: Reading read = " + savedStudent.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedStudent, readStudent);
 }
 
     @Test
     public void cUpdate()
     {
-        String newname = "123";
-        Student student = new Student.Builder().copy(getSavedStudent()).id(newname).build();
-        System.out.println("In update, about_to_updated = " + student);
-        Student updated = this.repository.update(student);
+        Name name = NameFactory.getName("Heideveld");
+        Population population = PopulationFactory.getTotal(100000);
+        Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
+        City city = CityFactory.getCity(name, population);
+        Province province = ProvinceFactory.getProvince(name, population);
+        Address add = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
+
+        Student newAddress = new Student.Builder().copy(getSavedStudent()).address(add).build();
+        System.out.println("In update, about_to_updated = " + newAddress);
+        Student updated = this.repository.update(newAddress);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newname, updated.getId().toString());
-        eGetAll();
+        Assert.assertSame(newAddress, updated);
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Student savedStudent = getSavedStudent();
         this.repository.delete(savedStudent.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Student> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

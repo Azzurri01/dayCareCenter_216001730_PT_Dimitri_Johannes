@@ -1,6 +1,5 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Name;
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
 import com.djohannes.ac.za.repository.AccountRepository;
@@ -19,9 +18,16 @@ public class AccountServiceImplTest {
     Name sName = NameFactory.getName("Naqeeb", "Johannes");
     Name pName = NameFactory.getName("Dimitri", "Johannes");
     Grade grade = GradeFactory.getGrade("R");
-    Address address = AddressFactory.getAddress("14", "Sentinel road");
     Contact pContact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
     Parent parent = ParentFactory.getParent(pName, pContact);
+
+    Name name = NameFactory.getName("Heideveld");
+    Population population = PopulationFactory.getTotal(100000);
+    Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
+    City city = CityFactory.getCity(name, population);
+    Province province = ProvinceFactory.getProvince(name, population);
+    Address address = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
+
     Student student = StudentFactory.getStudent(sName, grade, "male", 5, address, parent);
 
     private Account getSaved(){
@@ -45,25 +51,7 @@ public class AccountServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
-    {
-        String newAccountId = "123";
-        Account updated = new Account.Builder().copy(getSaved()).id(newAccountId).build();
-        System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
-        Assert.assertSame(newAccountId, updated.getId());
-    }
-
-    @Test
-    public void cDelete()
-    {
-        Account saved = getSaved();
-        this.repository.delete(saved.getId());
-        eGetAll();
-    }
-
-    @Test
-    public void dRead()
+    public void bRead()
     {
         Account saved = getSaved();
         Account read = this.repository.read(saved.getId());
@@ -72,9 +60,37 @@ public class AccountServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void cUpdate()
     {
-        Set<Account> accounts = this.repository.getAll();
-        System.out.println("In getall, all = " + accounts);
+        /*double newFee = 1000.0;
+        Account updated = new Account.Builder().copy(getSaved()).fee(newFee).build();
+        System.out.println("In update, updated = " + updated);
+        this.repository.update(updated);
+        Assert.assertEquals(String.valueOf(newFee), String.valueOf(updated.getFee()));*/
+
+        Name name = NameFactory.getName("Dimitri", "Johannes");
+        Contact contact = ContactFactory.getContact("0824512653", "dimitri.johannes@t-systems.co.za");
+        Parent parent = ParentFactory.getParent(name, contact);
+        Account newAccount = new Account.Builder().copy(getSaved()).parent(parent).build();
+        System.out.println("In update, about_to_updated = " + newAccount);
+        Account updated = this.repository.update(newAccount);
+        System.out.println("In update, updated = " + updated);
+        Assert.assertSame(newAccount, updated);
+        dGetAll();
     }
+
+    @Test
+    public void eDelete()
+    {
+        Account saved = getSaved();
+        this.repository.delete(saved.getId());
+        dGetAll();
+    }
+
+    @Test
+public void dGetAll()
+{
+    Set<Account> accounts = this.repository.getAll();
+    System.out.println("In getall, all = " + accounts);
+}
 }

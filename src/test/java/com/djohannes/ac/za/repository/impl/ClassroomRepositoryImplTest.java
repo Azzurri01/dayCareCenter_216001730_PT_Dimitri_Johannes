@@ -35,7 +35,7 @@ public class ClassroomRepositoryImplTest {
     {
         Classroom createdClassroom = this.repository.create(this.classroom);
         System.out.println("Create method called: Created classroom = " + this.classroom);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdClassroom, this.classroom);
     }
 
@@ -46,32 +46,32 @@ public class ClassroomRepositoryImplTest {
         System.out.println("Read method call 1: Reading classroomID = " + savedClassroom.getId());
         Classroom readClassroom = this.repository.read(savedClassroom.getId());
         System.out.println("Read method call 2: Reading read = " + savedClassroom.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedClassroom, readClassroom);
     }
 
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Classroom streetNo = new Classroom.Builder().copy(getSavedClassroom()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + classroom);
-        Classroom updated = this.repository.update(classroom);
+        String rmNo = "3";
+        Classroom newClassroom = new Classroom.Builder().copy(getSavedClassroom()).room(rmNo).build();
+        System.out.println("In update, about_to_updated = " +  newClassroom);
+        Classroom updated = this.repository.update( newClassroom);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
-        eGetAll();
+        Assert.assertSame( newClassroom, updated);
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Classroom savedClassroom = getSavedClassroom();
         this.repository.delete(savedClassroom.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Classroom> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

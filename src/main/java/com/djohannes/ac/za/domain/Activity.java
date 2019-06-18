@@ -128,16 +128,16 @@ public class Activity
     public String toString() {
         return "Activity{" +
                 "ID='" + id + '\'' +
-                ", Grade='" + grade + '\'' +
-                ", Alphabet='" + alphabet + '\'' +
-                ", Counting='" + counting + '\'' +
-                ", Colour='" + colour + '\'' +
-                ", Drawing='" + drawing + '\'' +
-                ", Playtime='" + playtime + '\'' +
+                ", Grade='" + grade.getGrade() + "' Rating='" + playtime.getEvaluation().getRating() + '\'' +
+                ", Alphabet='" + alphabet.getLetter() + "' Rating='" + playtime.getEvaluation().getRating() + '\'' +
+                ", Counting='" + counting.getNumber() + "' Rating='" + playtime.getEvaluation().getRating() + '\'' +
+                ", Colour='" + colour.getColour() + "' Rating='" + playtime.getEvaluation().getRating() + '\'' +
+                ", Drawing='" + drawing.getShapes() + "' Rating='" + playtime.getEvaluation().getRating() + '\'' +
+                ", Playtime='" + playtime.getBehaviour() + "' Rating='" + playtime.getEvaluation().getRating() + '\'' +
                 '}';
     }
 
-    @Override
+    /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -149,5 +149,5 @@ public class Activity
     public int hashCode()
     {
         return Objects.hash(id);
-    }
+    }*/
 }

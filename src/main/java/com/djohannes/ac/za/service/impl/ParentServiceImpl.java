@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.ParentService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("ParentServiceImpl")
 public class ParentServiceImpl implements ParentService {
 
     private static ParentServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("ParentMemory")
     private ParentRepository repository;
 
     private ParentServiceImpl() {

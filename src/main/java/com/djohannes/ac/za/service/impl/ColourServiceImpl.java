@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.ColourService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("ColourServiceImpl")
 public class ColourServiceImpl implements ColourService {
 
     private static ColourServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("ColourMemory")
     private ColourRepository repository;
 
     private ColourServiceImpl() {

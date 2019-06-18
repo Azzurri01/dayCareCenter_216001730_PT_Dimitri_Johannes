@@ -1,5 +1,6 @@
 package com.djohannes.ac.za.domain;
 
+import java.util.Objects;
 import java.util.Set;
 
 public class Province
@@ -72,9 +73,21 @@ public class Province
     @Override
     public String toString() {
         return "Province{" +
-                "id='" + id +'\'' +
                 "Name='" + name + '\'' +
                 "Population='" + population + '\'' +
                 '}';
     }
+
+    /*@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Province province = (Province) o;
+        return id.equals(province.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }*/
 }

@@ -76,9 +76,21 @@ public class Parent
     @Override
     public String toString() {
         return "Parent{" +
-                "id='" + id + '\'' +
                 "Name='" + name + '\'' +
                 "Contact='" + contact + '\'' +
                 '}';
     }
+
+    /*@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Parent parent = (Parent) o;
+        return id.equals(parent.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }*/
 }

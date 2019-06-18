@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.CountingService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("CountingServiceImpl")
 public class CountingServiceImpl implements CountingService {
 
     private static CountingServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("CountingMemory")
     private CountingRepository repository;
 
     private CountingServiceImpl() {

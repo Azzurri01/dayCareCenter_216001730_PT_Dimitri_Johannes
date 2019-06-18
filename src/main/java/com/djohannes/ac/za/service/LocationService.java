@@ -1,10 +1,10 @@
 package com.djohannes.ac.za.service;
 
-import com.djohannes.ac.za.domain.Location;
+import com.djohannes.ac.za.domain.Address;
 
 import java.util.Set;
 
-public interface LocationService extends IService<Location, String> {
+public interface LocationService extends IService<Address, String> {
 
-    Set<Location> getAll();
+    Set<Address> getAll();
 }

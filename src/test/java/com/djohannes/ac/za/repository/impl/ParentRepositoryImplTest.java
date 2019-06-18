@@ -40,7 +40,7 @@ public class ParentRepositoryImplTest {
     {
         Parent createdParent = this.repository.create(this.parent);
         System.out.println("Create method called: Created parent = " + this.parent);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdParent, this.parent);
     }
 
@@ -51,32 +51,32 @@ public class ParentRepositoryImplTest {
         System.out.println("Read method call 1: Reading parentID = " + savedParent.getId());
         Parent readParent = this.repository.read(savedParent.getId());
         System.out.println("Read method call 2: Reading read = " + savedParent.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedParent, readParent);
     }
 
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Parent streetNo = new Parent.Builder().copy(getSavedParent()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + parent);
-        Parent updated = this.repository.update(parent);
-        System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
-        eGetAll();
+        Contact con = ContactFactory.getContact("1231231233", "dimitri.johannes@gmail.com");
+        Parent newParent = new Parent.Builder().copy(getSavedParent()).Contact(con).build();
+        System.out.println("In update, about_to_updated = " + newParent.getContact().getContactNo());
+        Parent updated = this.repository.update(newParent);
+        System.out.println("In update, updated = " + updated.getContact().getContactNo());
+        Assert.assertSame(newParent.getContact().getContactNo(), updated.getContact().getContactNo());
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Parent savedParent = getSavedParent();
         this.repository.delete(savedParent.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Parent> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

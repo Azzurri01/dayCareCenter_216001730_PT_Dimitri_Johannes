@@ -73,13 +73,12 @@ public class City
     @Override
     public String toString() {
         return "City{" +
-                "ID='" + id + '\'' +
                 "Name='" + name + '\'' +
                 "Population='" + population + '\'' +
                 '}';
     }
 
-    @Override
+    /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -91,5 +90,5 @@ public class City
     public int hashCode()
     {
         return Objects.hash(id);
-    }
+    }*/
 }

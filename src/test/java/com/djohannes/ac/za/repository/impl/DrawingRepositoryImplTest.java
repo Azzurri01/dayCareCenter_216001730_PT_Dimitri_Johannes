@@ -38,7 +38,7 @@ public class DrawingRepositoryImplTest {
     {
         Drawing createdDrawing = this.repository.create(this.drawing);
         System.out.println("Create method called: Created drawing = " + this.drawing);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdDrawing, this.drawing);
     }
 
@@ -49,32 +49,32 @@ public class DrawingRepositoryImplTest {
         System.out.println("Read method call 1: Reading drawingID = " + savedDrawing.getId());
         Drawing readDrawing = this.repository.read(savedDrawing.getId());
         System.out.println("Read method call 2: Reading read = " + savedDrawing.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedDrawing, readDrawing);
     }
 
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Drawing streetNo = new Drawing.Builder().copy(getSavedDrawing()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + drawing);
-        Drawing updated = this.repository.update(drawing);
+        Evaluation eval = EvaluationFactory.getEvaluation(8);
+        Drawing newEvaluation = new Drawing.Builder().copy(getSavedDrawing()).evaluation(eval).build();
+        System.out.println("In update, about_to_updated = " + newEvaluation);
+        Drawing updated = this.repository.update(newEvaluation);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
-        eGetAll();
+        Assert.assertSame(newEvaluation, updated);
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Drawing savedDrawing = getSavedDrawing();
         this.repository.delete(savedDrawing.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Drawing> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

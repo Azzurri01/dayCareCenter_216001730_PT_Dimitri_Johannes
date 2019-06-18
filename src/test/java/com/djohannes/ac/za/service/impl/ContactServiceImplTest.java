@@ -39,7 +39,7 @@ public class ContactServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newContactId = "123";
         Contact updated = new Contact.Builder().copy(getSaved()).id(newContactId).build();
@@ -49,15 +49,15 @@ public class ContactServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Contact saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Contact saved = getSaved();
         Contact read = this.repository.read(saved.getId());
@@ -66,7 +66,7 @@ public class ContactServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Contact> contacts = this.repository.getAll();
         System.out.println("In getall, all = " + contacts);

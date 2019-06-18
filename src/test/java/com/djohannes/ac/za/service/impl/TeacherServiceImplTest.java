@@ -40,7 +40,7 @@ public class TeacherServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newTeacherId = "123";
         Teacher updated = new Teacher.Builder().copy(getSaved()).id(newTeacherId).build();
@@ -50,15 +50,15 @@ public class TeacherServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Teacher saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Teacher saved = getSaved();
         Teacher read = this.repository.read(saved.getId());
@@ -67,7 +67,7 @@ public class TeacherServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Teacher> teachers = this.repository.getAll();
         System.out.println("In getall, all = " + teachers);

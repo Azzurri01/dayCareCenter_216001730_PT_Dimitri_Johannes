@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Grade;
 import com.djohannes.ac.za.repository.GradeRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("GradeMemory")
 public class GradeRepositoryImpl implements GradeRepository {
 
     private static GradeRepositoryImpl repository = null;

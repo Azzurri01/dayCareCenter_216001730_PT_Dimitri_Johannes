@@ -1,22 +1,27 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.City;
-import com.djohannes.ac.za.repository.CityRepository;
-import com.djohannes.ac.za.repository.impl.CityRepositoryImpl;
-import com.djohannes.ac.za.service.CityService;
+import com.djohannes.ac.za.domain.Drawing;
+import com.djohannes.ac.za.repository.DrawingRepository;
+import com.djohannes.ac.za.repository.impl.DrawingRepositoryImpl;
+import com.djohannes.ac.za.service.DrawingService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
-public class DrawingServiceImpl implements CityService {
+@Service("DrawingServiceImpl")
+public class DrawingServiceImpl implements DrawingService {
 
     private static DrawingServiceImpl service = null;
-    private CityRepository repository;
+
+    @Autowired
+    @Qualifier("DrawingMemory")
+    private DrawingRepository repository;
 
     private DrawingServiceImpl() {
-        this.repository = CityRepositoryImpl.getRepository();
+        this.repository = DrawingRepositoryImpl.getRepository();
     }
 
     public static DrawingServiceImpl getService(){
@@ -25,13 +30,13 @@ public class DrawingServiceImpl implements CityService {
     }
 
     @Override
-    public City create(City city) {
-        return this.repository.create(city);
+    public Drawing create(Drawing drawing) {
+        return this.repository.create(drawing);
     }
 
     @Override
-    public City update(City city) {
-        return this.repository.update(city);
+    public Drawing update(Drawing drawing) {
+        return this.repository.update(drawing);
     }
 
     @Override
@@ -40,12 +45,12 @@ public class DrawingServiceImpl implements CityService {
     }
 
     @Override
-    public City read(String s) {
+    public Drawing read(String s) {
         return this.repository.read(s);
     }
 
     @Override
-    public Set<City> getAll() {
+    public Set<Drawing> getAll() {
         return this.repository.getAll();
     }
 }

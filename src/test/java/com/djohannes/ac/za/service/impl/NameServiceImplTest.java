@@ -38,7 +38,7 @@ public class NameServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newNameId = "123";
         Name updated = new Name.Builder().copy(getSaved()).id(newNameId).build();
@@ -48,15 +48,15 @@ public class NameServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Name saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Name saved = getSaved();
         Name read = this.repository.read(saved.getId());
@@ -65,7 +65,7 @@ public class NameServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Name> names = this.repository.getAll();
         System.out.println("In getall, all = " + names);

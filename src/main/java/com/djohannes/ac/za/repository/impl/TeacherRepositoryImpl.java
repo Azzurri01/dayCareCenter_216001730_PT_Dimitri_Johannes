@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Teacher;
 import com.djohannes.ac.za.repository.TeacherRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("TeacherMemory")
 public class TeacherRepositoryImpl implements TeacherRepository {
 
     private static TeacherRepositoryImpl repository = null;

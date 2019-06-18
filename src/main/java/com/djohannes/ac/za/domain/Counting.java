@@ -1,5 +1,7 @@
 package com.djohannes.ac.za.domain;
 
+import java.util.Objects;
+
 public class Counting
 {
     private String id;
@@ -69,9 +71,21 @@ public class Counting
     @Override
     public String toString() {
         return "Counting{" +
-                "Number='" + id + '\'' +
                 "Number='" + number + '\'' +
                 ", Evaluation='" + evaluation + '\'' +
                 '}';
     }
+
+    /*@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Counting counting = (Counting) o;
+        return id.equals(counting.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }*/
 }

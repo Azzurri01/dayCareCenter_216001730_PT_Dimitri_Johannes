@@ -126,7 +126,6 @@ public class Student{
     @Override
     public String toString() {
         return "Student{" +
-                "student ID='" + studentId + '\'' +
                 ", Student Name='" + name + '\'' +
                 ", Grade='" + grade + '\'' +
                 ", Gender=" + gender +
@@ -136,7 +135,7 @@ public class Student{
                 '}';
     }
 
-    @Override
+    /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -148,6 +147,6 @@ public class Student{
     public int hashCode()
     {
         return Objects.hash(studentId);
-    }
+    }*/
 
 }

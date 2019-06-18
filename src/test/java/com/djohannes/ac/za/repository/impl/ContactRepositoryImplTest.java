@@ -27,7 +27,7 @@ public class ContactRepositoryImplTest {
     public void setUp() throws Exception
     {
         this.repository = ContactRepositoryImpl.getRepository();
-        this.contact = ContactFactory.getContact("14", "Sentinel Road");
+        this.contact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
     }
 
     @Test
@@ -35,7 +35,7 @@ public class ContactRepositoryImplTest {
     {
         Contact createdContact = this.repository.create(this.contact);
         System.out.println("Create method called: Created contact = " + this.contact);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdContact, this.contact);
     }
 
@@ -46,32 +46,32 @@ public class ContactRepositoryImplTest {
         System.out.println("Read method call 1: Reading contactID = " + savedContact.getId());
         Contact readContact = this.repository.read(savedContact.getId());
         System.out.println("Read method call 2: Reading read = " + savedContact.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedContact, readContact);
     }
 
     @Test
     public void cUpdate()
     {
-        String newno = "0824512655";
-        Contact contactno = new Contact.Builder().copy(getSavedContact()).contactNo(newno).build();
-        System.out.println("In update, about_to_updated = " + contact);
-        Contact updated = this.repository.update(contact);
-        System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newno, updated.getContactNo().toString());
-        eGetAll();
+        String newNo = "0824512655";
+        Contact newContactNo = new Contact.Builder().copy(getSavedContact()).contactNo(newNo).build();
+        System.out.println("In update, about_to_updated = " + newContactNo.getContactNo());
+        Contact updated = this.repository.update(newContactNo);
+        System.out.println("In update, updated = " + updated.getContactNo());
+        Assert.assertSame(newContactNo, updated);
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Contact savedContact = getSavedContact();
         this.repository.delete(savedContact.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Contact> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

@@ -19,7 +19,7 @@ public class CityRepositoryImplTest {
     private CityRepository repository;
     private City city;
 
-    Name name = NameFactory.schoolName("Cape Town");
+    Name name = NameFactory.getName("Cape Town");
     Population population = PopulationFactory.getTotal(2000000);
 
     private City getSavedCity()
@@ -40,7 +40,7 @@ public class CityRepositoryImplTest {
     {
         City createdCity = this.repository.create(this.city);
         System.out.println("Create method called: Created city = " + this.city);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdCity, this.city);
     }
 
@@ -50,33 +50,33 @@ public class CityRepositoryImplTest {
         City savedCity = getSavedCity();
         System.out.println("Read method call 1: Reading cityID = " + savedCity.getId());
         City readCity = this.repository.read(savedCity.getId());
-        System.out.println("Read method call 2: Reading read = " + savedCity.getId());
-        eGetAll();
+        System.out.println("Read method call 2: Reading read = " + readCity);
+        dGetAll();
         Assert.assertSame(savedCity, readCity);
     }
 
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        City streetNo = new City.Builder().copy(getSavedCity()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + city);
-        City updated = this.repository.update(city);
+        Population population = PopulationFactory.getTotal(4000000);
+        City newCity = new City.Builder().copy(getSavedCity()).population(population).build();
+        System.out.println("In update, about_to_updated = " + newCity);
+        City updated = this.repository.update(newCity);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
-        eGetAll();
+        Assert.assertSame(newCity, updated);
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         City savedCity = getSavedCity();
         this.repository.delete(savedCity.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<City> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

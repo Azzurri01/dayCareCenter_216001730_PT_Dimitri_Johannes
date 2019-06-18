@@ -11,7 +11,7 @@ public class CityFactoryTest {
     @Test
     public void getCity()
     {
-        Name name = NameFactory.schoolName("Cape Town");
+        Name name = NameFactory.getName("Cape Town");
         Population population = PopulationFactory.getTotal(2000000);
         City city = CityFactory.getCity(name, population);
         Assert.assertNotNull(city.getId());

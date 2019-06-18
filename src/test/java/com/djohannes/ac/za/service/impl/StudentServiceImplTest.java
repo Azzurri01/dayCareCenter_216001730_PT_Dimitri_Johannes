@@ -19,7 +19,6 @@ public class StudentServiceImplTest {
     Name sName = NameFactory.getName("Naqeeb", "Johannes");
     Name pName = NameFactory.getName("Dimitri", "Johannes");
     Grade grade = GradeFactory.getGrade("R");
-    Address address = AddressFactory.getAddress("14", "Sentinel road");
     Contact pContact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
     Parent parent = ParentFactory.getParent(pName, pContact);
 
@@ -30,6 +29,13 @@ public class StudentServiceImplTest {
     @Before
     public void setUp() throws Exception
     {
+        Name name = NameFactory.getName("Heideveld");
+        Population population = PopulationFactory.getTotal(100000);
+        Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
+        City city = CityFactory.getCity(name, population);
+        Province province = ProvinceFactory.getProvince(name, population);
+        Address address = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
+
         this.repository = StudentRepositoryImpl.getRepository();
         this.student = StudentFactory.getStudent(sName, grade, "male", 5, address, parent);
     }
@@ -44,7 +50,7 @@ public class StudentServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newStudentId = "123";
         Student updated = new Student.Builder().copy(getSaved()).id(newStudentId).build();
@@ -54,15 +60,15 @@ public class StudentServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Student saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Student saved = getSaved();
         Student read = this.repository.read(saved.getId());
@@ -71,7 +77,7 @@ public class StudentServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Student> students = this.repository.getAll();
         System.out.println("In getall, all = " + students);

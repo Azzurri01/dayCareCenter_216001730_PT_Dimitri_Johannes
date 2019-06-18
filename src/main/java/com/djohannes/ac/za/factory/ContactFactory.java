@@ -5,11 +5,11 @@ import com.djohannes.ac.za.util.Misc;
 
 public class ContactFactory
 {
-    public static Contact getContact(String telefone, String email)
+    public static Contact getContact(String tel, String email)
     {
         return new Contact.Builder()
                 .id(Misc.generateId())
-                .contactNo(telefone)
+                .contactNo(tel)
                 .email(email)
                 .build();
     }

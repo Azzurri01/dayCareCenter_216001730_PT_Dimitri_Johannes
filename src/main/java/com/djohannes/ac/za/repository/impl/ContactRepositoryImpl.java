@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Contact;
 import com.djohannes.ac.za.repository.ContactRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("ContactMemory")
 public class ContactRepositoryImpl implements ContactRepository {
 
     private static ContactRepositoryImpl repository = null;
@@ -40,7 +42,7 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     public Contact update(Contact contact) {
         // find the student, update it and return the updated student
-        Contact toDelete = findContact(contact.getContactNo());
+        Contact toDelete = findContact(contact.getId());
         if(toDelete != null) {
             this.contacts.remove(toDelete);
             return create(contact);

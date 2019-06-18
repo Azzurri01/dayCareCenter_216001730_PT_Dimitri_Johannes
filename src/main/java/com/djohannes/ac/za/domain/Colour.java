@@ -1,5 +1,7 @@
 package com.djohannes.ac.za.domain;
 
+import java.util.Objects;
+
 public class Colour
 {
     private String id, colour;
@@ -71,4 +73,17 @@ public class Colour
                 ", Evaluation='" + evaluation + '\'' +
                 '}';
     }
+
+    /*@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Colour colour = (Colour) o;
+        return id.equals(colour.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }*/
 }

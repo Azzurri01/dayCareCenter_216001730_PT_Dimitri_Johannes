@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.AccountService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("AccountServiceImpl")
 public class AccountServiceImpl implements AccountService {
 
     private static AccountServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("AccountMemory")
     private AccountRepository repository;
 
     private AccountServiceImpl() {
@@ -30,6 +35,11 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
+    public Account read(String s) {
+        return this.repository.read(s);
+    }
+
+    @Override
     public Account update(Account account) {
         return this.repository.update(account);
     }
@@ -37,11 +47,6 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public void delete(String s) {
         this.repository.delete(s);
-    }
-
-    @Override
-    public Account read(String s) {
-        return this.repository.read(s);
     }
 
     @Override

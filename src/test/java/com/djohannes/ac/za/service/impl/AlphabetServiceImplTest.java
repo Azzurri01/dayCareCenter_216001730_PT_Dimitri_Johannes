@@ -39,7 +39,7 @@ public class AlphabetServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newAlphabetId = "123";
         Alphabet updated = new Alphabet.Builder().copy(getSaved()).id(newAlphabetId).build();
@@ -49,15 +49,15 @@ public class AlphabetServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Alphabet saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Alphabet saved = getSaved();
         Alphabet read = this.repository.read(saved.getId());
@@ -66,7 +66,7 @@ public class AlphabetServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Alphabet> letters = this.repository.getAll();
         System.out.println("In getall, all = " + letters);

@@ -19,7 +19,7 @@ public class ProvinceRepositoryImplTest {
     private ProvinceRepository repository;
     private Province province;
 
-    Name name = NameFactory.schoolName("Western Province");
+    Name name = NameFactory.getName("Western Province");
     Population population = PopulationFactory.getTotal(10000000);
 
     private Province getSavedProvince()
@@ -40,7 +40,7 @@ public class ProvinceRepositoryImplTest {
     {
         Province createdProvince = this.repository.create(this.province);
         System.out.println("Create method called: Created province = " + this.province);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdProvince, this.province);
     }
 
@@ -51,32 +51,32 @@ public class ProvinceRepositoryImplTest {
         System.out.println("Read method call 1: Reading provinceID = " + savedProvince.getId());
         Province readProvince = this.repository.read(savedProvince.getId());
         System.out.println("Read method call 2: Reading read = " + savedProvince.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedProvince, readProvince);
     }
 
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Province streetNo = new Province.Builder().copy(getSavedProvince()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + province);
-        Province updated = this.repository.update(province);
-        System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
-        eGetAll();
+        Name newName = NameFactory.getName("Western Province of South Africa");
+        Province updatedName = new Province.Builder().copy(getSavedProvince()).name(newName).build();
+        System.out.println("In update, about_to_updated = " + updatedName.getName().getname());
+        Province updated = this.repository.update(updatedName);
+        System.out.println("In update, updated = " + updated.getName().getname());
+        Assert.assertEquals(newName.getname(), updated.getName().getname());
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Province savedProvince = getSavedProvince();
         this.repository.delete(savedProvince.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Province> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

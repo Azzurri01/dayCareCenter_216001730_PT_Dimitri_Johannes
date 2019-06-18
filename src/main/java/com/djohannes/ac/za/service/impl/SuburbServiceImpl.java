@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.SuburbService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("SuburbServiceImpl")
 public class SuburbServiceImpl implements SuburbService {
 
     private static SuburbServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("SuburbMemory")
     private SuburbRepository repository;
 
     private SuburbServiceImpl() {

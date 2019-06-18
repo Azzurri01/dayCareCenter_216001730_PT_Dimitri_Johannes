@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.CityService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("CityServiceImpl")
 public class CityServiceImpl implements CityService {
 
     private static CityServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("CityMemory")
     private CityRepository repository;
 
     private CityServiceImpl() {

@@ -1,5 +1,7 @@
 package com.djohannes.ac.za.domain;
 
+import java.util.Objects;
+
 public class Population
 {
     private String id;
@@ -55,8 +57,20 @@ public class Population
     @Override
     public String toString() {
         return "Population{" +
-                "id='" + id + '\'' +
                 "Total='" + total + '\'' +
                 '}';
     }
+
+    /*@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Population population = (Population) o;
+        return id.equals(population.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }*/
 }

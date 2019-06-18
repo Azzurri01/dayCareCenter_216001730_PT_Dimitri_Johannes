@@ -1,7 +1,7 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Address;
-import com.djohannes.ac.za.factory.AddressFactory;
+import com.djohannes.ac.za.domain.*;
+import com.djohannes.ac.za.factory.*;
 import com.djohannes.ac.za.repository.AddressRepository;
 import com.djohannes.ac.za.repository.impl.AddressRepositoryImpl;
 import org.junit.Assert;
@@ -22,8 +22,14 @@ public class ClassroomServiceImplTest {
     @Before
     public void setUp() throws Exception
     {
+        Name name = NameFactory.getName("Heideveld");
+        Population population = PopulationFactory.getTotal(100000);
+        Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
+        City city = CityFactory.getCity(name, population);
+        Province province = ProvinceFactory.getProvince(name, population);
+
         this.repository = AddressRepositoryImpl.getRepository();
-        this.address = AddressFactory.getAddress("14", "Sentinel Road");
+        this.address = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
     }
 
     @Test
@@ -36,7 +42,7 @@ public class ClassroomServiceImplTest {
     }
 
     @Test
-    public void bUpdate()
+    public void cUpdate()
     {
         String newAddressId = "123";
         Address updated = new Address.Builder().copy(getSaved()).id(newAddressId).build();
@@ -46,15 +52,15 @@ public class ClassroomServiceImplTest {
     }
 
     @Test
-    public void cDelete()
+    public void eDelete()
     {
         Address saved = getSaved();
         this.repository.delete(saved.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void dRead()
+    public void bRead()
     {
         Address saved = getSaved();
         Address read = this.repository.read(saved.getId());
@@ -63,7 +69,7 @@ public class ClassroomServiceImplTest {
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Address> addresses = this.repository.getAll();
         System.out.println("In getall, all = " + addresses);

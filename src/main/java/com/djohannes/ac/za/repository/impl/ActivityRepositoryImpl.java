@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Activity;
 import com.djohannes.ac.za.repository.ActivityRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("ActivityMemory")
 public class ActivityRepositoryImpl implements ActivityRepository {
 
     private static ActivityRepositoryImpl repository = null;

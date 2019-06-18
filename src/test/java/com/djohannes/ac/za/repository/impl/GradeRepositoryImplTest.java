@@ -38,7 +38,7 @@ public class GradeRepositoryImplTest {
     {
         Grade createdGrade = this.repository.create(this.grade);
         System.out.println("Create method called: Created grade = " + this.grade);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdGrade, this.grade);
     }
 
@@ -49,32 +49,32 @@ public class GradeRepositoryImplTest {
         System.out.println("Read method call 1: Reading gradeID = " + savedGrade.getId());
         Grade readGrade = this.repository.read(savedGrade.getId());
         System.out.println("Read method call 2: Reading read = " + savedGrade.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedGrade, readGrade);
     }
 
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Grade streetNo = new Grade.Builder().copy(getSavedGrade()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + grade);
-        Grade updated = this.repository.update(grade);
+        String grade = "e";
+        Grade newGrade = new Grade.Builder().copy(getSavedGrade()).getGrade(grade).build();
+        System.out.println("In update, about_to_updated = " + newGrade);
+        Grade updated = this.repository.update(newGrade);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
-        eGetAll();
+        Assert.assertSame(newGrade, updated);
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Grade savedGrade = getSavedGrade();
         this.repository.delete(savedGrade.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Grade> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

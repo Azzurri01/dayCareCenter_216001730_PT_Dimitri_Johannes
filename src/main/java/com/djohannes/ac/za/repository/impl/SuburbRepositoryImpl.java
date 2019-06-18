@@ -2,10 +2,12 @@ package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Suburb;
 import com.djohannes.ac.za.repository.SuburbRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository("SuburbMemory")
 public class SuburbRepositoryImpl implements SuburbRepository {
 
     private static SuburbRepositoryImpl repository = null;

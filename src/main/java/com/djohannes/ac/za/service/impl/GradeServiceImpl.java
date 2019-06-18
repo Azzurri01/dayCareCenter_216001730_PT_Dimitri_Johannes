@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.GradeService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("GradeServiceImpl")
 public class GradeServiceImpl implements GradeService {
 
     private static GradeServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("GradeMemory")
     private GradeRepository repository;
 
     private GradeServiceImpl() {

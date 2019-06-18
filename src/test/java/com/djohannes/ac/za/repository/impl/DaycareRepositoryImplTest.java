@@ -17,13 +17,12 @@ public class DaycareRepositoryImplTest {
     private DaycareRepository repository;
     private Daycare daycare;
 
-    Name name = NameFactory.schoolName("Little Rascals");
+    Name name = NameFactory.getName("Little Rascals");
     Population population = PopulationFactory.getTotal(100000);
-    Address address = AddressFactory.getAddress("14", "Sentinel Road");
     Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
     City city = CityFactory.getCity(name, population);
     Province province = ProvinceFactory.getProvince(name, population);
-    Location location = LocationFactory.getLocation(address, suburb, city, province);
+    Address address = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
     Contact contact = ContactFactory.getContact("0835133305", "fowzia.johannes@gmail.com");
 
     private Daycare getSavedDaycare()
@@ -36,7 +35,7 @@ public class DaycareRepositoryImplTest {
     public void setUp() throws Exception
     {
         this.repository = DaycareRepositoryImpl.getRepository();
-        this.daycare = DaycareFactory.getDaycare(name, location, contact);
+        this.daycare = DaycareFactory.getDaycare(name, address, contact);
     }
 
     @Test
@@ -44,7 +43,7 @@ public class DaycareRepositoryImplTest {
     {
         Daycare createdDaycare = this.repository.create(this.daycare);
         System.out.println("Create method called: Created daycare = " + this.daycare);
-        eGetAll();
+        dGetAll();
         Assert.assertSame(createdDaycare, this.daycare);
     }
 
@@ -55,32 +54,32 @@ public class DaycareRepositoryImplTest {
         System.out.println("Read method call 1: Reading daycareID = " + savedDaycare.getId());
         Daycare readDaycare = this.repository.read(savedDaycare.getId());
         System.out.println("Read method call 2: Reading read = " + savedDaycare.getId());
-        eGetAll();
+        dGetAll();
         Assert.assertSame(savedDaycare, readDaycare);
     }
 
     @Test
     public void cUpdate()
     {
-        String newId = "112";
-        Daycare streetNo = new Daycare.Builder().copy(getSavedDaycare()).id(newId).build();
-        System.out.println("In update, about_to_updated = " + daycare);
-        Daycare updated = this.repository.update(daycare);
-        System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newId, updated.getId().toString());;
-        eGetAll();
+        Name nm = NameFactory.getName("Big Rascals");
+        Daycare newName = new Daycare.Builder().copy(getSavedDaycare()).name(nm).build();
+        System.out.println("In update, about_to_updated = " + newName.getName().getname());
+        Daycare updated = this.repository.update(newName);
+        System.out.println("In update, updated = " + updated.getName().getname());
+        Assert.assertSame(newName, updated);
+        dGetAll();
     }
 
     @Test
-    public void dDelete()
+    public void eDelete()
     {
         Daycare savedDaycare = getSavedDaycare();
         this.repository.delete(savedDaycare.getId());
-        eGetAll();
+        dGetAll();
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
         Set<Daycare> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);

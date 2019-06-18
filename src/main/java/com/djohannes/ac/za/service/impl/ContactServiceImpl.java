@@ -7,12 +7,17 @@ import com.djohannes.ac.za.service.ContactService;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("ContactServiceImpl")
 public class ContactServiceImpl implements ContactService {
 
     private static ContactServiceImpl service = null;
+
+    @Autowired
+    @Qualifier("ContactMemory")
     private ContactRepository repository;
 
     private ContactServiceImpl() {

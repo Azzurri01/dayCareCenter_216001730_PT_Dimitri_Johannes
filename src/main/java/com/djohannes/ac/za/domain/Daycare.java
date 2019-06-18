@@ -1,12 +1,14 @@
 package com.djohannes.ac.za.domain;
 import java.util.Objects;
+import java.util.Set;
 
 public class Daycare
 {
     private String id;
     private Name name;
-    private Location location;
-    Contact contact;
+    private Address address;
+    private Contact contact;
+    Set<Account> accounts;
 
     public String getId()
     {
@@ -18,8 +20,8 @@ public class Daycare
         return name;
     }
 
-    public Location getLocation() {
-        return location;
+    public Address getAddress() {
+        return address;
     }
 
     public Contact getContact() {
@@ -30,7 +32,7 @@ public class Daycare
     {
         this.id=builder.id;
         this.name=builder.name;
-        this.location=builder.location;
+        this.address =builder.address;
         this.contact=builder.contact;
     }
 
@@ -38,14 +40,14 @@ public class Daycare
     {
         private String id;
         private Name name;
-        private Location location;
+        private Address address;
         private Contact contact;
 
         public Builder copy(Daycare daycare)
         {
             this.id=daycare.id;
             this.name=daycare.name;
-            this.location=daycare.location;
+            this.address =daycare.address;
             this.contact=daycare.contact;
             return this;
         }
@@ -66,9 +68,9 @@ public class Daycare
             return this;
         }
 
-        public Builder location(Location location)
+        public Builder location(Address address)
         {
-            this.location=location;
+            this.address = address;
             return this;
         }
 
@@ -88,13 +90,12 @@ public class Daycare
     public String toString() {
         return "Daycare{" +
                 "Name='" + name + '\'' +
-                "ID='" + id + '\'' +
-                "Location='" + location + '\'' +
+                "Address='" + address + '\'' +
                 "Contact='" + contact + '\'' +
                 '}';
     }
 
-    @Override
+    /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -107,5 +108,5 @@ public class Daycare
 
     {
         return Objects.hash(id);
-    }
+    }*/
 }
