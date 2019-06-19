@@ -88,14 +88,27 @@ public class Name {
         {
             return new Name(this);
         }
+
+
     }
 
     @Override
     public String toString() {
-        return "Name{" +
-                "First name='" + fName + '\'' +
-                "Last name='" + lName + '\'' +
-                '}';
+        if(fName==null && lName==null)
+        {
+            return "Name{" +
+                    "Id='" + id + '\'' +
+                    "Name='" + name + '\'' +
+                    '}';
+        }
+
+        else {
+            return "Name{" +
+                    "Id='" + id + '\'' +
+                    "First name='" + fName + '\'' +
+                    "Last name='" + lName + '\'' +
+                    '}';
+        }
     }
 
     @Override

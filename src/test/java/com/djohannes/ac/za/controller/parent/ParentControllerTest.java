@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.parent;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -50,6 +51,10 @@ public class ParentControllerTest {
         ResponseEntity<Parent> postResponse = restTemplate.postForEntity(baseURL + "/create", parent, Parent.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response rating: " + postResponse.getBody());
+        System.out.println("Parent: " + parent.toString());
+        Assert.assertEquals(parent, postResponse.getBody());
     }
 
     @Test

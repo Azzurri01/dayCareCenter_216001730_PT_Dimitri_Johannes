@@ -18,7 +18,7 @@ public class ActivityController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Activity create(Activity activity) {
+    public Activity create(@RequestBody Activity activity) {
         return service.create(activity);
     }
 

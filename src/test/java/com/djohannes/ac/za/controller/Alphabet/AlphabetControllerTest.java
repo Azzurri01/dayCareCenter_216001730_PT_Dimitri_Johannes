@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.Alphabet;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,13 +42,17 @@ public class AlphabetControllerTest {
 
     @Test
     public void testCreateAlphabet() {
-        Evaluation evaluation = EvaluationFactory.getEvaluation(5);
+        int mark = 5;
+        Evaluation evaluation = EvaluationFactory.getEvaluation(mark);
         Alphabet alphabet = AlphabetFactory.getAlphabet("a",evaluation);
 
         ResponseEntity<Alphabet> postResponse = restTemplate.postForEntity(baseURL + "/create", alphabet, Alphabet.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
-        System.out.println(postResponse.getBody());
+
+        System.out.println("Post response: " + postResponse.getBody());
+        System.out.println("Alphabet: " + alphabet.toString());
+        Assert.assertEquals(alphabet, postResponse.getBody());
     }
 
     @Test

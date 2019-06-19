@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.Allergy;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,6 +47,10 @@ public class AllergyControllerTest {
         ResponseEntity<Allergy> postResponse = restTemplate.postForEntity(baseURL + "/create", allergy, Allergy.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response alphabet: " + postResponse.getBody());
+        System.out.println("Allergy allergy: " + allergy.toString());
+        Assert.assertEquals(allergy, postResponse.getBody());
     }
 
     @Test

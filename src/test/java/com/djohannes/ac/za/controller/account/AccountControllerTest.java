@@ -61,6 +61,11 @@ public class AccountControllerTest {
         ResponseEntity<Account> postResponse = restTemplate.postForEntity(baseURL + "/create", account, Account.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+        //System.out.println(account.toString());
+        //System.out.println(postResponse.getBody());
+        System.out.println("Post response first name: " + postResponse.getBody());
+        System.out.println("Account first name: " + account.getStudent().getName().getFirstName());
+        System.out.println("Post response address: " + postResponse.getBody().getStudent().getAddress());
     }
 
     @Test
@@ -71,6 +76,7 @@ public class AccountControllerTest {
         restTemplate.put(baseURL + "/accounts/" + id, account);
         Account updatedAccount = restTemplate.getForObject(baseURL + "/Account/" + id, Account.class);
         assertNotNull(updatedAccount);
+        System.out.println(updatedAccount);
     }
 
     @Test

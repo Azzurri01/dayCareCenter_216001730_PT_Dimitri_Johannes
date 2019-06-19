@@ -85,6 +85,7 @@ public class Suburb
     @Override
     public String toString() {
         return "Suburb{" +
+                "Id='" + id + '\'' +
                 "Name='" + name.getname() + " " + '\'' +
                 "Postal code='" + areaCode + '\'' +
                 '}';

@@ -18,7 +18,7 @@ public class CityController {
 
     @PostMapping("/create")
     @ResponseBody
-    public City create(City city) {
+    public City create(@RequestBody City city) {
         return service.create(city);
     }
 

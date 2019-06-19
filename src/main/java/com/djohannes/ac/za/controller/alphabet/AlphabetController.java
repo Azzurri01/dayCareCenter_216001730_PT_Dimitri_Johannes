@@ -18,7 +18,7 @@ public class AlphabetController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Alphabet create(Alphabet alphabet) {
+    public Alphabet create(@RequestBody Alphabet alphabet) {
         return service.create(alphabet);
     }
 

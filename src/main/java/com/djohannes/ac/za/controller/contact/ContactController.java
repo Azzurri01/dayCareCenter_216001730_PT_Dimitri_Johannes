@@ -17,21 +17,20 @@ public class ContactController {
     @Qualifier("ContactServiceImpl")
     private ContactService service;
 
-    /*@PostMapping("/create")
+    @PostMapping("/create")
     @ResponseBody
     public Contact create(@RequestBody Contact contact)
     {
-        //Contact contact = ContactFactory.getContact(tel, email);
         return service.create(contact);
-    }*/
+    }
 
-    @PostMapping("/create")
+    /*@PostMapping("/create")
     @ResponseBody
     public Contact create(String tel, String email)
     {
         Contact contact = ContactFactory.getContact(tel, email);
         return service.create(contact);
-    }
+    }*/
 
     @PostMapping("/update")
     @ResponseBody

@@ -113,6 +113,7 @@ public class Address
     @Override
     public String toString() {
         return "Address{" +
+                "Id='" + id + '\'' +
                 "No='" + no + '\'' +
                 "Street='" + street + '\'' +
                 "Suburb='" + suburb.getName().getname() + '\'' +

@@ -56,6 +56,7 @@ public class Grade
     @Override
     public String toString() {
         return "Grade{" +
+                "Id='" + id + '\'' +
                 "grade='" + grade + '\'' +
                 '}';
     }

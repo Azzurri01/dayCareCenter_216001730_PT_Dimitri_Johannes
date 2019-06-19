@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.evaluation;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,11 +42,17 @@ public class EvaluationControllerTest {
 
     @Test
     public void testCreateEvaluation() {
-        Evaluation evaluation = EvaluationFactory.getEvaluation(7);
+        int rating = 5;
+        Evaluation evaluation = EvaluationFactory.getEvaluation(rating);
+        //evaluation.setRating(rating);
 
         ResponseEntity<Evaluation> postResponse = restTemplate.postForEntity(baseURL + "/create", evaluation, Evaluation.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response: " + postResponse.getBody());
+        System.out.println("Evaluation: " + evaluation.toString());
+        Assert.assertEquals(evaluation, postResponse.getBody());
     }
 
     @Test

@@ -57,6 +57,7 @@ public class Population
     @Override
     public String toString() {
         return "Population{" +
+                "Id='" + id + '\'' +
                 "Total='" + total + '\'' +
                 '}';
     }

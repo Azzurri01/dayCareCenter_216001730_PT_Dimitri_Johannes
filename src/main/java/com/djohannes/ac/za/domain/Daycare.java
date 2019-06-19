@@ -92,6 +92,7 @@ public class Daycare
     @Override
     public String toString() {
         return "Daycare{" +
+                "Id='" + id + '\'' +
                 "Name='" + name + '\'' +
                 "Address='" + address + '\'' +
                 "Contact='" + contact + '\'' +

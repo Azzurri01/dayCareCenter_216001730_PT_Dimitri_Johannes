@@ -57,6 +57,7 @@ public class Classroom
     @Override
     public String toString() {
         return "Classroom{" +
+                "Id='" + id + '\'' +
                 "roomNo='" + roomNo + '\'' +
                 '}';
     }

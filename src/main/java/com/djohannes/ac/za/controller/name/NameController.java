@@ -19,7 +19,7 @@ public class NameController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Name create(Name name) {
+    public Name create(@RequestBody Name name) {
         return service.create(name);
     }
 

@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.counting;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -47,6 +48,10 @@ public class CountingControllerTest {
         ResponseEntity<Counting> postResponse = restTemplate.postForEntity(baseURL + "/create", counting, Counting.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response: " + postResponse.getBody());
+        System.out.println("Counting: " + counting.toString());
+        Assert.assertEquals(counting, postResponse.getBody());
     }
 
     @Test

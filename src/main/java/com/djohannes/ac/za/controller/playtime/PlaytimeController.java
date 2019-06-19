@@ -18,7 +18,7 @@ public class PlaytimeController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Playtime create(Playtime playtime) {
+    public Playtime create(@RequestBody Playtime playtime) {
         return service.create(playtime);
     }
 

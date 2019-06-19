@@ -11,13 +11,14 @@ public class Contact {
     private Contact(Builder builder)
     {
         this.id=builder.id;
-        this.tel =builder.tel;
         this.email=builder.email;
+        this.tel=builder.tel;
     }
 
     public String getId() {
         return id;
     }
+
 
     public String getContactNo() {
         return tel;
@@ -39,7 +40,7 @@ public class Contact {
 
         public Builder contactNo(String tel)
         {
-            this.tel =tel;
+            this.tel=tel;
             return this;
         }
 
@@ -52,7 +53,7 @@ public class Contact {
         public Builder copy(Contact contact)
         {
             this.id=contact.id;
-            this.tel =contact.tel;
+            this.tel=contact.tel;
             this.email=contact.email;
             return this;
         }
@@ -67,8 +68,8 @@ public class Contact {
     public String toString() {
         return "Contact{" +
                 "Id='" + id + '\'' +
-                "Telephone='" + tel + '\'' +
                 "Email='" + email + '\'' +
+                "Telephone='" + tel + '\'' +
                 '}';
     }
 

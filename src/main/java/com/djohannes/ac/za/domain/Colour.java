@@ -69,6 +69,7 @@ public class Colour
     @Override
     public String toString() {
         return "Colour{" +
+                "Id='" + id + '\'' +
                 "Colour='" + colour + '\'' +
                 ", Evaluation='" + evaluation + '\'' +
                 '}';

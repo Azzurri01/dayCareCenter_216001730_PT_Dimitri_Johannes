@@ -17,6 +17,11 @@ public class Evaluation
         this.mark=builder.mark;
     }
 
+    public void setRating(int mark)
+    {
+        this.mark=mark;
+    }
+
     public int getRating() {
         return mark;
     }
@@ -58,6 +63,7 @@ public class Evaluation
     @Override
     public String toString() {
         return "Evaluation{" +
+                "Id='" + id + '\'' +
                 "Rating='" + mark + '\'' +
                 '}';
     }

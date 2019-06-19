@@ -18,7 +18,7 @@ public class AddressController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Address create(Address address) {
+    public Address create(@RequestBody Address address) {
         return service.create(address);
     }
 

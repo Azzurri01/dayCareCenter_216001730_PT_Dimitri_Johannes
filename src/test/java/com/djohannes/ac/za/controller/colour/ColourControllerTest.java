@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.colour;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -47,6 +48,10 @@ public class ColourControllerTest {
         ResponseEntity<Colour> postResponse = restTemplate.postForEntity(baseURL + "/create", colour, Colour.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response: " + postResponse.getBody());
+        System.out.println("Colour: " + colour.toString());
+        Assert.assertEquals(colour, postResponse.getBody());
     }
 
     @Test

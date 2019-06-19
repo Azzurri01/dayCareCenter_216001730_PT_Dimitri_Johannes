@@ -19,7 +19,7 @@ public class ClassroomController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Classroom create(Classroom classroom) {
+    public Classroom create(@RequestBody Classroom classroom) {
         return service.create(classroom);
     }
 

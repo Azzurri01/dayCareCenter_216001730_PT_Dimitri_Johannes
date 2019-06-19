@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.classroom;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,6 +47,10 @@ public class ClassroomControllerTest {
         ResponseEntity<Classroom> postResponse = restTemplate.postForEntity(baseURL + "/create", classroom, Classroom.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response rating: " + postResponse.getBody());
+        System.out.println("Classroom rating: " + classroom.toString());
+        Assert.assertEquals(classroom, postResponse.getBody());
     }
 
     @Test

@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.daycare;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,11 +42,26 @@ public class DaycareControllerTest {
 
     @Test
     public void testCreateDaycare() {
-        Name name = NameFactory.getName("Little rascals");
+        Name pName = NameFactory.getName("Dimitri", "Johannes");
+        Contact contact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
+        Parent parent = ParentFactory.getParent(pName, contact);
 
-        ResponseEntity<Daycare> postResponse = restTemplate.postForEntity(baseURL + "/create", name, Daycare.class);
+        Name name = NameFactory.getName("Little Rascals");
+        Population population = PopulationFactory.getTotal(100000);
+        Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
+        City city = CityFactory.getCity(name, population);
+        Province province = ProvinceFactory.getProvince(name, population);
+        Address address = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
+
+        Daycare daycare = DaycareFactory.getDaycare(name, address, contact);
+
+        ResponseEntity<Daycare> postResponse = restTemplate.postForEntity(baseURL + "/create", daycare, Daycare.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response rating: " + postResponse.getBody());
+        System.out.println("Daycare: " + daycare.toString());
+        Assert.assertEquals(daycare, postResponse.getBody());
     }
 
     @Test

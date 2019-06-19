@@ -3,6 +3,7 @@ package com.djohannes.ac.za.controller.population;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +14,7 @@ import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.HttpClientErrorException;
 
+import static junit.framework.Assert.assertSame;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 
@@ -48,6 +50,10 @@ public class PopulationControllerTest {
         ResponseEntity<Population> postResponse = restTemplate.postForEntity(baseURL + "/create", population, Population.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response population: " + postResponse.getBody());
+        System.out.println("Population: " + population.toString());
+        Assert.assertEquals(population, postResponse.getBody());
     }
 
     @Test

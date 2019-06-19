@@ -18,7 +18,7 @@ public class ProvinceController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Province create(Province province) {
+    public Province create(@RequestBody Province province) {
         return service.create(province);
     }
 

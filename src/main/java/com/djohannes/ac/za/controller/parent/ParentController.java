@@ -18,7 +18,7 @@ public class ParentController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Parent create(Parent parent) {
+    public Parent create(@RequestBody Parent parent) {
         return service.create(parent);
     }
 

@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.playtime;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -48,6 +49,10 @@ public class PlaytimeControllerTest {
         ResponseEntity<Playtime> postResponse = restTemplate.postForEntity(baseURL + "/create", playtime, Playtime.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response: " + postResponse.getBody());
+        System.out.println("Playtime: " + playtime.toString());
+        Assert.assertEquals(playtime, postResponse.getBody());
     }
 
     @Test

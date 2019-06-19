@@ -1,11 +1,13 @@
 package com.djohannes.ac.za.domain;
 
 import java.util.Objects;
+import java.util.Set;
 
 public class Alphabet
 {
     private String id, letter;
     private Evaluation evaluation;
+    private Set<Evaluation> evaluations;
 
     private Alphabet() {
     }

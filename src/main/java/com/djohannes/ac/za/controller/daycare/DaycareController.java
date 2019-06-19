@@ -19,7 +19,7 @@ public class DaycareController {
 
     @PostMapping("/create")
     @ResponseBody
-   public Daycare create(Daycare daycare) {
+   public Daycare create(@RequestBody Daycare daycare) {
         return service.create(daycare);
     }
 

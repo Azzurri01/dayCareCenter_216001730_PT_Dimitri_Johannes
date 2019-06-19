@@ -17,6 +17,7 @@ public class NameFactory
     public static Name getName(String name)
     {
         return new Name.Builder()
+                .id(Misc.generateId())
                 .orgName(name)
                 .build();
     }

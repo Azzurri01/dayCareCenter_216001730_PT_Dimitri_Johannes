@@ -3,6 +3,7 @@ package com.djohannes.ac.za.controller.name;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -47,6 +48,10 @@ public class NameControllerTest {
         ResponseEntity<Name> postResponse = restTemplate.postForEntity(baseURL + "/create", name, Name.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response name: " + postResponse.getBody());
+        System.out.println("Name: " + name.toString());
+        Assert.assertEquals(name, postResponse.getBody());
     }
 
     @Test

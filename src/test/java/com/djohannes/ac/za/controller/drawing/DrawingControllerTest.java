@@ -3,6 +3,7 @@ package com.djohannes.ac.za.controller.drawing;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,12 +43,17 @@ public class DrawingControllerTest {
 
     @Test
     public void testCreateDrawing() {
+        String shape = "circle";
         Evaluation evaluation = EvaluationFactory.getEvaluation(5);
-        Drawing drawing = DrawingFactory.getDrawing("circle",evaluation);
+        Drawing drawing = DrawingFactory.getDrawing(shape, evaluation);
 
         ResponseEntity<Drawing> postResponse = restTemplate.postForEntity(baseURL + "/create", drawing, Drawing.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response: " + postResponse.getBody());
+        System.out.println("Drawing: " + drawing.toString());
+        Assert.assertEquals(drawing, postResponse.getBody());
     }
 
     @Test

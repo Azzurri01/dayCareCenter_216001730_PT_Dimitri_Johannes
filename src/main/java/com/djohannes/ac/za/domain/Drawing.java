@@ -69,6 +69,7 @@ public class Drawing
     @Override
     public String toString() {
         return "Drawing{" +
+                "Id='" + id + '\'' +
                 "shapes='" + shape + '\'' +
                 ", Evaluation='" + evaluation + '\'' +
                 '}';

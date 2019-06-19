@@ -1,0 +1,145 @@
+Create objects via JSON
+------------------------
+
+Account 
+--------
+
+Activity
+---------
+
+Address
+--------
+
+Allergy
+--------
+{
+    "name": "Lion",
+    "id": "12d1cb7a-e3f6-4066-a0c0-bfa87fa6b291"
+}
+
+Alphabet
+---------
+{
+    "id": "12d1cb7a-e3f6-4066-a0c0-bfa87fa6b291a",
+    "letter": "b",
+    "evaluation": {
+        "id": "1234",
+        "rating": 7
+	}
+}
+
+City
+-----
+
+Classroom
+----------
+{
+     "id": "3ed1f50e-c1ce-43d3-a5df-22fbbb3d03f8c",
+     "roomNo": "5"
+}
+
+Colour
+-------
+{
+     "id": "f7d172cf-e21b-4b63-8a1b-88bb4acdcd61colour",
+     "colour": "pink",
+     "evaluation": {
+            "id": "b6b8e16e-49ec-48fe-8eee-2fe70546675dcolour",
+            "rating": 8
+      }
+}
+
+Contact
+--------
+{
+     "id": "f7d172cf-e21b-4b63-8a1b-88bb4acdcd61count",
+     "number": 5,
+     "evaluation": {
+            "id": "b6b8e16e-49ec-48fe-8eee-2fe70546675dcounting",
+            "rating": 8
+      }
+}
+
+Counting
+---------
+
+Daycare
+--------
+
+Drawing
+--------
+
+Evaluation
+-----------
+{
+    "id": "b6b8e16e-49ec-48fe-8eee-2fe70546675d",
+    "rating": 8
+}
+
+Grade
+------
+{
+    "id": "b6b8e16e-49ec-48fe-8eee-2fe70546675dgrade",
+    "grade": "R"
+}
+
+Name
+-----
+ 
+Parent
+-------
+
+Playtime
+---------
+{
+    "id": "f7d172cf-e21b-4b63-8a1b-88bb4acdcd61playtime",
+    "behaviour": "5",
+    "evaluation": {
+        "id": "b6b8e16e-49ec-48fe-8eee-2fe70546675playtime",
+        "rating": 8
+    }
+}
+
+Population
+-----------
+{
+    "id": "f7d172cf-e21b-4b63-8a1b-88bb4acdcd61population",
+    "total": 20000
+}
+
+Province
+---------
+{
+    "id": "f7d172cf-e21b-4b63-8a1b-88bb4acdcd61province",
+         "name": {
+            "id": "b6b8e16e-49ec-48fe-8eee-2fe70546675name",
+            "name": "Western Province"
+      },
+    "population": {
+    	            "id": "b6b8e16e-49ec-48fe-8eee-2fe70546675population",
+            "total": 50000
+    }
+}
+
+Student
+--------
+
+Suburb
+-------
+{
+    "id": "f7d172cf-e21b-4b63-8a1b-88bb4acdcd61suburb",
+    "areaCode": "7764",
+    "name": {
+        "id": "b6b8e16e-49ec-48fe-8eee-2fe70546675name",
+        "name": "Heideveld",
+        "lastName": null,
+        "firstName": null
+    },
+    "population": {
+        "id": "b6b8e16e-49ec-48fe-8eee-2fe70546675population",
+        "total": 30000
+    }
+}
+
+Teacher
+--------

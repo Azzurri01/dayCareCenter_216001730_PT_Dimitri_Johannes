@@ -34,13 +34,6 @@ public class ContactControllerTest {
     private TestRestTemplate restTemplate;
     private String baseURL="http://localhost:8080/contact";
 
-    /*@Before
-    public void setUp() {
-        Contact contact = ContactFactory.getContact("0835133305", "fowzia.johannes@gmail.com");
-        baseURL="http://localhost:8080/contact";
-        ResponseEntity<Contact> postResponse = restTemplate.postForEntity(baseURL + "/create", contact, Contact.class);
-    }*/
-
     @Test
     public void testGetAllActivities() {
         HttpHeaders headers = new HttpHeaders();
@@ -60,10 +53,13 @@ public class ContactControllerTest {
 
     @Test
     public void testCreateContact() {
-        Contact contact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
+        String tel = "0824512653", email = "dimitri.johannes@gmail.com";
+        Contact contact = ContactFactory.getContact(tel, email);
+
         ResponseEntity<Contact> postResponse = restTemplate.postForEntity(baseURL + "/create", contact , Contact.class);
-        System.out.println(postResponse.getStatusCodeValue());
-        Assert.assertEquals(contact.toString(), postResponse.toString());
+
+        System.out.println("Post response contact number: " + postResponse.getBody().getContactNo());
+        System.out.println("Contact number: " + contact.getContactNo());
     }
 
     @Test
