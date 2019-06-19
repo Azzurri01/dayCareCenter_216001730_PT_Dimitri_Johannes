@@ -8,10 +8,10 @@ public class Counting
     private int number;
     private Evaluation evaluation;
 
-    public Counting() {
+    private Counting() {
     }
 
-    public Counting(Builder builder)
+    private Counting(Builder builder)
     {
         this.id=builder.id;
         this.number =builder.number;
@@ -71,12 +71,13 @@ public class Counting
     @Override
     public String toString() {
         return "Counting{" +
+                "Id='" + id + '\'' +
                 "Number='" + number + '\'' +
                 ", Evaluation='" + evaluation + '\'' +
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -87,5 +88,5 @@ public class Counting
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }*/
+    }
 }

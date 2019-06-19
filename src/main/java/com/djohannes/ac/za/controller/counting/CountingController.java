@@ -18,7 +18,7 @@ public class CountingController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Counting create(Counting counting) {
+    public Counting create(@RequestBody Counting counting) {
         return service.create(counting);
     }
 

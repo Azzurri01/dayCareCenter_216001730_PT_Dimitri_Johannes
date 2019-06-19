@@ -18,7 +18,7 @@ public class DrawingController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Drawing create(Drawing drawing) {
+    public Drawing create(@RequestBody Drawing drawing) {
         return service.create(drawing);
     }
 

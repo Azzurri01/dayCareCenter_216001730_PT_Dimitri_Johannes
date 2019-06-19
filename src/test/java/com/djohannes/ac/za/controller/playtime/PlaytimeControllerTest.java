@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.playtime;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,14 +33,14 @@ public class PlaytimeControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetPlaytimeById() {
         Playtime playtime = restTemplate.getForObject(baseURL + "/playtime/1", Playtime.class);
         System.out.println(playtime.getId());
         assertNotNull(playtime);
     }
 
-    @Ignore
+    @Test
     public void testCreatePlaytime() {
 
         Evaluation evaluation = EvaluationFactory.getEvaluation(5);
@@ -48,9 +49,13 @@ public class PlaytimeControllerTest {
         ResponseEntity<Playtime> postResponse = restTemplate.postForEntity(baseURL + "/create", playtime, Playtime.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response: " + postResponse.getBody());
+        System.out.println("Playtime: " + playtime.toString());
+        Assert.assertEquals(playtime, postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdatePlaytime() {
         int id = 1;
         Playtime playtime = restTemplate.getForObject(baseURL + "/playtime/" + id, Playtime.class);
@@ -60,8 +65,8 @@ public class PlaytimeControllerTest {
         assertNotNull(updatedPlaytime);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeletePlaytime() {
         int id = 2;
         Playtime playtime = restTemplate.getForObject(baseURL + "/playtimes/" + id, Playtime.class);
         assertNotNull(playtime);

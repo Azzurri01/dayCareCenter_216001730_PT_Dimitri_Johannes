@@ -12,10 +12,10 @@ public class Address
     private Province province;
     private Set<Daycare> daycares;
 
-    public Address() {
+    private Address() {
     }
 
-    public Address(Builder builder)
+    private Address(Builder builder)
     {
         this.id=builder.id;
         this.no=builder.no;
@@ -113,6 +113,7 @@ public class Address
     @Override
     public String toString() {
         return "Address{" +
+                "Id='" + id + '\'' +
                 "No='" + no + '\'' +
                 "Street='" + street + '\'' +
                 "Suburb='" + suburb.getName().getname() + '\'' +
@@ -121,7 +122,7 @@ public class Address
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -134,5 +135,5 @@ public class Address
             
     {
         return Objects.hash(id);
-    }*/
+    }
 }

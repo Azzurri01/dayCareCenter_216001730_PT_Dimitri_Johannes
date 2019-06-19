@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.grade;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,23 +33,27 @@ public class GradeControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetGradeById() {
         Grade grade = restTemplate.getForObject(baseURL + "/grade/1", Grade.class);
         System.out.println(grade.getId());
         assertNotNull(grade);
     }
 
-    @Ignore
+    @Test
     public void testCreateGrade() {
         Grade grade = GradeFactory.getGrade("R");
 
         ResponseEntity<Grade> postResponse = restTemplate.postForEntity(baseURL + "/create", grade, Grade.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response grade: " + postResponse.getBody());
+        System.out.println("Grade: " + grade.toString());
+        Assert.assertEquals(grade, postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateGrade() {
         int id = 1;
         Grade grade = restTemplate.getForObject(baseURL + "/grade/" + id, Grade.class);
@@ -58,8 +63,8 @@ public class GradeControllerTest {
         assertNotNull(updatedGrade);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteGrade() {
         int id = 2;
         Grade grade = restTemplate.getForObject(baseURL + "/grades/" + id, Grade.class);
         assertNotNull(grade);

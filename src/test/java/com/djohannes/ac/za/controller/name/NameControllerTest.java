@@ -3,6 +3,7 @@ package com.djohannes.ac.za.controller.name;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,23 +34,27 @@ public class NameControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetNameById() {
         Name name = restTemplate.getForObject(baseURL + "/name/1", Name.class);
         System.out.println(name.getId());
         assertNotNull(name);
     }
 
-    @Ignore
+    @Test
     public void testCreateName() {
         Name name = NameFactory.getName("Dimitri", "Johannes");
 
         ResponseEntity<Name> postResponse = restTemplate.postForEntity(baseURL + "/create", name, Name.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response name: " + postResponse.getBody());
+        System.out.println("Name: " + name.toString());
+        Assert.assertEquals(name, postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateName() {
         int id = 1;
         Name name = restTemplate.getForObject(baseURL + "/name/" + id, Name.class);
@@ -59,8 +64,8 @@ public class NameControllerTest {
         assertNotNull(updatedName);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteName() {
         int id = 2;
         Name name = restTemplate.getForObject(baseURL + "/names/" + id, Name.class);
         assertNotNull(name);

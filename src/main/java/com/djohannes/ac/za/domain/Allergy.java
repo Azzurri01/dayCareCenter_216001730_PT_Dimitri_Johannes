@@ -10,7 +10,7 @@ public class Allergy
     {
     }
 
-    public Allergy(Builder builder)
+    private Allergy(Builder builder)
     {
         this.name=builder.name;;
         this.id =builder.id;
@@ -58,11 +58,12 @@ public class Allergy
     @Override
     public String toString() {
         return "Allergy{" +
+                "Id='" + id + '\'' +
                 "Name='" + name + '\'' +
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -74,5 +75,5 @@ public class Allergy
     public int hashCode()
     {
         return Objects.hash(id);
-    }*/
+    }
 }

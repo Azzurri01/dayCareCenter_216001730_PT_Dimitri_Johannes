@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.suburb;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,14 +33,14 @@ public class SuburbControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetSuburbById() {
         Suburb suburb = restTemplate.getForObject(baseURL + "/suburb/1", Suburb.class);
         System.out.println(suburb.getId());
         assertNotNull(suburb);
     }
 
-    @Ignore
+    @Test
     public void testCreateSuburb() {
 
         Name name = NameFactory.getName("Heideveld");
@@ -49,9 +50,13 @@ public class SuburbControllerTest {
         ResponseEntity<Suburb> postResponse = restTemplate.postForEntity(baseURL + "/create", suburb, Suburb.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response suburb: " + postResponse.getBody());
+        System.out.println("Suburb: " + suburb.toString());
+        Assert.assertEquals(suburb, postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateSuburb() {
         int id = 1;
         Suburb suburb = restTemplate.getForObject(baseURL + "/suburb/" + id, Suburb.class);
@@ -61,8 +66,8 @@ public class SuburbControllerTest {
         assertNotNull(updatedSuburb);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteSuburb() {
         int id = 2;
         Suburb suburb = restTemplate.getForObject(baseURL + "/suburbs/" + id, Suburb.class);
         assertNotNull(suburb);

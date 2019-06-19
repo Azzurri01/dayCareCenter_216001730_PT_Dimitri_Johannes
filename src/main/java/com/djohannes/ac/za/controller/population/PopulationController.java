@@ -18,7 +18,7 @@ public class PopulationController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Population create(Population population) {
+    public Population create(@RequestBody  Population population) {
         return service.create(population);
     }
 

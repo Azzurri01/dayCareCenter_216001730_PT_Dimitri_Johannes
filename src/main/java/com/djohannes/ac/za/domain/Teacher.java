@@ -14,7 +14,7 @@ public class Teacher
 
     }
 
-    public Teacher(Builder builder)
+    private Teacher(Builder builder)
     {
         this.id=builder.id;
         this.name=builder.name;
@@ -74,11 +74,12 @@ public class Teacher
     @Override
     public String toString() {
         return "Teacher{" +
+                "Id='" + id + '\'' +
                 "Name='" + name + '\'' +
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -90,5 +91,5 @@ public class Teacher
     public int hashCode()
     {
         return Objects.hash(id);
-    }*/
+    }
 }

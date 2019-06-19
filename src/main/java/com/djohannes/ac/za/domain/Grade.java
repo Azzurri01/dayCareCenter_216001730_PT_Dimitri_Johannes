@@ -10,18 +10,18 @@ public class Grade
     private Grade()
     {}
 
+    private Grade(Builder builder)
+    {
+        this.id=builder.id;
+        this.grade=builder.grade;
+    }
+
     public String getId() {
         return id;
     }
 
     public String getGrade() {
         return grade;
-    }
-
-    public Grade(Builder builder)
-    {
-        this.id=builder.id;
-        this.grade=builder.grade;
     }
 
     public static class Builder
@@ -56,11 +56,12 @@ public class Grade
     @Override
     public String toString() {
         return "Grade{" +
+                "Id='" + id + '\'' +
                 "grade='" + grade + '\'' +
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -71,5 +72,5 @@ public class Grade
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }*/
+    }
 }

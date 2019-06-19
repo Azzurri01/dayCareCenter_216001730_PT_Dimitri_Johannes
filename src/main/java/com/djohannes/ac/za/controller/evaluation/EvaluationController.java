@@ -18,7 +18,7 @@ public class EvaluationController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Evaluation create(Evaluation evaluation) {
+    public Evaluation create(@RequestBody Evaluation evaluation) {
         return service.create(evaluation);
     }
 

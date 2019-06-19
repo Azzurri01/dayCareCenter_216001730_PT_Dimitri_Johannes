@@ -18,7 +18,7 @@ public class AllergyController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Allergy create(Allergy allergy) {
+    public Allergy create(@RequestBody Allergy allergy) {
         return service.create(allergy);
     }
 

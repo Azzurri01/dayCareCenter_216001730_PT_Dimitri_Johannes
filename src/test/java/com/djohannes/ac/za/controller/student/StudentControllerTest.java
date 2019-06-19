@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.student;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,14 +33,14 @@ public class StudentControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetStudentById() {
         Student student = restTemplate.getForObject(baseURL + "/student/1", Student.class);
         System.out.println(student.getId());
         assertNotNull(student);
     }
 
-    @Ignore
+    @Test
     public void testCreateStudent() {
         Name sName = NameFactory.getName("Naqeeb", "Johannes");
         Name pName = NameFactory.getName("Dimitri", "Johannes");
@@ -59,9 +60,13 @@ public class StudentControllerTest {
         ResponseEntity<Student> postResponse = restTemplate.postForEntity(baseURL + "/create", student, Student.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response student: " + postResponse.getBody());
+        System.out.println("Student: " + student.toString());
+        //Assert.assertEquals(student, postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateStudent() {
         int id = 1;
         Student student = restTemplate.getForObject(baseURL + "/student/" + id, Student.class);
@@ -71,8 +76,8 @@ public class StudentControllerTest {
         assertNotNull(updatedStudent);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteStudent() {
         int id = 2;
         Student student = restTemplate.getForObject(baseURL + "/students/" + id, Student.class);
         assertNotNull(student);

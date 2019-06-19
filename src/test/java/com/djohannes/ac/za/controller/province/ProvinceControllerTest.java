@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.province;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,14 +33,14 @@ public class ProvinceControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetProvinceById() {
         Province province = restTemplate.getForObject(baseURL + "/province/1", Province.class);
         System.out.println(province.getId());
         assertNotNull(province);
     }
 
-    @Ignore
+    @Test
     public void testCreateProvince() {
 
         Name name = NameFactory.getName("Western Province");
@@ -49,9 +50,13 @@ public class ProvinceControllerTest {
         ResponseEntity<Province> postResponse = restTemplate.postForEntity(baseURL + "/create", province, Province.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response province: " + postResponse.getBody());
+        System.out.println("Province: " + province.toString());
+        Assert.assertEquals(province, postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateProvince() {
         int id = 1;
         Province province = restTemplate.getForObject(baseURL + "/province/" + id, Province.class);
@@ -61,8 +66,8 @@ public class ProvinceControllerTest {
         assertNotNull(updatedProvince);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteProvince() {
         int id = 2;
         Province province = restTemplate.getForObject(baseURL + "/provinces/" + id, Province.class);
         assertNotNull(province);

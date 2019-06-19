@@ -19,37 +19,28 @@ public class StudentServiceImpl implements StudentService {
     @Qualifier("StudentMemory")
     private StudentRepository repository;
 
-    private StudentServiceImpl() {
-        this.repository = StudentRepositoryImpl.getRepository();
-    }
-
-    public static StudentServiceImpl getService(){
-        if (service == null) service = new StudentServiceImpl();
-        return service;
-    }
-
     @Override
     public Student create(Student student) {
-        return this.repository.create(student);
+        return repository.create(student);
     }
 
     @Override
     public Student update(Student student) {
-        return this.repository.update(student);
+        return repository.update(student);
     }
 
     @Override
     public void delete(String s) {
-        this.repository.delete(s);
+        repository.delete(s);
     }
 
     @Override
     public Student read(String s) {
-        return this.repository.read(s);
+        return repository.read(s);
     }
 
     @Override
     public Set<Student> getAll() {
-        return this.repository.getAll();
+        return repository.getAll();
     }
 }

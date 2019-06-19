@@ -18,7 +18,7 @@ public class GradeController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Grade create(Grade grade) {
+    public Grade create(@RequestBody Grade grade) {
         return service.create(grade);
     }
 

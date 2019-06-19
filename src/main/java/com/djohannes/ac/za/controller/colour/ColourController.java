@@ -18,7 +18,7 @@ public class ColourController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Colour create(Colour colour) {
+    public Colour create(@RequestBody Colour colour) {
         return service.create(colour);
     }
 

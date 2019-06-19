@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.colour;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,14 +33,14 @@ public class ColourControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetColourById() {
         Colour colour = restTemplate.getForObject(baseURL + "/colour/1", Colour.class);
         System.out.println(colour.getId());
         assertNotNull(colour);
     }
 
-    @Ignore
+    @Test
     public void testCreateColour() {
         Evaluation evaluation = EvaluationFactory.getEvaluation(5);
         Colour colour = ColourFactory.getColour("green",evaluation);
@@ -47,9 +48,13 @@ public class ColourControllerTest {
         ResponseEntity<Colour> postResponse = restTemplate.postForEntity(baseURL + "/create", colour, Colour.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response: " + postResponse.getBody());
+        System.out.println("Colour: " + colour.toString());
+        Assert.assertEquals(colour, postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateColour() {
         int id = 1;
         Colour colour = restTemplate.getForObject(baseURL + "/colour/" + id, Colour.class);
@@ -59,8 +64,8 @@ public class ColourControllerTest {
         assertNotNull(updatedColour);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteColour() {
         int id = 2;
         Colour colour = restTemplate.getForObject(baseURL + "/colours/" + id, Colour.class);
         assertNotNull(colour);

@@ -18,7 +18,7 @@ public class SuburbController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Suburb create(Suburb suburb) {
+    public Suburb create(@RequestBody Suburb suburb) {
         return service.create(suburb);
     }
 

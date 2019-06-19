@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.daycare;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,23 +33,38 @@ public class DaycareControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetDaycareById() {
         Daycare daycare = restTemplate.getForObject(baseURL + "/daycare/1", Daycare.class);
         System.out.println(daycare.getId());
         assertNotNull(daycare);
     }
 
-    @Ignore
+    @Test
     public void testCreateDaycare() {
-        Name name = NameFactory.getName("Little rascals");
+        Name pName = NameFactory.getName("Dimitri", "Johannes");
+        Contact contact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
+        Parent parent = ParentFactory.getParent(pName, contact);
 
-        ResponseEntity<Daycare> postResponse = restTemplate.postForEntity(baseURL + "/create", name, Daycare.class);
+        Name name = NameFactory.getName("Little Rascals");
+        Population population = PopulationFactory.getTotal(100000);
+        Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
+        City city = CityFactory.getCity(name, population);
+        Province province = ProvinceFactory.getProvince(name, population);
+        Address address = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
+
+        Daycare daycare = DaycareFactory.getDaycare(name, address, contact);
+
+        ResponseEntity<Daycare> postResponse = restTemplate.postForEntity(baseURL + "/create", daycare, Daycare.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response rating: " + postResponse.getBody());
+        System.out.println("Daycare: " + daycare.toString());
+        Assert.assertEquals(daycare, postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateDaycare() {
         int id = 1;
         Daycare daycare = restTemplate.getForObject(baseURL + "/daycare/" + id, Daycare.class);
@@ -58,8 +74,8 @@ public class DaycareControllerTest {
         assertNotNull(updatedDaycare);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteDaycare() {
         int id = 2;
         Daycare daycare = restTemplate.getForObject(baseURL + "/daycares/" + id, Daycare.class);
         assertNotNull(daycare);

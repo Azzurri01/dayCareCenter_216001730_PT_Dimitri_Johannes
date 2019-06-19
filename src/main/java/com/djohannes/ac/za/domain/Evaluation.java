@@ -7,14 +7,19 @@ public class Evaluation
     private String id;
     private int mark;
 
-    public Evaluation()
+    private Evaluation()
     {
     }
 
-    public Evaluation(Builder builder)
+    private Evaluation(Builder builder)
     {
         this.id=builder.id;
         this.mark=builder.mark;
+    }
+
+    public void setRating(int mark)
+    {
+        this.mark=mark;
     }
 
     public int getRating() {
@@ -58,11 +63,12 @@ public class Evaluation
     @Override
     public String toString() {
         return "Evaluation{" +
+                "Id='" + id + '\'' +
                 "Rating='" + mark + '\'' +
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -73,5 +79,5 @@ public class Evaluation
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }*/
+    }
 }

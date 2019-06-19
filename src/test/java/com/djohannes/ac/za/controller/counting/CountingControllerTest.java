@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.counting;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,14 +33,14 @@ public class CountingControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetCountingById() {
         Counting counting = restTemplate.getForObject(baseURL + "/counting/1", Counting.class);
         System.out.println(counting.getId());
         assertNotNull(counting);
     }
 
-    @Ignore
+    @Test
     public void testCreateCounting() {
         Evaluation evaluation = EvaluationFactory.getEvaluation(5);
         Counting counting = CountingFactory.getCounting(5,evaluation);
@@ -47,9 +48,13 @@ public class CountingControllerTest {
         ResponseEntity<Counting> postResponse = restTemplate.postForEntity(baseURL + "/create", counting, Counting.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response: " + postResponse.getBody());
+        System.out.println("Counting: " + counting.toString());
+        Assert.assertEquals(counting, postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateCounting() {
         int id = 1;
         Counting counting = restTemplate.getForObject(baseURL + "/counting/" + id, Counting.class);
@@ -59,8 +64,8 @@ public class CountingControllerTest {
         assertNotNull(updatedCounting);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteCounting() {
         int id = 2;
         Counting counting = restTemplate.getForObject(baseURL + "/numbers/" + id, Counting.class);
         assertNotNull(counting);

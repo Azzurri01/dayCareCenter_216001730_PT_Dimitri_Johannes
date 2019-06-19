@@ -13,7 +13,7 @@ public class Province
     private Province()
     {}
 
-    public Province(Builder builder)
+    private Province(Builder builder)
     {
         this.id=builder.id;
         this.name=builder.name;
@@ -73,12 +73,13 @@ public class Province
     @Override
     public String toString() {
         return "Province{" +
+                "Id='" + id + '\'' +
                 "Name='" + name + '\'' +
                 "Population='" + population + '\'' +
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -89,5 +90,5 @@ public class Province
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }*/
+    }
 }

@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.parent;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,14 +33,14 @@ public class ParentControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetParentById() {
         Parent parent = restTemplate.getForObject(baseURL + "/parent/1", Parent.class);
         System.out.println(parent.getId());
         assertNotNull(parent);
     }
 
-    @Ignore
+    @Test
     public void testCreateParent() {
 
         Name pName = NameFactory.getName("Dimitri", "Johannes");
@@ -50,9 +51,13 @@ public class ParentControllerTest {
         ResponseEntity<Parent> postResponse = restTemplate.postForEntity(baseURL + "/create", parent, Parent.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response rating: " + postResponse.getBody());
+        System.out.println("Parent: " + parent.toString());
+        Assert.assertEquals(parent, postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateParent() {
         int id = 1;
         Parent parent = restTemplate.getForObject(baseURL + "/parent/" + id, Parent.class);
@@ -62,8 +67,8 @@ public class ParentControllerTest {
         assertNotNull(updatedParent);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteParent() {
         int id = 2;
         Parent parent = restTemplate.getForObject(baseURL + "/parents/" + id, Parent.class);
         assertNotNull(parent);

@@ -1,6 +1,6 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Contact;
+import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.repository.ContactRepository;
 import com.djohannes.ac.za.repository.impl.ContactRepositoryImpl;
 import com.djohannes.ac.za.service.ContactService;

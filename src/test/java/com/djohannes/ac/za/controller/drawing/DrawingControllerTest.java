@@ -3,6 +3,7 @@ package com.djohannes.ac.za.controller.drawing;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,24 +34,29 @@ public class DrawingControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetDrawingById() {
         Drawing drawing = restTemplate.getForObject(baseURL + "/drawing/1", Drawing.class);
         System.out.println(drawing.getId());
         assertNotNull(drawing);
     }
 
-    @Ignore
+    @Test
     public void testCreateDrawing() {
+        String shape = "circle";
         Evaluation evaluation = EvaluationFactory.getEvaluation(5);
-        Drawing drawing = DrawingFactory.getDrawing("circle",evaluation);
+        Drawing drawing = DrawingFactory.getDrawing(shape, evaluation);
 
         ResponseEntity<Drawing> postResponse = restTemplate.postForEntity(baseURL + "/create", drawing, Drawing.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response: " + postResponse.getBody());
+        System.out.println("Drawing: " + drawing.toString());
+        Assert.assertEquals(drawing, postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateDrawing() {
         int id = 1;
         Drawing drawing = restTemplate.getForObject(baseURL + "/drawing/" + id, Drawing.class);
@@ -60,8 +66,8 @@ public class DrawingControllerTest {
         assertNotNull(updatedDrawing);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteDrawing() {
         int id = 2;
         Drawing drawing = restTemplate.getForObject(baseURL + "/drawings/" + id, Drawing.class);
         assertNotNull(drawing);

@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.address;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,39 +33,48 @@ public class AddressControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetAddressById() {
         Address address = restTemplate.getForObject(baseURL + "/address/1", Address.class);
         System.out.println(address.getId());
         assertNotNull(address);
     }
 
-    @Ignore
+    @Test
     public void testCreateAddress() {
-        Name name = NameFactory.getName("Heideveld");
-        Population population = PopulationFactory.getTotal(100000);
-        Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
-        City city = CityFactory.getCity(name, population);
-        Province province = ProvinceFactory.getProvince(name, population);
+        Name suburbName = NameFactory.getName("Heideveld");
+        Population suburbPopulation = PopulationFactory.getTotal(100000);
+        Suburb suburb = SuburbFactory.getSuburb("7764", suburbName, suburbPopulation);
+
+        Name cityName = NameFactory.getName("Cape Town");
+        Population cityPopulation = PopulationFactory.getTotal(2000000);
+        City city = CityFactory.getCity(cityName, cityPopulation);
+
+        Name provinceName = NameFactory.getName("Western Province");
+        Population provincePopulation = PopulationFactory.getTotal(30000000);
+        Province province = ProvinceFactory.getProvince(provinceName, provincePopulation);
         Address address = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
 
         ResponseEntity<Address> postResponse = restTemplate.postForEntity(baseURL + "/create", address, Address.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+        System.out.println("Post response address: " + postResponse.getBody());
+        System.out.println("Address address: " + address.toString());
+        Assert.assertEquals(address, postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateAddress() {
         int id = 1;
         Address address = restTemplate.getForObject(baseURL + "/address/" + id, Address.class);
 
-        restTemplate.put(baseURL + "/addresss/" + id, address);
+        restTemplate.put(baseURL + "/address/" + id, address);
         Address updatedAddress = restTemplate.getForObject(baseURL + "/Address/" + id, Address.class);
         assertNotNull(updatedAddress);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteAddress() {
         int id = 2;
         Address address = restTemplate.getForObject(baseURL + "/addresss/" + id, Address.class);
         assertNotNull(address);

@@ -32,14 +32,14 @@ public class AccountControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetAccountById() {
         Account account = restTemplate.getForObject(baseURL + "/account/1", Account.class);
         System.out.println(account.getId());
         assertNotNull(account);
     }
 
-    @Ignore
+    @Test
     public void testCreateAccount() {
         Name sName = NameFactory.getName("Naqeeb", "Johannes");
         Name pName = NameFactory.getName("Dimitri", "Johannes");
@@ -61,9 +61,14 @@ public class AccountControllerTest {
         ResponseEntity<Account> postResponse = restTemplate.postForEntity(baseURL + "/create", account, Account.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+        //System.out.println(account.toString());
+        //System.out.println(postResponse.getBody());
+        System.out.println("Post response first name: " + postResponse.getBody());
+        System.out.println("Account first name: " + account.getStudent().getName().getFirstName());
+        System.out.println("Post response address: " + postResponse.getBody().getStudent().getAddress());
     }
 
-    @Ignore
+    @Test
     public void testUpdateAccount() {
         int id = 1;
         Account account = restTemplate.getForObject(baseURL + "/account/" + id, Account.class);
@@ -71,10 +76,11 @@ public class AccountControllerTest {
         restTemplate.put(baseURL + "/accounts/" + id, account);
         Account updatedAccount = restTemplate.getForObject(baseURL + "/Account/" + id, Account.class);
         assertNotNull(updatedAccount);
+        System.out.println(updatedAccount);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteAccount() {
         int id = 2;
         Account account = restTemplate.getForObject(baseURL + "/accounts/" + id, Account.class);
         assertNotNull(account);

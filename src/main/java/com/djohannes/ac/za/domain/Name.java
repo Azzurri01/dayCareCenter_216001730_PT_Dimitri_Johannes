@@ -5,6 +5,9 @@ import java.util.Objects;
 public class Name {
     private String id, fName, lName, name;
 
+    private Name()
+    {}
+
     private Name(String id, String fName, String lName)
     {
         this.id=id;
@@ -85,17 +88,30 @@ public class Name {
         {
             return new Name(this);
         }
+
+
     }
 
     @Override
     public String toString() {
-        return "Name{" +
-                "First name='" + fName + '\'' +
-                "Last name='" + lName + '\'' +
-                '}';
+        if(fName==null && lName==null)
+        {
+            return "Name{" +
+                    "Id='" + id + '\'' +
+                    "Name='" + name + '\'' +
+                    '}';
+        }
+
+        else {
+            return "Name{" +
+                    "Id='" + id + '\'' +
+                    "First name='" + fName + '\'' +
+                    "Last name='" + lName + '\'' +
+                    '}';
+        }
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -106,6 +122,6 @@ public class Name {
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }*/
+    }
 }
 

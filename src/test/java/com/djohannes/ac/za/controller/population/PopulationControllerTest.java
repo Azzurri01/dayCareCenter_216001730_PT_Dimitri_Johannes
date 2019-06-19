@@ -3,6 +3,7 @@ package com.djohannes.ac.za.controller.population;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +14,7 @@ import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.HttpClientErrorException;
 
+import static junit.framework.Assert.assertSame;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 
@@ -33,14 +35,14 @@ public class PopulationControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetPopulationById() {
         Population population = restTemplate.getForObject(baseURL + "/population/1", Population.class);
         System.out.println(population.getId());
         assertNotNull(population);
     }
 
-    @Ignore
+    @Test
     public void testCreatePopulation() {
 
         Population population = PopulationFactory.getTotal(1000000);
@@ -48,9 +50,13 @@ public class PopulationControllerTest {
         ResponseEntity<Population> postResponse = restTemplate.postForEntity(baseURL + "/create", population, Population.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response population: " + postResponse.getBody());
+        System.out.println("Population: " + population.toString());
+        Assert.assertEquals(population, postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdatePopulation() {
         int id = 1;
         Population population = restTemplate.getForObject(baseURL + "/population/" + id, Population.class);
@@ -60,8 +66,8 @@ public class PopulationControllerTest {
         assertNotNull(updatedPopulation);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeletePopulation() {
         int id = 2;
         Population population = restTemplate.getForObject(baseURL + "/populations/" + id, Population.class);
         assertNotNull(population);

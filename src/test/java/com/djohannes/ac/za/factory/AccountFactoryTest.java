@@ -30,7 +30,6 @@ public class AccountFactoryTest {
         Assert.assertEquals(sName.getLastName(), account.getStudent().getName().getLastName());
         Assert.assertEquals(pName.getFirstName(), account.getParent().getName().getFirstName());
         Assert.assertEquals(pName.getLastName(), account.getParent().getName().getLastName());
-        //Assert.assertSame(200.0, account.getFee());
-        //Assert.assertSame(0.0, account.getBalance());
+
     }
 }

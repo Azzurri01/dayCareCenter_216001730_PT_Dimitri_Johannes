@@ -9,10 +9,10 @@ public class City
     private Population population;
     private Set<Suburb> suburbs;
 
-    public City() {
+    private City() {
     }
 
-    public City(Builder builder)
+    private City(Builder builder)
     {
         this.id=builder.id;
         this.name =builder.name;
@@ -73,12 +73,13 @@ public class City
     @Override
     public String toString() {
         return "City{" +
+                "Id='" + id + '\'' +
                 "Name='" + name + '\'' +
                 "Population='" + population + '\'' +
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -90,5 +91,5 @@ public class City
     public int hashCode()
     {
         return Objects.hash(id);
-    }*/
+    }
 }

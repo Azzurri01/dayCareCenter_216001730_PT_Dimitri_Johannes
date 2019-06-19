@@ -18,7 +18,7 @@ public class StudentController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Student create(Student student) {
+    public Student create(@RequestBody Student student) {
         return service.create(student);
     }
 

@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.evaluation;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,23 +33,29 @@ public class EvaluationControllerTest {
         assertNotNull(response.getBody());
     }
 
-    @Ignore
+    @Test
     public void testGetEvaluationById() {
         Evaluation evaluation = restTemplate.getForObject(baseURL + "/evaluation/1", Evaluation.class);
         System.out.println(evaluation.getId());
         assertNotNull(evaluation);
     }
 
-    @Ignore
+    @Test
     public void testCreateEvaluation() {
-        Evaluation evaluation = EvaluationFactory.getEvaluation(7);
+        int rating = 5;
+        Evaluation evaluation = EvaluationFactory.getEvaluation(rating);
+        //evaluation.setRating(rating);
 
         ResponseEntity<Evaluation> postResponse = restTemplate.postForEntity(baseURL + "/create", evaluation, Evaluation.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+
+        System.out.println("Post response: " + postResponse.getBody());
+        System.out.println("Evaluation: " + evaluation.toString());
+        Assert.assertEquals(evaluation, postResponse.getBody());
     }
 
-    @Ignore
+    @Test
     public void testUpdateEvaluation() {
         int id = 1;
         Evaluation evaluation = restTemplate.getForObject(baseURL + "/evaluation/" + id, Evaluation.class);
@@ -58,8 +65,8 @@ public class EvaluationControllerTest {
         assertNotNull(updatedEvaluation);
     }
 
-    @Ignore
-    public void testDeleteEmployee() {
+    @Test
+    public void testDeleteEvaluation() {
         int id = 2;
         Evaluation evaluation = restTemplate.getForObject(baseURL + "/evaluations/" + id, Evaluation.class);
         assertNotNull(evaluation);

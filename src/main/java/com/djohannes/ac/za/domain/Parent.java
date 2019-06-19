@@ -15,7 +15,7 @@ public class Parent
 
     }
 
-    public Parent(Builder builder)
+    private Parent(Builder builder)
     {
         this.id=builder.id;
         this.name=builder.name;
@@ -76,12 +76,13 @@ public class Parent
     @Override
     public String toString() {
         return "Parent{" +
+                "Id='" + id + '\'' +
                 "Name='" + name + '\'' +
                 "Contact='" + contact + '\'' +
                 '}';
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -92,5 +93,5 @@ public class Parent
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }*/
+    }
 }

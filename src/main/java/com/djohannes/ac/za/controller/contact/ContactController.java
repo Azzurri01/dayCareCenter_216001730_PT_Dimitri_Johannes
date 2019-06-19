@@ -2,6 +2,7 @@ package com.djohannes.ac.za.controller.contact;
 
 
 import com.djohannes.ac.za.domain.Contact;
+import com.djohannes.ac.za.factory.ContactFactory;
 import com.djohannes.ac.za.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,9 +19,18 @@ public class ContactController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Contact create(Contact contact) {
+    public Contact create(@RequestBody Contact contact)
+    {
         return service.create(contact);
     }
+
+    /*@PostMapping("/create")
+    @ResponseBody
+    public Contact create(String tel, String email)
+    {
+        Contact contact = ContactFactory.getContact(tel, email);
+        return service.create(contact);
+    }*/
 
     @PostMapping("/update")
     @ResponseBody
