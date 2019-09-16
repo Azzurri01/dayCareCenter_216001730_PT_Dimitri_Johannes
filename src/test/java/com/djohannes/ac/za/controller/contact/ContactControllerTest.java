@@ -58,8 +58,8 @@ public class ContactControllerTest {
 
         ResponseEntity<Contact> postResponse = restTemplate.postForEntity(baseURL + "/create", contact , Contact.class);
 
-        System.out.println("Post response contact number: " + postResponse.getBody().getContactNo());
-        System.out.println("Contact number: " + contact.getContactNo());
+        System.out.println("Post response contact number: " + postResponse.getBody().getContactNo() + " email: " + postResponse.getBody().getEmail());
+        //System.out.println("Contact number: " + contact.getContactNo() + " email: " + contact.getEmail());
     }
 
     @Test

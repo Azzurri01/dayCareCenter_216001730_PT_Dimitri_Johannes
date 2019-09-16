@@ -1,0 +1,7 @@
+You are required to implement the basic HTTP security using Spring Boot on your application. You should show at least two (2) users, two (2) roles, and match at least one (1) role to a URL pattern.
+
+This assignment is an upgrade of your chosen application that you have been working on from the beginning of this course.
+
+Submission is your GITHUB url on Blackboard. No other form of submission would be considered.
+
+This will be marked and scored in class on the due date, so please endeavor to be available.

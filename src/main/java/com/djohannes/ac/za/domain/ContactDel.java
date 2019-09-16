@@ -2,13 +2,13 @@ package com.djohannes.ac.za.domain;
 
 import java.util.Objects;
 
-public class Contact {
+public class ContactDel {
     private String id, tel, email;
 
-    private Contact() {
+    private ContactDel() {
     }
 
-    private Contact(Builder builder) {
+    private ContactDel(Builder builder) {
         this.id = builder.id;
         this.email = builder.email;
         this.tel = builder.tel;
@@ -45,15 +45,15 @@ public class Contact {
             return this;
         }
 
-        public Builder copy(Contact contact) {
+        public Builder copy(ContactDel contact) {
             this.id = contact.id;
             this.tel = contact.tel;
             this.email = contact.email;
             return this;
         }
 
-        public Contact build() {
-            return new Contact(this);
+        public ContactDel build() {
+            return new ContactDel(this);
         }
     }
 
@@ -70,7 +70,7 @@ public class Contact {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Contact contact = (Contact) o;
+        ContactDel contact = (ContactDel) o;
         return id.equals(contact.id);
     }
 

@@ -40,11 +40,6 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public void delete(String s) {
-        this.repository.delete(s);
-    }
-
-    @Override
     public Contact read(String s) {
         return this.repository.read(s);
     }
@@ -52,5 +47,10 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public Set<Contact> getAll() {
         return this.repository.getAll();
+    }
+
+    @Override
+    public void delete(String s) {
+        this.repository.delete(s);
     }
 }

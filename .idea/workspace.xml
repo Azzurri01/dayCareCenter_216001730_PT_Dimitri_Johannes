@@ -2,147 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="810747be-a4a2-48f6-bd41-e40debe9d154" name="Default Changelist" comment="commit via IntelliJ">
-      <change afterPath="$PROJECT_DIR$/src/resources/applications.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_1_4_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_1_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_1_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_1_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/ContactDel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/security/DccsSecurity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/account/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/account/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/activity/ActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/activity/ActivityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/address/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/address/AddressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/allergy/AllergyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/allergy/AllergyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/alphabet/AlphabetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/alphabet/AlphabetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/city/CityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/city/CityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/classroom/ClassroomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/classroom/ClassroomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/colour/ColourController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/colour/ColourController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dccs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/dccs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/IndexController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/contact/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/contact/ContactController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/counting/CountingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/counting/CountingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/daycare/DaycareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/daycare/DaycareController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/drawing/DrawingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/drawing/DrawingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/evaluation/EvaluationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/evaluation/EvaluationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/grade/GradeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/grade/GradeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/name/NameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/name/NameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/parent/ParentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/parent/ParentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/playtime/PlaytimeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/playtime/PlaytimeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/population/PopulationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/population/PopulationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/province/ProvinceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/province/ProvinceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/student/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/student/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/suburb/SuburbController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/suburb/SuburbController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/teacher/TeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/teacher/TeacherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Allergy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Allergy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Alphabet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Alphabet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Classroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Classroom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Colour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Colour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/dccsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/dccsApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Contact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Counting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Counting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Daycare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Daycare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Drawing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Drawing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Evaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Evaluation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Grade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Grade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Name.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Name.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Parent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Parent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Playtime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Playtime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Population.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Province.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Province.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Suburb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Suburb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Teacher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/ContactFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/ContactFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/DrawingFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/DrawingFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/EvaluationFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/EvaluationFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/NameFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/NameFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/impl/ContactServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/impl/ContactServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/Allergy/AllergyControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/Allergy/AllergyControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/Alphabet/AlphabetControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/Alphabet/AlphabetControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/account/AccountControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/account/AccountControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/activity/ActivityControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/activity/ActivityControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/address/AddressControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/address/AddressControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/city/CityControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/city/CityControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/classroom/ClassroomControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/classroom/ClassroomControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/colour/ColourControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/colour/ColourControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/applications.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/applications.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/contact/ContactControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/contact/ContactControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/counting/CountingControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/counting/CountingControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/daycare/DaycareControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/daycare/DaycareControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/drawing/DrawingControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/drawing/DrawingControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/evaluation/EvaluationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/evaluation/EvaluationControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/grade/GradeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/grade/GradeControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/name/NameControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/name/NameControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/parent/ParentControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/parent/ParentControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/playtime/PlaytimeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/playtime/PlaytimeControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/population/PopulationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/population/PopulationControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/province/ProvinceControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/province/ProvinceControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/student/StudentControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/student/StudentControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/suburb/SuburbControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/suburb/SuburbControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/teacher/TeacherControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/teacher/TeacherControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/AccountFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/AccountFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/account/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/account/AccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/activity/ActivityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/activity/ActivityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/address/AddressController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/address/AddressController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/allergy/AllergyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/allergy/AllergyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/alphabet/AlphabetController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/alphabet/AlphabetController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/city/CityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/city/CityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/classroom/ClassroomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/classroom/ClassroomController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/colour/ColourController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/colour/ColourController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/contact/ContactController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/contact/ContactController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/counting/CountingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/counting/CountingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/daycare/DaycareController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/daycare/DaycareController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/drawing/DrawingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/drawing/DrawingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/evaluation/EvaluationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/evaluation/EvaluationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/grade/GradeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/grade/GradeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/name/NameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/name/NameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/parent/ParentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/parent/ParentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/playtime/PlaytimeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/playtime/PlaytimeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/population/PopulationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/population/PopulationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/province/ProvinceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/province/ProvinceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/student/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/student/StudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/suburb/SuburbController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/suburb/SuburbController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/teacher/TeacherController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/teacher/TeacherController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Address.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Address.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Allergy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Allergy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Alphabet$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Alphabet$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Alphabet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Alphabet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/City.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Classroom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Classroom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Colour.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Colour.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/ContactFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/ContactFactoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/controller/IndexController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/dccsApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/dccsApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Contact$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Contact$Builder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Contact.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Contact.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Counting.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Counting.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Daycare.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Daycare.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Drawing.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Drawing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Evaluation$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Evaluation$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Evaluation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Evaluation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Grade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Grade.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Name.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Name.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Parent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Parent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Playtime.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Playtime.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Population.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Population.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Province.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Province.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Suburb.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Suburb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Teacher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/domain/Teacher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/factory/DrawingFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/factory/DrawingFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/factory/NameFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/factory/NameFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/Allergy/AllergyControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/Allergy/AllergyControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/Alphabet/AlphabetControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/Alphabet/AlphabetControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/account/AccountControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/account/AccountControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/activity/ActivityControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/activity/ActivityControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/address/AddressControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/address/AddressControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/city/CityControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/city/CityControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/classroom/ClassroomControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/classroom/ClassroomControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/colour/ColourControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/colour/ColourControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/service/impl/ContactServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/djohannes/ac/za/service/impl/ContactServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/contact/ContactControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/contact/ContactControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/counting/CountingControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/counting/CountingControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/daycare/DaycareControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/daycare/DaycareControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/drawing/DrawingControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/drawing/DrawingControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/evaluation/EvaluationControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/evaluation/EvaluationControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/grade/GradeControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/grade/GradeControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/name/NameControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/name/NameControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/parent/ParentControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/parent/ParentControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/playtime/PlaytimeControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/playtime/PlaytimeControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/population/PopulationControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/population/PopulationControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/province/ProvinceControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/province/ProvinceControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/student/StudentControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/student/StudentControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/suburb/SuburbControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/suburb/SuburbControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/teacher/TeacherControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/controller/teacher/TeacherControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/factory/ContactFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/djohannes/ac/za/factory/ContactFactoryTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -152,8 +35,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/dccs$dccsApplication.ic" NAME="dccsApplication Coverage Results" MODIFIED="1557951076429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/dccs$dccsApplication.ic" NAME="dccsApplication Coverage Results" MODIFIED="1561285361632" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.djohannes.ac.za.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/dccs$ContactControllerTest_testCreateContact.ic" NAME="ContactControllerTest.testCreateContact Coverage Results" MODIFIED="1561285719935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.djohannes.ac.za.controller.contact.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/dccs$StudentControllerTest_testCreateStudent.ic" NAME="StudentControllerTest.testCreateStudent Coverage Results" MODIFIED="1560953260727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.djohannes.ac.za.controller.student.*</FILTER>
@@ -165,6 +51,9 @@
       <FILTER>com.djohannes.ac.za.controller.city.*</FILTER>
     </SUITE>
   </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="78" />
+  </component>
   <component name="ErrorTreeViewConfiguration">
     <option name="autoscrollToSource" value="true" />
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
@@ -172,83 +61,119 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/student/StudentControllerTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/impl/AccountServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="61" column="46" lean-forward="true" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+            <state relative-caret-position="-273">
+              <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#728#729#0" expanded="true" />
+                <element signature="e#799#800#0" expanded="true" />
+                <element signature="e#1006#1007#0" expanded="true" />
+                <element signature="e#1060#1061#0" expanded="true" />
+                <element signature="e#1111#1112#0" expanded="true" />
+                <element signature="e#1157#1158#0" expanded="true" />
+                <element signature="e#1217#1218#0" expanded="true" />
+                <element signature="e#1271#1272#0" expanded="true" />
+                <element signature="e#1321#1322#0" expanded="true" />
+                <element signature="e#1362#1363#0" expanded="true" />
+                <element signature="e#1412#1413#0" expanded="true" />
+                <element signature="e#1459#1460#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/suburb/SuburbControllerTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/colour/ColourController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
+            <state relative-caret-position="272">
+              <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/ProvinceFactoryTest.java">
+        <entry file="file://$PROJECT_DIR$/Security.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+            <state>
+              <caret column="44" selection-start-column="44" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/AccountFactoryTest.java">
+        <entry file="file://$PROJECT_DIR$/src/resources/applications.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="51">
+              <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/account/AccountControllerTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/IndexController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1058">
-              <caret line="78" column="43" lean-forward="true" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+            <state relative-caret-position="357">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#580#581#0" expanded="true" />
+                <element signature="e#652#653#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ControllerTestCasesCompleted.txt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ControllerTesting.txt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Info.txt">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/teacher/TeacherController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+            <state relative-caret-position="-34">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Postman.txt">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/security/DccsSecurity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="172">
+              <caret line="27" column="57" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1700#1701#0" expanded="true" />
+                <element signature="e#1750#1751#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/AddressFactoryTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/grade/GradeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-34">
-              <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+            <state relative-caret-position="119">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/repository/impl/AccountRepositoryImplTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -271,16 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/activity/ActivityControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Address.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Allergy.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/Allergy/AllergyControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/City.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Classroom.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Daycare.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Grade.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Parent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Playtime.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Population.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Province.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Student.java" />
@@ -312,16 +227,26 @@
         <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Drawing.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/drawing/DrawingControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/ContactService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/contact/ContactController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/ContactFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/impl/ContactServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Contact.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/contact/ContactControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/address/AddressControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/suburb/SuburbController.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/evaluation/EvaluationControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/AccountFactoryTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/account/AccountControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/ContactFactoryTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/contact/ContactController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/impl/ContactServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/contact/ContactControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Contact.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/ContactDel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/repository/ContactRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/ContactFactory.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/repository/impl/PopulationRepositoryImplTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/dccsApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/impl/AccountServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/IndexController.java" />
+        <option value="$PROJECT_DIR$/src/resources/applications.properties" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/security/DccsSecurity.java" />
       </list>
     </option>
   </component>
@@ -333,7 +258,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="445" />
+    <option name="x" value="35" />
+    <option name="y" value="15" />
     <option name="width" value="1940" />
     <option name="height" value="765" />
   </component>
@@ -345,8 +271,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -384,12 +308,61 @@
               <item name="dccs" type="b2602c69:ProjectViewProjectNode" />
               <item name="dayCareCenter_216001730_PT_Dimitri_Johannes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="za" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dccs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dayCareCenter_216001730_PT_Dimitri_Johannes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="za" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="colour" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dccs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dayCareCenter_216001730_PT_Dimitri_Johannes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="za" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dccs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dayCareCenter_216001730_PT_Dimitri_Johannes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="za" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dccs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dayCareCenter_216001730_PT_Dimitri_Johannes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="za" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dccs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dayCareCenter_216001730_PT_Dimitri_Johannes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -399,11 +372,11 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560973606422" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568664834853" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/drawing" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sms" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Arinze/New folder/payroll-master" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -423,11 +396,11 @@
       <recent name="com.djohannes.ac.za.controller.account" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.djohannes.ac.za.domain" />
       <recent name="com.djohannes.ac.za.controller" />
       <recent name="com.djohannes.ac.za.controller.account" />
       <recent name="com.djohannes.ac.za.controller.name.teacher.account" />
       <recent name="com.djohannes.ac.za.service.impl" />
-      <recent name="com.djohannes.ac.za.service" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Dimitri\Documents\GitHub\CPUT\dayCareCenter_216001730_PT_Dimitri_Johannes\src\test\java\com\djohannes\ac\za\controller\teacher" />
@@ -486,7 +459,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProvinceFactoryTest.getProvince" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ContactControllerTest.testCreateContact" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dccs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.djohannes.ac.za.controller.contact.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.djohannes.ac.za.controller.contact" />
+      <option name="MAIN_CLASS_NAME" value="com.djohannes.ac.za.controller.contact.ContactControllerTest" />
+      <option name="METHOD_NAME" value="testCreateContact" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContactFactoryTest.getContact" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="dccs" />
       <extension name="coverage">
         <pattern>
@@ -495,24 +484,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.djohannes.ac.za.factory" />
-      <option name="MAIN_CLASS_NAME" value="com.djohannes.ac.za.factory.ProvinceFactoryTest" />
-      <option name="METHOD_NAME" value="getProvince" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SuburbControllerTest.testCreateSuburb" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="dccs" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.djohannes.ac.za.controller.suburb.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.djohannes.ac.za.controller.suburb" />
-      <option name="MAIN_CLASS_NAME" value="com.djohannes.ac.za.controller.suburb.SuburbControllerTest" />
-      <option name="METHOD_NAME" value="testCreateSuburb" />
+      <option name="MAIN_CLASS_NAME" value="com.djohannes.ac.za.factory.ContactFactoryTest" />
+      <option name="METHOD_NAME" value="getContact" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -534,10 +507,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.dccsApplication" />
+        <item itemvalue="JUnit.ContactControllerTest.testCreateContact" />
+        <item itemvalue="JUnit.ContactFactoryTest.getContact" />
         <item itemvalue="JUnit.AccountControllerTest.testCreateAccount" />
         <item itemvalue="JUnit.AccountFactoryTest.getAccount" />
-        <item itemvalue="JUnit.ProvinceFactoryTest.getProvince" />
-        <item itemvalue="JUnit.SuburbControllerTest.testCreateSuburb" />
       </list>
     </recent_temporary>
   </component>
@@ -565,43 +538,53 @@
       <workItem from="1560934015354" duration="11933000" />
       <workItem from="1560950313058" duration="9929000" />
       <workItem from="1560960551927" duration="9106000" />
+      <workItem from="1560973942246" duration="144000" />
+      <workItem from="1561283503370" duration="2794000" />
+      <workItem from="1562771529756" duration="2862000" />
+      <workItem from="1565630646687" duration="11368000" />
+      <workItem from="1565797256468" duration="159000" />
+      <workItem from="1565803072779" duration="1374000" />
+      <workItem from="1565804598780" duration="1109000" />
+      <workItem from="1566396958511" duration="598000" />
+      <workItem from="1566806049635" duration="729000" />
+      <workItem from="1568650358386" duration="4392000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GradeControllerTest_testCreateGrade - 2019.06.19 at 21h 01m 38s.xml">
-      <configuration name="GradeControllerTest.testCreateGrade" configurationId="JUnit" />
+    <history-entry file="ContactControllerTest_testCreateContact - 2019.06.23 at 12h 15m 26s.xml">
+      <configuration name="ContactControllerTest.testCreateContact" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NameControllerTest_testCreateName - 2019.06.19 at 21h 02m 01s.xml">
-      <configuration name="NameControllerTest.testCreateName" configurationId="JUnit" />
+    <history-entry file="ContactControllerTest_testCreateContact - 2019.06.23 at 12h 16m 15s.xml">
+      <configuration name="ContactControllerTest.testCreateContact" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PlaytimeControllerTest_testCreatePlaytime - 2019.06.19 at 21h 02m 28s.xml">
-      <configuration name="PlaytimeControllerTest.testCreatePlaytime" configurationId="JUnit" />
+    <history-entry file="ContactControllerTest_testCreateContact - 2019.06.23 at 12h 17m 27s.xml">
+      <configuration name="ContactControllerTest.testCreateContact" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PopulationControllerTest_testCreatePopulation - 2019.06.19 at 21h 03m 04s.xml">
-      <configuration name="PopulationControllerTest.testCreatePopulation" configurationId="JUnit" />
+    <history-entry file="ContactControllerTest_testCreateContact - 2019.06.23 at 12h 17m 59s.xml">
+      <configuration name="ContactControllerTest.testCreateContact" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ProvinceControllerTest_testCreateProvince - 2019.06.19 at 21h 03m 24s.xml">
-      <configuration name="ProvinceControllerTest.testCreateProvince" configurationId="JUnit" />
+    <history-entry file="ContactControllerTest_testCreateContact - 2019.06.23 at 12h 18m 30s.xml">
+      <configuration name="ContactControllerTest.testCreateContact" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SuburbControllerTest_testCreateSuburb - 2019.06.19 at 21h 04m 09s.xml">
-      <configuration name="SuburbControllerTest.testCreateSuburb" configurationId="JUnit" />
+    <history-entry file="ContactControllerTest_testCreateContact - 2019.06.23 at 12h 19m 19s.xml">
+      <configuration name="ContactControllerTest.testCreateContact" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ProvinceFactoryTest_getProvince - 2019.06.19 at 21h 33m 36s.xml">
-      <configuration name="ProvinceFactoryTest.getProvince" configurationId="JUnit" />
+    <history-entry file="ContactControllerTest_testCreateContact - 2019.06.23 at 12h 20m 44s.xml">
+      <configuration name="ContactControllerTest.testCreateContact" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AccountFactoryTest_getAccount - 2019.06.19 at 21h 39m 54s.xml">
-      <configuration name="AccountFactoryTest.getAccount" configurationId="JUnit" />
+    <history-entry file="ContactControllerTest_testCreateContact - 2019.06.23 at 12h 21m 35s.xml">
+      <configuration name="ContactControllerTest.testCreateContact" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AccountControllerTest_testCreateAccount - 2019.06.19 at 21h 40m 57s.xml">
-      <configuration name="AccountControllerTest.testCreateAccount" configurationId="JUnit" />
+    <history-entry file="ContactControllerTest_testCreateContact - 2019.06.23 at 12h 29m 13s.xml">
+      <configuration name="ContactControllerTest.testCreateContact" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AccountControllerTest_testCreateAccount - 2019.06.19 at 21h 41m 29s.xml">
-      <configuration name="AccountControllerTest.testCreateAccount" configurationId="JUnit" />
+    <history-entry file="ContactControllerTest_testCreateContact - 2019.07.10 at 17h 27m 37s.xml">
+      <configuration name="ContactControllerTest.testCreateContact" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140726000" />
+    <option name="totallyTimeSpent" value="166255000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -614,8 +597,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19597316" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21677852" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -626,8 +610,8 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.04249292" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" weight="0.5552408" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.3796034" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" weight="0.27903682" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
@@ -648,7 +632,7 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" visible="true" weight="0.1442953" />
+      <window_info active="true" anchor="right" id="Coverage" order="9" side_tool="true" visible="true" weight="0.1442953" />
       <window_info anchor="right" id="Bean Validation" order="10" weight="0.3295302" />
     </layout>
   </component>
@@ -691,10 +675,16 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/contact/ContactController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Grade.java</url>
           <line>23</line>
           <properties />
-          <option name="timeStamp" value="12" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Grade.java</url>
+          <line>50</line>
+          <properties />
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/service/impl/AccountServiceImplTest.java</url>
@@ -703,14 +693,6 @@
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/contact/ContactController.java</url>
-          <line>21</line>
-          <properties class="com.djohannes.ac.za.controller.contact.ContactController" method="create">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -722,9 +704,29 @@
         <watch expression="baseURL.hash" />
         <watch expression="postResponse.body.tel" />
       </configuration>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="contact" language="JAVA" />
+      </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>contact</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>tel</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>tell</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
     <expressions id="setValue">
       <expression>
         <expression-string>7</expression-string>
@@ -734,37 +736,81 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Evaluation.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/ParentFactoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-          <folding>
-            <element signature="e#331#332#0" expanded="true" />
-            <element signature="e#350#351#0" expanded="true" />
-            <element signature="e#314#315#0" expanded="true" />
-            <element signature="e#341#342#0" expanded="true" />
-            <element signature="e#370#371#0" expanded="true" />
-            <element signature="e#395#396#0" expanded="true" />
-            <element signature="e#906#907#0" expanded="true" />
-            <element signature="e#957#958#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/AddressFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/StudentFactoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="-3">
+          <caret line="14" column="73" lean-forward="true" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/impl/ContactServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1000#1001#0" expanded="true" />
+            <element signature="e#1054#1055#0" expanded="true" />
+            <element signature="e#1412#1413#0" expanded="true" />
+            <element signature="e#1453#1454#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Alphabet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/repository/DaycareRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="75" column="17" lean-forward="true" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
+        <state relative-caret-position="68">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/contact/ContactController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/ContactDel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment7.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ControllerTesting.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Postman.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/contact/ContactControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -773,113 +819,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Colour.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
+        <state relative-caret-position="1088">
           <caret line="73" column="54" selection-start-line="73" selection-start-column="54" selection-end-line="73" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Counting.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Contact.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="75" column="54" selection-start-line="75" selection-start-column="54" selection-end-line="75" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/CountingFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Drawing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
+        <state relative-caret-position="391">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
           <folding>
-            <element signature="e#424#425#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Playtime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/PlaytimeFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/DrawingFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/ContactService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/repository/ContactRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/ColourFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Address.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-374">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/impl/ColourServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/colour/ColourController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#647#648#0" expanded="true" />
+            <element signature="e#324#325#0" expanded="true" />
+            <element signature="e#349#350#0" expanded="true" />
+            <element signature="e#386#387#0" expanded="true" />
+            <element signature="e#412#413#0" expanded="true" />
+            <element signature="e#444#445#0" expanded="true" />
+            <element signature="e#472#473#0" expanded="true" />
+            <element signature="e#1098#1099#0" expanded="true" />
+            <element signature="e#1146#1147#0" expanded="true" />
+            <element signature="e#1660#1661#0" expanded="true" />
+            <element signature="e#1699#1700#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -894,261 +853,333 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/repository/ContactRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/repository/impl/ContactRepositoryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="47" column="34" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#474#475#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+            <element signature="e#1792#1793#0" expanded="true" />
+            <element signature="e#1828#1829#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/City.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Grade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="e#327#328#0" expanded="true" />
+            <element signature="e#352#353#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+            <element signature="e#412#413#0" expanded="true" />
+            <element signature="e#907#908#0" expanded="true" />
+            <element signature="e#953#954#0" expanded="true" />
+            <element signature="e#1412#1413#0" expanded="true" />
+            <element signature="e#1451#1452#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/GradeFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/util/Misc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#122#123#0" expanded="true" />
+            <element signature="e#173#174#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Name.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-237">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/ActivityFactoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/ActivityFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/repository/AccountRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/repository/IRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/repository/GradeRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/repository/PlaytimeRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/repository/impl/DBImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/repository/impl/ParentRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/IService.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/impl/ContactServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/GradeService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        <state relative-caret-position="68">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/repository/impl/GradeRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="36" column="43" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/address/AddressController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/impl/GradeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-          <folding>
-            <element signature="e#612#613#0" expanded="true" />
-            <element signature="e#658#659#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/domain/Contact.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/dccsApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/contact/ContactControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="65" column="37" lean-forward="true" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
+          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/contact/ContactController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/counting/CountingController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#667#668#0" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/suburb/SuburbController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/impl/AddressServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-          <folding>
-            <element signature="e#612#613#0" expanded="true" />
-            <element signature="e#657#658#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/factory/EvaluationFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/account/AccountController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="38" lean-forward="true" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/activity/ActivityControllerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/AccountService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="54" column="37" lean-forward="true" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
+        <state relative-caret-position="68">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/address/AddressControllerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/repository/impl/GradeRepositoryImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="73" column="5" lean-forward="true" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+        <state relative-caret-position="527">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/Allergy/AllergyControllerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/repository/impl/PopulationRepositoryImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+        <state relative-caret-position="68">
+          <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/Alphabet/AlphabetControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="55" column="4" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/classroom/ClassroomControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/colour/ColourControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="49" column="46" lean-forward="true" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/counting/CountingControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/daycare/DaycareControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="58" column="36" lean-forward="true" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/drawing/DrawingControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/evaluation/EvaluationControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/grade/GradeControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/name/NameControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/parent/ParentControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="52" column="46" lean-forward="true" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/playtime/PlaytimeControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/population/PopulationControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/province/ProvinceControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="51" column="46" lean-forward="true" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/student/StudentControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="61" column="46" lean-forward="true" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/suburb/SuburbControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/ProvinceFactoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/AddressFactoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/AccountFactoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/controller/account/AccountControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1058">
-          <caret line="78" column="43" lean-forward="true" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ControllerTestCasesCompleted.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ControllerTesting.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Info.txt">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/factory/ContactFactoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <caret line="14" column="66" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Postman.txt">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/djohannes/ac/za/repository/impl/AccountRepositoryImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="612">
+          <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/grade/GradeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/teacher/TeacherController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+            <element signature="e#652#653#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/applications.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Security.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="44" selection-start-column="44" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/service/impl/AccountServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-273">
+          <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#799#800#0" expanded="true" />
+            <element signature="e#1006#1007#0" expanded="true" />
+            <element signature="e#1060#1061#0" expanded="true" />
+            <element signature="e#1111#1112#0" expanded="true" />
+            <element signature="e#1157#1158#0" expanded="true" />
+            <element signature="e#1217#1218#0" expanded="true" />
+            <element signature="e#1271#1272#0" expanded="true" />
+            <element signature="e#1321#1322#0" expanded="true" />
+            <element signature="e#1362#1363#0" expanded="true" />
+            <element signature="e#1412#1413#0" expanded="true" />
+            <element signature="e#1459#1460#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/controller/colour/ColourController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/djohannes/ac/za/security/DccsSecurity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="27" column="57" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1700#1701#0" expanded="true" />
+            <element signature="e#1750#1751#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
