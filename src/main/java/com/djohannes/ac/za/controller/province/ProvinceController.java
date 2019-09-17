@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/province")
+@RequestMapping("/dccs/province")
 public class ProvinceController {
     @Autowired
     @Qualifier("ProvinceServiceImpl")

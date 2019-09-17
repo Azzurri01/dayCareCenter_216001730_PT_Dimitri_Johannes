@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/dccs/student")
 public class StudentController {
     @Autowired
     @Qualifier("StudentServiceImpl")

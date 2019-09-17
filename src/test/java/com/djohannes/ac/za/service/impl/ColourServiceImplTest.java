@@ -16,8 +16,6 @@ public class ColourServiceImplTest {
     private ColourRepository repository;
     private Colour colour;
 
-    Evaluation evaluation = EvaluationFactory.getEvaluation(5);
-
     private Colour getSaved(){
         return this.repository.getAll().iterator().next();
     }
@@ -26,7 +24,7 @@ public class ColourServiceImplTest {
     public void setUp() throws Exception
     {
         this.repository = ColourRepositoryImpl.getRepository();
-        this.colour = ColourFactory.getColour("yellow", evaluation);
+        this.colour = ColourFactory.getColour("yellow");
     }
 
     @Test

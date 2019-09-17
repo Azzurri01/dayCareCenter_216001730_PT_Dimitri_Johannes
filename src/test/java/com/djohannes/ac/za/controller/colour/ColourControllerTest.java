@@ -21,16 +21,14 @@ import static junit.framework.TestCase.assertNotNull;
 public class ColourControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/colour";
+    private String baseURL="http://localhost:8080/dccs/colour";
 
     @Test
-    public void testGetAllActivities() {
-        HttpHeaders headers = new HttpHeaders();
-
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(baseURL + "/read/all",
-                HttpMethod.GET, entity, String.class);
-        assertNotNull(response.getBody());
+    public void testGetAll() {
+        ResponseEntity<String> result = restTemplate.withBasicAuth("dimitri", "cputPTguest")
+                .getForEntity(baseURL + "/getall", String.class);
+        System.out.println(result.getBody());
+        assertEquals(HttpStatus.OK, result.getStatusCode());
     }
 
     @Test
@@ -42,16 +40,11 @@ public class ColourControllerTest {
 
     @Test
     public void testCreateColour() {
-        Evaluation evaluation = EvaluationFactory.getEvaluation(5);
-        Colour colour = ColourFactory.getColour("green",evaluation);
 
-        ResponseEntity<Colour> postResponse = restTemplate.postForEntity(baseURL + "/create", colour, Colour.class);
-        assertNotNull(postResponse);
-        assertNotNull(postResponse.getBody());
-
-        System.out.println("Post response: " + postResponse.getBody());
-        System.out.println("Colour: " + colour.toString());
-        Assert.assertEquals(colour, postResponse.getBody());
+        ResponseEntity result = restTemplate.withBasicAuth("admin", "cputPTadmin")
+                .postForEntity( baseURL + "/create/yellow", null, String.class);
+        System.out.println(result.getBody());
+        assertEquals(HttpStatus.OK, result.getStatusCode());
     }
 
     @Test

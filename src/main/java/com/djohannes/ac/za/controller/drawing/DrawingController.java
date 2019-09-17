@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/drawing")
+@RequestMapping("/dccs/drawing")
 public class DrawingController {
     @Autowired
     @Qualifier("DrawingServiceImpl")

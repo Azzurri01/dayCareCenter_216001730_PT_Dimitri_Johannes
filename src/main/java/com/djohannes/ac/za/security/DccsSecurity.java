@@ -35,7 +35,12 @@ public class DccsSecurity extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/colour/read/all").hasRole(ADMIN_ROLE)
+                //Colour
+                .antMatchers(HttpMethod.POST, "/dccs/**/create/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.POST, "/dccs/**/update/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.GET, "/dccs/**/delete/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.GET, "/dccs/**/read/**").hasRole(USER_ROLE)
+                .antMatchers(HttpMethod.GET, "/dccs/**/getall").hasRole(USER_ROLE)
                 .and()
                 .csrf().disable()
                 .formLogin().disable();

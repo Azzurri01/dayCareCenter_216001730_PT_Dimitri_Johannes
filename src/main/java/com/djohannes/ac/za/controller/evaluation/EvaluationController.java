@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/evaluation")
+@RequestMapping("/dccs/evaluation")
 public class EvaluationController {
     @Autowired
     @Qualifier("EvaluationServiceImpl")

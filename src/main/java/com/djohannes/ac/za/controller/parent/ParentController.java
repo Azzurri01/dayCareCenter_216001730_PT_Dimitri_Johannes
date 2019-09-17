@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/parent")
+@RequestMapping("dccs/parent")
 public class ParentController {
     @Autowired
     @Qualifier("ParentServiceImpl")

@@ -18,8 +18,6 @@ public class ColourRepositoryImplTest {
     private ColourRepository repository;
     private Colour colour;
 
-    Evaluation evaluation = EvaluationFactory.getEvaluation(5);
-
     private Colour getSavedColour()
     {
         Set<Colour> savedColour = this.repository.getAll();
@@ -30,7 +28,7 @@ public class ColourRepositoryImplTest {
     public void setUp() throws Exception
     {
         this.repository = ColourRepositoryImpl.getRepository();
-        this.colour = ColourFactory.getColour("yellow", evaluation);
+        this.colour = ColourFactory.getColour("yellow");
     }
 
     @Test
@@ -56,12 +54,12 @@ public class ColourRepositoryImplTest {
     @Test
     public void cUpdate()
     {
-        Evaluation eval = EvaluationFactory.getEvaluation(8);
-        Colour newEvaluation = new Colour.Builder().copy(getSavedColour()).evaluation(eval).build();
-        System.out.println("In update, about_to_updated = " + newEvaluation);
-        Colour updated = this.repository.update(newEvaluation);
+        String colour = "pink";
+        Colour newColour = new Colour.Builder().copy(getSavedColour()).colour(colour).build();
+        System.out.println("In update, about_to_updated = " + newColour);
+        Colour updated = this.repository.update(newColour);
         System.out.println("In update, updated = " + updated);
-        Assert.assertSame(newEvaluation, updated);
+        Assert.assertSame(newColour, updated);
         dGetAll();
     }
 

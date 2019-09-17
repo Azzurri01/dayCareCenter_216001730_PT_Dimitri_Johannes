@@ -15,7 +15,7 @@ public class ActivityFactoryTest {
         Evaluation evaluation = EvaluationFactory.getEvaluation(8);
         Alphabet alphabet = AlphabetFactory.getAlphabet("r", evaluation);
         Counting counting = CountingFactory.getCounting(5, evaluation);
-        Colour colour = ColourFactory.getColour("pink", evaluation);
+        Colour colour = ColourFactory.getColour("pink");
         Drawing drawing = DrawingFactory.getDrawing("rectangle", evaluation);
         Playtime playtime = PlaytimeFactory.getPlaytime("good", evaluation);
 

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/daycare")
+@RequestMapping("/dccs/daycare")
 public class DaycareController {
     @Autowired
     @Qualifier("DaycareServiceImpl")

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/counting")
+@RequestMapping("/dccs/counting")
 public class CountingController {
     @Autowired
     @Qualifier("CountingServiceImpl")
