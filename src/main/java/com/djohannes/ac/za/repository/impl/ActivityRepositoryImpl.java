@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Activity;
 import com.djohannes.ac.za.repository.ActivityRepository;
@@ -59,4 +59,4 @@ public class ActivityRepositoryImpl implements ActivityRepository {
     public Set<Activity> getAll(){
         return this.activities;
     }
-}
+}*/

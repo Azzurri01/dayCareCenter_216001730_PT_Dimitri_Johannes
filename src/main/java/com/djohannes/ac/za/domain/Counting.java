@@ -1,12 +1,15 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-public class Counting
+//@Entity
+public class Counting implements Comparable<Counting>
 {
+    @Id
     private String id;
     private int number;
-    private Evaluation evaluation;
 
     private Counting() {
     }
@@ -15,7 +18,6 @@ public class Counting
     {
         this.id=builder.id;
         this.number =builder.number;
-        this.evaluation=builder.evaluation;
     }
 
     public String getId() {
@@ -26,21 +28,15 @@ public class Counting
         return number;
     }
 
-    public Evaluation getEvaluation() {
-        return evaluation;
-    }
-
     public static class Builder
     {
         private String id;
         private int number;
-        private Evaluation evaluation;
 
         public Builder copy(Counting counting)
         {
             this.id=counting.id;
             this.number=counting.number;
-            this.evaluation=counting.evaluation;
             return this;
         }
 
@@ -56,12 +52,6 @@ public class Counting
             return this;
         }
 
-        public Builder evaluation(Evaluation evaluation)
-        {
-            this.evaluation=evaluation;
-            return this;
-        }
-
         public Counting build()
         {
             return new Counting(this);
@@ -73,7 +63,6 @@ public class Counting
         return "Counting{" +
                 "Id='" + id + '\'' +
                 "Number='" + number + '\'' +
-                ", Evaluation='" + evaluation + '\'' +
                 '}';
     }
 
@@ -88,5 +77,10 @@ public class Counting
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Counting counting) {
+        return this.id.compareToIgnoreCase(counting.id);
     }
 }

@@ -1,9 +1,13 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-public class Population
+//@Entity
+public class Population implements Comparable<Population>
 {
+    @Id
     private String id;
     private int total;
 
@@ -73,5 +77,10 @@ public class Population
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Population population) {
+        return this.id.compareToIgnoreCase(population.id);
     }
 }

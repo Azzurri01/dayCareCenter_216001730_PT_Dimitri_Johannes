@@ -1,10 +1,13 @@
 package com.djohannes.ac.za.repository;
 
 import com.djohannes.ac.za.domain.Activity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 
-public interface ActivityRepository extends IRepository<Activity, String>
+@Repository
+public interface ActivityRepository extends JpaRepository<Activity, String>
 {
-    Set<Activity> getAll();
+    //Set<Activity> getAll();
 }

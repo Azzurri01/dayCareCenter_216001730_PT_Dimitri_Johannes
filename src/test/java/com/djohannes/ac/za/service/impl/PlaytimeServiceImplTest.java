@@ -1,74 +1,78 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Name;
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
-import com.djohannes.ac.za.repository.PlaytimeRepository;
-import com.djohannes.ac.za.repository.impl.PlaytimeRepositoryImpl;
+import com.djohannes.ac.za.service.PlaytimeService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class PlaytimeServiceImplTest {
 
-    private PlaytimeRepository repository;
+    @Autowired
+    @Qualifier("PlaytimeServiceImpl")
+    private PlaytimeService playtimeService;
     private Playtime playtime;
-
-    Evaluation evaluation = EvaluationFactory.getEvaluation(5);
-
-    private Playtime getSaved(){
-        return this.repository.getAll().iterator().next();
-    }
+    private Set<Playtime> playtimes = new HashSet<>();
 
     @Before
-    public void setUp() throws Exception
-    {
-        this.repository = PlaytimeRepositoryImpl.getRepository();
-        this.playtime = PlaytimeFactory.getPlaytime("excellent", evaluation);
+    public void setUp() throws Exception {
+        playtime = PlaytimeFactory.getPlaytime("social");
+        playtimes.add(playtime);
     }
 
     @Test
-    public void aCreate()
-    {
-        Playtime created = this.repository.create(this.playtime);
-        System.out.println("In create, created = " + created);
-        Assert.assertNotNull(created);
-        Assert.assertSame(created, this.playtime);
+    public void aCreate() {
+        Playtime playService = playtimeService.create(PlaytimeFactory.getPlaytime("distracted"));
+        System.out.println("Created playtime: " + playService.getBehaviour());
+        Assert.assertNotNull(playService);
+        playtimes.add(playService);
     }
 
     @Test
-    public void cUpdate()
-    {
-        String newPlaytimeId = "123";
-        Playtime updated = new Playtime.Builder().copy(getSaved()).id(newPlaytimeId).build();
+    public void cUpdate() {
+        String newBehaviour = "communicating";
+        Playtime updated = playtimeService.update(new Playtime.Builder().copy(playtime).social(newBehaviour).build());
         System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
-        Assert.assertSame(newPlaytimeId, updated.getId());
+        playtimes.add(updated);
+        Assert.assertEquals(updated.getId(), playtimeService.read(updated.getId()));
     }
 
     @Test
-    public void eDelete()
-    {
-        Playtime saved = getSaved();
-        this.repository.delete(saved.getId());
-        dGetAll();
+    public void eDelete() {
+        int total = playtimes.size();
+        System.out.println("Before deleting object: " + playtime.getId());
+        playtimes.remove(playtime.getId());
+        System.out.println("After deleting object: " + playtime.getId());
+        Assert.assertEquals(total, playtimes.size() - 1);
     }
 
     @Test
     public void bRead()
     {
-        Playtime saved = getSaved();
-        Playtime read = this.repository.read(saved.getId());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
+        Playtime readPlaytime = playtimeService.read(playtime.getId());
+        System.out.println("readPlaytime id: " + readPlaytime.getId());
+        System.out.println("playtimeService id: " + playtimeService.read(readPlaytime.getId()));
+        Assert.assertEquals(readPlaytime.getId(), playtimeService.read(readPlaytime.getId()));
     }
 
     @Test
     public void dGetAll()
     {
-        Set<Playtime> playtimes = this.repository.getAll();
-        System.out.println("In getall, all = " + playtimes);
+        List<Playtime> playtimeList = playtimeService.getAll();
+        System.out.println("Display all objects: " + playtimeList.toString());
+        Assert.assertEquals(playtimeList.size(), playtimeService.getAll().size());
     }
+
 }

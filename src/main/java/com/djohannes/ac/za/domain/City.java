@@ -1,9 +1,13 @@
 package com.djohannes.ac.za.domain;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 import java.util.Set;
 
-public class City
+//@Entity
+public class City implements Comparable<City>
 {
+    @Id
     private String id;
     private Name name;
     private Population population;
@@ -91,5 +95,10 @@ public class City
     public int hashCode()
     {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(City city) {
+        return this.id.compareToIgnoreCase(city.id);
     }
 }

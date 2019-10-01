@@ -2,7 +2,7 @@ package com.djohannes.ac.za.controller.contact;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
-import com.djohannes.ac.za.repository.impl.ContactRepositoryImpl;
+//import com.djohannes.ac.za.repository.impl.ContactRepositoryImpl;
 import com.djohannes.ac.za.service.ContactService;
 import com.djohannes.ac.za.service.impl.ContactServiceImpl;
 import org.junit.Assert;
@@ -58,8 +58,8 @@ public class ContactControllerTest {
 
         ResponseEntity<Contact> postResponse = restTemplate.postForEntity(baseURL + "/create", contact , Contact.class);
 
-        System.out.println("Post response contact number: " + postResponse.getBody().getContactNo());
-        System.out.println("Contact number: " + contact.getContactNo());
+        System.out.println("Post response contact number: " + postResponse.getBody().getContactNo() + " email: " + postResponse.getBody().getEmail());
+        //System.out.println("Contact number: " + contact.getContactNo() + " email: " + contact.getEmail());
     }
 
     @Test

@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Population;
 import com.djohannes.ac.za.repository.PopulationRepository;
@@ -59,4 +59,4 @@ public class PopulationRepositoryImpl implements PopulationRepository {
     public Set<Population> getAll(){
         return this.populations;
     }
-}
+}*/

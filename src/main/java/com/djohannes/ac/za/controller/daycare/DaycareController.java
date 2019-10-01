@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/daycare")
+@RequestMapping("/dccs/daycare")
 public class DaycareController {
     @Autowired
     @Qualifier("DaycareServiceImpl")
@@ -44,7 +45,7 @@ public class DaycareController {
 
     @GetMapping("/read/all")
     @ResponseBody
-    public Set<Daycare> getAll() {
+    public List<Daycare> getAll() {
         return service.getAll();
     }
 }

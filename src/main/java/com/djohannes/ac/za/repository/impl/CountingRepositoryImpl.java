@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Counting;
 import com.djohannes.ac.za.repository.CountingRepository;
@@ -59,4 +59,4 @@ public class CountingRepositoryImpl implements CountingRepository {
     public Set<Counting> getAll(){
         return this.numbers;
     }
-}
+}*/

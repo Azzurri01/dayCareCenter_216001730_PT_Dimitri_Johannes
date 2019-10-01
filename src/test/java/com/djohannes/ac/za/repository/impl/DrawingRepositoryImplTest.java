@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Evaluation;
 import com.djohannes.ac.za.domain.Drawing;
@@ -79,4 +79,4 @@ public class DrawingRepositoryImplTest {
         Set<Drawing> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);
     }
-}
+}*/

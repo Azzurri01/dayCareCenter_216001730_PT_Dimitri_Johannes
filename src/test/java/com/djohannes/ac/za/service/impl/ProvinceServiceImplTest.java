@@ -1,75 +1,82 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Name;
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
-import com.djohannes.ac.za.repository.ProvinceRepository;
-import com.djohannes.ac.za.repository.impl.ProvinceRepositoryImpl;
+import com.djohannes.ac.za.service.ProvinceService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class ProvinceServiceImplTest {
 
-    private ProvinceRepository repository;
+    @Autowired
+    @Qualifier("ProvinceServiceImpl")
+    private ProvinceService provinceService;
     private Province province;
-
-    Name name = NameFactory.getName("Western Province");
-    Population population = PopulationFactory.getTotal(10000000);
-
-    private Province getSaved(){
-        return this.repository.getAll().iterator().next();
-    }
+    private Set<Province> provinces = new HashSet<>();
 
     @Before
-    public void setUp() throws Exception
-    {
-        this.repository = ProvinceRepositoryImpl.getRepository();
-        this.province = ProvinceFactory.getProvince(name, population);
+    public void setUp() throws Exception {
+        Name name = NameFactory.getName("Western Province");
+        Population population = PopulationFactory.getTotal(10000000);
+        province = ProvinceFactory.getProvince(name, population);
+        provinces.add(province);
     }
 
     @Test
-    public void aCreate()
-    {
-        Province created = this.repository.create(this.province);
-        System.out.println("In create, created = " + created);
-        Assert.assertNotNull(created);
-        Assert.assertSame(created, this.province);
+    public void aCreate() {
+        Name name1 = NameFactory.getName("Gauteng Province");
+        Population population1 = PopulationFactory.getTotal(3000000);
+        Province proService = provinceService.create(ProvinceFactory.getProvince(name1, population1));
+        System.out.println("Created province: " + proService.getName());
+        Assert.assertNotNull(proService);
+        provinces.add(proService);
     }
 
     @Test
-    public void cUpdate()
-    {
-        String newProvinceId = "123";
-        Province updated = new Province.Builder().copy(getSaved()).id(newProvinceId).build();
+    public void cUpdate() {
+        Population population2 = PopulationFactory.getTotal(5000000);
+        Province updated = provinceService.update(new Province.Builder().copy(province).population(population2).build());
         System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
-        Assert.assertSame(newProvinceId, updated.getId());
+        provinces.add(updated);
+        Assert.assertEquals(updated.getId(), provinceService.read(updated.getId()));
     }
 
     @Test
-    public void eDelete()
-    {
-        Province saved = getSaved();
-        this.repository.delete(saved.getId());
-        dGetAll();
+    public void eDelete() {
+        int total = provinces.size();
+        System.out.println("Before deleting object: " + province.getId());
+        provinces.remove(province.getId());
+        System.out.println("After deleting object: " + province.getId());
+        Assert.assertEquals(total, provinces.size() - 1);
     }
 
     @Test
     public void bRead()
     {
-        Province saved = getSaved();
-        Province read = this.repository.read(saved.getId());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
+        Province readProvince = provinceService.read(province.getId());
+        System.out.println("readProvince id: " + readProvince.getId());
+        System.out.println("provinceService id: " + provinceService.read(readProvince.getId()));
+        Assert.assertEquals(readProvince.getId(), provinceService.read(readProvince.getId()));
     }
 
     @Test
     public void dGetAll()
     {
-        Set<Province> provinces = this.repository.getAll();
-        System.out.println("In getall, all = " + provinces);
+        List<Province> provinceList = provinceService.getAll();
+        System.out.println("Display all objects: " + provinceList.toString());
+        Assert.assertEquals(provinceList.size(), provinceService.getAll().size());
     }
+
 }

@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Name;
 import com.djohannes.ac.za.repository.NameRepository;
@@ -78,3 +78,4 @@ public class NameRepositoryImpl implements NameRepository
         return this.names;
     }
 }
+*/

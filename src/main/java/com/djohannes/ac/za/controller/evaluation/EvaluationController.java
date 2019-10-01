@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/evaluation")
+@RequestMapping("/dccs/evaluation")
 public class EvaluationController {
     @Autowired
     @Qualifier("EvaluationServiceImpl")
@@ -43,7 +44,7 @@ public class EvaluationController {
 
     @GetMapping("/read/all")
     @ResponseBody
-    public Set<Evaluation> getAll() {
+    public List<Evaluation> getAll() {
         return service.getAll();
     }
 }

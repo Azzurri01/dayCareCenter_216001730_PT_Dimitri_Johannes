@@ -1,74 +1,78 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Name;
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
-import com.djohannes.ac.za.repository.DrawingRepository;
-import com.djohannes.ac.za.repository.impl.DrawingRepositoryImpl;
+import com.djohannes.ac.za.service.DrawingService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class DrawingServiceImplTest {
 
-    private DrawingRepository repository;
+    @Autowired
+    @Qualifier("DrawingServiceImpl")
+    private DrawingService drawingService;
     private Drawing drawing;
-
-    Evaluation evaluation = EvaluationFactory.getEvaluation(5);
-
-    private Drawing getSaved(){
-        return this.repository.getAll().iterator().next();
-    }
+    private Set<Drawing> drawings = new HashSet<>();
 
     @Before
-    public void setUp() throws Exception
-    {
-        this.repository = DrawingRepositoryImpl.getRepository();
-        this.drawing = DrawingFactory.getDrawing("circle", evaluation);
+    public void setUp() throws Exception {
+        drawing = DrawingFactory.getDrawing("Green");
+        drawings.add(drawing);
     }
 
     @Test
-    public void aCreate()
-    {
-        Drawing created = this.repository.create(this.drawing);
-        System.out.println("In create, created = " + created);
-        Assert.assertNotNull(created);
-        Assert.assertSame(created, this.drawing);
+    public void aCreate() {
+        Drawing draService = drawingService.create(DrawingFactory.getDrawing("Brown"));
+        System.out.println("Created drawing: " + draService.getShapes());
+        Assert.assertNotNull(draService);
+        drawings.add(draService);
     }
 
     @Test
-    public void cUpdate()
-    {
-        String newDrawingId = "123";
-        Drawing updated = new Drawing.Builder().copy(getSaved()).id(newDrawingId).build();
+    public void cUpdate() {
+        String newDrawing = "Blue";
+        Drawing updated = drawingService.update(new Drawing.Builder().copy(drawing).drawing(newDrawing).build());
         System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
-        Assert.assertSame(newDrawingId, updated.getId());
+        drawings.add(updated);
+        Assert.assertEquals(updated.getId(), drawingService.read(updated.getId()));
     }
 
     @Test
-    public void cDelete()
-    {
-        Drawing saved = getSaved();
-        this.repository.delete(saved.getId());
-        eGetAll();
+    public void eDelete() {
+        int total = drawings.size();
+        System.out.println("Before deleting object: " + drawing.getId());
+        drawings.remove(drawing.getId());
+        System.out.println("After deleting object: " + drawing.getId());
+        Assert.assertEquals(total, drawings.size() - 1);
     }
 
     @Test
     public void bRead()
     {
-        Drawing saved = getSaved();
-        Drawing read = this.repository.read(saved.getId());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
+        Drawing readDrawing = drawingService.read(drawing.getId());
+        System.out.println("readDrawing id: " + readDrawing.getId());
+        System.out.println("drawingService id: " + drawingService.read(readDrawing.getId()));
+        Assert.assertEquals(readDrawing.getId(), drawingService.read(readDrawing.getId()));
     }
 
     @Test
-    public void eGetAll()
+    public void dGetAll()
     {
-        Set<Drawing> shapes = this.repository.getAll();
-        System.out.println("In getall, all = " + shapes);
+        List<Drawing> drawingList = drawingService.getAll();
+        System.out.println("Display all objects: " + drawingList.toString());
+        Assert.assertEquals(drawingList.size(), drawingService.getAll().size());
     }
+
 }

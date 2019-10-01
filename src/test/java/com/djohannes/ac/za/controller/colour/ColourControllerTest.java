@@ -11,8 +11,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.HttpClientErrorException;
-
+import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 
@@ -21,16 +31,14 @@ import static junit.framework.TestCase.assertNotNull;
 public class ColourControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL="http://localhost:8080/colour";
+    private String baseURL="http://localhost:8080/dccs/colour";
 
     @Test
-    public void testGetAllActivities() {
-        HttpHeaders headers = new HttpHeaders();
-
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(baseURL + "/read/all",
-                HttpMethod.GET, entity, String.class);
-        assertNotNull(response.getBody());
+    public void testGetAll() {
+        ResponseEntity result = restTemplate.withBasicAuth("dimitri", "cputPTguest")
+                .getForEntity(baseURL + "/getall", String.class);
+        System.out.println(result.getBody());
+        Assert.assertEquals(HttpStatus.OK, result.getStatusCodeValue());
     }
 
     @Test
@@ -42,16 +50,10 @@ public class ColourControllerTest {
 
     @Test
     public void testCreateColour() {
-        Evaluation evaluation = EvaluationFactory.getEvaluation(5);
-        Colour colour = ColourFactory.getColour("green",evaluation);
-
-        ResponseEntity<Colour> postResponse = restTemplate.postForEntity(baseURL + "/create", colour, Colour.class);
-        assertNotNull(postResponse);
-        assertNotNull(postResponse.getBody());
-
-        System.out.println("Post response: " + postResponse.getBody());
-        System.out.println("Colour: " + colour.toString());
-        Assert.assertEquals(colour, postResponse.getBody());
+                ResponseEntity result = restTemplate.withBasicAuth("admin", "cputPTadmin")
+                .postForEntity( baseURL + "/create/red", MediaType.APPLICATION_JSON, String.class);
+        System.out.println(result.getBody());
+        assertEquals(HttpStatus.OK, result.getStatusCode());
     }
 
     @Test

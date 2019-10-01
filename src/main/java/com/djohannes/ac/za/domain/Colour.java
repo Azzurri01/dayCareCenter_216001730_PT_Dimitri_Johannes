@@ -1,11 +1,17 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
+@Entity
+@Table(name="colTest")
 public class Colour
 {
-    private String id, colour;
-    private Evaluation evaluation;
+    @Id
+    private String id;
+    private String colour;
 
     private Colour() {
     }
@@ -14,7 +20,6 @@ public class Colour
     {
         this.id=builder.id;
         this.colour =builder.colour;
-        this.evaluation=builder.evaluation;
     }
 
     public String getId() {
@@ -25,20 +30,14 @@ public class Colour
         return colour;
     }
 
-    public Evaluation getEvaluation() {
-        return evaluation;
-    }
-
     public static class Builder
     {
         private String id, colour;
-        private Evaluation evaluation;
 
         public Builder copy(Colour col)
         {
             this.id=col.id;
             this.colour=col.colour;
-            this.evaluation=col.evaluation;
             return this;
         }
 
@@ -54,12 +53,6 @@ public class Colour
             return this;
         }
 
-        public Builder evaluation(Evaluation evaluation)
-        {
-            this.evaluation=evaluation;
-            return this;
-        }
-
         public Colour build()
         {
             return new Colour(this);
@@ -71,7 +64,6 @@ public class Colour
         return "Colour{" +
                 "Id='" + id + '\'' +
                 "Colour='" + colour + '\'' +
-                ", Evaluation='" + evaluation + '\'' +
                 '}';
     }
 
@@ -87,4 +79,9 @@ public class Colour
     public int hashCode() {
         return Objects.hash(id);
     }
+
+   /* @Override
+    public int compareTo(Colour colour) {
+        return this.id.compareToIgnoreCase(colour.id);
+    }*/
 }

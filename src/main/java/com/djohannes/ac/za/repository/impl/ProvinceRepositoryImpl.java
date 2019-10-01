@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Province;
 import com.djohannes.ac.za.repository.ProvinceRepository;
@@ -59,4 +59,4 @@ public class ProvinceRepositoryImpl implements ProvinceRepository {
     public Set<Province> getAll(){
         return this.provinces;
     }
-}
+}*/

@@ -1,75 +1,82 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Name;
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
-import com.djohannes.ac.za.repository.TeacherRepository;
-import com.djohannes.ac.za.repository.impl.TeacherRepositoryImpl;
+import com.djohannes.ac.za.service.TeacherService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class TeacherServiceImplTest {
 
-    private TeacherRepository repository;
+    @Autowired
+    @Qualifier("TeacherServiceImpl")
+    private TeacherService teacherService;
     private Teacher teacher;
-
-    Name name = NameFactory.getName("Fowzia", "Johannes");
-    Contact contact = ContactFactory.getContact("0835133305", "fowzia.johannes@gmail.com");
-
-    private Teacher getSaved(){
-        return this.repository.getAll().iterator().next();
-    }
+    private Set<Teacher> teachers = new HashSet<>();
 
     @Before
-    public void setUp() throws Exception
-    {
-        this.repository = TeacherRepositoryImpl.getRepository();
-        this.teacher = TeacherFactory.getTeacher(name, contact);
+    public void setUp() throws Exception {
+        Name name = NameFactory.getName("Fowzia", "Sinclair");
+        Contact contact = ContactFactory.getContact("0835133305", "fowzia.sinclair@gmail.com");
+        Teacher teaService = teacherService.create(TeacherFactory.getTeacher(name, contact));
+        teachers.add(teacher);
     }
 
     @Test
-    public void aCreate()
-    {
-        Teacher created = this.repository.create(this.teacher);
-        System.out.println("In create, created = " + created);
-        Assert.assertNotNull(created);
-        Assert.assertSame(created, this.teacher);
+    public void aCreate() {
+        Name name1 = NameFactory.getName("Fowzia", "Sinclair");
+        Contact contact1 = ContactFactory.getContact("0835133305", "fowzia.sinclair@gmail.com");
+        Teacher teaService = teacherService.create(TeacherFactory.getTeacher(name1, contact1));
+        System.out.println("Created teacher: " + teaService.getName());
+        Assert.assertNotNull(teaService);
+        teachers.add(teaService);
     }
 
     @Test
-    public void cUpdate()
-    {
-        String newTeacherId = "123";
-        Teacher updated = new Teacher.Builder().copy(getSaved()).id(newTeacherId).build();
+    public void cUpdate() {
+        Name name = NameFactory.getName("Fowzia", "Johannes");
+        Teacher updated = teacherService.update(new Teacher.Builder().copy(teacher).name(name).build());
         System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
-        Assert.assertSame(newTeacherId, updated.getId());
+        teachers.add(updated);
+        Assert.assertEquals(updated.getId(), teacherService.read(updated.getId()));
     }
 
     @Test
-    public void eDelete()
-    {
-        Teacher saved = getSaved();
-        this.repository.delete(saved.getId());
-        dGetAll();
+    public void eDelete() {
+        int total = teachers.size();
+        System.out.println("Before deleting object: " + teacher.getId());
+        teachers.remove(teacher.getId());
+        System.out.println("After deleting object: " + teacher.getId());
+        Assert.assertEquals(total, teachers.size() - 1);
     }
 
     @Test
     public void bRead()
     {
-        Teacher saved = getSaved();
-        Teacher read = this.repository.read(saved.getId());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
+        Teacher readTeacher = teacherService.read(teacher.getId());
+        System.out.println("readTeacher id: " + readTeacher.getId());
+        System.out.println("teacherService id: " + teacherService.read(readTeacher.getId()));
+        Assert.assertEquals(readTeacher.getId(), teacherService.read(readTeacher.getId()));
     }
 
     @Test
     public void dGetAll()
     {
-        Set<Teacher> teachers = this.repository.getAll();
-        System.out.println("In getall, all = " + teachers);
+        List<Teacher> teacherList = teacherService.getAll();
+        System.out.println("Display all objects: " + teacherList.toString());
+        Assert.assertEquals(teacherList.size(), teacherService.getAll().size());
     }
+
 }

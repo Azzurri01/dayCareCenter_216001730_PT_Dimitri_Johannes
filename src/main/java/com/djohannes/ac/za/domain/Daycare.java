@@ -1,9 +1,13 @@
 package com.djohannes.ac.za.domain;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 import java.util.Set;
 
-public class Daycare
+//@Entity
+public class Daycare implements Comparable<Daycare>
 {
+    @Id
     private String id;
     private Name name;
     private Address address;
@@ -112,5 +116,10 @@ public class Daycare
 
     {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Daycare daycare) {
+        return this.id.compareToIgnoreCase(daycare.id);
     }
 }

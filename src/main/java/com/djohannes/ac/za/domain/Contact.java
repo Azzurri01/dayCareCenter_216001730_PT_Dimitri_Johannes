@@ -1,18 +1,24 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-public class Contact {
-    private String id, tel, email;
+//@Entity
+public class Contact implements Comparable<Contact>
+{
+    @Id
+    private String id;
+    private String tel, email;
 
-    private Contact()
-    {}
 
-    private Contact(Builder builder)
-    {
-        this.id=builder.id;
-        this.email=builder.email;
-        this.tel=builder.tel;
+    private Contact() {
+    }
+
+    private Contact(Builder builder) {
+        this.id = builder.id;
+        this.email = builder.email;
+        this.tel = builder.tel;
     }
 
     public String getId() {
@@ -28,38 +34,32 @@ public class Contact {
         return email;
     }
 
-    public static class Builder
-    {
+    public static class Builder {
         private String id, tel, email;
 
-        public Builder id(String id)
-        {
-            this.id=id;
+        public Builder id(String id) {
+            this.id = id;
             return this;
         }
 
-        public Builder contactNo(String tel)
-        {
-            this.tel=tel;
+        public Builder contactNo(String tel) {
+            this.tel = tel;
             return this;
         }
 
-        public Builder email(String email)
-        {
-            this.email=email;
+        public Builder email(String email) {
+            this.email = email;
             return this;
         }
 
-        public Builder copy(Contact contact)
-        {
-            this.id=contact.id;
-            this.tel=contact.tel;
-            this.email=contact.email;
+        public Builder copy(Contact contact) {
+            this.id = contact.id;
+            this.tel = contact.tel;
+            this.email = contact.email;
             return this;
         }
 
-        public Contact build()
-        {
+        public Contact build() {
             return new Contact(this);
         }
     }
@@ -73,7 +73,7 @@ public class Contact {
                 '}';
     }
 
-   @Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -82,8 +82,12 @@ public class Contact {
     }
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Contact contact) {
+        return this.id.compareToIgnoreCase(contact.id);
     }
 }

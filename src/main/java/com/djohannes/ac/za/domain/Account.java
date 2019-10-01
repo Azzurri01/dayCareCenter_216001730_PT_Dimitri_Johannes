@@ -1,10 +1,14 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 import java.util.Objects;
 
-public class Account
+//@Entity
+public class Account implements Comparable<Account>
 {
+    @Id
     private String id;
     private Date openDate;
     private Student student;
@@ -135,5 +139,10 @@ public class Account
     public int hashCode()
     {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Account account) {
+        return this.id.compareToIgnoreCase(account.id);
     }
 }

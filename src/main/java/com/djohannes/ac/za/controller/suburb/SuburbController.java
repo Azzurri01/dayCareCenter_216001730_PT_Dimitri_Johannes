@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/suburb")
+@RequestMapping("/dccs/suburb")
 public class SuburbController {
     @Autowired
     @Qualifier("SuburbServiceImpl")
@@ -43,7 +44,7 @@ public class SuburbController {
 
     @GetMapping("/read/all")
     @ResponseBody
-    public Set<Suburb> getAll() {
+    public List<Suburb> getAll() {
         return service.getAll();
     }
 }

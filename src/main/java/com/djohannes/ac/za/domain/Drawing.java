@@ -1,11 +1,15 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-public class Drawing
+//@Entity
+public class Drawing implements Comparable<Drawing>
 {
-    private String id, shape;
-    private Evaluation evaluation;
+    @Id
+    private String id;
+    private String shape;
 
     private Drawing() {
     }
@@ -14,7 +18,6 @@ public class Drawing
     {
         this.id=builder.id;
         this.shape=builder.shape;
-        this.evaluation=builder.evaluation;
     }
 
     public String getId() {
@@ -23,10 +26,6 @@ public class Drawing
 
     public String getShapes() {
         return shape;
-    }
-
-    public Evaluation getEvaluation() {
-        return evaluation;
     }
 
     public static class Builder
@@ -38,7 +37,6 @@ public class Drawing
         {
             this.id=drawing.id;
             this.shape=drawing.shape;
-            this.evaluation=drawing.evaluation;
             return this;
         }
 
@@ -54,11 +52,6 @@ public class Drawing
             return this;
         }
 
-        public Builder evaluation(Evaluation evaluation)
-        {
-            this.evaluation=evaluation;
-            return this;
-        }
 
         public Drawing build()
         {
@@ -71,8 +64,7 @@ public class Drawing
         return "Drawing{" +
                 "Id='" + id + '\'' +
                 "shapes='" + shape + '\'' +
-                ", Evaluation='" + evaluation + '\'' +
-                '}';
+        '}';
     }
 
     @Override
@@ -86,5 +78,10 @@ public class Drawing
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Drawing drawing) {
+        return this.id.compareToIgnoreCase(drawing.id);
     }
 }

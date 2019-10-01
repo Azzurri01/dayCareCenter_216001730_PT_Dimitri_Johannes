@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/contact")
+@RequestMapping("/dccs/contact")
 public class ContactController {
     @Autowired
     @Qualifier("ContactServiceImpl")
@@ -26,7 +27,7 @@ public class ContactController {
 
     /*@PostMapping("/create")
     @ResponseBody
-    public Contact create(String tel, String email)
+    public Contact create(@RequestBody String tel, @RequestBody String email)
     {
         Contact contact = ContactFactory.getContact(tel, email);
         return service.create(contact);
@@ -53,7 +54,7 @@ public class ContactController {
 
     @GetMapping("/read/all")
     @ResponseBody
-    public Set<Contact> getAll() {
+    public List<Contact> getAll() {
         return service.getAll();
     }
 }

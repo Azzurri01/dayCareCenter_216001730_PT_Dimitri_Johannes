@@ -2,76 +2,77 @@ package com.djohannes.ac.za.service.impl;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
-import com.djohannes.ac.za.repository.AddressRepository;
-import com.djohannes.ac.za.repository.impl.AddressRepositoryImpl;
+import com.djohannes.ac.za.service.ClassroomService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class ClassroomServiceImplTest {
 
-    private AddressRepository repository;
-    private Address address;
-
-    private Address getSaved(){
-        return this.repository.getAll().iterator().next();
-    }
+    @Autowired
+    @Qualifier("ClassroomServiceImpl")
+    private ClassroomService classroomService;
+    private Classroom classroom;
+    private Set<Classroom> classrooms = new HashSet<>();
 
     @Before
-    public void setUp() throws Exception
-    {
-        Name name = NameFactory.getName("Heideveld");
-        Population population = PopulationFactory.getTotal(100000);
-        Suburb suburb = SuburbFactory.getSuburb("7764", name, population);
-        City city = CityFactory.getCity(name, population);
-        Province province = ProvinceFactory.getProvince(name, population);
-
-        this.repository = AddressRepositoryImpl.getRepository();
-        this.address = AddressFactory.getAddress("14", "Sentinel Road", suburb, city, province);
+    public void setUp() throws Exception {
+        classroom = ClassroomFactory.getClassroom("Green");
+        classrooms.add(classroom);
     }
 
     @Test
-    public void aCreate()
-    {
-        Address created = this.repository.create(this.address);
-        System.out.println("In create, created = " + created);
-        Assert.assertNotNull(created);
-        Assert.assertSame(created, this.address);
+    public void aCreate() {
+        Classroom claService = classroomService.create(ClassroomFactory.getClassroom("Brown"));
+        System.out.println("Created classroom: " + claService.getRoomNo());
+        Assert.assertNotNull(claService);
+        classrooms.add(claService);
     }
 
     @Test
-    public void cUpdate()
-    {
-        String newAddressId = "123";
-        Address updated = new Address.Builder().copy(getSaved()).id(newAddressId).build();
+    public void cUpdate() {
+        String newClassroom = "Blue";
+        Classroom updated = classroomService.update(new Classroom.Builder().copy(classroom).room(newClassroom).build());
         System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
-        Assert.assertSame(newAddressId, updated.getId());
+        classrooms.add(updated);
+        Assert.assertEquals(updated.getId(), classroomService.read(updated.getId()));
     }
 
     @Test
-    public void eDelete()
-    {
-        Address saved = getSaved();
-        this.repository.delete(saved.getId());
-        dGetAll();
+    public void eDelete() {
+        int total = classrooms.size();
+        System.out.println("Before deleting object: " + classroom.getId());
+        classrooms.remove(classroom.getId());
+        System.out.println("After deleting object: " + classroom.getId());
+        Assert.assertEquals(total, classrooms.size() - 1);
     }
 
     @Test
     public void bRead()
     {
-        Address saved = getSaved();
-        Address read = this.repository.read(saved.getId());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
+        Classroom readClassroom = classroomService.read(classroom.getId());
+        System.out.println("readClassroom id: " + readClassroom.getId());
+        System.out.println("classroomService id: " + classroomService.read(readClassroom.getId()));
+        Assert.assertEquals(readClassroom.getId(), classroomService.read(readClassroom.getId()));
     }
 
     @Test
     public void dGetAll()
     {
-        Set<Address> addresses = this.repository.getAll();
-        System.out.println("In getall, all = " + addresses);
+        List<Classroom> classroomList = classroomService.getAll();
+        System.out.println("Display all objects: " + classroomList.toString());
+        Assert.assertEquals(classroomList.size(), classroomService.getAll().size());
     }
+
 }

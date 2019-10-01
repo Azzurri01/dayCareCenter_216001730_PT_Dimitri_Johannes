@@ -12,12 +12,11 @@ public class ActivityFactoryTest {
     public void getActivity()
     {
         Grade grade = GradeFactory.getGrade("R");
-        Evaluation evaluation = EvaluationFactory.getEvaluation(8);
-        Alphabet alphabet = AlphabetFactory.getAlphabet("r", evaluation);
-        Counting counting = CountingFactory.getCounting(5, evaluation);
-        Colour colour = ColourFactory.getColour("pink", evaluation);
-        Drawing drawing = DrawingFactory.getDrawing("rectangle", evaluation);
-        Playtime playtime = PlaytimeFactory.getPlaytime("good", evaluation);
+        Alphabet alphabet = AlphabetFactory.getAlphabet("r");
+        Counting counting = CountingFactory.getCounting(5);
+        Colour colour = ColourFactory.getColour("pink");
+        Drawing drawing = DrawingFactory.getDrawing("rectangle");
+        Playtime playtime = PlaytimeFactory.getPlaytime("good");
 
         Activity activity = ActivityFactory.getActivity(grade, alphabet, counting, colour, drawing, playtime);
 

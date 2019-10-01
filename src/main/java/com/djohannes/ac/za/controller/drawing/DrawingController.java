@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/drawing")
+@RequestMapping("/dccs/drawing")
 public class DrawingController {
     @Autowired
     @Qualifier("DrawingServiceImpl")
@@ -43,7 +44,7 @@ public class DrawingController {
 
     @GetMapping("/read/all")
     @ResponseBody
-    public Set<Drawing> getAll() {
+    public List<Drawing> getAll() {
         return service.getAll();
     }
 }

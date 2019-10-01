@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Suburb;
 import com.djohannes.ac.za.repository.SuburbRepository;
@@ -59,4 +59,4 @@ public class SuburbRepositoryImpl implements SuburbRepository {
     public Set<Suburb> getAll(){
         return this.suburbs;
     }
-}
+}*/

@@ -1,10 +1,14 @@
 
 package com.djohannes.ac.za.domain;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 import java.util.Set;
 
-public class Parent
+//@Entity
+public class Parent implements Comparable<Parent>
 {
+    @Id
     private String id;
     private Name name;
     private Contact contact;
@@ -93,5 +97,10 @@ public class Parent
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Parent parent) {
+        return this.id.compareToIgnoreCase(parent.id);
     }
 }

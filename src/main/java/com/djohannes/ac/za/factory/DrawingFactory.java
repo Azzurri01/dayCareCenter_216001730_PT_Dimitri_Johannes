@@ -4,12 +4,11 @@ import com.djohannes.ac.za.util.Misc;
 
 public class DrawingFactory
 {
-    public static Drawing getDrawing(String drawing, Evaluation evaluation)
+    public static Drawing getDrawing(String drawing)
     {
         return new Drawing.Builder()
                 .id(Misc.generateId())
                 .drawing(drawing)
-                .evaluation(evaluation)
                 .build();
     }
 }

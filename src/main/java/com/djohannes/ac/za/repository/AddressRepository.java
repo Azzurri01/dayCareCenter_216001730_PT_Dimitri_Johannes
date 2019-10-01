@@ -1,10 +1,13 @@
 package com.djohannes.ac.za.repository;
 
 import com.djohannes.ac.za.domain.Address;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 
-public interface AddressRepository extends IRepository<Address, String>
+@Repository
+public interface AddressRepository extends JpaRepository<Address, String>
 {
-    Set<Address> getAll();
+    //Set<Address> getAll();
 }

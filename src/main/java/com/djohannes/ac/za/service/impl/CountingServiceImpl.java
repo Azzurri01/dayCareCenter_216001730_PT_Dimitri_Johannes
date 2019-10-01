@@ -2,9 +2,10 @@ package com.djohannes.ac.za.service.impl;
 
 import com.djohannes.ac.za.domain.Counting;
 import com.djohannes.ac.za.repository.CountingRepository;
-import com.djohannes.ac.za.repository.impl.CountingRepositoryImpl;
+//import com.djohannes.ac.za.repository.impl.CountingRepositoryImpl;
 import com.djohannes.ac.za.service.CountingService;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,8 @@ public class CountingServiceImpl implements CountingService {
     private static CountingServiceImpl service = null;
 
     @Autowired
-    @Qualifier("CountingMemory")
+    //@Qualifier("CountingMemory")
     private CountingRepository repository;
-
-    private CountingServiceImpl() {
-        this.repository = CountingRepositoryImpl.getRepository();
-    }
 
     public static CountingServiceImpl getService(){
         if (service == null) service = new CountingServiceImpl();
@@ -31,26 +28,26 @@ public class CountingServiceImpl implements CountingService {
 
     @Override
     public Counting create(Counting counting) {
-        return this.repository.create(counting);
+        return this.repository.save(counting);
     }
 
     @Override
     public Counting update(Counting counting) {
-        return this.repository.update(counting);
+        return this.repository.save(counting);
     }
 
     @Override
     public void delete(String s) {
-        this.repository.delete(s);
+        this.repository.deleteById(s);
     }
 
     @Override
     public Counting read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElse(null);
     }
 
     @Override
-    public Set<Counting> getAll() {
-        return this.repository.getAll();
+    public List<Counting> getAll() {
+        return this.repository.findAll();
     }
 }

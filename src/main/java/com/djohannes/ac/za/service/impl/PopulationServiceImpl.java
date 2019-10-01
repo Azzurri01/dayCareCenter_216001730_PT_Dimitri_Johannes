@@ -2,9 +2,10 @@ package com.djohannes.ac.za.service.impl;
 
 import com.djohannes.ac.za.domain.Population;
 import com.djohannes.ac.za.repository.PopulationRepository;
-import com.djohannes.ac.za.repository.impl.PopulationRepositoryImpl;
+//import com.djohannes.ac.za.repository.impl.PopulationRepositoryImpl;
 import com.djohannes.ac.za.service.PopulationService;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,8 @@ public class PopulationServiceImpl implements PopulationService {
     private static PopulationServiceImpl service = null;
 
     @Autowired
-    @Qualifier("PopulationMemory")
+    //@Qualifier("PopulationMemory")
     private PopulationRepository repository;
-
-    private PopulationServiceImpl() {
-        this.repository = PopulationRepositoryImpl.getRepository();
-    }
 
     public static PopulationServiceImpl getService(){
         if (service == null) service = new PopulationServiceImpl();
@@ -31,26 +28,26 @@ public class PopulationServiceImpl implements PopulationService {
 
     @Override
     public Population create(Population population) {
-        return this.repository.create(population);
+        return this.repository.save(population);
     }
 
     @Override
     public Population update(Population population) {
-        return this.repository.update(population);
+        return this.repository.save(population);
     }
 
     @Override
     public void delete(String s) {
-        this.repository.delete(s);
+        this.repository.deleteById(s);
     }
 
     @Override
     public Population read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElse(null);
     }
 
     @Override
-    public Set<Population> getAll() {
-        return this.repository.getAll();
+    public List<Population> getAll() {
+        return this.repository.findAll();
     }
 }

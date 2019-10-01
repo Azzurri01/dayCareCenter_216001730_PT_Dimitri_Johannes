@@ -1,9 +1,13 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-public class Activity
+//@Entity
+public class Activity implements Comparable<Activity>
 {
+    @Id
     private String id;
     private Grade grade;
     private Alphabet alphabet;
@@ -128,12 +132,12 @@ public class Activity
     public String toString() {
         return "Activity{" +
                 "ID='" + id + '\'' +
-                ", Grade='" + grade.getGrade() + "' Rating='" + playtime.getEvaluation().getRating() + '\'' +
-                ", Alphabet='" + alphabet.getLetter() + "' Rating='" + playtime.getEvaluation().getRating() + '\'' +
-                ", Counting='" + counting.getNumber() + "' Rating='" + playtime.getEvaluation().getRating() + '\'' +
-                ", Colour='" + colour.getColour() + "' Rating='" + playtime.getEvaluation().getRating() + '\'' +
-                ", Drawing='" + drawing.getShapes() + "' Rating='" + playtime.getEvaluation().getRating() + '\'' +
-                ", Playtime='" + playtime.getBehaviour() + "' Rating='" + playtime.getEvaluation().getRating() + '\'' +
+                ", Grade='" + grade.getGrade() + "' Rating='" + '\'' +
+                ", Alphabet='" + alphabet.getLetter() + "' Rating='" + '\'' +
+                ", Counting='" + counting.getNumber() + "' Rating='" + '\'' +
+                ", Colour='" + colour.getColour() + "' Rating='" + '\'' +
+                ", Drawing='" + drawing.getShapes() + "' Rating='" + '\'' +
+                ", Playtime='" + playtime.getBehaviour() + "' Rating='" + '\'' +
                 '}';
     }
 
@@ -149,5 +153,10 @@ public class Activity
     public int hashCode()
     {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Activity activity) {
+        return this.id.compareToIgnoreCase(activity.id);
     }
 }

@@ -1,11 +1,16 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 import java.util.Set;
 
-public class Address
+//@Entity
+public class Address implements Comparable<Address>
 {
-    private String id, no, street;
+    @Id
+    private String id;
+    private String no, street;
     private Address address;
     private Suburb suburb;
     private City city;
@@ -135,5 +140,10 @@ public class Address
             
     {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Address address) {
+        return this.id.compareToIgnoreCase(address.id);
     }
 }

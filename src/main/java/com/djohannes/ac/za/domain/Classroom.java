@@ -1,9 +1,16 @@
 package com.djohannes.ac.za.domain;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-public class Classroom
+//@Entity
+public class Classroom implements Comparable<Classroom>
 {
-    private String id, roomNo;
+    @Id
+    private String id;
+    private String roomNo;
 
     private Classroom()
     {
@@ -74,5 +81,10 @@ public class Classroom
     public int hashCode()
     {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Classroom classroom) {
+        return this.id.compareToIgnoreCase(classroom.id);
     }
 }

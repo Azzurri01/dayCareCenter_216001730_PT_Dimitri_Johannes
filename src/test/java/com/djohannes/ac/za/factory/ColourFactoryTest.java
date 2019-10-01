@@ -12,9 +12,7 @@ public class ColourFactoryTest {
     @Test
     public void getColour()
     {
-        Evaluation evaluation = EvaluationFactory.getEvaluation(5);
-        Colour colour = ColourFactory.getColour("green",evaluation);
-        Assert.assertEquals(evaluation.getRating(), colour.getEvaluation().getRating());
+        Colour colour = ColourFactory.getColour("green");
         Assert.assertEquals("green", colour.getColour());
     }
 }

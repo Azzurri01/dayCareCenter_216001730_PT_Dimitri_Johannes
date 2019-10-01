@@ -1,10 +1,13 @@
 package com.djohannes.ac.za.repository;
 
 import com.djohannes.ac.za.domain.Classroom;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 
-public interface ClassroomRepository extends IRepository<Classroom, String>
+@Repository
+public interface ClassroomRepository extends JpaRepository<Classroom, String>
 {
-    Set<Classroom> getAll();
+    //Set<Classroom> getAll();
 }

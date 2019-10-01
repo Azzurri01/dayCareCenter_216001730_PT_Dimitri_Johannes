@@ -4,6 +4,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+//Security
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+//Security
+
 @RestController
 public class IndexController {
     @GetMapping("/")
@@ -12,3 +19,14 @@ public class IndexController {
         return " Hello World, this is dccs application running.";
     }
 }
+
+
+/*@RestController
+public class IndexController {
+
+    @RequestMapping(value = {"/", "/dccs"})
+    public ResponseEntity<String> getHome()
+    {
+        return new ResponseEntity<>("Hello World, this is dccs application running.", HttpStatus.OK);
+    }
+}*/

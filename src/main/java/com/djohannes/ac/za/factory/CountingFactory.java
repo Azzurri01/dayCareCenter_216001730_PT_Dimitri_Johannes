@@ -5,12 +5,11 @@ import com.djohannes.ac.za.util.Misc;
 
 public class CountingFactory
 {
-    public static Counting getCounting(int number, Evaluation evaluation)
+    public static Counting getCounting(int number)
     {
         return new Counting.Builder()
                 .id(Misc.generateId())
                 .number(number)
-                .evaluation(evaluation)
                 .build();
     }
 }

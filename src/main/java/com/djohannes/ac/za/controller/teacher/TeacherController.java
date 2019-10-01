@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/teacher")
+@RequestMapping("/dccs/teacher")
 public class TeacherController {
     @Autowired
     @Qualifier("TeacherServiceImpl")
@@ -43,7 +44,7 @@ public class TeacherController {
 
     @GetMapping("/read/all")
     @ResponseBody
-    public Set<Teacher> getAll() {
+    public List<Teacher> getAll() {
         return service.getAll();
     }
 }

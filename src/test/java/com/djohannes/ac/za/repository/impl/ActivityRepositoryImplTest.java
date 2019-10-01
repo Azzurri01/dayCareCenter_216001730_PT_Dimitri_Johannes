@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
@@ -21,7 +21,7 @@ public class ActivityRepositoryImplTest {
     Evaluation evaluation = EvaluationFactory.getEvaluation(8);
     Alphabet alphabet = AlphabetFactory.getAlphabet("r", evaluation);
     Counting counting = CountingFactory.getCounting(5, evaluation);
-    Colour colour = ColourFactory.getColour("pink", evaluation);
+    Colour colour = ColourFactory.getColour("pink");
     Drawing drawing = DrawingFactory.getDrawing("rectangle", evaluation);
     Playtime playtime = PlaytimeFactory.getPlaytime("good", evaluation);
 
@@ -84,4 +84,4 @@ public class ActivityRepositoryImplTest {
         Set<Activity> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);
     }
-}
+}*/
