@@ -1,75 +1,86 @@
 package com.djohannes.ac.za.service.impl;
 
 import com.djohannes.ac.za.domain.Name;
-import com.djohannes.ac.za.domain.*;
-import com.djohannes.ac.za.factory.*;
-import com.djohannes.ac.za.repository.SuburbRepository;
-import com.djohannes.ac.za.repository.impl.SuburbRepositoryImpl;
+import com.djohannes.ac.za.domain.Population;
+import com.djohannes.ac.za.domain.Suburb;
+import com.djohannes.ac.za.factory.NameFactory;
+import com.djohannes.ac.za.factory.PopulationFactory;
+import com.djohannes.ac.za.factory.SuburbFactory;
+import com.djohannes.ac.za.service.SuburbService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class SuburbServiceImplTest {
 
-    private SuburbRepository repository;
+    @Autowired
+    @Qualifier("SuburbServiceImpl")
+    private SuburbService suburbService;
     private Suburb suburb;
-
-    Name name = NameFactory.getName("Heideveld");
-    Population population = PopulationFactory.getTotal(100000);
-
-    private Suburb getSaved(){
-        return this.repository.getAll().iterator().next();
-    }
+    private Set<Suburb> suburbs = new HashSet<>();
 
     @Before
-    public void setUp() throws Exception
-    {
-        this.repository = SuburbRepositoryImpl.getRepository();
-        this.suburb = SuburbFactory.getSuburb("7764",name, population);
+    public void setUp() throws Exception {
+        Name name = NameFactory.getName("Heideveld");
+        Population population = PopulationFactory.getTotal(100000);
+        suburb = SuburbFactory.getSuburb("7764", name, population);
+        suburbs.add(suburb);
     }
 
     @Test
-    public void aCreate()
-    {
-        Suburb created = this.repository.create(this.suburb);
-        System.out.println("In create, created = " + created);
-        Assert.assertNotNull(created);
-        Assert.assertSame(created, this.suburb);
+    public void aCreate() {
+        Name name1 = NameFactory.getName("Hanover Park");
+        Population population1 = PopulationFactory.getTotal(300000);
+        Suburb subService = suburbService.create(SuburbFactory.getSuburb("7785",name1, population1));
+        System.out.println("Created suburb: " + subService.getName());
+        Assert.assertNotNull(subService);
+        suburbs.add(subService);
     }
 
     @Test
-    public void cUpdate()
-    {
-        String newSuburbId = "123";
-        Suburb updated = new Suburb.Builder().copy(getSaved()).id(newSuburbId).build();
+    public void cUpdate() {
+        Population population2 = PopulationFactory.getTotal(500000);
+        Suburb updated = suburbService.update(new Suburb.Builder().copy(suburb).population(population2).build());
         System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
-        Assert.assertSame(newSuburbId, updated.getId());
+        suburbs.add(updated);
+        Assert.assertEquals(updated.getId(), suburbService.read(updated.getId()));
     }
 
     @Test
-    public void eDelete()
-    {
-        Suburb saved = getSaved();
-        this.repository.delete(saved.getId());
-        dGetAll();
+    public void eDelete() {
+        int total = suburbs.size();
+        System.out.println("Before deleting object: " + suburb.getId());
+        suburbs.remove(suburb.getId());
+        System.out.println("After deleting object: " + suburb.getId());
+        Assert.assertEquals(total, suburbs.size() - 1);
     }
 
     @Test
     public void bRead()
     {
-        Suburb saved = getSaved();
-        Suburb read = this.repository.read(saved.getId());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
+        Suburb readSuburb = suburbService.read(suburb.getId());
+        System.out.println("readSuburb id: " + readSuburb.getId());
+        System.out.println("suburbService id: " + suburbService.read(readSuburb.getId()));
+        Assert.assertEquals(readSuburb.getId(), suburbService.read(readSuburb.getId()));
     }
 
     @Test
     public void dGetAll()
     {
-        Set<Suburb> suburbs = this.repository.getAll();
-        System.out.println("In getall, all = " + suburbs);
+        List<Suburb> suburbList = suburbService.getAll();
+        System.out.println("Display all objects: " + suburbList.toString());
+        Assert.assertEquals(suburbList.size(), suburbService.getAll().size());
     }
+
 }

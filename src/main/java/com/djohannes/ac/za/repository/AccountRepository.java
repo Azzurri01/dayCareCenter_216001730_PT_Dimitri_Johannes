@@ -1,10 +1,13 @@
 package com.djohannes.ac.za.repository;
 
 import com.djohannes.ac.za.domain.Account;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 
-public interface AccountRepository extends IRepository<Account, String>
+@Repository
+public interface AccountRepository extends JpaRepository<Account, String>
 {
-    Set<Account> getAll();
+    //Set<Account> getAll();
 }

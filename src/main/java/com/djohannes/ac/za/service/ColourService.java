@@ -2,9 +2,10 @@ package com.djohannes.ac.za.service;
 
 import com.djohannes.ac.za.domain.Colour;
 
-import java.util.Set;
+import java.util.List;
 
 public interface ColourService extends IService<Colour, String> {
 
-    Set<Colour> getAll();
+    Colour retrieveByColour(String col);
+    List<Colour> getAll();
 }

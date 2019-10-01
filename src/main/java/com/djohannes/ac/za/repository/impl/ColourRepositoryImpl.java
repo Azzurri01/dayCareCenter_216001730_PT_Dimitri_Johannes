@@ -1,3 +1,4 @@
+/*
 package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Colour;
@@ -60,3 +61,4 @@ public class ColourRepositoryImpl implements ColourRepository {
         return this.numbers;
     }
 }
+*/

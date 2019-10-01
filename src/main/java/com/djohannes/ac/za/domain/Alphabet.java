@@ -1,13 +1,16 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 import java.util.Set;
 
-public class Alphabet
+//@Entity
+public class Alphabet implements Comparable<Alphabet>
 {
-    private String id, letter;
-    private Evaluation evaluation;
-    private Set<Evaluation> evaluations;
+    @Id
+    private String id;
+    private String letter;
 
     private Alphabet() {
     }
@@ -16,7 +19,6 @@ public class Alphabet
     {
         this.id=builder.id;
         this.letter=builder.letter;
-        this.evaluation=builder.evaluation;
     }
 
     public String getId() {
@@ -27,20 +29,14 @@ public class Alphabet
         return letter;
     }
 
-    public Evaluation getEvaluation() {
-        return evaluation;
-    }
-
     public static class Builder
     {
         private String id, letter;
-        private Evaluation evaluation;
 
         public Builder copy(Alphabet alphabet)
         {
             this.id=alphabet.id;
             this.letter=alphabet.letter;
-            this.evaluation=alphabet.evaluation;
             return this;
         }
 
@@ -56,12 +52,6 @@ public class Alphabet
             return this;
         }
 
-        public Builder evaluation(Evaluation evaluation)
-        {
-            this.evaluation=evaluation;
-            return this;
-        }
-
         public Alphabet build()
         {
             return new Alphabet(this);
@@ -73,7 +63,6 @@ public class Alphabet
         return "Alphabet{" +
                 "id='" + id + '\'' +
                 "Letter='" + letter + '\'' +
-                ", Evaluation='" + evaluation + '\'' +
                 '}';
     }
 
@@ -88,5 +77,10 @@ public class Alphabet
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Alphabet alphabet) {
+        return this.id.compareToIgnoreCase(alphabet.id);
     }
 }

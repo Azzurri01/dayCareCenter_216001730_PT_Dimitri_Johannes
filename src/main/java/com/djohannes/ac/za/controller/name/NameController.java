@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -44,7 +45,7 @@ public class NameController {
 
     @GetMapping("/read/all")
     @ResponseBody
-    public Set<Name> getAll() {
+    public List<Name> getAll() {
         return service.getAll();
     }
 }

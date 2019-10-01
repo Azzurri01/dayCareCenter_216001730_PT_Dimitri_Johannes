@@ -2,9 +2,10 @@ package com.djohannes.ac.za.service.impl;
 
 import com.djohannes.ac.za.domain.Province;
 import com.djohannes.ac.za.repository.ProvinceRepository;
-import com.djohannes.ac.za.repository.impl.ProvinceRepositoryImpl;
+//import com.djohannes.ac.za.repository.impl.ProvinceRepositoryImpl;
 import com.djohannes.ac.za.service.ProvinceService;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,8 @@ public class ProvinceServiceImpl implements ProvinceService {
     private static ProvinceServiceImpl service = null;
 
     @Autowired
-    @Qualifier("ProvinceMemory")
+    //@Qualifier("ProvinceMemory")
     private ProvinceRepository repository;
-
-    private ProvinceServiceImpl() {
-        this.repository = ProvinceRepositoryImpl.getRepository();
-    }
 
     public static ProvinceServiceImpl getService(){
         if (service == null) service = new ProvinceServiceImpl();
@@ -31,26 +28,26 @@ public class ProvinceServiceImpl implements ProvinceService {
 
     @Override
     public Province create(Province province) {
-        return this.repository.create(province);
+        return this.repository.save(province);
     }
 
     @Override
     public Province update(Province province) {
-        return this.repository.update(province);
+        return this.repository.save(province);
     }
 
     @Override
     public void delete(String s) {
-        this.repository.delete(s);
+        this.repository.deleteById(s);
     }
 
     @Override
     public Province read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElse(null);
     }
 
     @Override
-    public Set<Province> getAll() {
-        return this.repository.getAll();
+    public List<Province> getAll() {
+        return this.repository.findAll();
     }
 }

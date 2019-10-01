@@ -1,72 +1,78 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Name;
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
-import com.djohannes.ac.za.repository.EvaluationRepository;
-import com.djohannes.ac.za.repository.impl.EvaluationRepositoryImpl;
+import com.djohannes.ac.za.service.EvaluationService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class EvaluationServiceImplTest {
 
-    private EvaluationRepository repository;
+    @Autowired
+    @Qualifier("EvaluationServiceImpl")
+    private EvaluationService evaluationService;
     private Evaluation evaluation;
-
-    private Evaluation getSaved(){
-        return this.repository.getAll().iterator().next();
-    }
+    private Set<Evaluation> evaluations = new HashSet<>();
 
     @Before
-    public void setUp() throws Exception
-    {
-        this.repository = EvaluationRepositoryImpl.getRepository();
-        this.evaluation = EvaluationFactory.getEvaluation(9);
+    public void setUp() throws Exception {
+        evaluation = EvaluationFactory.getEvaluation(6);
+        evaluations.add(evaluation);
     }
 
     @Test
-    public void aCreate()
-    {
-        Evaluation created = this.repository.create(this.evaluation);
-        System.out.println("In create, created = " + created);
-        Assert.assertNotNull(created);
-        Assert.assertSame(created, this.evaluation);
+    public void aCreate() {
+        Evaluation evaService = evaluationService.create(EvaluationFactory.getEvaluation(8));
+        System.out.println("Created evaluation: " + evaService.getRating());
+        Assert.assertNotNull(evaService);
+        evaluations.add(evaService);
     }
 
     @Test
-    public void cUpdate()
-    {
-        String newEvaluationId = "123";
-        Evaluation updated = new Evaluation.Builder().copy(getSaved()).id(newEvaluationId).build();
+    public void cUpdate() {
+        int newEvaluation = 10;
+        Evaluation updated = evaluationService.update(new Evaluation.Builder().copy(evaluation).rating(newEvaluation).build());
         System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
-        Assert.assertSame(newEvaluationId, updated.getId());
+        evaluations.add(updated);
+        Assert.assertEquals(updated.getId(), evaluationService.read(updated.getId()));
     }
 
     @Test
-    public void eDelete()
-    {
-        Evaluation saved = getSaved();
-        this.repository.delete(saved.getId());
-        dGetAll();
+    public void eDelete() {
+        int total = evaluations.size();
+        System.out.println("Before deleting object: " + evaluation.getId());
+        evaluations.remove(evaluation.getId());
+        System.out.println("After deleting object: " + evaluation.getId());
+        Assert.assertEquals(total, evaluations.size() - 1);
     }
 
     @Test
     public void bRead()
     {
-        Evaluation saved = getSaved();
-        Evaluation read = this.repository.read(saved.getId());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
+        Evaluation readEvaluation = evaluationService.read(evaluation.getId());
+        System.out.println("readEvaluation id: " + readEvaluation.getId());
+        System.out.println("evaluationService id: " + evaluationService.read(readEvaluation.getId()));
+        Assert.assertEquals(readEvaluation.getId(), evaluationService.read(readEvaluation.getId()));
     }
 
     @Test
     public void dGetAll()
     {
-        Set<Evaluation> evaluations = this.repository.getAll();
-        System.out.println("In getall, all = " + evaluations);
+        List<Evaluation> evaluationList = evaluationService.getAll();
+        System.out.println("Display all objects: " + evaluationList.toString());
+        Assert.assertEquals(evaluationList.size(), evaluationService.getAll().size());
     }
+
 }

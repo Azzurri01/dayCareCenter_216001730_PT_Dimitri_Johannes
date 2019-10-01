@@ -2,9 +2,10 @@ package com.djohannes.ac.za.service.impl;
 
 import com.djohannes.ac.za.domain.Evaluation;
 import com.djohannes.ac.za.repository.EvaluationRepository;
-import com.djohannes.ac.za.repository.impl.EvaluationRepositoryImpl;
+//import com.djohannes.ac.za.repository.impl.EvaluationRepositoryImpl;
 import com.djohannes.ac.za.service.EvaluationService;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,8 @@ public class EvaluationServiceImpl implements EvaluationService {
     private static EvaluationServiceImpl service = null;
 
     @Autowired
-    @Qualifier("EvaluationMemory")
+    //@Qualifier("EvaluationMemory")
     private EvaluationRepository repository;
-
-    private EvaluationServiceImpl() {
-        this.repository = EvaluationRepositoryImpl.getRepository();
-    }
 
     public static EvaluationServiceImpl getService(){
         if (service == null) service = new EvaluationServiceImpl();
@@ -31,26 +28,26 @@ public class EvaluationServiceImpl implements EvaluationService {
 
     @Override
     public Evaluation create(Evaluation evaluation) {
-        return this.repository.create(evaluation);
+        return this.repository.save(evaluation);
     }
 
     @Override
     public Evaluation update(Evaluation evaluation) {
-        return this.repository.update(evaluation);
+        return this.repository.save(evaluation);
     }
 
     @Override
     public void delete(String s) {
-        this.repository.delete(s);
+        this.repository.deleteById(s);
     }
 
     @Override
     public Evaluation read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElse(null);
     }
 
     @Override
-    public Set<Evaluation> getAll() {
-        return this.repository.getAll();
+    public List<Evaluation> getAll() {
+        return this.repository.findAll();
     }
 }

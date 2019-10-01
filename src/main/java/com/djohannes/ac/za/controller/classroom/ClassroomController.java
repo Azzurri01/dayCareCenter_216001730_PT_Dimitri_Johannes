@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -43,7 +44,7 @@ public class ClassroomController {
 
     @GetMapping("/read/all")
     @ResponseBody
-    public Set<Classroom> getAll() {
+    public List<Classroom> getAll() {
         return service.getAll();
     }
 }

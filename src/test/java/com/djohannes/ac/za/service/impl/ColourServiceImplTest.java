@@ -1,72 +1,78 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Name;
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
-import com.djohannes.ac.za.repository.ColourRepository;
-import com.djohannes.ac.za.repository.impl.ColourRepositoryImpl;
+import com.djohannes.ac.za.service.ColourService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class ColourServiceImplTest {
 
-    private ColourRepository repository;
-    private Colour colour;
+        @Autowired
+        @Qualifier("ColourServiceImpl")
+        private ColourService colourService;
+        private Colour colour;
+        private Set<Colour> colours = new HashSet<>();
 
-    private Colour getSaved(){
-        return this.repository.getAll().iterator().next();
-    }
+        @Before
+        public void setUp() throws Exception {
+            colour = ColourFactory.getColour("Green");
+            colours.add(colour);
+        }
 
-    @Before
-    public void setUp() throws Exception
-    {
-        this.repository = ColourRepositoryImpl.getRepository();
-        this.colour = ColourFactory.getColour("yellow");
-    }
+        @Test
+        public void aCreate() {
+            Colour colService = colourService.create(ColourFactory.getColour("Brown"));
+            System.out.println("Created colour: " + colService.getColour());
+            Assert.assertNotNull(colService);
+            colours.add(colService);
+        }
 
-    @Test
-    public void aCreate()
-    {
-        Colour created = this.repository.create(this.colour);
-        System.out.println("In create, created = " + created);
-        Assert.assertNotNull(created);
-        Assert.assertSame(created, this.colour);
-    }
+        @Test
+        public void cUpdate() {
+            String newColour = "Blue";
+            Colour updated = colourService.update(new Colour.Builder().copy(colour).colour(newColour).build());
+            System.out.println("In update, updated = " + updated);
+            colours.add(updated);
+            Assert.assertEquals(updated.getId(), colourService.read(updated.getId()));
+        }
 
-    @Test
-    public void cUpdate()
-    {
-        String newColourId = "123";
-        Colour updated = new Colour.Builder().copy(getSaved()).id(newColourId).build();
-        System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
-        Assert.assertSame(newColourId, updated.getId());
-    }
+        @Test
+        public void eDelete() {
+            int total = colours.size();
+            System.out.println("Before deleting object: " + colour.getId());
+            colours.remove(colour.getId());
+            System.out.println("After deleting object: " + colour.getId());
+            Assert.assertEquals(total, colours.size() - 1);
+        }
 
-    @Test
-    public void eDelete()
-    {
-        Colour saved = getSaved();
-        this.repository.delete(saved.getId());
-        dGetAll();
-    }
+        @Test
+        public void bRead()
+        {
+            Colour readColour = colourService.read(colour.getId());
+            System.out.println("readColour id: " + readColour.getId());
+            System.out.println("colourService id: " + colourService.read(readColour.getId()));
+            Assert.assertEquals(readColour.getId(), colourService.read(readColour.getId()));
+        }
 
-    @Test
-    public void bRead()
-    {
-        Colour saved = getSaved();
-        Colour read = this.repository.read(saved.getId());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
-    }
+        @Test
+        public void dGetAll()
+        {
+            List<Colour> colourList = colourService.getAll();
+            System.out.println("Display all objects: " + colourList.toString());
+            Assert.assertEquals(colourList.size(), colourService.getAll().size());
+        }
 
-    @Test
-    public void dGetAll()
-    {
-        Set<Colour> colours = this.repository.getAll();
-        System.out.println("In getall, all = " + colours);
-    }
 }

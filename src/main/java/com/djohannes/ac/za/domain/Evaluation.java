@@ -1,9 +1,13 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-public class Evaluation
+//@Entity
+public class Evaluation implements Comparable<Evaluation>
 {
+    @Id
     private String id;
     private int mark;
 
@@ -79,5 +83,10 @@ public class Evaluation
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Evaluation evaluation) {
+        return this.id.compareToIgnoreCase(evaluation.id);
     }
 }

@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Evaluation;
 import com.djohannes.ac.za.domain.Colour;
@@ -78,3 +78,4 @@ public class ColourRepositoryImplTest {
         System.out.println("In getAll, all = " + all);
     }
 }
+*/

@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Population;
 import com.djohannes.ac.za.factory.PopulationFactory;
@@ -83,4 +83,4 @@ public class PopulationRepositoryImplTest {
         Set<Population> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);
     }
-}
+}*/

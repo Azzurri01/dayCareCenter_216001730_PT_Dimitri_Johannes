@@ -1,10 +1,15 @@
 package com.djohannes.ac.za.domain;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 import java.util.Set;
 
-public class Grade
+//@Entity
+public class Grade implements Comparable<Grade>
 {
-    private String id, grade;
+    @Id
+    private String id;
+    private String grade;
     Set<Student> student;
 
     private Grade()
@@ -72,5 +77,10 @@ public class Grade
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Grade grade) {
+        return this.id.compareToIgnoreCase(grade.id);
     }
 }

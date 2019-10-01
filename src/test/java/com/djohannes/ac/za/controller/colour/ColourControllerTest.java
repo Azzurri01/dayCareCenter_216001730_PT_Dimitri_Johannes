@@ -11,8 +11,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.HttpClientErrorException;
-
+import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 
@@ -25,10 +35,10 @@ public class ColourControllerTest {
 
     @Test
     public void testGetAll() {
-        ResponseEntity<String> result = restTemplate.withBasicAuth("dimitri", "cputPTguest")
+        ResponseEntity result = restTemplate.withBasicAuth("dimitri", "cputPTguest")
                 .getForEntity(baseURL + "/getall", String.class);
         System.out.println(result.getBody());
-        assertEquals(HttpStatus.OK, result.getStatusCode());
+        Assert.assertEquals(HttpStatus.OK, result.getStatusCodeValue());
     }
 
     @Test
@@ -40,9 +50,8 @@ public class ColourControllerTest {
 
     @Test
     public void testCreateColour() {
-
-        ResponseEntity result = restTemplate.withBasicAuth("admin", "cputPTadmin")
-                .postForEntity( baseURL + "/create/yellow", null, String.class);
+                ResponseEntity result = restTemplate.withBasicAuth("admin", "cputPTadmin")
+                .postForEntity( baseURL + "/create/red", MediaType.APPLICATION_JSON, String.class);
         System.out.println(result.getBody());
         assertEquals(HttpStatus.OK, result.getStatusCode());
     }

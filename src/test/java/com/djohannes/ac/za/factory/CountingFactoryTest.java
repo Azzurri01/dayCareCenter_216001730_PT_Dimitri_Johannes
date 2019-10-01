@@ -12,9 +12,7 @@ public class CountingFactoryTest {
     @Test
     public void getCounting()
     {
-        Evaluation evaluation = EvaluationFactory.getEvaluation(5);
-        Counting counting = CountingFactory.getCounting(5,evaluation);
-        Assert.assertEquals(evaluation.getRating(), counting.getEvaluation().getRating());
+        Counting counting = CountingFactory.getCounting(5);
         Assert.assertEquals(5, counting.getNumber());
     }
 }

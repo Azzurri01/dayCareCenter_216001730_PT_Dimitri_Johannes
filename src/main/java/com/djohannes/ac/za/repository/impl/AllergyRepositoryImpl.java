@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Allergy;
 import com.djohannes.ac.za.repository.AllergyRepository;
@@ -60,3 +60,4 @@ public class AllergyRepositoryImpl implements AllergyRepository {
         return this.allergies;
     }
 }
+*/

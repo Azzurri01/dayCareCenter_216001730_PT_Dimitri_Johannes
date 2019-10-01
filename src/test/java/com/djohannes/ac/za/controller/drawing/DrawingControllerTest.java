@@ -44,8 +44,7 @@ public class DrawingControllerTest {
     @Test
     public void testCreateDrawing() {
         String shape = "circle";
-        Evaluation evaluation = EvaluationFactory.getEvaluation(5);
-        Drawing drawing = DrawingFactory.getDrawing(shape, evaluation);
+        Drawing drawing = DrawingFactory.getDrawing(shape);
 
         ResponseEntity<Drawing> postResponse = restTemplate.postForEntity(baseURL + "/create", drawing, Drawing.class);
         assertNotNull(postResponse);

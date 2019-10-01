@@ -2,7 +2,7 @@ package com.djohannes.ac.za.controller.contact;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
-import com.djohannes.ac.za.repository.impl.ContactRepositoryImpl;
+//import com.djohannes.ac.za.repository.impl.ContactRepositoryImpl;
 import com.djohannes.ac.za.service.ContactService;
 import com.djohannes.ac.za.service.impl.ContactServiceImpl;
 import org.junit.Assert;

@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Contact;
 import com.djohannes.ac.za.domain.Name;
@@ -81,4 +81,4 @@ public class ParentRepositoryImplTest {
         Set<Parent> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);
     }
-}
+}*/

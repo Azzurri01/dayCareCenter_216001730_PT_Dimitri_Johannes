@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Contact;
 import com.djohannes.ac.za.repository.ContactRepository;
@@ -59,4 +59,4 @@ public class ContactRepositoryImpl implements ContactRepository {
     public Set<Contact> getAll(){
         return this.contacts;
     }
-}
+}*/

@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
@@ -86,4 +86,4 @@ public class AddressRepositoryImplTest {
         Set<Address> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);
     }
-}
+}*/

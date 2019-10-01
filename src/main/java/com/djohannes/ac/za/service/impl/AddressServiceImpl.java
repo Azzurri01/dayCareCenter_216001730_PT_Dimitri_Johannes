@@ -2,12 +2,13 @@ package com.djohannes.ac.za.service.impl;
 
 import com.djohannes.ac.za.domain.Address;
 import com.djohannes.ac.za.repository.AddressRepository;
-import com.djohannes.ac.za.repository.impl.AddressRepositoryImpl;
+//import com.djohannes.ac.za.repository.impl.AddressRepositoryImpl;
 import com.djohannes.ac.za.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 @Service("AddressServiceImpl")
@@ -16,12 +17,8 @@ public class AddressServiceImpl implements AddressService {
     private static AddressServiceImpl service = null;
 
     @Autowired
-    @Qualifier("AddressMemory")
+    //@Qualifier("AddressMemory")
     private AddressRepository repository;
-
-    private AddressServiceImpl() {
-        this.repository = AddressRepositoryImpl.getRepository();
-    }
 
     public static AddressServiceImpl getService(){
         if (service == null) service = new AddressServiceImpl();
@@ -30,26 +27,26 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public Address create(Address address) {
-        return this.repository.create(address);
+        return this.repository.save(address);
     }
 
     @Override
     public Address update(Address address) {
-        return this.repository.update(address);
+        return this.repository.save(address);
     }
 
     @Override
     public void delete(String s) {
-        this.repository.delete(s);
+        this.repository.deleteById(s);
     }
 
     @Override
     public Address read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElse(null);
     }
 
     @Override
-    public Set<Address> getAll() {
-        return this.repository.getAll();
+    public List<Address> getAll() {
+        return this.repository.findAll();
     }
 }

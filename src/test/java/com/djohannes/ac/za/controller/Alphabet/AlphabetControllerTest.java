@@ -42,9 +42,7 @@ public class AlphabetControllerTest {
 
     @Test
     public void testCreateAlphabet() {
-        int mark = 5;
-        Evaluation evaluation = EvaluationFactory.getEvaluation(mark);
-        Alphabet alphabet = AlphabetFactory.getAlphabet("a",evaluation);
+        Alphabet alphabet = AlphabetFactory.getAlphabet("a");
 
         ResponseEntity<Alphabet> postResponse = restTemplate.postForEntity(baseURL + "/create", alphabet, Alphabet.class);
         assertNotNull(postResponse);

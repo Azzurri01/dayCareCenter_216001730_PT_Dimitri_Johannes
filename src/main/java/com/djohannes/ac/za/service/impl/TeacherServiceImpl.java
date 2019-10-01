@@ -2,9 +2,10 @@ package com.djohannes.ac.za.service.impl;
 
 import com.djohannes.ac.za.domain.Teacher;
 import com.djohannes.ac.za.repository.TeacherRepository;
-import com.djohannes.ac.za.repository.impl.TeacherRepositoryImpl;
+//import com.djohannes.ac.za.repository.impl.TeacherRepositoryImpl;
 import com.djohannes.ac.za.service.TeacherService;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,8 @@ public class TeacherServiceImpl implements TeacherService {
     private static TeacherServiceImpl service = null;
 
     @Autowired
-    @Qualifier("TeacherMemory")
+    //@Qualifier("TeacherMemory")
     private TeacherRepository repository;
-
-    private TeacherServiceImpl() {
-        this.repository = TeacherRepositoryImpl.getRepository();
-    }
 
     public static TeacherServiceImpl getService(){
         if (service == null) service = new TeacherServiceImpl();
@@ -31,26 +28,26 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public Teacher create(Teacher teacher) {
-        return this.repository.create(teacher);
+        return this.repository.save(teacher);
     }
 
     @Override
     public Teacher update(Teacher teacher) {
-        return this.repository.update(teacher);
+        return this.repository.save(teacher);
     }
 
     @Override
     public void delete(String s) {
-        this.repository.delete(s);
+        this.repository.deleteById(s);
     }
 
     @Override
     public Teacher read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElse(null);
     }
 
     @Override
-    public Set<Teacher> getAll() {
-        return this.repository.getAll();
+    public List<Teacher> getAll() {
+        return this.repository.findAll();
     }
 }

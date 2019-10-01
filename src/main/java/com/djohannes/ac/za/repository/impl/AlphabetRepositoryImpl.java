@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Alphabet;
 import com.djohannes.ac.za.repository.AlphabetRepository;
@@ -60,3 +60,4 @@ public class AlphabetRepositoryImpl implements AlphabetRepository {
         return this.letters;
     }
 }
+*/

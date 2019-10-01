@@ -2,70 +2,77 @@ package com.djohannes.ac.za.service.impl;
 
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
-import com.djohannes.ac.za.repository.PopulationRepository;
-import com.djohannes.ac.za.repository.impl.PopulationRepositoryImpl;
+import com.djohannes.ac.za.service.PopulationService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class PopulationServiceImplTest {
 
-    private PopulationRepository repository;
+    @Autowired
+    @Qualifier("PopulationServiceImpl")
+    private PopulationService populationService;
     private Population population;
-
-    private Population getSaved(){
-        return this.repository.getAll().iterator().next();
-    }
+    private Set<Population> populations = new HashSet<>();
 
     @Before
-    public void setUp() throws Exception
-    {
-        this.repository = PopulationRepositoryImpl.getRepository();
-        this.population = PopulationFactory.getTotal(1000000);
+    public void setUp() throws Exception {
+        population = PopulationFactory.getTotal(100000);
+        populations.add(population);
     }
 
     @Test
-    public void aCreate()
-    {
-        Population created = this.repository.create(this.population);
-        System.out.println("In create, created = " + created);
-        Assert.assertNotNull(created);
-        Assert.assertSame(created, this.population);
+    public void aCreate() {
+        Population popService = populationService.create(PopulationFactory.getTotal(200000));
+        System.out.println("Created population: " + popService.getTotal());
+        Assert.assertNotNull(popService);
+        populations.add(popService);
     }
 
     @Test
-    public void cUpdate()
-    {
-        String newPopulationId = "123";
-        Population updated = new Population.Builder().copy(getSaved()).id(newPopulationId).build();
+    public void cUpdate() {
+        int newTotal = 250000;
+        Population updated = populationService.update(new Population.Builder().copy(population).population(newTotal).build());
         System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
-        Assert.assertSame(newPopulationId, updated.getId());
+        populations.add(updated);
+        Assert.assertEquals(updated.getId(), populationService.read(updated.getId()));
     }
 
     @Test
-    public void eDelete()
-    {
-        Population saved = getSaved();
-        this.repository.delete(saved.getId());
-        dGetAll();
+    public void eDelete() {
+        int total = populations.size();
+        System.out.println("Before deleting object: " + population.getId());
+        populations.remove(population.getId());
+        System.out.println("After deleting object: " + population.getId());
+        Assert.assertEquals(total, populations.size() - 1);
     }
 
     @Test
     public void bRead()
     {
-        Population saved = getSaved();
-        Population read = this.repository.read(saved.getId());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
+        Population readPopulation = populationService.read(population.getId());
+        System.out.println("readPopulation id: " + readPopulation.getId());
+        System.out.println("populationService id: " + populationService.read(readPopulation.getId()));
+        Assert.assertEquals(readPopulation.getId(), populationService.read(readPopulation.getId()));
     }
 
     @Test
     public void dGetAll()
     {
-        Set<Population> populations = this.repository.getAll();
-        System.out.println("In getall, all = " + populations);
+        List<Population> populationList = populationService.getAll();
+        System.out.println("Display all objects: " + populationList.toString());
+        Assert.assertEquals(populationList.size(), populationService.getAll().size());
     }
+
 }

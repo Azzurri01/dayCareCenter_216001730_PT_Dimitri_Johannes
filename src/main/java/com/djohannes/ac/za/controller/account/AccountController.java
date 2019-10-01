@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.method.P;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -65,7 +66,7 @@ public class AccountController {
 
     @GetMapping("/read/all")
     @ResponseBody
-    public Set<Account> getAll() {
+    public List<Account> getAll() {
         return service.getAll();
     }
 }

@@ -1,74 +1,78 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Contact;
-import com.djohannes.ac.za.factory.ContactFactory;
-import com.djohannes.ac.za.repository.ContactRepository;
-import com.djohannes.ac.za.repository.impl.ContactRepositoryImpl;
+import com.djohannes.ac.za.domain.*;
+import com.djohannes.ac.za.factory.*;
+import com.djohannes.ac.za.service.ContactService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-import static org.junit.Assert.*;
-
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class ContactServiceImplTest {
 
-    private ContactRepository repository;
+    @Autowired
+    @Qualifier("ContactServiceImpl")
+    private ContactService contactService;
     private Contact contact;
-
-    private Contact getSaved()
-    {
-        return this.repository.getAll().iterator().next();
-    }
+    private Set<Contact> contacts = new HashSet<>();
 
     @Before
-    public void setUp() throws Exception
-    {
-        this.repository = ContactRepositoryImpl.getRepository();
-        this.contact = ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com");
+    public void setUp() throws Exception {
+        contact = ContactFactory.getContact("0835133305", "fowzia.sinclair@gmail.com");
+        contacts.add(contact);
     }
 
     @Test
-    public void aCreate()
-    {
-        Contact created = this.repository.create(this.contact);
-        System.out.println("In create, created = " + created);
-        Assert.assertNotNull(created);
-        Assert.assertSame(created, this.contact);
+    public void aCreate() {
+        Contact conService = contactService.create(ContactFactory.getContact("0824512653", "dimitri.johannes@gmail.com"));
+        System.out.println("Created contact: " + conService.getContactNo());
+        Assert.assertNotNull(conService);
+        contacts.add(conService);
     }
 
     @Test
-    public void cUpdate()
-    {
-        String newContactId = "123";
-        Contact updated = new Contact.Builder().copy(getSaved()).id(newContactId).build();
+    public void cUpdate() {
+        String newContact = "Blue";
+        Contact updated = contactService.update(new Contact.Builder().copy(contact).contactNo(newContact).build());
         System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
-        Assert.assertSame(newContactId, updated.getId());
+        contacts.add(updated);
+        Assert.assertEquals(updated.getId(), contactService.read(updated.getId()));
     }
 
     @Test
-    public void eDelete()
-    {
-        Contact saved = getSaved();
-        this.repository.delete(saved.getId());
-        dGetAll();
+    public void eDelete() {
+        int total = contacts.size();
+        System.out.println("Before deleting object: " + contact.getId());
+        contacts.remove(contact.getId());
+        System.out.println("After deleting object: " + contact.getId());
+        Assert.assertEquals(total, contacts.size() - 1);
     }
 
     @Test
     public void bRead()
     {
-        Contact saved = getSaved();
-        Contact read = this.repository.read(saved.getId());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
+        Contact readContact = contactService.read(contact.getId());
+        System.out.println("readContact id: " + readContact.getId());
+        System.out.println("contactService id: " + contactService.read(readContact.getId()));
+        Assert.assertEquals(readContact.getId(), contactService.read(readContact.getId()));
     }
 
     @Test
     public void dGetAll()
     {
-        Set<Contact> contacts = this.repository.getAll();
-        System.out.println("In getall, all = " + contacts);
+        List<Contact> contactList = contactService.getAll();
+        System.out.println("Display all objects: " + contactList.toString());
+        Assert.assertEquals(contactList.size(), contactService.getAll().size());
     }
+
 }

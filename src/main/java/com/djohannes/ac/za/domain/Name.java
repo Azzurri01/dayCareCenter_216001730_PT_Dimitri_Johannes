@@ -1,9 +1,15 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-public class Name {
-    private String id, fName, lName, name;
+//@Entity
+public class Name implements Comparable<Name>
+{
+    @Id
+    private String id;
+    private String fName, lName, name;
 
     private Name()
     {}
@@ -122,6 +128,11 @@ public class Name {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Name name) {
+        return this.id.compareToIgnoreCase(name.id);
     }
 }
 

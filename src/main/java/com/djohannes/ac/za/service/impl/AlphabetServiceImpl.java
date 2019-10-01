@@ -2,9 +2,10 @@ package com.djohannes.ac.za.service.impl;
 
 import com.djohannes.ac.za.domain.Alphabet;
 import com.djohannes.ac.za.repository.AlphabetRepository;
-import com.djohannes.ac.za.repository.impl.AlphabetRepositoryImpl;
+//import com.djohannes.ac.za.repository.impl.AlphabetRepositoryImpl;
 import com.djohannes.ac.za.service.AlphabetService;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,8 @@ public class AlphabetServiceImpl implements AlphabetService {
     private static AlphabetServiceImpl service = null;
 
     @Autowired
-    @Qualifier("AlphabetMemory")
+    //@Qualifier("AlphabetMemory")
     private AlphabetRepository repository;
-
-    private AlphabetServiceImpl() {
-        this.repository = AlphabetRepositoryImpl.getRepository();
-    }
 
     public static AlphabetServiceImpl getService(){
         if (service == null) service = new AlphabetServiceImpl();
@@ -31,26 +28,26 @@ public class AlphabetServiceImpl implements AlphabetService {
 
     @Override
     public Alphabet create(Alphabet alphabet) {
-        return this.repository.create(alphabet);
+        return this.repository.save(alphabet);
     }
 
     @Override
     public Alphabet update(Alphabet alphabet) {
-        return this.repository.update(alphabet);
+        return this.repository.save(alphabet);
     }
 
     @Override
     public void delete(String s) {
-        this.repository.delete(s);
+        this.repository.deleteById(s);
     }
 
     @Override
     public Alphabet read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElse(null);
     }
 
     @Override
-    public Set<Alphabet> getAll() {
-        return this.repository.getAll();
+    public List<Alphabet> getAll() {
+        return this.repository.findAll();
     }
 }

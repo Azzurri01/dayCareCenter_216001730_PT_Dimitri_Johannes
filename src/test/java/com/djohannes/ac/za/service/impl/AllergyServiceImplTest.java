@@ -1,73 +1,78 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Allergy;
+import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
-import com.djohannes.ac.za.repository.AllergyRepository;
-import com.djohannes.ac.za.repository.impl.AllergyRepositoryImpl;
+import com.djohannes.ac.za.service.AllergyService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class AllergyServiceImplTest {
 
-    private AllergyRepository repository;
+    @Autowired
+    @Qualifier("AllergyServiceImpl")
+    private AllergyService allergyService;
     private Allergy allergy;
-
-    private Allergy getSaved(){
-        return this.repository.getAll().iterator().next();
-    }
+    private Set<Allergy> allergies = new HashSet<>();
 
     @Before
-    public void setUp() throws Exception
-    {
-        this.repository = AllergyRepositoryImpl.getRepository();
-        this.allergy = AllergyFactory.getAllergy("cat");
+    public void setUp() throws Exception {
+        allergy = AllergyFactory.getAllergy("flees");
+        allergies.add(allergy);
     }
 
     @Test
-    public void aCreate()
-    {
-        Allergy created = this.repository.create(this.allergy);
-        System.out.println("In create, created = " + created);
-        Assert.assertNotNull(created);
-        Assert.assertSame(created, this.allergy);
+    public void aCreate() {
+        Allergy allService = allergyService.create(AllergyFactory.getAllergy("dogs"));
+        System.out.println("Created allergy: " + allService.getName());
+        Assert.assertNotNull(allService);
+        allergies.add(allService);
+    }
+
+    @Test
+    public void cUpdate() {
+        String newAllergy = "cats";
+        Allergy updated = allergyService.update(new Allergy.Builder().copy(allergy).name(newAllergy).build());
+        System.out.println("In update, updated = " + updated);
+        allergies.add(updated);
+        Assert.assertEquals(updated.getId(), allergyService.read(updated.getId()));
+    }
+
+    @Test
+    public void eDelete() {
+        int total = allergies.size();
+        System.out.println("Before deleting object: " + allergy.getId());
+        allergies.remove(allergy.getId());
+        System.out.println("After deleting object: " + allergy.getId());
+        Assert.assertEquals(total, allergies.size() - 1);
     }
 
     @Test
     public void bRead()
     {
-        Allergy saved = getSaved();
-        Allergy read = this.repository.read(saved.getId());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
+        Allergy readAllergy = allergyService.read(allergy.getId());
+        System.out.println("readAllergy id: " + readAllergy.getId());
+        System.out.println("allergyService id: " + allergyService.read(readAllergy.getId()));
+        Assert.assertEquals(readAllergy.getId(), allergyService.read(readAllergy.getId()));
     }
-
-    @Test
-    public void eUpdate()
-    {
-        String newAllergyId = "123";
-        Allergy updated = new Allergy.Builder().copy(getSaved()).id(newAllergyId).build();
-        System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
-        Assert.assertSame(newAllergyId, updated.getId());
-    }
-
-    @Test
-    public void cDelete()
-    {
-        Allergy saved = getSaved();
-        this.repository.delete(saved.getId());
-        dGetAll();
-    }
-
-
 
     @Test
     public void dGetAll()
     {
-        Set<Allergy> allergies = this.repository.getAll();
-        System.out.println("In getall, all = " + allergies);
+        List<Allergy> allergyList = allergyService.getAll();
+        System.out.println("Display all objects: " + allergyList.toString());
+        Assert.assertEquals(allergyList.size(), allergyService.getAll().size());
     }
+
 }

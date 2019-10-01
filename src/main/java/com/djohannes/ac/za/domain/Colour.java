@@ -1,10 +1,17 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
+@Entity
+@Table(name="colTest")
 public class Colour
 {
-    private String id, colour;
+    @Id
+    private String id;
+    private String colour;
 
     private Colour() {
     }
@@ -72,4 +79,9 @@ public class Colour
     public int hashCode() {
         return Objects.hash(id);
     }
+
+   /* @Override
+    public int compareTo(Colour colour) {
+        return this.id.compareToIgnoreCase(colour.id);
+    }*/
 }

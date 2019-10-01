@@ -1,9 +1,16 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-public class Contact {
-    private String id, tel, email;
+//@Entity
+public class Contact implements Comparable<Contact>
+{
+    @Id
+    private String id;
+    private String tel, email;
+
 
     private Contact() {
     }
@@ -77,5 +84,10 @@ public class Contact {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Contact contact) {
+        return this.id.compareToIgnoreCase(contact.id);
     }
 }

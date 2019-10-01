@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Name;
 import com.djohannes.ac.za.factory.*;
@@ -76,4 +76,4 @@ public class NameRepositoryImplTest {
         Set<Name> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);
     }
-}
+}*/

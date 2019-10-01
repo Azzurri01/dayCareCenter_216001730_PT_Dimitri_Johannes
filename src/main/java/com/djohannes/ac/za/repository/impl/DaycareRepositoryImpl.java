@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Daycare;
 import com.djohannes.ac.za.repository.DaycareRepository;
@@ -57,4 +57,4 @@ public class DaycareRepositoryImpl implements DaycareRepository {
     public Set<Daycare> getAll(){
         return this.daycares;
     }
-}
+}*/

@@ -1,10 +1,15 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-public class Allergy
+//@Entity
+public class Allergy implements Comparable<Allergy>
 {
-    private String name, id;
+    @Id
+    private String id;
+    private String name;
 
     private Allergy()
     {
@@ -75,5 +80,10 @@ public class Allergy
     public int hashCode()
     {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Allergy allergy) {
+        return this.id.compareToIgnoreCase(allergy.id);
     }
 }

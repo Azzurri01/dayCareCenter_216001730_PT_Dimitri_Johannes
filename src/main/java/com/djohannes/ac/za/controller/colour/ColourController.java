@@ -12,7 +12,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Set;
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/dccs/colour")
@@ -65,7 +66,7 @@ public class ColourController {
     @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity getAll() {
         ResponseObj responseObj = ResponseObjFactory.buildGenericResponseObj(HttpStatus.OK.toString(), "Success");
-        Set<Colour> colours = service.getAll();
+        List<Colour> colours = service.getAll();
         responseObj.setResponse(colours);
         return ResponseEntity.ok(responseObj);
     }

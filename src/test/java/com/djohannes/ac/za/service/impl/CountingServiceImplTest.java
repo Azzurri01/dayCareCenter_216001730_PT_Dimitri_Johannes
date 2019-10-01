@@ -1,74 +1,78 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Name;
 import com.djohannes.ac.za.domain.*;
 import com.djohannes.ac.za.factory.*;
-import com.djohannes.ac.za.repository.CountingRepository;
-import com.djohannes.ac.za.repository.impl.CountingRepositoryImpl;
+import com.djohannes.ac.za.service.CountingService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class CountingServiceImplTest {
 
-    private CountingRepository repository;
+    @Autowired
+    @Qualifier("CountingServiceImpl")
+    private CountingService countingService;
     private Counting counting;
-
-    Evaluation evaluation = EvaluationFactory.getEvaluation(5);
-
-    private Counting getSaved(){
-        return this.repository.getAll().iterator().next();
-    }
+    private Set<Counting> numbers = new HashSet<>();
 
     @Before
-    public void setUp() throws Exception
-    {
-        this.repository = CountingRepositoryImpl.getRepository();
-        this.counting = CountingFactory.getCounting(3, evaluation);
+    public void setUp() throws Exception {
+        counting = CountingFactory.getCounting(5);
+        numbers.add(counting);
     }
 
     @Test
-    public void aCreate()
-    {
-        Counting created = this.repository.create(this.counting);
-        System.out.println("In create, created = " + created);
-        Assert.assertNotNull(created);
-        Assert.assertSame(created, this.counting);
+    public void aCreate() {
+        Counting couService = countingService.create(CountingFactory.getCounting(8));
+        System.out.println("Created counting: " + couService.getNumber());
+        Assert.assertNotNull(couService);
+        numbers.add(couService);
     }
 
     @Test
-    public void cUpdate()
-    {
-        String newCountingId = "123";
-        Counting updated = new Counting.Builder().copy(getSaved()).id(newCountingId).build();
+    public void cUpdate() {
+        int newCounting = 9;
+        Counting updated = countingService.update(new Counting.Builder().copy(counting).number(newCounting).build());
         System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
-        Assert.assertSame(newCountingId, updated.getId());
+        numbers.add(updated);
+        Assert.assertEquals(updated.getId(), countingService.read(updated.getId()));
     }
 
     @Test
-    public void eDelete()
-    {
-        Counting saved = getSaved();
-        this.repository.delete(saved.getId());
-        dGetAll();
+    public void eDelete() {
+        int total = numbers.size();
+        System.out.println("Before deleting object: " + counting.getId());
+        numbers.remove(counting.getId());
+        System.out.println("After deleting object: " + counting.getId());
+        Assert.assertEquals(total, numbers.size() - 1);
     }
 
     @Test
     public void bRead()
     {
-        Counting saved = getSaved();
-        Counting read = this.repository.read(saved.getId());
-        System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
+        Counting readCounting = countingService.read(counting.getId());
+        System.out.println("readCounting id: " + readCounting.getId());
+        System.out.println("countingService id: " + countingService.read(readCounting.getId()));
+        Assert.assertEquals(readCounting.getId(), countingService.read(readCounting.getId()));
     }
 
     @Test
     public void dGetAll()
     {
-        Set<Counting> numbers = this.repository.getAll();
-        System.out.println("In getall, all = " + numbers);
+        List<Counting> countingList = countingService.getAll();
+        System.out.println("Display all objects: " + countingList.toString());
+        Assert.assertEquals(countingList.size(), countingService.getAll().size());
     }
+
 }

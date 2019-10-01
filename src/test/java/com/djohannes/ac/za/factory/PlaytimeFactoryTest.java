@@ -12,9 +12,7 @@ public class PlaytimeFactoryTest {
     @Test
     public void getPlaytime()
     {
-        Evaluation evaluation = EvaluationFactory.getEvaluation(5);
-        Playtime playtime = PlaytimeFactory.getPlaytime("social",evaluation);
-        Assert.assertEquals(evaluation.getRating(), playtime.getEvaluation().getRating());
+       Playtime playtime = PlaytimeFactory.getPlaytime("social");
         Assert.assertEquals("social", playtime.getBehaviour());
     }
 }

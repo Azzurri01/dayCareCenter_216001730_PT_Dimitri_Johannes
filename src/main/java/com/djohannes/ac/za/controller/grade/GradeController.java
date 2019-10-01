@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -65,7 +66,7 @@ public class GradeController {
 
     @GetMapping("/read/all")
     @ResponseBody
-    public Set<Grade> getAll() {
+    public List<Grade> getAll() {
         return service.getAll();
     }
 }

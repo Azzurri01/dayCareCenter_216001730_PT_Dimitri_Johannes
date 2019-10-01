@@ -2,9 +2,10 @@ package com.djohannes.ac.za.service.impl;
 
 import com.djohannes.ac.za.domain.Activity;
 import com.djohannes.ac.za.repository.ActivityRepository;
-import com.djohannes.ac.za.repository.impl.ActivityRepositoryImpl;
+//import com.djohannes.ac.za.repository.impl.ActivityRepositoryImpl;
 import com.djohannes.ac.za.service.ActivityService;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,8 @@ public class ActivityServiceImpl implements ActivityService {
     private static ActivityServiceImpl service = null;
 
     @Autowired
-    @Qualifier("ActivityMemory")
+    //@Qualifier("ActivityMemory")
     private ActivityRepository repository;
-
-    private ActivityServiceImpl() {
-        this.repository = ActivityRepositoryImpl.getRepository();
-    }
 
     public static ActivityServiceImpl getService(){
         if (service == null) service = new ActivityServiceImpl();
@@ -31,26 +28,26 @@ public class ActivityServiceImpl implements ActivityService {
 
     @Override
     public Activity create(Activity activity) {
-        return this.repository.create(activity);
+        return this.repository.save(activity);
     }
 
     @Override
     public Activity update(Activity activity) {
-        return this.repository.update(activity);
+        return this.repository.save(activity);
     }
 
     @Override
     public void delete(String s) {
-        this.repository.delete(s);
+        this.repository.deleteById(s);
     }
 
     @Override
     public Activity read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElse(null);
     }
 
     @Override
-    public Set<Activity> getAll() {
-        return this.repository.getAll();
+    public List<Activity> getAll() {
+        return this.repository.findAll();
     }
 }

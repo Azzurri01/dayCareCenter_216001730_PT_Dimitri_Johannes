@@ -5,12 +5,11 @@ import com.djohannes.ac.za.util.Misc;
 
 public class AlphabetFactory
 {
-    public static Alphabet getAlphabet(String letter, Evaluation evaluation)
+    public static Alphabet getAlphabet(String letter)
     {
         return new Alphabet.Builder()
                 .id(Misc.generateId())
                 .letter(letter)
-                .evaluation(evaluation)
                 .build();
     }
 }

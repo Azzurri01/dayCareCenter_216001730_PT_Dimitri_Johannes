@@ -43,8 +43,7 @@ public class PlaytimeControllerTest {
     @Test
     public void testCreatePlaytime() {
 
-        Evaluation evaluation = EvaluationFactory.getEvaluation(5);
-        Playtime playtime = PlaytimeFactory.getPlaytime("social",evaluation);
+        Playtime playtime = PlaytimeFactory.getPlaytime("social");
 
         ResponseEntity<Playtime> postResponse = restTemplate.postForEntity(baseURL + "/create", playtime, Playtime.class);
         assertNotNull(postResponse);

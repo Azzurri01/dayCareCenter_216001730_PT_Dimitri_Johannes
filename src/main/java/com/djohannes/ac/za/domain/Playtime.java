@@ -1,11 +1,15 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-public class Playtime
+//@Entity
+public class Playtime implements Comparable<Playtime>
 {
-    private String id, behaviour;
-    private Evaluation evaluation;
+    @Id
+    private String id;
+    private String behaviour;
 
     private Playtime() {
     }
@@ -14,7 +18,6 @@ public class Playtime
     {
         this.id=builder.id;
         this.behaviour =builder.behaviour;
-        this.evaluation=builder.evaluation;
     }
 
     public String getId() {
@@ -25,20 +28,15 @@ public class Playtime
         return behaviour;
     }
 
-    public Evaluation getEvaluation() {
-        return evaluation;
-    }
 
     public static class Builder
     {
         private String id, behaviour;
-        private Evaluation evaluation;
 
         public Builder copy(Playtime playtime)
         {
             this.id=playtime.id;
             this.behaviour=playtime.behaviour;
-            this.evaluation=playtime.evaluation;
             return this;
         }
 
@@ -54,12 +52,6 @@ public class Playtime
             return this;
         }
 
-        public Builder evaluation(Evaluation evaluation)
-        {
-            this.evaluation=evaluation;
-            return this;
-        }
-
         public Playtime build()
         {
             return new Playtime(this);
@@ -71,7 +63,6 @@ public class Playtime
         return "Playtime{" +
                 "Id='" + id + '\'' +
                 "Behaviour='" + behaviour + '\'' +
-                ", Evaluation='" + evaluation + '\'' +
                 '}';
     }
 
@@ -86,5 +77,10 @@ public class Playtime
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Playtime playtime) {
+        return this.id.compareToIgnoreCase(playtime.id);
     }
 }

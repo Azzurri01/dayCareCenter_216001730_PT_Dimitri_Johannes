@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Classroom;
 import com.djohannes.ac.za.repository.ClassroomRepository;
@@ -59,4 +59,4 @@ public class ClassroomRepositoryImpl implements ClassroomRepository {
     public Set<Classroom> getAll(){
         return this.classrooms;
     }
-}
+}*/

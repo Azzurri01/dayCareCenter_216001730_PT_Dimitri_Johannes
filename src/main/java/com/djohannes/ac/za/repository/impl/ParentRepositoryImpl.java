@@ -1,4 +1,4 @@
-package com.djohannes.ac.za.repository.impl;
+/*package com.djohannes.ac.za.repository.impl;
 
 import com.djohannes.ac.za.domain.Parent;
 import com.djohannes.ac.za.repository.ParentRepository;
@@ -59,4 +59,4 @@ public class ParentRepositoryImpl implements ParentRepository {
     public Set<Parent> getAll(){
         return this.parents;
     }
-}
+}*/

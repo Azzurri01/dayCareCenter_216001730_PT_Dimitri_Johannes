@@ -1,9 +1,15 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-public class ContactDel {
-    private String id, tel, email;
+//@Entity
+public class ContactDel implements Comparable<ContactDel>
+{
+    @Id
+    private String id;
+    private String tel, email;
 
     private ContactDel() {
     }
@@ -77,5 +83,10 @@ public class ContactDel {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(ContactDel contactDel) {
+        return this.id.compareToIgnoreCase(contactDel.id);
     }
 }

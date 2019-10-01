@@ -42,8 +42,7 @@ public class CountingControllerTest {
 
     @Test
     public void testCreateCounting() {
-        Evaluation evaluation = EvaluationFactory.getEvaluation(5);
-        Counting counting = CountingFactory.getCounting(5,evaluation);
+        Counting counting = CountingFactory.getCounting(5);
 
         ResponseEntity<Counting> postResponse = restTemplate.postForEntity(baseURL + "/create", counting, Counting.class);
         assertNotNull(postResponse);

@@ -1,10 +1,15 @@
 package com.djohannes.ac.za.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
-public class Suburb
+//@Entity
+public class Suburb implements Comparable<Suburb>
 {
-    private String id, areaCode;
+    @Id
+    private String id;
+    private String areaCode;
     private Name name;
     private Population population;
 
@@ -102,5 +107,10 @@ public class Suburb
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Suburb suburb) {
+        return this.id.compareToIgnoreCase(suburb.id);
     }
 }
