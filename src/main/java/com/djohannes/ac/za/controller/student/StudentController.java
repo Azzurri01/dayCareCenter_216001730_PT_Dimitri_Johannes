@@ -1,31 +1,30 @@
 package com.djohannes.ac.za.controller.student;
 
-
 import com.djohannes.ac.za.domain.Student;
-import com.djohannes.ac.za.service.StudentService;
+import com.djohannes.ac.za.service.impl.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
+
 
 @RestController
-@RequestMapping("/dccs/student")
+@RequestMapping("/student")
 public class StudentController {
-    @Autowired
-    @Qualifier("StudentServiceImpl")
-    private StudentService service;
 
-    @PostMapping("/create")
-    @ResponseBody
-    public Student create(@RequestBody Student student) {
+    @Autowired
+    private StudentServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Student create(@RequestBody Student student)
+    {
         return service.create(student);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseBody
-    public Student update(Student student) {
+    public Student update(@RequestBody Student student) {
         return service.update(student);
     }
 
@@ -42,8 +41,7 @@ public class StudentController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Student> getAll() {
         return service.getAll();
     }

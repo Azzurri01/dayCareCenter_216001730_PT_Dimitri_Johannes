@@ -1,31 +1,30 @@
 package com.djohannes.ac.za.controller.city;
 
-
 import com.djohannes.ac.za.domain.City;
-import com.djohannes.ac.za.service.CityService;
+import com.djohannes.ac.za.service.impl.CityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
+
 
 @RestController
-@RequestMapping("/dccs/city")
+@RequestMapping("/city")
 public class CityController {
-    @Autowired
-    @Qualifier("CityServiceImpl")
-    private CityService service;
 
-    @PostMapping("/create")
-    @ResponseBody
-    public City create(@RequestBody City city) {
+    @Autowired
+    private CityServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public City create(@RequestBody City city)
+    {
         return service.create(city);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseBody
-    public City update(City city) {
+    public City update(@RequestBody City city) {
         return service.update(city);
     }
 
@@ -42,8 +41,7 @@ public class CityController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<City> getAll() {
         return service.getAll();
     }

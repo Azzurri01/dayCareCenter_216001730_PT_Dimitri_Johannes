@@ -2,24 +2,16 @@ package com.djohannes.ac.za.service.impl;
 
 import com.djohannes.ac.za.domain.Daycare;
 import com.djohannes.ac.za.repository.DaycareRepository;
-//import com.djohannes.ac.za.repository.impl.DaycareRepositoryImpl;
 import com.djohannes.ac.za.service.DaycareService;
-
 import java.util.List;
-import java.util.Set;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("DaycareServiceImpl")
 public class DaycareServiceImpl implements DaycareService {
 
-    private static DaycareServiceImpl service = null;
+    @Autowired
     private DaycareRepository repository;
-
-    public static DaycareServiceImpl getService(){
-        if (service == null) service = new DaycareServiceImpl();
-        return service;
-    }
 
     @Override
     public Daycare create(Daycare daycare) {

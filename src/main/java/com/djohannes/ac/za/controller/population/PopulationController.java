@@ -1,31 +1,30 @@
 package com.djohannes.ac.za.controller.population;
 
-
 import com.djohannes.ac.za.domain.Population;
-import com.djohannes.ac.za.service.PopulationService;
+import com.djohannes.ac.za.service.impl.PopulationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
+
 
 @RestController
-@RequestMapping("/dccs/population")
+@RequestMapping("/population")
 public class PopulationController {
-    @Autowired
-    @Qualifier("PopulationServiceImpl")
-    private PopulationService service;
 
-    @PostMapping("/create")
-    @ResponseBody
-    public Population create(@RequestBody  Population population) {
+    @Autowired
+    private PopulationServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Population create(@RequestBody Population population)
+    {
         return service.create(population);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseBody
-    public Population update(Population population) {
+    public Population update(@RequestBody Population population) {
         return service.update(population);
     }
 
@@ -42,8 +41,7 @@ public class PopulationController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Population> getAll() {
         return service.getAll();
     }

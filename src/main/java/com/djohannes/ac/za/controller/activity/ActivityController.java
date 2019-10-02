@@ -1,31 +1,30 @@
 package com.djohannes.ac.za.controller.activity;
 
-
 import com.djohannes.ac.za.domain.Activity;
-import com.djohannes.ac.za.service.ActivityService;
+import com.djohannes.ac.za.service.impl.ActivityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
+
 
 @RestController
-@RequestMapping("/dccs/activity")
+@RequestMapping("/activity")
 public class ActivityController {
-    @Autowired
-    @Qualifier("ActivityServiceImpl")
-    private ActivityService service;
 
-    @PostMapping("/create")
-    @ResponseBody
-    public Activity create(@RequestBody Activity activity) {
+    @Autowired
+    private ActivityServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Activity create(@RequestBody Activity activity)
+    {
         return service.create(activity);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseBody
-    public Activity update(Activity activity) {
+    public Activity update(@RequestBody Activity activity) {
         return service.update(activity);
     }
 
@@ -42,8 +41,7 @@ public class ActivityController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Activity> getAll() {
         return service.getAll();
     }

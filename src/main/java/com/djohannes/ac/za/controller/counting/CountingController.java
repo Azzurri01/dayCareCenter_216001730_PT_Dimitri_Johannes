@@ -1,31 +1,30 @@
 package com.djohannes.ac.za.controller.counting;
 
-
 import com.djohannes.ac.za.domain.Counting;
-import com.djohannes.ac.za.service.CountingService;
+import com.djohannes.ac.za.service.impl.CountingServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
+
 
 @RestController
-@RequestMapping("/dccs/counting")
+@RequestMapping("/counting")
 public class CountingController {
-    @Autowired
-    @Qualifier("CountingServiceImpl")
-    private CountingService service;
 
-    @PostMapping("/create")
-    @ResponseBody
-    public Counting create(@RequestBody Counting counting) {
+    @Autowired
+    private CountingServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Counting create(@RequestBody Counting counting)
+    {
         return service.create(counting);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseBody
-    public Counting update(Counting counting) {
+    public Counting update(@RequestBody Counting counting) {
         return service.update(counting);
     }
 
@@ -42,8 +41,7 @@ public class CountingController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Counting> getAll() {
         return service.getAll();
     }

@@ -1,31 +1,30 @@
 package com.djohannes.ac.za.controller.playtime;
 
-
 import com.djohannes.ac.za.domain.Playtime;
-import com.djohannes.ac.za.service.PlaytimeService;
+import com.djohannes.ac.za.service.impl.PlaytimeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
+
 
 @RestController
-@RequestMapping("/dccs/playtime")
+@RequestMapping("/playtime")
 public class PlaytimeController {
-    @Autowired
-    @Qualifier("PlaytimeServiceImpl")
-    private PlaytimeService service;
 
-    @PostMapping("/create")
-    @ResponseBody
-    public Playtime create(@RequestBody Playtime playtime) {
+    @Autowired
+    private PlaytimeServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Playtime create(@RequestBody Playtime playtime)
+    {
         return service.create(playtime);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseBody
-    public Playtime update(Playtime playtime) {
+    public Playtime update(@RequestBody Playtime playtime) {
         return service.update(playtime);
     }
 
@@ -42,8 +41,7 @@ public class PlaytimeController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Playtime> getAll() {
         return service.getAll();
     }

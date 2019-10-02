@@ -1,32 +1,30 @@
-
 package com.djohannes.ac.za.controller.name;
 
-
 import com.djohannes.ac.za.domain.Name;
-import com.djohannes.ac.za.service.NameService;
+import com.djohannes.ac.za.service.impl.NameServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
+
 
 @RestController
-@RequestMapping("/dccs/name")
+@RequestMapping("/name")
 public class NameController {
-    @Autowired
-    @Qualifier("NameServiceImpl")
-    private NameService service;
 
-    @PostMapping("/create")
-    @ResponseBody
-    public Name create(@RequestBody Name name) {
+    @Autowired
+    private NameServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Name create(@RequestBody Name name)
+    {
         return service.create(name);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseBody
-    public Name update(Name name) {
+    public Name update(@RequestBody Name name) {
         return service.update(name);
     }
 
@@ -43,8 +41,7 @@ public class NameController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Name> getAll() {
         return service.getAll();
     }

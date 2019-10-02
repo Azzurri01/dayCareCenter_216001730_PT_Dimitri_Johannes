@@ -1,13 +1,15 @@
 package com.djohannes.ac.za.domain;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Objects;
 
-@Entity
-@Table(name="colTest")
-public class Colour
+@EntityScan
+public class Colour implements Comparable<Colour>
 {
     @Id
     private String id;
@@ -80,8 +82,8 @@ public class Colour
         return Objects.hash(id);
     }
 
-   /* @Override
+    @Override
     public int compareTo(Colour colour) {
         return this.id.compareToIgnoreCase(colour.id);
-    }*/
+    }
 }

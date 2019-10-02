@@ -7,7 +7,7 @@ public class ColourFactory
     public static Colour getColour(String colour)
     {
         return new Colour.Builder()
-                //.id(Misc.generateId())
+                .id(Misc.generateId())
                 .colour(colour)
                 .build();
     }

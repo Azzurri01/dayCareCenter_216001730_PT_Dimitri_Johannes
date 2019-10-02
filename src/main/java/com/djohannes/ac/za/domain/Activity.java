@@ -1,10 +1,12 @@
 package com.djohannes.ac.za.domain;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Objects;
 
-//@Entity
+@EntityScan
 public class Activity implements Comparable<Activity>
 {
     @Id

@@ -1,11 +1,12 @@
 package com.djohannes.ac.za.domain;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Objects;
 
-//@Entity
+@EntityScan
 public class Classroom implements Comparable<Classroom>
 {
     @Id

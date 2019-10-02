@@ -1,41 +1,30 @@
 package com.djohannes.ac.za.controller.contact;
 
-
 import com.djohannes.ac.za.domain.Contact;
-import com.djohannes.ac.za.factory.ContactFactory;
-import com.djohannes.ac.za.service.ContactService;
+import com.djohannes.ac.za.service.impl.ContactServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
+
 
 @RestController
-@RequestMapping("/dccs/contact")
+@RequestMapping("/contact")
 public class ContactController {
-    @Autowired
-    @Qualifier("ContactServiceImpl")
-    private ContactService service;
 
-    @PostMapping("/create")
-    @ResponseBody
+    @Autowired
+    private ContactServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Contact create(@RequestBody Contact contact)
     {
         return service.create(contact);
     }
 
-    /*@PostMapping("/create")
+    @PutMapping("/update")
     @ResponseBody
-    public Contact create(@RequestBody String tel, @RequestBody String email)
-    {
-        Contact contact = ContactFactory.getContact(tel, email);
-        return service.create(contact);
-    }*/
-
-    @PostMapping("/update")
-    @ResponseBody
-    public Contact update(Contact contact) {
+    public Contact update(@RequestBody Contact contact) {
         return service.update(contact);
     }
 
@@ -52,8 +41,7 @@ public class ContactController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Contact> getAll() {
         return service.getAll();
     }

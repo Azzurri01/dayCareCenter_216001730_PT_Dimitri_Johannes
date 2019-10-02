@@ -1,31 +1,30 @@
 package com.djohannes.ac.za.controller.suburb;
 
-
 import com.djohannes.ac.za.domain.Suburb;
-import com.djohannes.ac.za.service.SuburbService;
+import com.djohannes.ac.za.service.impl.SuburbServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
+
 
 @RestController
-@RequestMapping("/dccs/suburb")
+@RequestMapping("/suburb")
 public class SuburbController {
-    @Autowired
-    @Qualifier("SuburbServiceImpl")
-    private SuburbService service;
 
-    @PostMapping("/create")
-    @ResponseBody
-    public Suburb create(@RequestBody Suburb suburb) {
+    @Autowired
+    private SuburbServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Suburb create(@RequestBody Suburb suburb)
+    {
         return service.create(suburb);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseBody
-    public Suburb update(Suburb suburb) {
+    public Suburb update(@RequestBody Suburb suburb) {
         return service.update(suburb);
     }
 
@@ -42,8 +41,7 @@ public class SuburbController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Suburb> getAll() {
         return service.getAll();
     }

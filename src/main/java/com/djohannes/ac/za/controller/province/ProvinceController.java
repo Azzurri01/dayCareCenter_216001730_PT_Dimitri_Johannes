@@ -1,31 +1,30 @@
 package com.djohannes.ac.za.controller.province;
 
-
 import com.djohannes.ac.za.domain.Province;
-import com.djohannes.ac.za.service.ProvinceService;
+import com.djohannes.ac.za.service.impl.ProvinceServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
+
 
 @RestController
-@RequestMapping("/dccs/province")
+@RequestMapping("/province")
 public class ProvinceController {
-    @Autowired
-    @Qualifier("ProvinceServiceImpl")
-    private ProvinceService service;
 
-    @PostMapping("/create")
-    @ResponseBody
-    public Province create(@RequestBody Province province) {
+    @Autowired
+    private ProvinceServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Province create(@RequestBody Province province)
+    {
         return service.create(province);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseBody
-    public Province update(Province province) {
+    public Province update(@RequestBody Province province) {
         return service.update(province);
     }
 
@@ -42,8 +41,7 @@ public class ProvinceController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Province> getAll() {
         return service.getAll();
     }

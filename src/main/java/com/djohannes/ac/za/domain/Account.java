@@ -1,11 +1,12 @@
 package com.djohannes.ac.za.domain;
 
-import javax.persistence.Entity;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 import javax.persistence.Id;
 import java.util.Date;
 import java.util.Objects;
 
-//@Entity
+@EntityScan
 public class Account implements Comparable<Account>
 {
     @Id
