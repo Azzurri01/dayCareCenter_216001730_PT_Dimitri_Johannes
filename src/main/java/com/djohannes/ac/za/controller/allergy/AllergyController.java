@@ -1,13 +1,11 @@
 package com.djohannes.ac.za.controller.allergy;
 
-import com.djohannes.ac.za.domain.Allergy;
+import com.djohannes.ac.za.domain.allergy.Allergy;
 import com.djohannes.ac.za.service.impl.AllergyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/allergy")
@@ -46,3 +44,4 @@ public class AllergyController {
         return service.getAll();
     }
 }
+

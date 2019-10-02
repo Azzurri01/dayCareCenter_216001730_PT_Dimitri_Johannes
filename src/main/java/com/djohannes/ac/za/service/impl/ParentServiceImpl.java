@@ -1,6 +1,6 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Parent;
+import com.djohannes.ac.za.domain.parent.Parent;
 import com.djohannes.ac.za.repository.ParentRepository;
 import com.djohannes.ac.za.service.ParentService;
 import java.util.List;
@@ -38,3 +38,4 @@ public class ParentServiceImpl implements ParentService {
         return this.repository.findAll();
     }
 }
+

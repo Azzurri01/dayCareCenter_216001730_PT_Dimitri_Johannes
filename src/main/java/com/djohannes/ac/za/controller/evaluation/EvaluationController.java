@@ -1,13 +1,11 @@
 package com.djohannes.ac.za.controller.evaluation;
 
-import com.djohannes.ac.za.domain.Evaluation;
+import com.djohannes.ac.za.domain.evaluation.Evaluation;
 import com.djohannes.ac.za.service.impl.EvaluationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/evaluation")
@@ -46,3 +44,5 @@ public class EvaluationController {
         return service.getAll();
     }
 }
+
+

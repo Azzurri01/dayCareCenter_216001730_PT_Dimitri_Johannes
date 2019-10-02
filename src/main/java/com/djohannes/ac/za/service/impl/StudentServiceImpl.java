@@ -1,11 +1,11 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Student;
+import com.djohannes.ac.za.domain.student.Student;
 import com.djohannes.ac.za.repository.StudentRepository;
 import com.djohannes.ac.za.service.StudentService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 @Service("StudentServiceImpl")
 public class StudentServiceImpl implements StudentService {
@@ -20,21 +20,22 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student update(Student student) {
-        return repository.save(student);
+        return this.repository.save(student);
     }
 
     @Override
     public void delete(String s) {
-        repository.deleteById(s);
+        this.repository.deleteById(s);
     }
 
     @Override
     public Student read(String s) {
-        return repository.findById(s).orElse(null);
+        return this.repository.findById(s).orElse(null);
     }
 
     @Override
     public List<Student> getAll() {
-        return repository.findAll();
+        return this.repository.findAll();
     }
 }
+

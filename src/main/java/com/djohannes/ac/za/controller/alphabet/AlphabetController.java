@@ -1,13 +1,11 @@
 package com.djohannes.ac.za.controller.alphabet;
 
-import com.djohannes.ac.za.domain.Alphabet;
+import com.djohannes.ac.za.domain.alphabet.Alphabet;
 import com.djohannes.ac.za.service.impl.AlphabetServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/alphabet")
@@ -46,3 +44,4 @@ public class AlphabetController {
         return service.getAll();
     }
 }
+

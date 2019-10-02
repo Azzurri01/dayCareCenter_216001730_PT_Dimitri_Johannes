@@ -1,6 +1,6 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Drawing;
+import com.djohannes.ac.za.domain.drawing.Drawing;
 import com.djohannes.ac.za.repository.DrawingRepository;
 import com.djohannes.ac.za.service.DrawingService;
 import java.util.List;

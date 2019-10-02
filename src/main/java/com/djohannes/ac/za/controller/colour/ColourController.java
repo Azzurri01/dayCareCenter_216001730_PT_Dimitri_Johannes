@@ -1,13 +1,11 @@
 package com.djohannes.ac.za.controller.colour;
 
-import com.djohannes.ac.za.domain.Colour;
+import com.djohannes.ac.za.domain.colour.Colour;
 import com.djohannes.ac.za.service.impl.ColourServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/colour")

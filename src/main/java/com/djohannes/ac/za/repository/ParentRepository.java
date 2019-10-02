@@ -1,13 +1,12 @@
 package com.djohannes.ac.za.repository;
 
-import com.djohannes.ac.za.domain.Parent;
+import com.djohannes.ac.za.domain.parent.Parent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.Set;
 
 @Repository
 public interface ParentRepository extends JpaRepository<Parent, String>
 {
-    //Set<Parent> getAll();
+
 }
+

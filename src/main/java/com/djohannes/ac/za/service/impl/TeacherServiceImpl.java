@@ -1,6 +1,6 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Teacher;
+import com.djohannes.ac.za.domain.teacher.Teacher;
 import com.djohannes.ac.za.repository.TeacherRepository;
 import com.djohannes.ac.za.service.TeacherService;
 import java.util.List;
@@ -38,3 +38,4 @@ public class TeacherServiceImpl implements TeacherService {
         return this.repository.findAll();
     }
 }
+

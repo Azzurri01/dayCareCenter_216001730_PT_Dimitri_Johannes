@@ -1,9 +1,10 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Evaluation;
+import com.djohannes.ac.za.domain.evaluation.Evaluation;
 import com.djohannes.ac.za.repository.EvaluationRepository;
 import com.djohannes.ac.za.service.EvaluationService;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,4 +38,5 @@ public class EvaluationServiceImpl implements EvaluationService {
     public List<Evaluation> getAll() {
         return this.repository.findAll();
     }
+
 }

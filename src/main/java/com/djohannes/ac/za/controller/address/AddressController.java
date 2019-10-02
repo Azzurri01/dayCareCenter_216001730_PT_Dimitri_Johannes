@@ -1,13 +1,11 @@
 package com.djohannes.ac.za.controller.address;
 
-import com.djohannes.ac.za.domain.Address;
+import com.djohannes.ac.za.domain.address.Address;
 import com.djohannes.ac.za.service.impl.AddressServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/address")
@@ -46,3 +44,5 @@ public class AddressController {
         return service.getAll();
     }
 }
+
+

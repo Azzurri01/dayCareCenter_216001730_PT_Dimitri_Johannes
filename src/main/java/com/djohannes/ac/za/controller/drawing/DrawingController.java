@@ -1,13 +1,11 @@
 package com.djohannes.ac.za.controller.drawing;
 
-import com.djohannes.ac.za.domain.Drawing;
+import com.djohannes.ac.za.domain.drawing.Drawing;
 import com.djohannes.ac.za.service.impl.DrawingServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/drawing")
@@ -46,3 +44,4 @@ public class DrawingController {
         return service.getAll();
     }
 }
+

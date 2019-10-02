@@ -1,6 +1,6 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Colour;
+import com.djohannes.ac.za.domain.colour.Colour;
 import com.djohannes.ac.za.repository.ColourRepository;
 import com.djohannes.ac.za.service.ColourService;
 import java.util.List;

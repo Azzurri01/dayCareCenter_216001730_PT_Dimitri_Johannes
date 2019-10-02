@@ -1,6 +1,6 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Counting;
+import com.djohannes.ac.za.domain.counting.Counting;
 import com.djohannes.ac.za.repository.CountingRepository;
 import com.djohannes.ac.za.service.CountingService;
 import java.util.List;

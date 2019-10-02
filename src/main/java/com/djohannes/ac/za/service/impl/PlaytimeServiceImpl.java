@@ -1,6 +1,6 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Playtime;
+import com.djohannes.ac.za.domain.playtime.Playtime;
 import com.djohannes.ac.za.repository.PlaytimeRepository;
 import com.djohannes.ac.za.service.PlaytimeService;
 import java.util.List;

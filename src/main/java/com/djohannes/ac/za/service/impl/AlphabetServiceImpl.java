@@ -1,6 +1,6 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Alphabet;
+import com.djohannes.ac.za.domain.alphabet.Alphabet;
 import com.djohannes.ac.za.repository.AlphabetRepository;
 import com.djohannes.ac.za.service.AlphabetService;
 import java.util.List;

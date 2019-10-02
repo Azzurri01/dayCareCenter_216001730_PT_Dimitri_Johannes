@@ -1,13 +1,11 @@
 package com.djohannes.ac.za.controller.teacher;
 
-import com.djohannes.ac.za.domain.Teacher;
+import com.djohannes.ac.za.domain.teacher.Teacher;
 import com.djohannes.ac.za.service.impl.TeacherServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/teacher")
@@ -46,3 +44,5 @@ public class TeacherController {
         return service.getAll();
     }
 }
+
+

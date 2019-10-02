@@ -1,9 +1,10 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Classroom;
+import com.djohannes.ac.za.domain.classroom.Classroom;
 import com.djohannes.ac.za.repository.ClassroomRepository;
 import com.djohannes.ac.za.service.ClassroomService;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Service;
 public class ClassroomServiceImpl implements ClassroomService {
 
     @Autowired
-    //@Qualifier("ClassroomMemory")
     private ClassroomRepository repository;
 
     @Override
@@ -38,4 +38,5 @@ public class ClassroomServiceImpl implements ClassroomService {
     public List<Classroom> getAll() {
         return this.repository.findAll();
     }
+
 }

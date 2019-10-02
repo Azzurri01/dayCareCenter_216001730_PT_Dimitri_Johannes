@@ -1,9 +1,10 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Allergy;
+import com.djohannes.ac.za.domain.allergy.Allergy;
 import com.djohannes.ac.za.repository.AllergyRepository;
 import com.djohannes.ac.za.service.AllergyService;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,4 +38,5 @@ public class AllergyServiceImpl implements AllergyService {
     public List<Allergy> getAll() {
         return this.repository.findAll();
     }
+
 }

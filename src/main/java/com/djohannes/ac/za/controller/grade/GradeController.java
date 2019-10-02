@@ -1,13 +1,11 @@
 package com.djohannes.ac.za.controller.grade;
 
-import com.djohannes.ac.za.domain.Grade;
+import com.djohannes.ac.za.domain.grade.Grade;
 import com.djohannes.ac.za.service.impl.GradeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/grade")
@@ -46,3 +44,5 @@ public class GradeController {
         return service.getAll();
     }
 }
+
+

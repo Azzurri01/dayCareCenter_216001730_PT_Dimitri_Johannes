@@ -1,13 +1,11 @@
 package com.djohannes.ac.za.controller.playtime;
 
-import com.djohannes.ac.za.domain.Playtime;
+import com.djohannes.ac.za.domain.playtime.Playtime;
 import com.djohannes.ac.za.service.impl.PlaytimeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/playtime")

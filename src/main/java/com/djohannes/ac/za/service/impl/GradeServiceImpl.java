@@ -1,9 +1,10 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Grade;
+import com.djohannes.ac.za.domain.grade.Grade;
 import com.djohannes.ac.za.repository.GradeRepository;
 import com.djohannes.ac.za.service.GradeService;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,4 +38,5 @@ public class GradeServiceImpl implements GradeService {
     public List<Grade> getAll() {
         return this.repository.findAll();
     }
+
 }

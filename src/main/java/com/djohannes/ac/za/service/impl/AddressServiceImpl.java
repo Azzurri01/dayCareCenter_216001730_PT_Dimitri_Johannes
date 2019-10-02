@@ -1,11 +1,12 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Address;
+import com.djohannes.ac.za.domain.address.Address;
 import com.djohannes.ac.za.repository.AddressRepository;
 import com.djohannes.ac.za.service.AddressService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 @Service("AddressServiceImpl")
 public class AddressServiceImpl implements AddressService {
@@ -37,4 +38,5 @@ public class AddressServiceImpl implements AddressService {
     public List<Address> getAll() {
         return this.repository.findAll();
     }
+
 }
