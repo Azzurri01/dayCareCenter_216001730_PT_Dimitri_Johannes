@@ -1,31 +1,28 @@
 package com.djohannes.ac.za.controller.alphabet;
 
-
-import com.djohannes.ac.za.domain.Alphabet;
-import com.djohannes.ac.za.service.AlphabetService;
+import com.djohannes.ac.za.domain.alphabet.Alphabet;
+import com.djohannes.ac.za.service.impl.AlphabetServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Set;
 
 @RestController
-@RequestMapping("/dccs/alphabet")
+@RequestMapping("/alphabet")
 public class AlphabetController {
-    @Autowired
-    @Qualifier("AlphabetServiceImpl")
-    private AlphabetService service;
 
-    @PostMapping("/create")
-    @ResponseBody
-    public Alphabet create(@RequestBody Alphabet alphabet) {
+    @Autowired
+    private AlphabetServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Alphabet create(@RequestBody Alphabet alphabet)
+    {
         return service.create(alphabet);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseBody
-    public Alphabet update(Alphabet alphabet) {
+    public Alphabet update(@RequestBody Alphabet alphabet) {
         return service.update(alphabet);
     }
 
@@ -42,9 +39,9 @@ public class AlphabetController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Alphabet> getAll() {
         return service.getAll();
     }
 }
+

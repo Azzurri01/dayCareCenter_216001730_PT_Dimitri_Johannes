@@ -1,53 +1,28 @@
 package com.djohannes.ac.za.controller.grade;
 
-
-import com.djohannes.ac.za.domain.Grade;
-import com.djohannes.ac.za.domain.user.ResponseObj;
-import com.djohannes.ac.za.factory.GradeFactory;
-import com.djohannes.ac.za.factory.ResponseObjFactory;
-import com.djohannes.ac.za.service.GradeService;
+import com.djohannes.ac.za.domain.grade.Grade;
+import com.djohannes.ac.za.service.impl.GradeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Set;
 
 @RestController
-@RequestMapping("/dccs/grade")
+@RequestMapping("/grade")
 public class GradeController {
-    @Autowired
-    @Qualifier("GradeServiceImpl")
-    private GradeService service;
 
-    @PostMapping(value = "/create/{grade}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public ResponseEntity createGrade(@PathVariable String grade) {
-        System.out.println("Entered Value: " + grade);
-        ResponseObj responseObj = ResponseObjFactory.buildGenericResponseObj(HttpStatus.OK.toString(), "Grade created!");
-        Grade savedGrade;
-        if (grade == null || grade.trim().isEmpty() || grade.trim().equalsIgnoreCase("null")) {
-            responseObj.setResponseCode(HttpStatus.PRECONDITION_FAILED.toString());
-            responseObj.setResponseDescription("Provide a grade!");
-        } else {
-            savedGrade = service.read(grade);
-            if (savedGrade != null) {
-                responseObj.setResponseDescription("Grade already exist!");
-            } else {
-                savedGrade = GradeFactory.getGrade(grade);
-                savedGrade = service.create(savedGrade);
-            }
-            responseObj.setResponse(savedGrade);
-        }
-        return ResponseEntity.ok(responseObj);
+    @Autowired
+    private GradeServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Grade create(@RequestBody Grade grade)
+    {
+        return service.create(grade);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseBody
-    public Grade update(Grade grade) {
+    public Grade update(@RequestBody Grade grade) {
         return service.update(grade);
     }
 
@@ -64,9 +39,10 @@ public class GradeController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Grade> getAll() {
         return service.getAll();
     }
 }
+
+

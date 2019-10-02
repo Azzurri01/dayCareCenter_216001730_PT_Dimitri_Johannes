@@ -1,29 +1,18 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.Address;
+import com.djohannes.ac.za.domain.address.Address;
 import com.djohannes.ac.za.repository.AddressRepository;
-//import com.djohannes.ac.za.repository.impl.AddressRepositoryImpl;
 import com.djohannes.ac.za.service.AddressService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service("AddressServiceImpl")
 public class AddressServiceImpl implements AddressService {
 
-    private static AddressServiceImpl service = null;
-
     @Autowired
-    //@Qualifier("AddressMemory")
     private AddressRepository repository;
-
-    public static AddressServiceImpl getService(){
-        if (service == null) service = new AddressServiceImpl();
-        return service;
-    }
 
     @Override
     public Address create(Address address) {
@@ -49,4 +38,5 @@ public class AddressServiceImpl implements AddressService {
     public List<Address> getAll() {
         return this.repository.findAll();
     }
+
 }

@@ -1,31 +1,28 @@
 package com.djohannes.ac.za.controller.address;
 
-
-import com.djohannes.ac.za.domain.Address;
-import com.djohannes.ac.za.service.AddressService;
+import com.djohannes.ac.za.domain.address.Address;
+import com.djohannes.ac.za.service.impl.AddressServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Set;
 
 @RestController
-@RequestMapping("/dccs/address")
+@RequestMapping("/address")
 public class AddressController {
-    @Autowired
-    @Qualifier("AddressServiceImpl")
-    private AddressService service;
 
-    @PostMapping("/create")
-    @ResponseBody
-    public Address create(@RequestBody Address address) {
+    @Autowired
+    private AddressServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Address create(@RequestBody Address address)
+    {
         return service.create(address);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseBody
-    public Address update(Address address) {
+    public Address update(@RequestBody Address address) {
         return service.update(address);
     }
 
@@ -42,9 +39,10 @@ public class AddressController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Address> getAll() {
         return service.getAll();
     }
 }
+
+

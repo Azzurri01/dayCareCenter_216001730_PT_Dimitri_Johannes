@@ -1,32 +1,28 @@
 package com.djohannes.ac.za.controller.classroom;
 
-
-import com.djohannes.ac.za.domain.Classroom;
-import com.djohannes.ac.za.factory.ClassroomFactory;
-import com.djohannes.ac.za.service.ClassroomService;
+import com.djohannes.ac.za.domain.classroom.Classroom;
+import com.djohannes.ac.za.service.impl.ClassroomServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Set;
 
 @RestController
-@RequestMapping("/dccs/classroom")
+@RequestMapping("/classroom")
 public class ClassroomController {
-    @Autowired
-    @Qualifier("ClassroomServiceImpl")
-    private ClassroomService service;
 
-    @PostMapping("/create")
-    @ResponseBody
-    public Classroom create(@RequestBody Classroom classroom) {
+    @Autowired
+    private ClassroomServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Classroom create(@RequestBody Classroom classroom)
+    {
         return service.create(classroom);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseBody
-    public Classroom update(Classroom classroom) {
+    public Classroom update(@RequestBody Classroom classroom) {
         return service.update(classroom);
     }
 
@@ -34,6 +30,7 @@ public class ClassroomController {
     @ResponseBody
     public void delete(@PathVariable String id) {
         service.delete(id);
+
     }
 
     @GetMapping("/read/{id}")
@@ -42,9 +39,10 @@ public class ClassroomController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Classroom> getAll() {
         return service.getAll();
     }
 }
+
+

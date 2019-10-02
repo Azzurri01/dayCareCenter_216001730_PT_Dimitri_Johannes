@@ -1,7 +1,7 @@
 /*
 package com.djohannes.ac.za.repository.impl;
 
-import com.djohannes.ac.za.domain.Colour;
+import com.djohannes.ac.za.domain.colour.Colour;
 import com.djohannes.ac.za.repository.ColourRepository;
 import org.springframework.stereotype.Repository;
 

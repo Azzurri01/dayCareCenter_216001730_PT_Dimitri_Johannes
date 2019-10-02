@@ -1,7 +1,7 @@
 package com.djohannes.ac.za.service.impl;
 
-import com.djohannes.ac.za.domain.*;
-import com.djohannes.ac.za.factory.*;
+import com.djohannes.ac.za.domain.colour.Colour;
+import com.djohannes.ac.za.factory.colour.ColourFactory;
 import com.djohannes.ac.za.service.ColourService;
 import org.junit.Assert;
 import org.junit.Before;

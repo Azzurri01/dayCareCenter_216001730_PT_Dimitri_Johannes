@@ -1,31 +1,28 @@
 package com.djohannes.ac.za.controller.teacher;
 
-
-import com.djohannes.ac.za.domain.Teacher;
-import com.djohannes.ac.za.service.TeacherService;
+import com.djohannes.ac.za.domain.teacher.Teacher;
+import com.djohannes.ac.za.service.impl.TeacherServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Set;
 
 @RestController
-@RequestMapping("/dccs/teacher")
+@RequestMapping("/teacher")
 public class TeacherController {
-    @Autowired
-    @Qualifier("TeacherServiceImpl")
-    private TeacherService service;
 
-    @PostMapping("/create")
-    @ResponseBody
-    public Teacher create(@RequestBody Teacher teacher) {
+    @Autowired
+    private TeacherServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Teacher create(@RequestBody Teacher teacher)
+    {
         return service.create(teacher);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseBody
-    public Teacher update(Teacher teacher) {
+    public Teacher update(@RequestBody Teacher teacher) {
         return service.update(teacher);
     }
 
@@ -42,9 +39,10 @@ public class TeacherController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Teacher> getAll() {
         return service.getAll();
     }
 }
+
+

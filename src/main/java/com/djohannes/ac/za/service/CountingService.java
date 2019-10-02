@@ -1,9 +1,7 @@
 package com.djohannes.ac.za.service;
 
-import com.djohannes.ac.za.domain.Counting;
-
+import com.djohannes.ac.za.domain.counting.Counting;
 import java.util.List;
-import java.util.Set;
 
 public interface CountingService extends IService<Counting, String> {
 

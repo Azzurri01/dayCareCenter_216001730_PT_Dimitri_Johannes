@@ -1,9 +1,7 @@
 package com.djohannes.ac.za.service;
 
-import com.djohannes.ac.za.domain.Teacher;
-
+import com.djohannes.ac.za.domain.teacher.Teacher;
 import java.util.List;
-import java.util.Set;
 
 public interface TeacherService extends IService<Teacher, String> {
 

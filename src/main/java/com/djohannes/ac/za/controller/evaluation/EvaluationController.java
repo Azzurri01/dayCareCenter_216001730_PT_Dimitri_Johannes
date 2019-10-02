@@ -1,31 +1,28 @@
 package com.djohannes.ac.za.controller.evaluation;
 
-
-import com.djohannes.ac.za.domain.Evaluation;
-import com.djohannes.ac.za.service.EvaluationService;
+import com.djohannes.ac.za.domain.evaluation.Evaluation;
+import com.djohannes.ac.za.service.impl.EvaluationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Set;
 
 @RestController
-@RequestMapping("/dccs/evaluation")
+@RequestMapping("/evaluation")
 public class EvaluationController {
-    @Autowired
-    @Qualifier("EvaluationServiceImpl")
-    private EvaluationService service;
 
-    @PostMapping("/create")
-    @ResponseBody
-    public Evaluation create(@RequestBody Evaluation evaluation) {
+    @Autowired
+    private EvaluationServiceImpl service;
+
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Evaluation create(@RequestBody Evaluation evaluation)
+    {
         return service.create(evaluation);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ResponseBody
-    public Evaluation update(Evaluation evaluation) {
+    public Evaluation update(@RequestBody Evaluation evaluation) {
         return service.update(evaluation);
     }
 
@@ -42,9 +39,10 @@ public class EvaluationController {
         return service.read(id);
     }
 
-    @GetMapping("/read/all")
-    @ResponseBody
+    @GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Evaluation> getAll() {
         return service.getAll();
     }
 }
+
+
